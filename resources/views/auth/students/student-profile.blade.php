@@ -91,16 +91,6 @@
                                     <input class="_inputwidth" name="description" autofocus required="true"
                                         placeholder="Description">
                                 </div>
-                                {{-- <div class="input-group mb-3" style="width:100%;">
-                                    <span class="mr-2 mt-2 text-muted" style="">Birthday</span>
-                                    <input type="date" class="form-control" name="dob" id="registration-date"
-                                        placeholder="date of birth" required="" style="max-width: 280px">
-
-                                </div>
-                                <div style="width:100%;">
-                                    <input class="_inputwidth" name="parentEmail" autofocus required="true"
-                                        placeholder="Enter parent email">
-                                </div> --}}
                                 <div style="width:100%;">
                                     <select class="mdb-select _inputwidth" name="country" searchable="Search here.."
                                         required="true">

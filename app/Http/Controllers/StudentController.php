@@ -108,18 +108,17 @@ class StudentController extends Controller
     {
         if ($request->hasFile('thumbnail')) {
             $image     = $request->file('thumbnail');
-            $imageName = time() . '.' . $image->extension();
-            $imagePath = public_path() . '/storage/images';
-            $image->move($imagePath, $imageName);
-            $imageDbPath = $imageName;
+            $path = 'uploads/students';
+            $name = $image->getClientOriginalName();
+            $fileName = $path.'/'.$name;
+            $image->move($path, $name);
         }
-
         User::where('id', $request['user_id'])->update([
             'Description'       => $request['Description'],
             'country'           => $request['country'],
             'favorite_subject'  => implode(',', $request->favorite_subject),
             'fof_session'       => $request['fof_session'],
-            'thumbnail'         => $imageDbPath,
+            'thumbnail'         => $fileName,
             'helpSubjects'      => implode(',', $request->subjects),
         ]);
 

@@ -235,6 +235,7 @@
                                         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                                     </div>&nbsp;&nbsp;&nbsp;No Schedule Found
                                 </div>
+                            </div>
                                 <?php else: ?>
                                     <?php $__currentLoopData = $Book; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <div class="col-4 customClassMySch">

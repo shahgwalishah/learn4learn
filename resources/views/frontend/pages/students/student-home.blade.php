@@ -148,7 +148,7 @@
                             @php
                                 $usersimgg = $user;
                             @endphp
-                            <img src="{{url('/storage/images/'. (!empty($usersimgg[0]->thumbnail) ? $usersimgg[0]->thumbnail : 'default.png') )}}"
+                            <img src="/{{$usersimgg->thumbnail}}" onerror="this.src='/images/default.png'"
                                  alt="stud-profile-pic" class="customStyleImage">
                         </div>
                         <div class="col-lg-8 col-sm-12 col-xs-12">

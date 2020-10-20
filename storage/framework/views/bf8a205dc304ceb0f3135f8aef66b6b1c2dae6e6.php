@@ -147,7 +147,7 @@
                             <?php
                                 $usersimgg = $user;
                             ?>
-                            <img src="<?php echo e(url('/storage/images/'. (!empty($usersimgg[0]->thumbnail) ? $usersimgg[0]->thumbnail : 'default.png') )); ?>"
+                            <img src="/<?php echo e($usersimgg->thumbnail); ?>"
                                  alt="stud-profile-pic" class="customStyleImage">
                         </div>
                         <div class="col-lg-8 col-sm-12 col-xs-12">

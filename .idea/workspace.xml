@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/learnforlearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/learnforlearning.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/students/student-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/students/student-profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/KbZ4zfhZnR4M9mJ7haWoBUUbY46T7oOpmVptty5T" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/VAkanNVNsYIeCNKxfhOr2SvJRBQfw8OjzZoxoHFX" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/VAkanNVNsYIeCNKxfhOr2SvJRBQfw8OjzZoxoHFX" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/fwTR2HcDbdeG626sjJvcH2j0SrbRviBAQFxxcgr5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,6 +165,9 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iaA9FYInPhGlqMp8VtM9B02qxv" />
@@ -267,7 +267,7 @@
       <workItem from="1603171992269" duration="662000" />
       <workItem from="1603172681945" duration="1792000" />
       <workItem from="1603174648983" duration="1785000" />
-      <workItem from="1603176461539" duration="71000" />
+      <workItem from="1603176461539" duration="582000" />
     </task>
     <servers />
   </component>

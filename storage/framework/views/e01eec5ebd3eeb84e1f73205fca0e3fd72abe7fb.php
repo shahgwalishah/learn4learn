@@ -216,10 +216,10 @@
                                         <a class="<?php echo e(Request::routeIs('MYaccount') ? 'active' : ''); ?>"
                                             href="<?php echo e(route('MYaccount')); ?>">Account</a>
                                     </li>
-
-
-
-
+                                    <li class="nav-item">
+                                        <a class="">
+                                            href="#">MESSAGES</a>
+                                    </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
                                             href="<?php echo e(route('donate')); ?>"

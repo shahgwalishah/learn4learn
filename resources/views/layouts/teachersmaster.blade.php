@@ -215,10 +215,10 @@
                                         <a class="{{Request::routeIs('MYaccount') ? 'active' : ''}}"
                                             href="{{route('MYaccount')}}">Account</a>
                                     </li>
-{{--                                    <li class="nav-item">--}}
-{{--                                        <a class="{{Request::routeIs('Students') ? 'active' : ''}}"--}}
-{{--                                            href="{{route('Students')}}">MESSAGES</a>--}}
-{{--                                    </li>--}}
+                                    <li class="nav-item">
+                                        <a class="">
+                                            href="#">MESSAGES</a>
+                                    </li>
                                     <li class="nav-item">
                                         <a class="{{Request::routeIs('donate') ? 'active' : ''}} customClass"
                                             href="{{route('donate')}}"

@@ -79,13 +79,13 @@
     <div class="about-shape">
     </div>
     <div class="container cfiltercontainer">
-        <h6 style="color: #006796;font-size: 18px;letter-spacing: 2px;padding:0 18px;">Filter By</h5>
+        <h5 style="color: #006796;font-size: 18px;letter-spacing: 2px;padding:0 18px;">Filter By</h5>
     </div>
     <!-- container -->
 </section>
 
 
-<section class="admission-row pb-120 bg-white">
+<section class="admission-row pb-120 bg-white customStyling">
     <div class="container cfiltercontainer">
         <div class="row justify-content-center">
             <form action="{{route('SearchSchedule')}}" method="get">

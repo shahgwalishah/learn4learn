@@ -96,6 +96,7 @@ class TeacherController extends Controller
 
     public function teacherHome()
     {
+        // dd(123);
         $auth                 =Auth::user()->id;
         $teacherhomeworkdetail=DB::table('homework')
             ->join('subjects', 'subjects.id', '=', 'homework.Sub_id')
@@ -252,6 +253,7 @@ class TeacherController extends Controller
 
     public function teacheraddHomework(Request $request)
     {
+        // dd(123);
         $auth        =Auth::user()->id;
         $imageDbPath = '';
         if ($request->hasFile('img')) {
@@ -490,7 +492,7 @@ class TeacherController extends Controller
 
     public function MySubStudents()
     {
-        // dd('teacher');
+        // dd(123);
         $teacher_id        =Auth::user()->id;
         $getmystydentrecord=DB::table('student_lessons')
             ->join('users', 'student_lessons.user_id', '=', 'users.id')

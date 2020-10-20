@@ -1,6 +1,5 @@
-@extends('layouts.masterStudent')
-@section('title','Messages')
-@push('css')
+<?php $__env->startSection('title','Messages'); ?>
+<?php $__env->startPush('css'); ?>
     <style>
         .successColor{
             background-color: #ffc10e;
@@ -24,20 +23,20 @@
             width: 100%;
         }
     </style>
-@endpush
-@section('content')
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
 
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/student-homework.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homework.css')); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
 
 
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
-             style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
+             style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
             <div class="container">
                 <div class="row justify-content-center customMessaging">
                     <div class="col-xl-7 col-lg-9">
@@ -72,8 +71,8 @@
     <section class="admission-row pb-120" id="std-homework-find-lesson-sec">
         <div class="container">
             <div class="row justify-content-center">
-                <form class="search_form" action="{{route('searchstudents')}}" method="get">
-                    @csrf
+                <form class="search_form" action="<?php echo e(route('searchstudents')); ?>" method="get">
+                    <?php echo csrf_field(); ?>
                     <div class="row">
                         <div class="col-md-3" style="padding: 18px;">
                             <select class="selectpicker" name="level">
@@ -102,9 +101,9 @@
 
                                     <option value="">Find Level</option>
 
-                                    @foreach($aray1 as $subjects)
-                                        <option value="{{$subjects->id}}">{{$subjects->name}}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subjects): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($subjects->id); ?>"><?php echo e($subjects->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php      }       ?>
                                 </optgroup>
                             </select>
@@ -137,9 +136,9 @@
 
                                     <option value="">Find Students</option>
 
-                                    @foreach($aray1 as $subjects)
-                                        <option value="{{$subjects->id}}">{{$subjects->fname}}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subjects): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($subjects->id); ?>"><?php echo e($subjects->fname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php      }       ?>
                                 </optgroup>
                             </select>
@@ -174,9 +173,9 @@
 
                                     <option value="">Find Subjects</option>
 
-                                    @foreach($aray1 as $subjects)
-                                        <option value="{{$subjects->id}}">{{$subjects->name}}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subjects): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($subjects->id); ?>"><?php echo e($subjects->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php      }       ?>
                                 </optgroup>
                             </select>
@@ -212,31 +211,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($data as $message)
+                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{$message->from_user->fname}}</td>
-                                    <td>{{$message->messages}}</td>
-                                    <td>{{$message->created_at}}</td>
+                                    <td><?php echo e($message->from_user->fname); ?></td>
+                                    <td><?php echo e($message->messages); ?></td>
+                                    <td><?php echo e($message->created_at); ?></td>
                                     <td>
-                                        <button class="btn btn-indigo btn-sm m-0" data-toggle="modal" data-target="#myModal-{{$message->id}}" id="upload-work-btn">Reply</button>
+                                        <button class="btn btn-indigo btn-sm m-0" data-toggle="modal" data-target="#myModal-<?php echo e($message->id); ?>" id="upload-work-btn">Reply</button>
                                     </td>
                                 </tr>
 
                                 <!-- Modal -->
-                                <div id="myModal-{{$message->id}}" class="modal fade" role="dialog">
+                                <div id="myModal-<?php echo e($message->id); ?>" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
 
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Reply to {{strtoupper($message->from_user->fname)}}</h4>
+                                                <h4 class="modal-title">Reply to <?php echo e(strtoupper($message->from_user->fname)); ?></h4>
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <form>
-                                                <input type="hidden" id="teacher_id" value="{{$message->from_user_id}}" />
+                                                <input type="hidden" id="teacher_id" value="<?php echo e($message->from_user_id); ?>" />
                                             <div class="modal-body">
                                                 <p>
-                                                    To : {{$message->from_user->fname}} <input style="font-style: italic" readonly  value="{{$message->messages}}" class="form-control" />
+                                                    To : <?php echo e($message->from_user->fname); ?> <input style="font-style: italic" readonly  value="<?php echo e($message->messages); ?>" class="form-control" />
                                                     <br>
                                                     Message : <textarea cols="6" rows="6" v-model="message" class="form-control">
                                                               </textarea>
@@ -254,21 +253,21 @@
 
                                     </div>
                                 </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
             </div> <!-- row -->
-{{--            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">--}}
-{{--                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">SEE--}}
-{{--                    ALL</a>--}}
-{{--            </div>--}}
+
+
+
+
         </div> <!-- container -->
     </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
+<?php $__env->startSection('js'); ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js" integrity="sha512-wGKmIfDWUJSUvxUfUayQPJj7ADCD60La3up0VCbq+MTFcOUQ2hlH2McnYFafHgLTsOrGwOdiHKX4p1v0BerCyQ==" crossorigin="anonymous"></script>
@@ -279,7 +278,7 @@
             data: {
                 message:'',
                 teacher_id:'',
-                student_id:'{{\Auth::user()->id}}',
+                student_id:'<?php echo e(\Auth::user()->id); ?>',
                 loader:false
             },
             methods:{
@@ -289,14 +288,14 @@
                     } else {
                         let teacher_id = $('#teacher_id').val();
                         let data = {
-                            '_token': '{{csrf_token()}}',
+                            '_token': '<?php echo e(csrf_token()); ?>',
                             'to_user_id': teacher_id,
                             'from_user_id': this.student_id,
                             'message': this.message
                         };
                         console.log('data');
                         console.log(data);
-                        let url = '{{route('OurMessages')}}';
+                        let url = '<?php echo e(route('OurMessages')); ?>';
                         this.loader = true;
                         this.$http.post(url, data).then((response) => {
                             console.log('response');
@@ -322,4 +321,6 @@
             }
         })
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/students/myMessages.blade.php ENDPATH**/ ?>

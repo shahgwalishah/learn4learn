@@ -230,6 +230,7 @@ class StudentController extends Controller
 
     public function student_schedule()
     {
+        // dd(123);
         $student     = Auth::user();
         $subjects    = $student->helpSubjects;
         $subjects    = explode(',', $subjects);
@@ -247,6 +248,7 @@ class StudentController extends Controller
 
     public function My_subjects()
     {
+        // dd(123);
         $subject=StudentLesson::getSubject();
         $Mysub=StudentLesson::getLesson();
         $Teacher=StudentLesson::getTeacher();
@@ -263,6 +265,7 @@ class StudentController extends Controller
 
     public function studetnsHomeWorks()
     {
+        // dd(123);
         $student_iid=Auth::user()->id;
         $teacherhomeworkdetail=Subject::getSubject($student_iid);
         $Title=StudentLesson::getTitle($student_iid);
@@ -334,6 +337,7 @@ class StudentController extends Controller
 
     public function viewOurMessages()
     {
+        // dd(123);
         $student_id        =Auth::user()->id;
         $Students          =StudentLesson::getStudentLesson($student_id);
         $Subjects=StudentLesson::getLessonData($student_id);

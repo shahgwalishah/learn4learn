@@ -88,14 +88,11 @@
                                         <input type="file" name="thumbnail" onchange="readURL(this);"
                                             accept="image/x-png,image/gif,image/jpeg">
                                         <div id="blah">
-                                            @if( !empty($user->thumbnail) )
-                                            <img src="/storage/images/{{ $user->thumbnail }}" style="    height: 100px;
+                                            <img src="/{{ $user->thumbnail }}" onerror="this.src='images/default.png'" style="    height: 100px;
     width: 100px;
     border-radius: 50px;
     object-fit: cover;"
                                                 alt="your image" />
-                                            @endif
-
                                         </div>
                                     </div>
 
@@ -184,7 +181,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#blah').html('<img id="blah" src="'+e.target.result+'" style="height:50px;" alt="your image" />')
+                    $('#blah').html('<img id="blah" src="'+e.target.result+'" style="height:100px;width:100px;border-radius:100px;" alt="your image" />')
                 };
 
                 reader.readAsDataURL(input.files[0]);

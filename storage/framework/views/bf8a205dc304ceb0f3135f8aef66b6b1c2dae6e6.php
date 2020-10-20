@@ -147,7 +147,7 @@
                             <?php
                                 $usersimgg = $user;
                             ?>
-                            <img src="/<?php echo e($usersimgg->thumbnail); ?>"
+                            <img src="/<?php echo e($usersimgg->thumbnail); ?>" onerror="this.src='/images/default.png'"
                                  alt="stud-profile-pic" class="customStyleImage">
                         </div>
                         <div class="col-lg-8 col-sm-12 col-xs-12">

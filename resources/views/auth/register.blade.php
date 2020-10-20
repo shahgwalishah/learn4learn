@@ -1,63 +1,86 @@
 @extends('layouts.master')
 @section('title','SignUp')
-@section('content')
-<style>
-    #customFooter{
+@push('css')
+    <style>
+        #customFooter{
 
-    }
-    .gray_font {
-        color: #737171 !important;
-        letter-spacing: 2px;
-    }
-
-    .text_gray {
-        color: #737171 !important;
-    }
-    #submit-btn{
-        justify-content: flex-end;
-    }
-    .customContainer{
-        width:85%;
-    }
-    ._inputwidth{
-        width: 100% !important;
-    }
-    .customForm{
-        width: 100%;
-    }
-
-
-    @media (max-width: 991px) {
-        #submit-btn {
-            justify-content: flex-end;
-            display: none !important;
         }
-    }
-    @media (max-width: 575px) {
-        .main-cont .row {
-            margin-right: 0px !important;
-            box-shadow: 0px 0px 0px -3px black !important;
-            background: white;
-            margin-top: 154px !important;
-            position: relative;
-            margin-left: auto;
+        .gray_font {
+            color: #737171 !important;
+            letter-spacing: 2px;
+        }
+
+        .text_gray {
+            color: #737171 !important;
+        }
+        #submit-btn{
+            justify-content: flex-end;
         }
         .customContainer{
-            width:100%;
-            padding-left: 0px !important;
-            padding-right: 0px !important
+            width:85%;
+        }
+        ._inputwidth{
+            width: 100% !important;
         }
         .customForm{
             width: 100%;
-                padding-left: 5px;
-                 padding-right: 5px;
         }
-    }
-</style>
-<!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="{{asset('asset/css/register2.css')}}">
-<link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
 
+
+        @media (max-width: 991px) {
+            #submit-btn {
+                justify-content: flex-end;
+                display: none !important;
+            }
+            .customWidthR{
+                flex:100%;
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 575px) {
+            .main-cont .row {
+                margin-right: 0px !important;
+                box-shadow: 0px 0px 0px -3px black !important;
+                background: white;
+                margin-top: 154px !important;
+                position: relative;
+                margin-left: auto;
+            }
+            .customContainer{
+                width:100%;
+                padding-left: 0px !important;
+                padding-right: 0px !important
+            }
+            .customForm{
+                text-align: center;
+                width: 100%;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            .radioButtons{
+                float: unset;
+            }
+            .level-heading{
+                text-align: center !important;
+            }
+            .buttonClass{
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+        .customSFaE{
+            position: relative;
+            right:40px;
+            cursor: pointer;
+        }
+    </style>
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{{asset('asset/css/register2.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+@endpush
+@section('content')
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150">
         <div class="container customContainer">
@@ -75,10 +98,8 @@
         </div> <!-- container -->
     </div> <!-- single slider -->
 </section>
-
-
 <section class="main-section">
-    <div class="container" style="width:85%">
+    <div class="container customContainer">
         <div class="main-cont">
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-center p-0 customWidthR">
@@ -86,7 +107,7 @@
 
                         <div style="display:flex;width:100%;">
 
-                            <form method="post" action="{{url('/signup')}}" id="form" class="_regForm customForm    ">
+                            <form method="post" action="{{url('/signup')}}" id="form" class="customForm">
                                 @csrf
                                 <div style="width:100%;" class="m-0">
                                     <h3 class="level-heading pb-2">GETTING STARTED</h3>
@@ -97,7 +118,7 @@
                                         an account?</a>
 
                                 </div>
-                                <div>
+                                <div class="radioButtons">
                                     <div class="custom-control custom-radio">
                                         <input type="radio" class="custom-control-input" value="student"
                                             id="defaultUnchecked" name="type">
@@ -139,8 +160,10 @@
                                 </div>
 
                                 <div style="width:100%;">
-                                    <input type="password" id="password" name="password" placeholder="Choose a Password"
+                                    <input type="password" id="myInput" name="password" placeholder="Choose a Password"
                                         required="true">
+                                    <i class="fa fa-eye customSFaE" id="show" onclick="hideShow('a')" aria-hidden="true"></i>
+                                    <i class="fa fa-eye-slash customSFaE" id="hide" style="display: none;" onclick="hideShow('b')" aria-hidden="true"></i>
                                 </div>
                                 <div style="width:100%;">
                                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
@@ -162,7 +185,9 @@
                                         Can we contact you about Learn 4 Learning?
                                     </label>
                                 </div>
-                                <button type="submit" id="submit-button" class="btn btn-primary active">SignUp</button>
+                                <div class="buttonClass">
+                                    <button type="submit" id="submit-button" class="btn btn-primary active">SignUp</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -183,4 +208,23 @@
 <!--====== Validator js ======-->
 <script src="{{asset('asset/js/jquery.validate.min.js')}}"></script>
 <script src="{{asset('asset/js/custom.js')}}"></script>
+    <script>
+        function hideShow(val) {
+            var x = document.getElementById("myInput");
+            if(val == 'a') {
+                $('#hide').show();
+                $('#show').hide();
+                if (x.type === "password") {
+                    x.type = "text";
+                }
+            }
+            if(val == 'b') {
+                $('#hide').hide();
+                $('#show').show();
+                if(x.type != "password"){
+                        x.type = "password";
+                }
+            }
+        }
+    </script>
 @endsection

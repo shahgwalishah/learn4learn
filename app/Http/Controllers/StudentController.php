@@ -79,16 +79,16 @@ class StudentController extends Controller
         $user = User::where('id', $request['user_id'])->first();
         if ($request->hasFile('thumbnail')) {
             $image     = $request->file('thumbnail');
-            $imageName = time() . '.' . $image->extension();
-            $imagePath = public_path() . '/storage/images';
-            $image->move($imagePath, $imageName);
-            $imageDbPath = $imageName;
+            $path = 'uploads/students';
+            $name = $image->getClientOriginalName();
+            $fileName = $path.'/'.$name;
+            $image->move($path, $fileName);
+            $imageDbPath = $fileName;
         } else {
             $imageDbPath = $user->thumbnail;
         }
-
         $user->update([
-            'Description'       => $request['Description'],
+            'description'       => $request['description'],
             'country'           => $request['country'],
             'fof_session'       => $request['fof_session'],
             'thumbnail'         => $imageDbPath,
@@ -132,7 +132,7 @@ class StudentController extends Controller
 
     public function student_edit_profile()
     {
-        $user   =Auth::user();
+        $user   = Auth::user();
         return view('frontend.pages.editstudetnsProfile')->with('getrecord', $user);
     }
 

@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title','Profile'); ?>
 <?php $__env->startSection('content'); ?>
 
@@ -88,14 +87,11 @@
                                         <input type="file" name="thumbnail" onchange="readURL(this);"
                                             accept="image/x-png,image/gif,image/jpeg">
                                         <div id="blah">
-                                            <?php if( !empty($user->thumbnail) ): ?>
-                                            <img src="/storage/images/<?php echo e($user->thumbnail); ?>" style="    height: 100px;
+                                            <img src="/<?php echo e($user->thumbnail); ?>" onerror="this.src='images/default.png'" style="    height: 100px;
     width: 100px;
     border-radius: 50px;
     object-fit: cover;"
                                                 alt="your image" />
-                                            <?php endif; ?>
-
                                         </div>
                                     </div>
 
@@ -185,11 +181,12 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#blah').html('<img id="blah" src="'+e.target.result+'" style="height:50px;" alt="your image" />')
+                    $('#blah').html('<img id="blah" src="'+e.target.result+'" style="height:100px;width:100px;border-radius:100px;" alt="your image" />')
                 };
 
                 reader.readAsDataURL(input.files[0]);
             }
         }
 </script>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/students/account.blade.php ENDPATH**/ ?>

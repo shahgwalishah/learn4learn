@@ -216,7 +216,7 @@
                                             href="{{route('MYaccount')}}">Account</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="">
+                                        <a class=""
                                             href="#">MESSAGES</a>
                                     </li>
                                     <li class="nav-item">

@@ -21,11 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/students/student-level.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/students/student-level.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/teachers/teacher-subjects.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/teachers/teacher-subjects.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/TheGLZAJbCghXWi4R6IzbY4qZ2aSHAU6J6GvTOOX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/4c5968027d8add3be246de319aa489932ba810a9.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/4c5968027d8add3be246de319aa489932ba810a9.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/7f0c1fa399ed6d2ad5e1ab6f08702f59695310a3.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/7f0c1fa399ed6d2ad5e1ab6f08702f59695310a3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/teachersmaster.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/teachersmaster.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/e01eec5ebd3eeb84e1f73205fca0e3fd72abe7fb.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/e01eec5ebd3eeb84e1f73205fca0e3fd72abe7fb.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +271,10 @@
       <workItem from="1603182923172" duration="1785000" />
       <workItem from="1603184738312" duration="1783000" />
       <workItem from="1603186554581" duration="1410000" />
-      <workItem from="1603189033480" duration="123000" />
+      <workItem from="1603189033480" duration="1786000" />
+      <workItem from="1603190882519" duration="1791000" />
+      <workItem from="1603192697745" duration="1793000" />
+      <workItem from="1603194518486" duration="1787000" />
     </task>
     <servers />
   </component>
@@ -294,14 +294,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="419" y="124" width="800" height="677" key="#Deployment" timestamp="1603172017936">
+    <state x="419" y="124" width="800" height="677" key="#Deployment" timestamp="1603192236034">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="419" y="124" key="#Deployment/55.27.1545.873@55.27.1545.873" timestamp="1603172017936" />
+    <state x="419" y="124" width="800" height="677" key="#Deployment/55.27.1545.873@55.27.1545.873" timestamp="1603192236034" />
     <state x="428" y="124" width="800" height="677" key="#Deployment/67.27.1533.873@67.27.1533.873" timestamp="1603105652603" />
-    <state x="412" y="110" width="832" height="704" key="#SSH_Configurations" timestamp="1603105627012">
-      <screen x="67" y="27" width="1533" height="873" />
+    <state x="403" y="110" width="832" height="704" key="#SSH_Configurations" timestamp="1603192214199">
+      <screen x="55" y="27" width="1545" height="873" />
     </state>
+    <state x="403" y="110" key="#SSH_Configurations/55.27.1545.873@55.27.1545.873" timestamp="1603192214199" />
     <state x="412" y="110" width="832" height="704" key="#SSH_Configurations/67.27.1533.873@67.27.1533.873" timestamp="1603105627012" />
     <state x="566" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602963310116">
       <screen x="67" y="27" width="1533" height="873" />

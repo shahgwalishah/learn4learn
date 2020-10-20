@@ -121,7 +121,7 @@
         .logo {
             text-align: center;
             float: unset !important;
-            margin-bottom: 8px; 
+            margin-bottom: 8px;
         }
         .footer-link ul {
             width: 100%;
@@ -272,7 +272,7 @@
                                         <a class="" href="# ">MY ACHIEVEMENT</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="" href="{{route('viewOurMessages')}}">MY MESSAGES</a>
+                                        <a class="{{Request::routeIs('viewOurMessages') ? 'active' : ''}}" href="{{route('viewOurMessages')}}">MY MESSAGES</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="{{Request::routeIs('tudent.account') ? 'active' : ''}}"

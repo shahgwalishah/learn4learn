@@ -36,6 +36,49 @@
         color: #858585;
         font-size: 16px;
     }
+    #submit-btn{
+        justify-content: flex-end;
+    }
+    .customContainer{
+        width:85%;
+    }
+    .main-cont .row {
+        margin-right: 0px !important;
+        background: white;
+        margin-top: -150px;
+        position: relative;
+        margin-left: auto;
+    }
+
+    @media (max-width: 991px) {
+        #submit-btn {
+            justify-content: flex-end;
+            display: none !important;
+        }
+    }
+    @media (max-width: 575px) {
+        .main-cont .row {
+            margin-right: 0px !important;
+            box-shadow: 0px 0px 0px -3px black !important;
+            background: white;
+            margin-top: 0px !important;
+            position: relative;
+            margin-left: auto;
+        }
+        .customContainer{
+            width:100%;
+            padding-left: 0px !important;
+            padding-right: 0px !important
+        }
+        .customForm{
+            width: 100%;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+    .sutomFormP{
+        padding-bottom: 0px !important;
+    }
 </style>
 
 <!--====== Bootstrap css ======-->
@@ -63,14 +106,14 @@
 {{----}}
 
 <section class="main-section">
-    <div class="container">
+    <div class="container customContainer">
         <div class="main-cont">
             <div class="row">
                 <div class="col-lg-6 d-flex align-items-center justify-content-center p-5">
                     <div class="form-parts">
                         <h3 class="level-heading">Let's Build your Profile</h3>
                         <div style="display:flex;width:100%;">
-                            <form action="{{url('update/profile')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{url('update/profile')}}" method="post" class="sutomFormP" enctype="multipart/form-data">
                                 @csrf
 
                                 <div style="padding-right: 50px">
@@ -86,7 +129,7 @@
                                         <div id="blah">
                                             @if( !empty($teacherdata->thumbnail) )
                                             <img src="/storage/images/{{ $teacherdata->thumbnail }}"
-                                                style="width: 100px;height: 100px;border-radius: 50px;" alt="your image" />
+                                                style="width: 100px;height: 100px;border-radius: 50px;" alt="your image" onerror="this.src='/images/default.png'" />
                                             @endif
 
                                         </div>
@@ -104,7 +147,7 @@
                                         autofocus placeholder="Description">
                                 </div>
                                 <div style="width:100%;">
-                                    <input class="_inputwidth" name="educational_level" placeholder="Educational Level">
+                                    <input class="_inputwidth" name="educational_level" value="{{$teacherdata->educational_level}}" placeholder="Educational Level">
                                 </div>
                                 <div style="width:100%;">
                                     <select class="mdb-select _inputwidth" name="country" searchable="Search here.."
@@ -145,10 +188,10 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary active"
-                                    style="box-shadow: unset;">SAVE</button>
-                                <button type="button" class="btn btn-primary active _skip_btn"
-                                    style=" background-color: #ff000000!important;box-shadow: unset;">
+                                <div class="customBtn">
+                                    <button type="submit" class="btn btn-primary active"
+                                            style="box-shadow: unset;">SAVE</button>
+                                </div>
 
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             </form>
@@ -158,7 +201,7 @@
                 </div>
                 <div class="col-lg-6 p-0">
                     <div class="d-flex align-items-center justify-content-center" id="submit-btn">
-                        <img src="{{asset('asset/images/students/registration-banner.png')}}">
+                        <img src="{{asset('asset/images/students/registration-banner.png')}}" style="height: 100%;object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -175,7 +218,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#blah').html('<img id="blah" src="'+e.target.result+'" style="height:50px;" alt="your image" />')
+                    $('#blah').html('<img id="blah" src="'+e.target.result+'" style="height:100px;width:100px;border-radius: 100px;" alt="your image" />')
                 };
 
                 reader.readAsDataURL(input.files[0]);

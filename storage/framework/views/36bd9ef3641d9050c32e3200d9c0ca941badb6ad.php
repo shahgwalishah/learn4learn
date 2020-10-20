@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','SignUp'); ?>
+<?php $__env->startSection('title','Edit Teacher Profile'); ?>
 <?php $__env->startSection('content'); ?>
 
     <!--====== Bootstrap css ======-->
@@ -75,7 +75,7 @@
                                             Can we contact you about Learn 4 Learning?
                                         </label>
                                     </div>
-                                    <button type="submit" id="submit" name="submit" class="btn btn-primary active" >SignUp</button>
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary active" >Update</button>
                                 </form>
                             </div>
                         </div>

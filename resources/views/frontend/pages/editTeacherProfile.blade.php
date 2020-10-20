@@ -1,7 +1,5 @@
-
-
 @extends('layouts.master')
-@section('title','SignUp')
+@section('title','Edit Teacher Profile')
 @section('content')
 
     <!--====== Bootstrap css ======-->
@@ -78,7 +76,7 @@
                                             Can we contact you about Learn 4 Learning?
                                         </label>
                                     </div>
-                                    <button type="submit" id="submit" name="submit" class="btn btn-primary active" >SignUp</button>
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary active" >Update</button>
                                 </form>
                             </div>
                         </div>

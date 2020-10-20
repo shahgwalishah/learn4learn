@@ -1,9 +1,67 @@
 @extends('layouts.teachersmaster')
-@section('title','Schedules')
+@section('title','Teacher Schedules')
+@push('css')
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{{asset('asset/css/student-schedule.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+{{--    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">--}}
+
+    <style>
+        .nice-select.selectpicker {
+            width: 100% !important;
+        }
+
+        .single-slider.slider-4.bg_cover.pt-150.slick-slide.slick-current.slick-active {
+            background-position: unset !important;
+        }
+
+        .single-slider {
+            padding-bottom: 110px !important;
+        }
+
+        ._profile_image {
+            display: inline-block;
+            border: 2px solid gray;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            background: white;
+        }
+
+        @media (max-width: 1440px) {
+            .ccontainer {
+                max-width: 1074px;
+                padding-left: 0px !important;
+            }
+        }
+
+        @media (max-width: 1440px) {
+            .cfiltercontainer {
+                max-width: 1250px;
+                padding-left: 0px !important;
+            }
+        }
+
+        @media (max-width: 767.98px) and (min-width: 576px) {
+            .about-tow {
+                padding: 45px 0px 15px 0px !important;
+            }
+        }
+
+        @media only screen and (max-width: 575.98px) {
+            .admission-row {
+                padding-bottom: 14px;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+@endpush
 @section('content')
-@php
-$teacher = Auth::user();
-@endphp
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150"
         style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
@@ -13,20 +71,6 @@ $teacher = Auth::user();
                 <a href="{{ url('teacher-add-lesson') }}" class="main-slider-btn2 btn btn-warning" value=""
                     style="background-color: #FDBF11;color:white;padding:0 23px;">ADD LESSON</a>
             </div>
-            {{-- <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont slider-cont-4 text-center">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="What are you looking for?">
-                                <div class="input-group-append">
-                                  <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-search"></i>
-                                  </button>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                </div>  --}}
         </div> <!-- container -->
     </div> <!-- single slider -->
 </section>
@@ -45,7 +89,6 @@ $teacher = Auth::user();
     <div class="container cfiltercontainer">
         <div class="row justify-content-center">
             <form action="{{route('SearchSchedule')}}" method="get">
-                {{-- @csrf --}}
                 <div class="row">
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="level_id" required="true">
@@ -59,21 +102,21 @@ $teacher = Auth::user();
                             </optgroup>
                         </select>
                     </div>
-
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="subject_id" required="true">
                             <optgroup label="Picnic">
                                 <option value="">Find Subjects</option>
                                 @foreach($teacher->getSubjects as $subject)
-                                    <option value="{{$subject->subject->id}}"
-                                        {{request()->subject_id != '' && request()->subject_id == $subject->subject->id ? 'selected' : ''  }}>
-                                        {{$subject->subject->name}}
-                                    </option>
+                                    @if(!is_null($subject->subject))
+                                        <option value="{{$subject->subject->id}}"
+                                            {{request()->subject_id != '' && request()->subject_id == $subject->subject->id ? 'selected' : ''  }}>
+                                            {{$subject->subject->name}}
+                                        </option>
+                                    @endif
                                 @endforeach
                             </optgroup>
                         </select>
                     </div>
-
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="date_id" required="true">
                             <optgroup label="Picnic">
@@ -176,69 +219,4 @@ $teacher = Auth::user();
         </div> <!-- course slide -->
     </div> <!-- container -->
 </section>
-
-
-
-@endsection
-
-@section('css')
-<!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="{{asset('asset/css/student-schedule.css')}}">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
-
-<style>
-    .nice-select.selectpicker {
-        width: 100% !important;
-    }
-
-    .single-slider.slider-4.bg_cover.pt-150.slick-slide.slick-current.slick-active {
-        background-position: unset !important;
-    }
-
-    .single-slider {
-        padding-bottom: 110px !important;
-    }
-
-    ._profile_image {
-        display: inline-block;
-        border: 2px solid gray;
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-        position: absolute;
-        z-index: 1;
-        background: white;
-    }
-
-    @media (max-width: 1440px) {
-        .ccontainer {
-            max-width: 1074px;
-            padding-left: 0px !important;
-        }
-    }
-
-    @media (max-width: 1440px) {
-        .cfiltercontainer {
-            max-width: 1250px;
-            padding-left: 0px !important;
-        }
-    }
-
-    @media (max-width: 767.98px) and (min-width: 576px) {
-        .about-tow {
-            padding: 45px 0px 15px 0px !important;
-        }
-    }
-
-    @media only screen and (max-width: 575.98px) {
-        .admission-row {
-            padding-bottom: 14px;
-            width: 100%;
-            margin: 0 auto;
-        }
-    }
-</style>
 @endsection

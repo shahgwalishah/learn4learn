@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title','SignIn'); ?>
 <?php $__env->startSection('content'); ?>
 <style>
@@ -62,7 +61,7 @@
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont slider-cont-4 text-center">
                         <h1 data-animation="fadeInUp" data-delay="1s">LOGIN</h1>
-                            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            <p>ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                             consequat.</p>
                     </div>
                 </div>
@@ -112,7 +111,7 @@
                                     <a href="<?php echo e(route('password.request')); ?>" class="form-check-label ml-5">Forgot
                                         Password?</a>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-primary active">LOGIN</button>
 
                             </form>
@@ -132,4 +131,5 @@
 </section>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/auth/login.blade.php ENDPATH**/ ?>

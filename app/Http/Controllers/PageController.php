@@ -88,7 +88,6 @@ class PageController extends Controller
     public function forStudents()
     {
         $data=ForStudent::all();
-
         return view('frontend.pages.students', compact('data'));
     }
 
@@ -240,7 +239,7 @@ class PageController extends Controller
     public function adminUsersApprove($id)
     {
         User::where('id', $id)->update([
-            
+
             'approved_at'=> Carbon::now(),
         ]);
 
@@ -298,7 +297,7 @@ class PageController extends Controller
             ]);
         } catch (\Stripe\Exception\CardException $e) {
             echo 'Error code is:' . $e->getError()->code;
-            session()->flash('alert-warning', $e->message);
+            session()->flash('alert-warning', $e->message());
             return redirect('/credits');
         }
         if ($status->status == 'succeeded') {

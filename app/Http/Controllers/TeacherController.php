@@ -390,9 +390,9 @@ class TeacherController extends Controller
 
     public function teacherSchedule()
     {
-        // dd(123);
         $levels  = levels::all();
-        return view('frontend.pages.teachers.teacher-schedule', compact('levels'));
+        $teacher = User::where('id','=',Auth::user()->id)->with('getSubjects','lessons')->first();
+        return view('frontend.pages.teachers.teacher-schedule', compact('levels','teacher'));
     }
 
     public function SearchSchedule(Request $request)

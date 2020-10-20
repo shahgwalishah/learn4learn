@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','SignUp'); ?>
+<?php $__env->startSection('title','Edit Student Profile'); ?>
 <?php $__env->startSection('content'); ?>
 
 <!--====== Bootstrap css ======-->
@@ -136,21 +136,10 @@
         </div>
     </div>
 </section>
-<script>
-    $(document).ready(function(){
-            $("#submit").on("click", function(){
-                var radioSelected = $("input[name=op1]").val();
-                if(radioSelected == "1"){
-                    alert('op1')
-                }else if(radioSelected == "2"){
-                    alert('op2')
-                }
-            });
-        });
-</script>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
-
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
     $(document).ready(function(){
         $("#submit").on("click", function(){
@@ -164,7 +153,5 @@
         });
 </script>
 <?php $__env->stopSection(); ?>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/editstudetnsProfile.blade.php ENDPATH**/ ?>

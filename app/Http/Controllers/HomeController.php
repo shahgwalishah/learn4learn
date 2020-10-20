@@ -26,17 +26,21 @@ class HomeController extends Controller
      */
 
     public function verifyEmailAddress(){
-        $subjects    = Subject::all();
-        $no_of_chunk = $subjects->count() / 2;
-        $subjects    = $subjects->chunk($no_of_chunk);
-        $level      = levels::all();
-        $user_id = \Auth::user()->id;
-        if (\Auth::user()->type == 'teacher') {
-            session()->flash('success-alert-message-teac', "Email Verified Successfully.");
-            return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id'));
+        if(!\Auth::user()) {
+            return back();
         } else {
-            session()->flash('success-alert-message-teac', "Email Verified Successfully");
-            return view('auth.students.student-level', compact('level', 'user_id'));
+            $subjects = Subject::all();
+            $no_of_chunk = $subjects->count() / 2;
+            $subjects = $subjects->chunk($no_of_chunk);
+            $level = levels::all();
+            $user_id = \Auth::user()->id;
+            if (\Auth::user()->type == 'teacher') {
+                session()->flash('success-alert-message-teac', "Email Verified Successfully.");
+                return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id'));
+            } else {
+                session()->flash('success-alert-message-teac', "Email Verified Successfully");
+                return view('auth.students.student-level', compact('level', 'user_id'));
+            }
         }
     }
 

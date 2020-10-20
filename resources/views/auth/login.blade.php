@@ -62,7 +62,7 @@
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont slider-cont-4 text-center">
                         <h1 data-animation="fadeInUp" data-delay="1s">LOGIN</h1>
-                            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            <p data-animation="fadeInUp" data-delay="1.5s">ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                             consequat.</p>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                                     <a href="{{route('password.request')}}" class="form-check-label ml-5">Forgot
                                         Password?</a>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-primary active">LOGIN</button>
 
                             </form>
@@ -122,7 +122,7 @@
                 <div class="col-lg-6 p-0">
                     <div class="d-flex" id="submit-btn">
                         <img class="img-responsive"
-                            src="{{asset('asset/images/students/registration-banner_50.png')}}" style="width: 100%;">
+                            src="{{asset('asset/images/students/registration-banner_50.png')}}" style="width: 100%;height: 100%;object-fit: cover;">
                     </div>
                 </div>
             </div>

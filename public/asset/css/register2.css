@@ -93,7 +93,7 @@ form > div > p{
   font-size: 12px;margin-bottom: 3px;
 }
 form > div > input{
-  font-size:16px;letter-spacing:1px;padding:  5px;border: 0;border-bottom: 1px solid #848383 !important;width: 100%;color: #000;letter-spacing: 2px;width:75%;
+  font-size:16px;letter-spacing:1px;padding:  5px;border: 0;border-bottom: 1px solid #848383 !important;width: 95%;color: #000;
 }
 
 form > p:last-of-type{

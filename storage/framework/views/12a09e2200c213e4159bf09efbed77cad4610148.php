@@ -1,8 +1,66 @@
-<?php $__env->startSection('title','Schedules'); ?>
+<?php $__env->startSection('title','Teacher Schedules'); ?>
+<?php $__env->startPush('css'); ?>
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-schedule.css')); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    <style>
+        .nice-select.selectpicker {
+            width: 100% !important;
+        }
+
+        .single-slider.slider-4.bg_cover.pt-150.slick-slide.slick-current.slick-active {
+            background-position: unset !important;
+        }
+
+        .single-slider {
+            padding-bottom: 110px !important;
+        }
+
+        ._profile_image {
+            display: inline-block;
+            border: 2px solid gray;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            background: white;
+        }
+
+        @media (max-width: 1440px) {
+            .ccontainer {
+                max-width: 1074px;
+                padding-left: 0px !important;
+            }
+        }
+
+        @media (max-width: 1440px) {
+            .cfiltercontainer {
+                max-width: 1250px;
+                padding-left: 0px !important;
+            }
+        }
+
+        @media (max-width: 767.98px) and (min-width: 576px) {
+            .about-tow {
+                padding: 45px 0px 15px 0px !important;
+            }
+        }
+
+        @media  only screen and (max-width: 575.98px) {
+            .admission-row {
+                padding-bottom: 14px;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+<?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
-<?php
-$teacher = Auth::user();
-?>
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150"
         style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
@@ -12,7 +70,6 @@ $teacher = Auth::user();
                 <a href="<?php echo e(url('teacher-add-lesson')); ?>" class="main-slider-btn2 btn btn-warning" value=""
                     style="background-color: #FDBF11;color:white;padding:0 23px;">ADD LESSON</a>
             </div>
-            
         </div> <!-- container -->
     </div> <!-- single slider -->
 </section>
@@ -31,7 +88,6 @@ $teacher = Auth::user();
     <div class="container cfiltercontainer">
         <div class="row justify-content-center">
             <form action="<?php echo e(route('SearchSchedule')); ?>" method="get">
-                
                 <div class="row">
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="level_id" required="true">
@@ -45,22 +101,22 @@ $teacher = Auth::user();
                             </optgroup>
                         </select>
                     </div>
-
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="subject_id" required="true">
                             <optgroup label="Picnic">
                                 <option value="">Find Subjects</option>
                                 <?php $__currentLoopData = $teacher->getSubjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($subject->subject->id); ?>"
-                                        <?php echo e(request()->subject_id != '' && request()->subject_id == $subject->subject->id ? 'selected' : ''); ?>>
-                                        <?php echo e($subject->subject->name); ?>
+                                    <?php if(!is_null($subject->subject)): ?>
+                                        <option value="<?php echo e($subject->subject->id); ?>"
+                                            <?php echo e(request()->subject_id != '' && request()->subject_id == $subject->subject->id ? 'selected' : ''); ?>>
+                                            <?php echo e($subject->subject->name); ?>
 
-                                    </option>
+                                        </option>
+                                    <?php endif; ?>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </optgroup>
                         </select>
                     </div>
-
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="date_id" required="true">
                             <optgroup label="Picnic">
@@ -163,71 +219,6 @@ $teacher = Auth::user();
         </div> <!-- course slide -->
     </div> <!-- container -->
 </section>
-
-
-
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('css'); ?>
-<!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="<?php echo e(asset('asset/css/student-schedule.css')); ?>">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
-
-<style>
-    .nice-select.selectpicker {
-        width: 100% !important;
-    }
-
-    .single-slider.slider-4.bg_cover.pt-150.slick-slide.slick-current.slick-active {
-        background-position: unset !important;
-    }
-
-    .single-slider {
-        padding-bottom: 110px !important;
-    }
-
-    ._profile_image {
-        display: inline-block;
-        border: 2px solid gray;
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-        position: absolute;
-        z-index: 1;
-        background: white;
-    }
-
-    @media (max-width: 1440px) {
-        .ccontainer {
-            max-width: 1074px;
-            padding-left: 0px !important;
-        }
-    }
-
-    @media (max-width: 1440px) {
-        .cfiltercontainer {
-            max-width: 1250px;
-            padding-left: 0px !important;
-        }
-    }
-
-    @media (max-width: 767.98px) and (min-width: 576px) {
-        .about-tow {
-            padding: 45px 0px 15px 0px !important;
-        }
-    }
-
-    @media  only screen and (max-width: 575.98px) {
-        .admission-row {
-            padding-bottom: 14px;
-            width: 100%;
-            margin: 0 auto;
-        }
-    }
-</style>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/teachers/teacher-schedule.blade.php ENDPATH**/ ?>

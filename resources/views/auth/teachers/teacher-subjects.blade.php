@@ -26,6 +26,22 @@
         border-top: 1px solid #ededed;
         padding: 0px 0;
     }
+    footer p {
+        margin: 0;
+        padding: 0;
+        float: unset !important;
+    }
+    footer ul li {
+        display: block !important;
+        margin-right: 15px;
+    }
+    footer ul li:after {
+        content: "" !important;
+        font-weight: 300;
+        position: relative;
+        left: 9px;
+        color: #999;
+    }
 </style>
 @php
     $emailVerified = \Auth::user()->email_verified_at;
@@ -135,7 +151,7 @@
             <div class="col-md-12 d-flex align-items-center justify-content-center">
                 <div class="form-parts">
                     <div class="step">
-                        <div class="form-group">
+                        <div class="form-group" style="padding-left: 10px;">
                             <label class="container_check version_2">Other
                                 <input type="checkbox" name="subject[]" value="" data-toggle="collapse"
                                     data-target="#a00_other_id" id="other">
@@ -148,18 +164,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6"></div>
 
-        <div class="col-lg-12 text-left" style="padding-left:40px">
-            <div class="col-md-12 d-flex">
-                <div class="form-parts">
-                    <div class="step">
-                        <button type="submit" class="btn btn-primary active justify-content-center"
-                            style="align-content: center;">Register</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+             <div class="col-lg-12 text-center">
+                             <button type="submit" class="btn btn-primary active justify-content-center"
+                                     style="align-content: center;">Register</button>
+             </div>
         </div>
         <input type="hidden" name="user_id" value="{{$user_id}}">
 

@@ -61,7 +61,7 @@
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont slider-cont-4 text-center">
                         <h1 data-animation="fadeInUp" data-delay="1s">LOGIN</h1>
-                            <p>ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            <p data-animation="fadeInUp" data-delay="1.5s">ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                             consequat.</p>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                 <div class="col-lg-6 p-0">
                     <div class="d-flex" id="submit-btn">
                         <img class="img-responsive"
-                            src="<?php echo e(asset('asset/images/students/registration-banner_50.png')); ?>" style="width: 100%;">
+                            src="<?php echo e(asset('asset/images/students/registration-banner_50.png')); ?>" style="width: 100%;height: 100%;object-fit: cover;">
                     </div>
                 </div>
             </div>

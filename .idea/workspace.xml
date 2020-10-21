@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/teachersmaster.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/teachersmaster.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/e01eec5ebd3eeb84e1f73205fca0e3fd72abe7fb.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/e01eec5ebd3eeb84e1f73205fca0e3fd72abe7fb.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,6 +273,9 @@
       <workItem from="1603190882519" duration="1791000" />
       <workItem from="1603192697745" duration="1793000" />
       <workItem from="1603194518486" duration="1787000" />
+      <workItem from="1603196489986" duration="1236000" />
+      <workItem from="1603199703716" duration="2387000" />
+      <workItem from="1603203500346" duration="21000" />
     </task>
     <servers />
   </component>
@@ -294,15 +295,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="419" y="124" width="800" height="677" key="#Deployment" timestamp="1603192236034">
+    <state x="419" y="124" width="800" height="677" key="#Deployment" timestamp="1603200753318">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="419" y="124" width="800" height="677" key="#Deployment/55.27.1545.873@55.27.1545.873" timestamp="1603192236034" />
+    <state x="419" y="124" width="800" height="677" key="#Deployment/55.27.1545.873@55.27.1545.873" timestamp="1603200753318" />
     <state x="428" y="124" width="800" height="677" key="#Deployment/67.27.1533.873@67.27.1533.873" timestamp="1603105652603" />
-    <state x="403" y="110" width="832" height="704" key="#SSH_Configurations" timestamp="1603192214199">
+    <state x="403" y="110" width="832" height="704" key="#SSH_Configurations" timestamp="1603200717793">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="403" y="110" key="#SSH_Configurations/55.27.1545.873@55.27.1545.873" timestamp="1603192214199" />
+    <state x="403" y="110" width="832" height="704" key="#SSH_Configurations/55.27.1545.873@55.27.1545.873" timestamp="1603200717793" />
     <state x="412" y="110" width="832" height="704" key="#SSH_Configurations/67.27.1533.873@67.27.1533.873" timestamp="1603105627012" />
     <state x="566" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602963310116">
       <screen x="67" y="27" width="1533" height="873" />
@@ -328,10 +329,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603184089617">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603196844719">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603184089617" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603196844719" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
   </component>
 </project>

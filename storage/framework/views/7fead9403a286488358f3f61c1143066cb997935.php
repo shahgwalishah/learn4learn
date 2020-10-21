@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="customHeaderSettings">
+<html lang="en">
 
 <head>
 
@@ -121,7 +121,7 @@
         .logo {
             text-align: center;
             float: unset !important;
-            margin-bottom: 8px; 
+            margin-bottom: 8px;
         }
         .footer-link ul {
             width: 100%;
@@ -273,7 +273,7 @@
                                         <a class="" href="# ">MY ACHIEVEMENT</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="" href="<?php echo e(route('viewOurMessages')); ?>">MY MESSAGES</a>
+                                        <a class="<?php echo e(Request::routeIs('viewOurMessages') ? 'active' : ''); ?>" href="<?php echo e(route('viewOurMessages')); ?>">MY MESSAGES</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('tudent.account') ? 'active' : ''); ?>"

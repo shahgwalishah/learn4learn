@@ -1,6 +1,5 @@
-@extends('layouts.master')
-@section('title','SignUp')
-@push('css')
+<?php $__env->startSection('title','SignUp'); ?>
+<?php $__env->startPush('css'); ?>
     <style>
         #customFooter{
 
@@ -78,10 +77,10 @@
         }
     </style>
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/register2.css')}}">
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
-@endpush
-@section('content')
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/register2.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150">
         <div class="container customContainer">
@@ -108,14 +107,14 @@
 
                         <div style="display:flex;width:100%;">
 
-                            <form method="post" action="{{url('/signup')}}" id="form" class="customForm">
-                                @csrf
+                            <form method="post" action="<?php echo e(url('/signup')); ?>" id="form" class="customForm">
+                                <?php echo csrf_field(); ?>
                                 <div style="width:100%;" class="m-0">
                                     <h3 class="level-heading pb-2">GETTING STARTED</h3>
                                 </div>
                                 <div style="width:100%;">
 
-                                    <a href="{{route('login')}}" id="alreasy-account" style="color:#212529">Already have
+                                    <a href="<?php echo e(route('login')); ?>" id="alreasy-account" style="color:#212529">Already have
                                         an account?</a>
 
                                 </div>
@@ -133,31 +132,31 @@
                                             Teacher</label>
                                     </div>
                                 </div>
-                                @if(count($errors))
+                                <?php if(count($errors)): ?>
                                 <div class="form-group">
                                     <div class="alert alert-danger">
                                         <ul>
-                                            @foreach($errors->all() as $error)
-                                            <li>{{$error}}</li>
-                                            @endforeach
+                                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <li><?php echo e($error); ?></li>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </ul>
                                     </div>
                                 </div>
-                                @endif
+                                <?php endif; ?>
                                 <div style="width:100%;">
-                                    <input name="fname" id="fname" value="{{old('fname')}}" autofocus placeholder="First Name" required="true">
+                                    <input name="fname" id="fname" value="<?php echo e(old('fname')); ?>" autofocus placeholder="First Name" required="true">
                                 </div>
                                 <div style="width:100%;">
-                                    <input name="lname" id="lname" value="{{old('lname')}}" autofocus placeholder="Last Name" required="true">
+                                    <input name="lname" id="lname" value="<?php echo e(old('lname')); ?>" autofocus placeholder="Last Name" required="true">
                                 </div>
                                 <div style="width:100%;">
                                     <input type="email" name="email" id="email" placeholder="Email Address"
                                         required="true">
                                     <label class="email-error error"></label>
-                                    @if($errors->has('email'))
-                                    <div class="text-danger">{{$errors->first('email')}}</div>
+                                    <?php if($errors->has('email')): ?>
+                                    <div class="text-danger"><?php echo e($errors->first('email')); ?></div>
 
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
 
                                 <div style="width:100%;">
@@ -172,9 +171,9 @@
                                     <label class="form-check-label text_gray" for="invalidCheck2"
                                         style="height: unset!important;width: 75%;">
                                         By signing up, you agree to our <a
-                                            href="{{route('page.show', 'terms-and-conditions')}}" id="alreasy-account"
+                                            href="<?php echo e(route('page.show', 'terms-and-conditions')); ?>" id="alreasy-account"
                                             class="text_gray">Terms and Conditions</a> and <a
-                                            href="{{route('page.show','privacy-policy')}}" id="alreasy-account"
+                                            href="<?php echo e(route('page.show','privacy-policy')); ?>" id="alreasy-account"
                                             class="text_gray">Privacy Policy</a>
                                     </label>
                                 </div>
@@ -197,18 +196,18 @@
                 <div class="col-md-6 p-0">
                     <div class="d-flex align-items-center justify-content-center" id="submit-btn">
                         <img style="    height: 100%;
-    object-fit: cover;" src="{{asset('asset/images/students/registration-banner.png')}}">
+    object-fit: cover;" src="<?php echo e(asset('asset/images/students/registration-banner.png')); ?>">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-@endsection
-@section('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
 <!--====== Validator js ======-->
-<script src="{{asset('asset/js/jquery.validate.min.js')}}"></script>
-<script src="{{asset('asset/js/custom.js')}}"></script>
+<script src="<?php echo e(asset('asset/js/jquery.validate.min.js')); ?>"></script>
+<script src="<?php echo e(asset('asset/js/custom.js')); ?>"></script>
     <script>
         function hideShow(val) {
             var x = document.getElementById("myInput");
@@ -228,4 +227,6 @@
             }
         }
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/auth/register.blade.php ENDPATH**/ ?>

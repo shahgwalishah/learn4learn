@@ -14,6 +14,26 @@
             text-align: -webkit-center;
             width: 100%;
         }
+        .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
+    }
 </style>
 
     <!--====== Bootstrap css ======-->
@@ -222,26 +242,42 @@
                         }
                         ?>
 
-
-                        @foreach($aray1 as $getmystydentrecord)
-                            <tbody>
+                        @if(count($aray1) == 0) 
+                        <tbody>
                             <tr>
-                                <th scope="row">{{$getmystydentrecord->fname}}</th>
-                                <td>{{$getmystydentrecord->level_name}}</td>
-                                <td>{{$getmystydentrecord->Subject_name}}</td>
-
-
-                                <td>
-                                    <a href="{{route('View.student.profile', [$getmystydentrecord->user_id])}}">
-                                        <button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW PROFILE</button>
+                                <td></td>
+                                <td width="100%">
+                                <div class="alert alert-danger customDanger">
+                                    <div class="container customDangerContainer">
+                                        <div class="alert-icon">
+                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                        </div>&nbsp;&nbsp;&nbsp;No Schedule Found
+                                    </div>
+                                </div>
                                 </td>
+                                <td></td>
                             </tr>
+                        </tbody>
+                        @else
+                            @foreach($aray1 as $getmystydentrecord)
+                                <tbody>
+                                <tr>
+                                    <th scope="row">{{$getmystydentrecord->fname}}</th>
+                                    <td>{{$getmystydentrecord->level_name}}</td>
+                                    <td>{{$getmystydentrecord->Subject_name}}</td>
 
 
-                            </tbody>
-                        @endforeach
+                                    <td>
+                                        <a href="{{route('View.student.profile', [$getmystydentrecord->user_id])}}">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW PROFILE</button>
+                                    </td>
+                                </tr>
 
-                        <?php } ?>
+
+                                </tbody>
+                            @endforeach
+                        @endif
+                            <?php } ?>
                     </table>
                 </div>
             </div> <!-- row -->

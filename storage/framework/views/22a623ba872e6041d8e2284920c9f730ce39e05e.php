@@ -1,29 +1,29 @@
-@extends('layouts.teachersmaster')
-@section('title','Add Lesson')
-@section('content')
+<?php $__env->startSection('title','Add Lesson'); ?>
+<?php $__env->startSection('content'); ?>
 
 <h3 class="add-lesson-heading mt-5 mb-4">ADD A LESSON</h3>
-<form action="{{route('createLesson')}} " method="post" enctype="multipart/form-data">
+<form action="<?php echo e(route('createLesson')); ?> " method="post" enctype="multipart/form-data">
     <section id="add-lesson-sec">
         <div class="container">
         </div>
         <div class="container Ccontainer">
-            @if(session('message'))
-            <p class="alert alert-success text-dark">{{session('message')}}</p>
-            @endif
+            <?php if(session('message')): ?>
+            <p class="alert alert-success text-dark"><?php echo e(session('message')); ?></p>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-md-6 col-xs-12" id="add-lesson-left">
                     <div class="form-parts">
                         <p class="level-heading gray_font">Choose Lesson Category</p>
                         <select class="selectpicker" name="subject" required="true">
                             <option value="">Select any Subject </option>
-                            @foreach ($subjects as $subject)
-                                @if(!is_null($subject->subject) && !is_null($subject->level) )
-                                    <option value="{{$subject->subject->id .' '. $subject->level->id}}">
-                                        {{$subject->subject->name .' ('. $subject->level->name.')'}}
+                            <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if(!is_null($subject->subject) && !is_null($subject->level) ): ?>
+                                    <option value="<?php echo e($subject->subject->id .' '. $subject->level->id); ?>">
+                                        <?php echo e($subject->subject->name .' ('. $subject->level->name.')'); ?>
+
                                     </option>
-                                @endif
-                            @endforeach
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                 </div>
@@ -38,25 +38,39 @@
 
         </div>
     </section>
-    @csrf
+    <?php echo csrf_field(); ?>
 
     <section id="add-level-data">
         <div class="container Ccontainer">
             <div class="form-group">
                 <label for="exampleInputEmail1">Title</label>
-                <input type="text" class="form-control" value="{{old('title')}}" name="title" id="exampleInputEmail1"
+                <input type="text" class="form-control" value="<?php echo e(old('title')); ?>" name="title" id="exampleInputEmail1"
                     aria-describedby="emailHelp" placeholder="" required="true">
-                @error('title')
-                <div class="text-danger">{{$message}}</div>
-                @enderror
+                <?php $__errorArgs = ['title'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <div class="text-danger"><?php echo e($message); ?></div>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
                 <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="8"
-                    required="true">{{old('description')}}</textarea>
-                @error('description')
-                <div class="text-danger">{{$message}}</div>
-                @enderror
+                    required="true"><?php echo e(old('description')); ?></textarea>
+                <?php $__errorArgs = ['description'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <div class="text-danger"><?php echo e($message); ?></div>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="lessonType" id="inlineRadio2" value="individual"
@@ -67,9 +81,16 @@
                 <input class="form-check-input" type="radio" name="lessonType" id="inlineRadio1" value="series">
                 <label class="form-check-label" for="inlineRadio1">Series Class</label>
             </div>
-            @error('lessonType')
-            <div class="text-danger">{{$message}}</div>
-            @enderror
+            <?php $__errorArgs = ['lessonType'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+            <div class="text-danger"><?php echo e($message); ?></div>
+            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
 
 
             <div class="row my-5">
@@ -79,29 +100,43 @@
                     <div class="input-group mb-3">
                         <i class="far fa-calendar-alt fa-2x"
                             style="font-size: 37px;padding-right: 20px;color: #045375;"></i>
-                        <input type="date" class="form-control" value="{{old('registration_date')}}"
+                        <input type="date" class="form-control" value="<?php echo e(old('registration_date')); ?>"
                             name="registration_date" id="registration-date" required="" style="max-width: 170px">
                         <div class="input-group-append">
                             <span class="input-group-text" style="background-color: #045375;color: #fff"><i
                                     class="fas fa-chevron-down"></i></span>
                         </div>
-                        @error('registration_date')
-                        <div class="text-danger">{{$message}}</div>
-                        @enderror
+                        <?php $__errorArgs = ['registration_date'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="text-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
                 <div class="col-sm-8 gray_font">
                     <div class="input-group mb-3">
                         <i class="far fa-clock fa-2x" style="font-size: 37px;padding-right: 20px;color: #045375;"></i>
                         <input type="time" class="form-control" name="registration_time" id="registration-time"
-                            required="" value="{{old('registration_time')}}" style="max-width: 170px">
+                            required="" value="<?php echo e(old('registration_time')); ?>" style="max-width: 170px">
                         <div class="input-group-append">
                             <span class="input-group-text" style="background-color: #045375;color: #fff"><i
                                     class="fas fa-chevron-down"></i></span>
                         </div>
-                        @error('registration_time')
-                        <div class="text-danger">{{$message}}</div>
-                        @enderror
+                        <?php $__errorArgs = ['registration_time'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="text-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
             </div>
@@ -138,15 +173,7 @@
                     <label class="form-check-label" for="materialInline4"></label>
                 </div>
             </div>
-            {{-- <div id="datetime" class="form-group registration-date">
-                <label class="control-label col-sm-3"  for="registration-date">Date:</label>
-                <div class="input-group registration-date-time">
-                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
-                    <input class="form-control" name="registration_date" id="registration-date" type="date" required="true">
-                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></span>
-                    <input class="form-control" name="registration_time" id="registration-time" type="time" required="true">
-                </div>
-            </div> --}}
+            
 
 
             <div class="add-documents-heading-div">
@@ -159,7 +186,7 @@
                             <div class="content align-items-center d-flex">
                                 <!-- <img src="" id="img_url" alt="your image"><br> -->
 
-                                {{-- <img id="blahs" src="http://placehold.it/180" alt="your Document" /> --}}
+                                
                                 <div class="text-center">
                                     <p class="addfiles-add-lesson">ADD PDF</p>
                                     <p class="addfiles-add-lesson">
@@ -173,9 +200,16 @@
                                             accept="application/pdf,application/vnd.ms-excel" />
                                     </div>
                                 </div>
-                                @error('document')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
+                                <?php $__errorArgs = ['document'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-danger"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
                     </div>
@@ -185,7 +219,7 @@
                                 <div>
                                     <p class="addfiles-add-lesson">ADD VIDEO (LINK)</p>
                                     <div class=" d-flex justify-content-center">
-                                        {{-- <textarea name="video" id="" cols="30" rows="10"></textarea> --}}
+                                        
                                         <input type="textarea" name="video" class="form-control"
                                             placeholder="https://www.example.com/">
                                     </div>
@@ -193,15 +227,22 @@
                                 </div>
 
                             </div>
-                            @error('video')
-                            <div class="text-danger">{{$message}}</div>
-                            @enderror
+                            <?php $__errorArgs = ['video'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="text-danger"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                     <div class="col-md-4 d-flex justify-content-center">
                         <div class="col-12 d-flex justify-content-center" id="_img_prev" style="overflow: hidden;">
                             <div class="content align-items-center d-flex">
-                                {{-- <img id="blah" src="http://placehold.it/180" alt="your image" /> --}}
+                                
                                 <div class="text-center" id="_container">
                                     <p class="addfiles-add-lesson" id="_container_title">ADD IMAGES</p>
                                     <div class="image-upload">
@@ -213,9 +254,16 @@
                                             accept="image/x-png,image/gif,image/jpeg" />
                                     </div>
                                 </div>
-                                @error('photo')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
+                                <?php $__errorArgs = ['photo'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-danger"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
                     </div>
@@ -224,7 +272,7 @@
 
 
 
-                {{-- <input type="hidden" name="level_id" value="{{ $levels }}"> --}}
+                
 
 
                 <div class="col-md-12 d-flex justify-content-center">
@@ -235,9 +283,9 @@
 
     </section>
 </form>
-@endsection
-@section('js')
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+
 <script>
     function readURLs(input) {
     if (input.files && input.files[0]) {
@@ -281,8 +329,8 @@ function readURL(input) {
 
 
 </script>
-<script src="{{asset('asset/js/plugins/datetime/moment-with-locales.js')}}"></script>
-<script src="{{asset('asset/js/plugins/datetime/moment-timezone-with-data.js')}}"></script>
+<script src="<?php echo e(asset('asset/js/plugins/datetime/moment-with-locales.js')); ?>"></script>
+<script src="<?php echo e(asset('asset/js/plugins/datetime/moment-timezone-with-data.js')); ?>"></script>
 <script>
     $(function() {
             $("input[name='inlineRadioOptions']").click(function() {
@@ -309,15 +357,15 @@ function readURL(input) {
         }
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('css')
+<?php $__env->startSection('css'); ?>
 <!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="{{asset('asset/css/add-lesson.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/add-lesson.css')); ?>">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
-{{-- date time plugin --}}
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+
 
 <style>
     #img_url {
@@ -383,9 +431,9 @@ function readURL(input) {
 </style>
 <!-- Card -->
 
-{{-- dashboard section --}}
 
-{{-- end-dashboard section --}}
+
+
 <style type="text/css">
     input[type="date"]::-webkit-calendar-picker-indicator {
         background: transparent;
@@ -418,4 +466,6 @@ function readURL(input) {
         box-shadow: unset;
     }
 </style>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/teachers/add-lesson.blade.php ENDPATH**/ ?>

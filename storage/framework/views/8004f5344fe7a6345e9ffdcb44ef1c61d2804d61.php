@@ -13,6 +13,26 @@
             text-align: -webkit-center;
             width: 100%;
         }
+        .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
+    }
 </style>
 
     <!--====== Bootstrap css ======-->
@@ -221,26 +241,42 @@
                         }
                         ?>
 
-
-                        <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $getmystydentrecord): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tbody>
+                        <?php if(count($aray1) == 0): ?> 
+                        <tbody>
                             <tr>
-                                <th scope="row"><?php echo e($getmystydentrecord->fname); ?></th>
-                                <td><?php echo e($getmystydentrecord->level_name); ?></td>
-                                <td><?php echo e($getmystydentrecord->Subject_name); ?></td>
-
-
-                                <td>
-                                    <a href="<?php echo e(route('View.student.profile', [$getmystydentrecord->user_id])); ?>">
-                                        <button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW PROFILE</button>
+                                <td></td>
+                                <td width="100%">
+                                <div class="alert alert-danger customDanger">
+                                    <div class="container customDangerContainer">
+                                        <div class="alert-icon">
+                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                        </div>&nbsp;&nbsp;&nbsp;No Schedule Found
+                                    </div>
+                                </div>
                                 </td>
+                                <td></td>
                             </tr>
+                        </tbody>
+                        <?php else: ?>
+                            <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $getmystydentrecord): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tbody>
+                                <tr>
+                                    <th scope="row"><?php echo e($getmystydentrecord->fname); ?></th>
+                                    <td><?php echo e($getmystydentrecord->level_name); ?></td>
+                                    <td><?php echo e($getmystydentrecord->Subject_name); ?></td>
 
 
-                            </tbody>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <td>
+                                        <a href="<?php echo e(route('View.student.profile', [$getmystydentrecord->user_id])); ?>">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW PROFILE</button>
+                                    </td>
+                                </tr>
 
-                        <?php } ?>
+
+                                </tbody>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
+                            <?php } ?>
                     </table>
                 </div>
             </div> <!-- row -->

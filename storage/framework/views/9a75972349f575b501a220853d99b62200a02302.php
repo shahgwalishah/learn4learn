@@ -45,62 +45,62 @@
             padding-bottom: 0px !important;
         }
     </style>
+
+    <style>
+
+        @media( max-width: 575px)
+        {
+            .footer-link ul li {
+                line-height: 35px;
+                text-align: left;
+            }
+            .customTFooter{
+                padding: 0px;
+            }
+        }
+        .customClass{
+            margin: 2px 2px 2px 2px;
+        }
+        .navigation .navbar .navbar-nav li {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        @media (max-width: 991px) {
+            .navigation .navbar .navbar-nav li {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: center;
+            }
+            .customClass{
+                margin: 2px 2px 2px 2px;
+                width: 100%;
+            }
+        }
+        @media(max-width: 575px) {
+            .logo {
+                text-align: center;
+                float: unset !important;
+                margin-bottom: 8px;
+            }
+            .footer-link ul {
+                width: 100%;
+                float: unset !important;
+                overflow: hidden;
+                margin-left: 0px !important;
+                text-align: center !important;
+            }
+            .footer-link ul li {
+                line-height: 35px;
+                text-align: center;
+            }
+        }
+    </style>
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
 </head>
-
-<style>
-
-      @media( max-width: 575px)
-      {
-        .footer-link ul li {
-            line-height: 35px;
-            text-align: left;
-        }
-        .customTFooter{
-            padding: 0px;
-        }
-      }
-      .customClass{
-          margin: 2px 2px 2px 2px;
-      }
-      .navigation .navbar .navbar-nav li {
-          position: relative;
-          display: flex;
-          align-items: center;
-      }
-      @media (max-width: 991px) {
-          .navigation .navbar .navbar-nav li {
-              position: relative;
-              display: flex;
-              align-items: center;
-              width: 100%;
-              justify-content: center;
-          }
-          .customClass{
-              margin: 2px 2px 2px 2px;
-              width: 100%;
-          }
-      }
-      @media(max-width: 575px) {
-        .logo {
-            text-align: center;
-            float: unset !important;
-            margin-bottom: 8px; 
-        }
-        .footer-link ul {
-            width: 100%;
-            float: unset !important;
-            overflow: hidden;
-            margin-left: 0px !important;
-            text-align: center !important;
-        }
-        .footer-link ul li {
-            line-height: 35px;
-            text-align: center;
-        }
-      }
-</style>
 
 <body>
     <header id="header-part" class="header-two">
@@ -217,8 +217,8 @@
                                             href="<?php echo e(route('MYaccount')); ?>">Account</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('Students') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('Students')); ?>">MESSAGES</a>
+                                        <a class=""
+                                            href="#">MESSAGES</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"

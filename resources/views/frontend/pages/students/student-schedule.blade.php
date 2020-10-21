@@ -194,8 +194,7 @@
     <section class="admission-row pb-120" id="filter-search-form">
         <div class="container">
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-10 ">
+                <div class="col-12 text-center">
                     <h5 style="color: #006796;font-size: 28px;letter-spacing: 3px;">Filter By</h5>
 
                 </div>

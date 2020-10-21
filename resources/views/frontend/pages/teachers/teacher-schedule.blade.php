@@ -59,6 +59,26 @@
                 margin: 0 auto;
             }
         }
+        .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
+    }
     </style>
 @endpush
 @section('content')
@@ -162,6 +182,15 @@
             }
 
             @endphp
+            @if(count($lessons) == 0)
+            <div class="alert alert-danger customDanger">
+                                <div class="container customDangerContainer">
+                                    <div class="alert-icon">
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                    </div>&nbsp;&nbsp;&nbsp;No Schedule Found
+                                </div>
+                            </div>
+            @else
             @foreach($lessons as $lesson)
             <div class="col-lg-4 col-md-6 col-12 position-relatiove justify-content-center d-flex">
                 <div class="_profile_image"
@@ -216,6 +245,7 @@
                 </div> <!-- single course -->
             </div>
             @endforeach
+            @endif
         </div> <!-- course slide -->
     </div> <!-- container -->
 </section>

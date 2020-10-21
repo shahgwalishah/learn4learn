@@ -3,52 +3,52 @@
 <!--====== SEARCH BOX PART START ======-->
 <?php $__env->startSection('content'); ?>
 
-    <div class="search-box">
-        <div class="search-form">
-            <div class="closebtn">
-                <span></span>
-                <span></span>
-            </div>
-            <form action="#">
-                <input type="text" placeholder="Search by keyword">
-                <button><i class="fa fa-search"></i></button>
-            </form>
-        </div> <!-- search form -->
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!--====== SEARCH BOX PART ENDS ======-->
 
     <!--====== SLIDER PART START ======-->
 
-    <section id="slider-part" class="slider-active">
-        <div class="single-slider slider-4 bg_cover pt-150"
-             style="padding-bottom: 149px;padding-top: 172px;background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/students/banner.png')); ?>">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont slider-cont-4 text-center">
-                            <h1 data-animation="fadeInUp" data-delay="1s"><?php echo e($data[0]['title']); ?></h1>
-                            <p data-animation="fadeInUp" data-delay="1.5s"><?php echo e($data[0]['discription']); ?></p>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
-    </section>
 
 
-<div class="search-box">
-    <div class="search-form">
-        <div class="closebtn">
-            <span></span>
-            <span></span>
-        </div>
-        <form action="#">
-            <input type="text" placeholder="Search by keyword">
-            <button><i class="fa fa-search"></i></button>
-        </form>
-    </div> <!-- search form -->
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--====== SEARCH BOX PART ENDS ======-->
 

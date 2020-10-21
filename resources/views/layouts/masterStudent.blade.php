@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="customHeaderSettings">
+<html lang="en">
 
 <head>
 

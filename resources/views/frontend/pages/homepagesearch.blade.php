@@ -286,7 +286,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="column d-flex justify-content-center">
                             <div class="price">
-                                <img src="{{url('/storage/images/'.$leson->userthamnail)}}" class="course-profile-pic">
+                                <img src="{{url('/storage/images/'.$leson->userthamnail)}}" class="course-profile-pic" onerror="this.src='/images/default.png'">
                             </div>
                         </div>
                     </div>

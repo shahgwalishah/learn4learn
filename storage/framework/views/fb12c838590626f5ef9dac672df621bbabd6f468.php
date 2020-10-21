@@ -52,6 +52,9 @@
                 width: 100%;
             }
         }
+        #footer-part{
+            padding-top: 100px;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -77,8 +80,6 @@
         </div> <!-- single slider -->
     </section>
     <!-- Card -->
-
-
     <section class="schedules">
 
         <div class="container p-3">
@@ -121,15 +122,11 @@
         </div>
     </section>
 
-
-
-
     <section id="about-part" class="about-tow pt-65">
         <div class="about-shape">
         </div>
         <!-- container -->
     </section>
-
 
     <section class="admission-row pb-120 customSetting">
         <div class="container p-5 bg_cover gray-bg">
@@ -183,19 +180,10 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-
-    
-
-
-
-    
-
-
     <section class="admission-row pb-120" id="filter-search-form">
         <div class="container">
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-10 ">
+                <div class="col-12 text-center">
                     <h5 style="color: #006796;font-size: 28px;letter-spacing: 3px;">Filter By</h5>
 
                 </div>
@@ -320,6 +308,5 @@
         </section>
     </section>
 <?php $__env->stopSection(); ?>
-
 
 <?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/students/student-schedule.blade.php ENDPATH**/ ?>

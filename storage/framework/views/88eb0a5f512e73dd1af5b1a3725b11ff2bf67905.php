@@ -135,6 +135,9 @@
             text-align: center;
         }
       }
+      .customHeaderSettings{
+        width: 99%;
+      }
     </style>
 </head>
 

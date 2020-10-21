@@ -6,7 +6,7 @@
     <div class="single-slider slider-4 bg_cover pt-150"
         style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row" style="justify-content: center;">
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont slider-cont-4 text-center">
                         <div class="input-group">
@@ -87,4 +87,5 @@
     }
 </style>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/students/grades.blade.php ENDPATH**/ ?>

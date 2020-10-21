@@ -106,6 +106,14 @@
         .customSearching{
             justify-content: center;
         }
+        .std-welcome-msg {
+            color: #020101;
+            line-height: 40px;
+            text-align: center;
+            padding-bottom: 23px;
+            letter-spacing: 2px;
+            margin-left: 0px;
+        }
     </style>
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
@@ -128,7 +136,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
                             </div>
                         </div>
                     </div>

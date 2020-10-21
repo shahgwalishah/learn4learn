@@ -90,7 +90,6 @@
                                     <input class="_inputwidth" name="description" autofocus required="true"
                                         placeholder="Description">
                                 </div>
-                                
                                 <div style="width:100%;">
                                     <select class="mdb-select _inputwidth" name="country" searchable="Search here.."
                                         required="true">

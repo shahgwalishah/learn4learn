@@ -1,6 +1,11 @@
 @extends('layouts.masterStudent')
 @section('title','Messages')
 @push('css')
+    <link rel="stylesheet" href="{{asset('asset/css/student-homework.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
     <style>
         .successColor{
             background-color: #ffc10e;
@@ -23,17 +28,29 @@
             text-align: -webkit-center;
             width: 100%;
         }
+        .customDanger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customAlertDAnger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customDangerContainer{
+            display: flex;
+            justify-content: center;
+        }
     </style>
 @endpush
 @section('content')
-
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/student-homework.css')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
-
 
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
@@ -57,18 +74,14 @@
         </div> <!-- single slider -->
     </section>
     <!-- Card -->
-
     <section id="about-part" class="about-tow pt-65">
         <div class="about-shape">
         </div>
         <h5 style="text-align: center;color: #006796;font-size: 28px;letter-spacing: 5px;">Find A Lesson</h5>
         <!-- container -->
     </section>
-
     <!--====== ABOUT PART ENDS ======-->
-
     <!--====== ADMISSION PART START ======-->
-
     <section class="admission-row pb-120" id="std-homework-find-lesson-sec">
         <div class="container">
             <div class="row justify-content-center">
@@ -193,7 +206,6 @@
         </div> <!-- container -->
     </section>
 
-
     <section class="admission-row pb-120" id="std-homework-table-sec">
         <div class="container" id="studentM">
             <div class="row justify-content-center">
@@ -212,7 +224,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($data as $message)
+                            @if(count($data) == 0)
+                            <tbody>
+                            <tr>
+                                <td></td>
+                                <td width="80%">
+                                    <div class="alert alert-danger customDanger">
+                                        <div class="container customDangerContainer">
+                                            <div class="alert-icon">
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                            @else
+                                @foreach($data as $message)
                                 <tr>
                                     <td>{{$message->from_user->fname}}</td>
                                     <td>{{$message->messages}}</td>
@@ -255,6 +284,7 @@
                                     </div>
                                 </div>
                             @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>

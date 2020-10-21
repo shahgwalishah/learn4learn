@@ -53,6 +53,9 @@
                 width: 100%;
             }
         }
+        #footer-part{
+            padding-top: 100px;
+        }
     </style>
 @endpush
 @section('content')
@@ -78,8 +81,6 @@
         </div> <!-- single slider -->
     </section>
     <!-- Card -->
-
-
     <section class="schedules">
 
         <div class="container p-3">
@@ -121,15 +122,11 @@
         </div>
     </section>
 
-
-
-
     <section id="about-part" class="about-tow pt-65">
         <div class="about-shape">
         </div>
         <!-- container -->
     </section>
-
 
     <section class="admission-row pb-120 customSetting">
         <div class="container p-5 bg_cover gray-bg">
@@ -183,14 +180,6 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-
-    {{-- line break --}}
-
-
-
-    {{-- documents section --}}
-
-
     <section class="admission-row pb-120" id="filter-search-form">
         <div class="container">
             <div class="row">

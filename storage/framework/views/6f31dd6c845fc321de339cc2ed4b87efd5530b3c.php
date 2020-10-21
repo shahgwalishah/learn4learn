@@ -1,13 +1,12 @@
-@extends('layouts.masterStudent')
-@section('title','Search Subject')
-@push('css')
+<?php $__env->startSection('title','Search Subject'); ?>
+<?php $__env->startPush('css'); ?>
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/student-schedule.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-schedule.css')); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
     <style type="text/css">
         .schedules .card {
             height: auto;
@@ -48,11 +47,11 @@
             padding:0px !important;
         }
     </style>
-@endpush
-@section('content')
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
-             style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
+             style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-9">
@@ -93,16 +92,16 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <form action="{{route('subjects.search')}}">
+                        <form action="<?php echo e(route('subjects.search')); ?>">
 
                             <div class="row">
                                 <div class="col-md-3" style="padding: 18px;">
                                     <select name="subject" class="selectpicker">
                                         <optgroup label="Picnic">
                                             <option>Subject</option>
-                                            @foreach ($allSubjects as $subject)
-                                                <option value="{{$subject->id}}">{{$subject->name}}</option>
-                                            @endforeach
+                                            <?php $__currentLoopData = $allSubjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($subject->id); ?>"><?php echo e($subject->name); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </optgroup>
                                     </select>
 
@@ -112,9 +111,9 @@
                                     <select name="level" class="selectpicker">
                                         <optgroup label="Picnic">
                                             <option value="">Level</option>
-                                            @foreach ($levels as $level)
-                                                <option value="{{$level->id}}">{{$level->name}}</option>
-                                            @endforeach
+                                            <?php $__currentLoopData = $levels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $level): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($level->id); ?>"><?php echo e($level->name); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </optgroup>
                                     </select>
 
@@ -122,7 +121,7 @@
 
                                 <div class="col-md-3 w-100" style="padding: 18px;">
                                     <div class="input-group mb-3">
-                                        <input type="date" class="form-control p-4" value="{{old('date')}}" name="date"
+                                        <input type="date" class="form-control p-4" value="<?php echo e(old('date')); ?>" name="date"
                                                id="date">
                                     </div>
                                 </div>
@@ -138,11 +137,11 @@
                 </div> <!-- container -->
             </section>
 
-            {{-- line break --}}
+            
 
 
 
-            {{-- documents section --}}
+            
 
 
             <section class="admission-row pb-120" id="filter-search-form">
@@ -199,12 +198,12 @@
                     <div class="container">
                         <h3 class="text-muted">Search Results</h3>
                         <div class="row">
-                            @foreach ($lessons as $lesson)
+                            <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="col-lg-4">
                                     <div class="single-course-2 mt-30">
                                         <div class="thum">
                                             <div class="image">
-                                                <img src="{{asset('storage/images/'.$lesson->thumbnail)}}"
+                                                <img src="<?php echo e(asset('storage/images/'.$lesson->thumbnail)); ?>"
                                                      class="thumbnail-image" alt="Course">
                                             </div>
                                             <div class="price">
@@ -213,13 +212,13 @@
                                             <div class="course-teacher d-flex align-items-center">
                                                 <div class="thum">
                                                     <a href="courses-single.html"><img width="150px"
-                                                                                       src="{{asset('storage/images/'.$lesson->teacher->thumbnail)}}"
+                                                                                       src="<?php echo e(asset('storage/images/'.$lesson->teacher->thumbnail)); ?>"
                                                                                        alt="teacher"></a>
                                                 </div>
                                                 <div class="teacher ml-10">
                                                     <div class="name">
                                                         <a href="#">
-                                                            <h6>{{$lesson->teacher->fname .' '. $lesson->teacher->lname}}</h6>
+                                                            <h6><?php echo e($lesson->teacher->fname .' '. $lesson->teacher->lname); ?></h6>
                                                         </a>
                                                     </div>
                                                     <div class="review">
@@ -236,13 +235,13 @@
                                         </div>
                                         <div class="cont">
                                             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn"
-                                               href="{{route('addToCalender', $lesson->id)}}"
+                                               href="<?php echo e(route('addToCalender', $lesson->id)); ?>"
                                                style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
                                                 CALENDAR</a>
                                         </div>
                                     </div> <!-- single course -->
                                 </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-12 mb-4 justify-content-center text-center mt-3" id="donate-register-btn-div">
                                 <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#"
                                    id="donate-register-btn">VIEW MORE</a>
@@ -254,6 +253,8 @@
         </div>
     </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/students/student-schedule-search-results.blade.php ENDPATH**/ ?>

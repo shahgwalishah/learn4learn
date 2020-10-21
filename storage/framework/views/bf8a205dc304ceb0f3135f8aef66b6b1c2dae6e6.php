@@ -102,6 +102,17 @@
             display: flex;
             justify-content: center;
         }
+        .customSearching{
+            justify-content: center;
+        }
+        .std-welcome-msg {
+            color: #020101;
+            line-height: 40px;
+            text-align: center;
+            padding-bottom: 23px;
+            letter-spacing: 2px;
+            margin-left: 0px;
+        }
     </style>
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
@@ -112,7 +123,7 @@
                         <div class="slider-cont slider-cont-4 text-center">
                             <h3 class="std-welcome-msg text-white"><?php echo e($user->fname); ?><br>
                                 Welcome back!</h3>
-                            <div class="row">
+                            <div class="row customSearching">
                                 
                                 <div class="col-7 ml-5 pl-5 customFieldSearch">
                                     <div class="input-group">
@@ -124,7 +135,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,22 @@
         border-top: 1px solid #ededed;
         padding: 0px 0;
     }
+    footer p {
+        margin: 0;
+        padding: 0;
+        float: unset !important;
+    }
+    footer ul li {
+        display: block !important;
+        margin-right: 15px;
+    }
+    footer ul li:after {
+        content: "" !important;
+        font-weight: 300;
+        position: relative;
+        left: 9px;
+        color: #999;
+    }
 </style>
 <?php
     $emailVerified = \Auth::user()->email_verified_at;

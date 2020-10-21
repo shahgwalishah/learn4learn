@@ -21,25 +21,24 @@
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckUserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/AddHomeWorks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/AddHomeWorks.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/add-lesson.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/add-lesson.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-schedule.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/oY5UOZtFlRAnnyfhulcT6C2xODgsQJKw5MkMN2IU" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/12a09e2200c213e4159bf09efbed77cad4610148.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/12a09e2200c213e4159bf09efbed77cad4610148.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/1863d46bbed0bd4bc47cf2afbd0b6405165b8b2e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/1863d46bbed0bd4bc47cf2afbd0b6405165b8b2e.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/19f33f623c5edc91bac3667fc20fe0894ac26d96.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/19f33f623c5edc91bac3667fc20fe0894ac26d96.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/2fdc8390e0c90686f186938c5f1c1cc2bf4ff25a.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2fdc8390e0c90686f186938c5f1c1cc2bf4ff25a.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/69655c9e5becd341f09144a26b65604711518b1f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/69655c9e5becd341f09144a26b65604711518b1f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/d84442e457fead6cf435adc3dbd5e48a53b2f069.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/d84442e457fead6cf435adc3dbd5e48a53b2f069.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/account.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/grades.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/grades.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/myMessages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/myMessages.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-homework.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-homework.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule-search-results.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule-search-results.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/6zU4DJKojLtXOTIEYYSy39XtpS5nCnq3zG46yE5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/2247e6ea11065e5734ba4d802a6929a5aad58758.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2247e6ea11065e5734ba4d802a6929a5aad58758.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/281604c5142f67e3323b3639cdca34bf0cec10d8.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/281604c5142f67e3323b3639cdca34bf0cec10d8.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/2f09b89e15db7ee9a9447317991f7e5280031527.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2f09b89e15db7ee9a9447317991f7e5280031527.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/34a7af2b1593adab1be528a18d04825ae57f33d6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/34a7af2b1593adab1be528a18d04825ae57f33d6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/88eb0a5f512e73dd1af5b1a3725b11ff2bf67905.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/88eb0a5f512e73dd1af5b1a3725b11ff2bf67905.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/afac5fe4a7b5ddd7aa5142bc435383799e480a9e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/afac5fe4a7b5ddd7aa5142bc435383799e480a9e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/b34c13cb2688c2f109637f1dd8faed8b226530bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/b34c13cb2688c2f109637f1dd8faed8b226530bc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/eff422dc388950064874aa1a625119e86de502c1.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/eff422dc388950064874aa1a625119e86de502c1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/fb12c838590626f5ef9dac672df621bbabd6f468.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/fb12c838590626f5ef9dac672df621bbabd6f468.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +301,8 @@
       <workItem from="1603277953378" duration="269000" />
       <workItem from="1603279141639" duration="1802000" />
       <workItem from="1603280975918" duration="1783000" />
-      <workItem from="1603282808712" duration="844000" />
+      <workItem from="1603282808712" duration="1785000" />
+      <workItem from="1603284620640" duration="1420000" />
     </task>
     <servers />
   </component>
@@ -356,10 +356,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603283648037">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603285945549">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603283648037" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603285945549" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
   </component>
 </project>

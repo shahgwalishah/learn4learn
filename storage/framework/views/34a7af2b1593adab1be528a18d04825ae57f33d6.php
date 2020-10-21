@@ -1,5 +1,10 @@
 <?php $__env->startSection('title','Messages'); ?>
 <?php $__env->startPush('css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homework.css')); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
     <style>
         .successColor{
             background-color: #ffc10e;
@@ -10,23 +15,47 @@
             border:0px;
             cursor: pointer;
         }
+        #std-homework-find-lesson-sec{
+            text-align: center;
+            width: 100%;
+        }
+        #std-homework-table-sec{
+            text-align: center;
+            width: 100%;
+        }
+        .customMessaging{
+            text-align: -webkit-center;
+            width: 100%;
+        }
+        .customDanger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customAlertDAnger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customDangerContainer{
+            display: flex;
+            justify-content: center;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
-
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homework.css')); ?>">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
-
 
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
              style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center customMessaging">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont slider-cont-4 text-center">
                             <div class="input-group">
@@ -44,18 +73,14 @@
         </div> <!-- single slider -->
     </section>
     <!-- Card -->
-
     <section id="about-part" class="about-tow pt-65">
         <div class="about-shape">
         </div>
         <h5 style="text-align: center;color: #006796;font-size: 28px;letter-spacing: 5px;">Find A Lesson</h5>
         <!-- container -->
     </section>
-
     <!--====== ABOUT PART ENDS ======-->
-
     <!--====== ADMISSION PART START ======-->
-
     <section class="admission-row pb-120" id="std-homework-find-lesson-sec">
         <div class="container">
             <div class="row justify-content-center">
@@ -180,7 +205,6 @@
         </div> <!-- container -->
     </section>
 
-
     <section class="admission-row pb-120" id="std-homework-table-sec">
         <div class="container" id="studentM">
             <div class="row justify-content-center">
@@ -199,7 +223,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(count($data) == 0): ?>
+                            <tbody>
+                            <tr>
+                                <td></td>
+                                <td width="80%">
+                                    <div class="alert alert-danger customDanger">
+                                        <div class="container customDangerContainer">
+                                            <div class="alert-icon">
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                            <?php else: ?>
+                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td><?php echo e($message->from_user->fname); ?></td>
                                     <td><?php echo e($message->messages); ?></td>
@@ -242,6 +283,7 @@
                                     </div>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

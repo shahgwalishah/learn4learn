@@ -18,6 +18,26 @@
         padding-bottom: 3%;
         /* padding-top: 20px; */
     }
+    .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
+    }
 </style>
 
 <div class="search-box">
@@ -383,6 +403,15 @@
 
         @endif
         <div class="row">
+            @if(count($getuserimg) == 0)
+            <div class="alert alert-danger customDanger">
+                                <div class="container customDangerContainer">
+                                    <div class="alert-icon">
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                    </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                </div>
+                            </div>
+            @else
             @foreach($getuserimg as $leson)
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 home-lessons-bot">
@@ -476,6 +505,7 @@ if($getstu >=1){
                 </div> <!-- single course -->
             </div> <!-- single course -->
             @endforeach
+            @endif
         </div>
 
 

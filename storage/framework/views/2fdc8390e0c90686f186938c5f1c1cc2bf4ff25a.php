@@ -1,11 +1,37 @@
 <?php $__env->startSection('title','Student Homework'); ?>
 <?php $__env->startSection('content'); ?>
 <style>
-    @media( max-width: 991px)
-    {
         #std-homework-find-lesson-sec{
+            text-align: center;
             width: 100%;
         }
+        .customTableStyling{
+            text-align: center;
+            width: 100%;
+        }
+        .customSearchField{
+            text-align: -webkit-center;
+            width: 100%;
+        }
+        .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
     }
 </style>
 
@@ -21,7 +47,7 @@
         <div class="single-slider slider-4 bg_cover pt-150"
              style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center customSearchField">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont slider-cont-4 text-center">
                             <div class="input-group">
@@ -180,7 +206,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table customTableStyling">
 
                         <thead>
                         <tr>
@@ -215,26 +241,42 @@
                         }
                         ?>
 
-
-                        <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $getmystydentrecord): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tbody>
+                        <?php if(count($aray1) == 0): ?> 
+                        <tbody>
                             <tr>
-                                <th scope="row"><?php echo e($getmystydentrecord->fname); ?></th>
-                                <td><?php echo e($getmystydentrecord->level_name); ?></td>
-                                <td><?php echo e($getmystydentrecord->Subject_name); ?></td>
-
-
-                                <td>
-                                    <a href="<?php echo e(route('View.student.profile', [$getmystydentrecord->user_id])); ?>">
-                                        <button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW PROFILE</button>
+                                <td></td>
+                                <td width="100%">
+                                <div class="alert alert-danger customDanger">
+                                    <div class="container customDangerContainer">
+                                        <div class="alert-icon">
+                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                        </div>&nbsp;&nbsp;&nbsp;No Schedule Found
+                                    </div>
+                                </div>
                                 </td>
+                                <td></td>
                             </tr>
+                        </tbody>
+                        <?php else: ?>
+                            <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $getmystydentrecord): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tbody>
+                                <tr>
+                                    <th scope="row"><?php echo e($getmystydentrecord->fname); ?></th>
+                                    <td><?php echo e($getmystydentrecord->level_name); ?></td>
+                                    <td><?php echo e($getmystydentrecord->Subject_name); ?></td>
 
 
-                            </tbody>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <td>
+                                        <a href="<?php echo e(route('View.student.profile', [$getmystydentrecord->user_id])); ?>">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW PROFILE</button>
+                                    </td>
+                                </tr>
 
-                        <?php } ?>
+
+                                </tbody>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
+                            <?php } ?>
                     </table>
                 </div>
             </div> <!-- row -->

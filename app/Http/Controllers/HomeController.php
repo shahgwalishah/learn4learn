@@ -35,10 +35,10 @@ class HomeController extends Controller
             $level = levels::all();
             $user_id = \Auth::user()->id;
             if (\Auth::user()->type == 'teacher') {
-                session()->flash('success-alert-message-teac', "Email Verified Successfully.");
+                session()->flash('success-alert-message-teac', "Email Verification Send To Your Email Address.");
                 return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id'));
             } else {
-                session()->flash('success-alert-message-teac', "Email Verified Successfully");
+                session()->flash('success-alert-message-teac', "Email Verification Send To Your Email Address");
                 return view('auth.students.student-level', compact('level', 'user_id'));
             }
         }

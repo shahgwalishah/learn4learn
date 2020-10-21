@@ -2,8 +2,8 @@
 <?php $__env->startSection('content'); ?>
 <style>
     .customStyle{
-        width: 140px;
-        height: 140px;
+        min-height: 140px;
+        min-width: 140px;
     }
     .customAlertDAngerContainer{
         display: flex;

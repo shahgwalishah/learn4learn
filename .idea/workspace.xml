@@ -21,6 +21,25 @@
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckUserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lesson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/AddHomeWorks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/AddHomeWorks.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/add-lesson.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/add-lesson.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-schedule.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/oY5UOZtFlRAnnyfhulcT6C2xODgsQJKw5MkMN2IU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/12a09e2200c213e4159bf09efbed77cad4610148.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/12a09e2200c213e4159bf09efbed77cad4610148.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/1863d46bbed0bd4bc47cf2afbd0b6405165b8b2e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/1863d46bbed0bd4bc47cf2afbd0b6405165b8b2e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/19f33f623c5edc91bac3667fc20fe0894ac26d96.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/19f33f623c5edc91bac3667fc20fe0894ac26d96.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/2fdc8390e0c90686f186938c5f1c1cc2bf4ff25a.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2fdc8390e0c90686f186938c5f1c1cc2bf4ff25a.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/69655c9e5becd341f09144a26b65604711518b1f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/69655c9e5becd341f09144a26b65604711518b1f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/d84442e457fead6cf435adc3dbd5e48a53b2f069.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/d84442e457fead6cf435adc3dbd5e48a53b2f069.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +192,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -276,6 +295,14 @@
       <workItem from="1603196489986" duration="1236000" />
       <workItem from="1603199703716" duration="2387000" />
       <workItem from="1603203500346" duration="21000" />
+      <workItem from="1603254096752" duration="1073000" />
+      <workItem from="1603258455488" duration="2365000" />
+      <workItem from="1603260844191" duration="608000" />
+      <workItem from="1603267574072" duration="68000" />
+      <workItem from="1603277953378" duration="269000" />
+      <workItem from="1603279141639" duration="1802000" />
+      <workItem from="1603280975918" duration="1783000" />
+      <workItem from="1603282808712" duration="844000" />
     </task>
     <servers />
   </component>
@@ -329,10 +356,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603196844719">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603283648037">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603196844719" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603283648037" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
   </component>
 </project>

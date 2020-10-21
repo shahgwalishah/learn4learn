@@ -1,4 +1,3 @@
-
 <!--====== HEADER PART ENDS ======-->
 
 <!--====== SEARCH BOX PART START ======-->
@@ -17,6 +16,26 @@
         display: flex;
         padding-bottom: 3%;
         /* padding-top: 20px; */
+    }
+    .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
     }
 </style>
 
@@ -148,13 +167,14 @@
                 </button>
             </div>
             <?php endif; ?>
-            <form class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="post">
+            <form id="search_form" class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="post">
                 <?php echo csrf_field(); ?>
+                <input type="hidden" name="see_all" id="see_all" value="" />
                 <div class="row">
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="level_id" required="true">
                             <optgroup label="Picnic">
-                                <?php 
+                                <?php
                                                                                         if(@$level){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -172,7 +192,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -191,7 +211,7 @@
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="subject_id" required="true">
                             <optgroup label="Picnic">
-                                <?php 
+                                <?php
                                                          if(@$subjects){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -209,7 +229,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -229,7 +249,7 @@
                         <select class="selectpicker" name="date_id" required="true">
                             <optgroup label="Picnic">
                                 <option value="">Find Date</option>
-                                <?php 
+                                <?php
                                                          if(@$Date){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -247,7 +267,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
                                 <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -346,7 +366,7 @@
     </div>
 
     <div style="text-align: center;padding: 60px 0px 60px 0px;">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#"
+        <a data-animation="fadeInUp" data-delay="2s" onclick="browseAll()" class="main-slider-btn2" href="javascript:;"
             style="background-color: #FDBF11;text-align: center;">BROWSE ALL</a>
     </div>
 </section>
@@ -385,6 +405,15 @@
 
         <?php endif; ?>
         <div class="row">
+            <?php if(count($getuserimg) == 0): ?>
+            <div class="alert alert-danger customDanger">
+                                <div class="container customDangerContainer">
+                                    <div class="alert-icon">
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                    </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                </div>
+                            </div>
+            <?php else: ?>
             <?php $__currentLoopData = $getuserimg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 home-lessons-bot">
@@ -445,7 +474,7 @@
                         <?php if(Auth::check()): ?>
 
 
-                        <?php 
+                        <?php
 $authId=Auth::User()->id;
 
 $getrecords=DB::table('users')->where('users.id', $authId)->where('users.type', 'student', 'users.id')->select('id', 'type')->get();
@@ -479,13 +508,14 @@ if($getstu >=1){
                 </div> <!-- single course -->
             </div> <!-- single course -->
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div>
 
 
     </div> <!-- course slide -->
 
     <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">SEE
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="javascript:;" onclick="seeAll()" id="donate-register-btn">SEE
             ALL</a>
     </div>
     </div> <!-- container -->
@@ -506,7 +536,16 @@ if($getstu >=1){
     function Buttoncl(){
         alert('You have to register as a Student..');
     }
+    function seeAll(){
+        $('#see_all').val('see_all');
+        $('#search_form').submit();
+    }
+    function browseAll(){
+        $('#see_all').val('see_all');
+        $('#search_form').submit();
+    }
 </script>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/welcome.blade.php ENDPATH**/ ?>

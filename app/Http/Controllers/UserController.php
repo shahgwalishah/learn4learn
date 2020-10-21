@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -180,28 +181,46 @@ class UserController extends Controller
 
     public function SearchPage(Request $request)
     {
-        // dd(123);
-        $getuserimg = DB::table('users')
-            ->join('lessons', 'users.id', 'lessons.user_id')
-            ->join('subjects', function ($join) {
-                $join->on('lessons.subject_id', 'subjects.id');
-            })
-            ->where('subjects.id', $request->subject_id)
-            ->where('lessons.id', $request->date_id)
+        if(isset($request->see_all)) {
+            $getuserimg = DB::table('users')
+                ->join('lessons', 'users.id', 'lessons.user_id')
+                ->join('subjects', function ($join) {
+                    $join->on('lessons.subject_id', 'subjects.id');
+                })
+                ->select(
+                    'users.thumbnail as userthamnail',
+                    'lessons.title',
+                    'lessons.description',
+                    'lessons.date',
+                    'lessons.thumbnail',
+                    'subjects.name as subjectname',
+                    'subjects.id as subjects_id',
+                    'lessons.time',
+                    'lessons.id as lessonsId',
+                    'lessons.user_id as teacher_id'
+                )->get();
+        } else {
+            $getuserimg = DB::table('users')
+                ->join('lessons', 'users.id', 'lessons.user_id')
+                ->join('subjects', function ($join) {
+                    $join->on('lessons.subject_id', 'subjects.id');
+                })
+                ->where('subjects.id', $request->subject_id)
+                ->where('lessons.id', $request->date_id)
 
-            ->select(
-                'users.thumbnail as userthamnail',
-                'lessons.title',
-                'lessons.description',
-                'lessons.date',
-                'lessons.thumbnail',
-                'subjects.name as subjectname',
-                'subjects.id as subjects_id',
-                'lessons.time',
-                'lessons.id as lessonsId',
-                'lessons.user_id as teacher_id'
-            )->get();
-
+                ->select(
+                    'users.thumbnail as userthamnail',
+                    'lessons.title',
+                    'lessons.description',
+                    'lessons.date',
+                    'lessons.thumbnail',
+                    'subjects.name as subjectname',
+                    'subjects.id as subjects_id',
+                    'lessons.time',
+                    'lessons.id as lessonsId',
+                    'lessons.user_id as teacher_id'
+                )->get();
+        }
         $level    = DB::table('levels')->get();
         $subjects = DB::table('subjects')
             ->join('lessons', 'lessons.subject_id', 'subjects.id')
@@ -223,6 +242,7 @@ class UserController extends Controller
         $user_id = \Auth::user()->id;
         $level      = levels::all();
         $verified = 'true';
+        session()->flash('success-alert-message-teac', "Email Verified Successfully.");
         if($user->type == 'teacher') {
             return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id','verified'));
         } else {

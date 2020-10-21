@@ -58,6 +58,35 @@
                 margin: 0 auto;
             }
         }
+        .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
+    }
+    .ccontainer{
+        margin-bottom: 50px;
+    }
+        .single-course-2 {
+            width: 100%;
+        }
+        .cfiltercontainer{
+            text-align: center;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -78,13 +107,13 @@
     <div class="about-shape">
     </div>
     <div class="container cfiltercontainer">
-        <h6 style="color: #006796;font-size: 18px;letter-spacing: 2px;padding:0 18px;">Filter By</h5>
+        <h5 style="color: #006796;font-size: 18px;letter-spacing: 2px;padding:0 18px;">Filter By</h5>
     </div>
     <!-- container -->
 </section>
 
 
-<section class="admission-row pb-120 bg-white">
+<section class="admission-row pb-120 bg-white customStyling">
     <div class="container cfiltercontainer">
         <div class="row justify-content-center">
             <form action="<?php echo e(route('SearchSchedule')); ?>" method="get">
@@ -162,6 +191,15 @@
             }
 
             ?>
+            <?php if(count($lessons) == 0): ?>
+            <div class="alert alert-danger customDanger">
+                                <div class="container customDangerContainer">
+                                    <div class="alert-icon">
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                    </div>&nbsp;&nbsp;&nbsp;No Schedule Found
+                                </div>
+                            </div>
+            <?php else: ?>
             <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-lg-4 col-md-6 col-12 position-relatiove justify-content-center d-flex">
                 <div class="_profile_image"
@@ -175,7 +213,7 @@
                             <span></span>
                         </div>
                         <div class="card">
-                            <img src="<?php echo e(url('/storage/images/'.$lesson->thumbnail)); ?>">
+                            <img style="object-fit: cover;" src="<?php echo e(url('/storage/images/'.$lesson->thumbnail)); ?>">
                             <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
                                 <h4 class="card-title text-white"><?php echo e($lesson->subject->name); ?></h4>
                                 <a href="<?php echo e(route('studentLesson',[$lesson->id])); ?>">
@@ -216,6 +254,7 @@
                 </div> <!-- single course -->
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div> <!-- course slide -->
     </div> <!-- container -->
 </section>

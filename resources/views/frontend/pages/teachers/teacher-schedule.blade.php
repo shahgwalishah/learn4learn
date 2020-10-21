@@ -79,6 +79,15 @@
         display: flex;
         justify-content: center;
     }
+    .ccontainer{
+        margin-bottom: 50px;
+    }
+        .single-course-2 {
+            width: 100%;
+        }
+        .cfiltercontainer{
+            text-align: center;
+        }
     </style>
 @endpush
 @section('content')
@@ -204,7 +213,7 @@
                             <span></span>
                         </div>
                         <div class="card">
-                            <img src="{{url('/storage/images/'.$lesson->thumbnail)}}">
+                            <img style="object-fit: cover;" src="{{url('/storage/images/'.$lesson->thumbnail)}}">
                             <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
                                 <h4 class="card-title text-white">{{$lesson->subject->name}}</h4>
                                 <a href="{{route('studentLesson',[$lesson->id])}}">

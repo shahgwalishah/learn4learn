@@ -70,7 +70,7 @@
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150"
         style="background-repeat: no-repeat; background:linear-gradient(rgb(0 0 0 / 23%) 100%, rgba(0, 0, 0, 0.5) 100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
-   
+
         <div class="container">
             <div class="row justify-content-center customSearchField">
                 <div class="col-xl-7 col-lg-9">
@@ -114,13 +114,14 @@
                 </button>
             </div>
             @endif
-            <form class="search_form" action="{{ route('searchSubForSubjectHome') }}" method="post">
+            <form id="submitSearch" class="search_form" action="{{ route('searchSubForSubjectHome') }}" method="post">
                 @csrf
+                <input type="hidden" name="see_all" id="see_all" value="" />
                 <div class="row">
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="level_id" required="true">
                             <optgroup label="Picnic">
-                                <?php 
+                                <?php
                                                                                         if(@$level){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -138,7 +139,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -157,7 +158,7 @@
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="subject_id" required="true">
                             <optgroup label="Picnic">
-                                <?php 
+                                <?php
                                                          if(@$subjects){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -175,7 +176,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -195,7 +196,7 @@
                         <select class="selectpicker" name="date_id" required="true">
                             <optgroup label="Picnic">
                                 <option value="">Find Date</option>
-                                <?php 
+                                <?php
                                                          if(@$Date){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -213,7 +214,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
                                 @foreach($aray1 as $Date)
@@ -338,7 +339,7 @@
                         @if(Auth::check())
 
 
-                        <?php 
+                        <?php
 $authId=Auth::User()->id;
 
 $getrecords=DB::table('users')->where('users.id', $authId)->where('users.type', 'student', 'users.id')->select('id', 'type')->get();
@@ -379,7 +380,7 @@ if($getstu >=1){
     </div> <!-- course slide -->
 
     <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">SEE
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="javascript:;" onclick="seeAllBtn()">SEE
             ALL</a>
     </div>
     </div> <!-- container -->
@@ -399,6 +400,10 @@ if($getstu >=1){
 <script type="text/javascript">
     function Buttoncl(){
         alert('You have to register as a Student..');
+    }
+    function seeAllBtn(){
+        $('#see_all').val('see_all');
+        $('#submitSearch').submit();
     }
 </script>
 

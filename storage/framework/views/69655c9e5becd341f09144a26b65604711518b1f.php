@@ -69,10 +69,11 @@
                 width: 100%;
             }
         }
-        .customSFaE{
-            position: relative;
-            right:40px;
+        .customSFaE {
+            position: absolute;
+            right: 77px;
             cursor: pointer;
+            margin-top: 10px;
         }
     </style>
     <!--====== Bootstrap css ======-->

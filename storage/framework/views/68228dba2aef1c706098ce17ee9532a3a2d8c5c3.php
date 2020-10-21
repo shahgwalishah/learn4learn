@@ -1,18 +1,17 @@
-@extends('layouts.teachersmaster')
-@section('title','Student Homework')
-@section('content')
+<?php $__env->startSection('title','Student Homework'); ?>
+<?php $__env->startSection('content'); ?>
 
 <!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="{{asset('asset/css/teacher-homework-assign.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/teacher-homework-assign.css')); ?>">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
 
 
 <section id="slider-part" class="slider-active">
   <div class="single-slider slider-4 bg_cover pt-150"
-    style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
+    style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
     <div class="container">
       <div class="row" style="justify-content: center;">
         <div class="col-xl-7 col-lg-9">
@@ -53,33 +52,34 @@
           <p class="stu-home-dash-head-head">ASSIGN HOMEWORK</p>
           <hr>
         </div>
-        @if(session()->has('message.level'))
+        <?php if(session()->has('message.level')): ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <strong>Alert:</strong> {!! session('message.content') !!}
+          <strong>Alert:</strong> <?php echo session('message.content'); ?>
+
         </div>
 
-        @endif
+        <?php endif; ?>
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-12 justify-content-center text-center">
-            <img src="{{url('/storage/images/'.$getfurthwerdetailsdteacher[0]->thumbnail)}}" alt=""
+            <img src="<?php echo e(url('/storage/images/'.$getfurthwerdetailsdteacher[0]->thumbnail)); ?>" alt=""
               id="stud-profile-pic">
           </div>
           <div class="col-md-8 col-sm-8 col-xs-12 justify-content-center text-center">
-            <p class="stud-date"><b>Subject</b> {{$getfurthwerdetailsdteacher[0]->sub_name}}</p><br>
-            <p class="stud-date"><b>Title:</b> {{$getfurthwerdetailsdteacher[0]->title}}</p><br>
-            <p class="stud-date"><b>Due Date</b>{{$getfurthwerdetailsdteacher[0]->date}}</p>
-            <form action="{{route('teacher.addHomework')}}" method="post" enctype="multipart/form-data">
-              @csrf
+            <p class="stud-date"><b>Subject</b> <?php echo e($getfurthwerdetailsdteacher[0]->sub_name); ?></p><br>
+            <p class="stud-date"><b>Title:</b> <?php echo e($getfurthwerdetailsdteacher[0]->title); ?></p><br>
+            <p class="stud-date"><b>Due Date</b><?php echo e($getfurthwerdetailsdteacher[0]->date); ?></p>
+            <form action="<?php echo e(route('teacher.addHomework')); ?>" method="post" enctype="multipart/form-data">
+              <?php echo csrf_field(); ?>
               <div class="form-group green-border-focus">
                 <textarea class="form-control" name="descriptions" id="exampleFormControlTextarea5" rows="6"></textarea>
               </div>
               <div class="row">
-                <input type="hidden" name="Sub_id" value="{{$getfurthwerdetailsdteacher[0]->subjectid}}">
-                <input type="hidden" name="lesson" value="{{$lesson}}">
-                <input type="hidden" name="date" value="{{$getfurthwerdetailsdteacher[0]->date}}">
+                <input type="hidden" name="Sub_id" value="<?php echo e($getfurthwerdetailsdteacher[0]->subjectid); ?>">
+                <input type="hidden" name="lesson" value="<?php echo e($lesson); ?>">
+                <input type="hidden" name="date" value="<?php echo e($getfurthwerdetailsdteacher[0]->date); ?>">
 
 
                 <div class="col-5">
@@ -102,4 +102,6 @@
     </div>
   </div>
 </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/teachers/AddHomeWorks.blade.php ENDPATH**/ ?>

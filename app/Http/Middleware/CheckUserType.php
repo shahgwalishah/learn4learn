@@ -21,11 +21,6 @@ class CheckUserType
 
 
         if(auth::check()) {
-
-//            if (auth::user()['approved_at'] === Null) {
-//                return redirect()->route('login');;
-//        }
-//            else{
                 if (auth::user()['type'] === $userType) {
                     return $next($request);
                 }
@@ -33,7 +28,6 @@ class CheckUserType
                     return redirect()->route('denied');
                 }
             }
-//    }
         else{
             return redirect()->route('login');
         }

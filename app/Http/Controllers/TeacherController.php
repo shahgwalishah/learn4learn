@@ -36,7 +36,7 @@ class TeacherController extends Controller
                     $s = Subject::create([
                         'name' => $subject,
                     ]);
-                    $createSubjects = SubjectLevelDetail::create([
+                    SubjectLevelDetail::create([
                         'user_id'    => $user_id,
                         'subject_id' => $s->id,
                         'field'      => 0,
@@ -87,8 +87,7 @@ class TeacherController extends Controller
     {
         $user = Auth::user();
         if (count($user->subject_level_details) <= 0) {
-            session()->flash('alert-danger', 'Please complete your profile first!');
-            return redirect()->back();
+            return back()->with('alert-danger','Please complete your profile first!');
         }
         $subjects = $user->getSubjects;
         return view('frontend.pages.teachers.add-lesson')->with('subjects', $subjects);
@@ -416,7 +415,7 @@ class TeacherController extends Controller
         }
         $results = $results->get();
         $levels  = levels::all();
-        return view('frontend.pages.teachers.teacher-schedule', compact('levels', 'results'));
+        return view('frontend.pages.teachers.teacher-schedule', compact('levels', 'results','teacher'));
     }
 
     public function checkTeacherHasSchedule($teacher)

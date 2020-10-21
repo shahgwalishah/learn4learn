@@ -1,7 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.teachersmaster')
 @section('title','level')
 @section('content')
-
 <style>
     #img_url {
         background: #ddd;

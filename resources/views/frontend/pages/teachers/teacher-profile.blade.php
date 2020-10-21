@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title','Teacher Profile')
 @section('content')
-
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="{{asset('asset/css/teacher-profile.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">

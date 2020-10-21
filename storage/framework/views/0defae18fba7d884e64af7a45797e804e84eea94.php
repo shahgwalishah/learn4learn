@@ -1,6 +1,5 @@
 <?php $__env->startSection('title','level'); ?>
 <?php $__env->startSection('content'); ?>
-
 <style>
     #img_url {
         background: #ddd;
@@ -228,4 +227,4 @@
         }
 </script>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/teachers/edit-teacher-profile.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/teachers/edit-teacher-profile.blade.php ENDPATH**/ ?>

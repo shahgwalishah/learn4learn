@@ -178,7 +178,7 @@ class UserController extends Controller
         return view('welcome')->with(['getuserimg' => $getuserimg, 'lesson' => $lesson, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
     }
 
-    public function searchSubForSubjectHome(Request $request)
+    public function SearchPage(Request $request)
     {
         // dd(123);
         $getuserimg = DB::table('users')
@@ -208,18 +208,7 @@ class UserController extends Controller
             ->select('subjects.*')
             ->get();
         $Date = DB::table('lessons')->get();
-
-        return view('welcome')->with(['getuserimg' => $getuserimg, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
-        $countserchresut = count($getuserimg);
-
-        if ($countserchresut >= 1) {
-            return view('welcome')->with(['getuserimg' => $getuserimg, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
-        } else {
-            $request->session()->flash('message.level', 'success');
-            $request->session()->flash('message.content', 'You have Upated password Successfully');
-
-            return back();
-        }
+        return view('frontend.pages.homepagesearch')->with(['getuserimg' => $getuserimg, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
     }
 
     public function verifiedSuccess(){

@@ -909,6 +909,7 @@ class TeacherController extends Controller
 
     public function _EditTeacherProfile()
     {
+        // dd(123);
         $teacherdata=User::where('id', auth::user()->id)->first();
         return view('frontend.pages.teachers.edit-teacher-profile', compact('teacherdata'));
     }

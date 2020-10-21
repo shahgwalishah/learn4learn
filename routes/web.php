@@ -37,7 +37,7 @@ Route::group(['Public'], function () {
     Route::post('/checkout/stripepayment', 'PageController@stripePayment')->name('stripepayment');
     Route::get('/checkout/Paypal', 'PageController@paypalpaymentgatwway')->name('paypalpaymentgatwway');
 
-    Route::post('/search/Subjects', 'UserController@searchSubForSubjectHome')->name('searchSubForSubjectHome');
+    Route::post('/search/Subjects', 'UserController@SearchPage')->name('searchSubForSubjectHome');
 
     /**
      * register pages for students

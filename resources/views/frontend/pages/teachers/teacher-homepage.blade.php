@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-sm-12 col-xs-12">
                             <img src="{{url('/storage/images/'. (!empty($usersimgg[0]->thumbnail) ? $usersimgg[0]->thumbnail : 'default.png') )}}"
-                                 alt="stud-profile-pic" class="customStyle">
+                                 alt="stud-profile-pic" class="customStyle" onerror="this.src='/images/default.png'">
                         </div>
                         <div class="col-lg-8 col-sm-12 col-xs-12">
                             <p class="stud-name pb-3">{{Auth::user()->fname}}-{{Auth::user()->lname}}</p>

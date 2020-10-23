@@ -1,6 +1,5 @@
-@extends('layouts.master')
-@section('title','level')
-@push('css')
+<?php $__env->startSection('title','level'); ?>
+<?php $__env->startPush('css'); ?>
 <style>
     .customSetStyle {
         display: flex;
@@ -38,11 +37,11 @@
         }
     }
 </style>
-@endpush
-@section('content')
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
 
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/student-lesson-page.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-lesson-page.css')); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -50,43 +49,43 @@
     <section class="main-section">
         <div class="container">
             <div class="row">
-                {{-- first-column --}}
+                
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-12 media">
-                            <iframe width="100%" height="345" src="https://www.youtube.com/embed/{{$lesssonDetail->lessons[0]['link']}}" allowfullscreen>
+                            <iframe width="100%" height="345" src="https://www.youtube.com/embed/<?php echo e($lesssonDetail->lessons[0]['link']); ?>" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                 </div>
-                {{-- second-column --}}
+                
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-md-9 col-sm-12 col-xs-12">
-                            <h4>{{$lesssonDetail->lessons[0]['title']}}</h4>
-                            <p>Live Date:{{$lesssonDetail->lessons[0]['date']}}<br>
-                                Time:{{$lesssonDetail->lessons[0]['time']}}</p>
+                            <h4><?php echo e($lesssonDetail->lessons[0]['title']); ?></h4>
+                            <p>Live Date:<?php echo e($lesssonDetail->lessons[0]['date']); ?><br>
+                                Time:<?php echo e($lesssonDetail->lessons[0]['time']); ?></p>
                             <div class="row">
                                 <div class="col-md-2 customSetStyle">
-                                    <img style="border-radius: 100px;" onerror="this.src='/asset/images/logo1.png'" src="{{url('/storage/images/'.$lesssonDetail->thumbnail)}}">
+                                    <img style="border-radius: 100px;" onerror="this.src='/asset/images/logo1.png'" src="<?php echo e(url('/storage/images/'.$lesssonDetail->thumbnail)); ?>">
                                 </div>
                                 <div class="col-md-5">
-                                    <p style="margin: 8px;word-wrap: break-word;">{{$lesssonDetail->fname}}-{{$lesssonDetail->lname}}</p>
+                                    <p style="margin: 8px;word-wrap: break-word;"><?php echo e($lesssonDetail->fname); ?>-<?php echo e($lesssonDetail->lname); ?></p>
                                 </div>
                                 <div class="col-md-5">
-                                    <a href="{{route('teacherProfile',$lesssonDetail->id)}}" class="profile-btn" style="">VIEW PROFILE</a>
+                                    <a href="<?php echo e(route('teacherProfile',$lesssonDetail->id)); ?>" class="profile-btn" style="">VIEW PROFILE</a>
 
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-3 col-sm-12 col-xs-12 imageCustomStyle">
-                            <img src="{{asset('asset/images/student-lesson-page/geography.jpg')}}">
+                            <img src="<?php echo e(asset('asset/images/student-lesson-page/geography.jpg')); ?>">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 customSetResSt">
-                            <p data-animation="fadeInUp" style="word-wrap: break-word;" data-delay="1.5s">{{$lesssonDetail->lessons[0]['description']}}</p>
+                            <p data-animation="fadeInUp" style="word-wrap: break-word;" data-delay="1.5s"><?php echo e($lesssonDetail->lessons[0]['description']); ?></p>
                             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" id="addtocalen-btn">ADD TO CALENDAR</a>
                         </div>
                     </div>
@@ -97,11 +96,11 @@
         </div>
     </section>
 
-    {{-- line break --}}
+    
     <div class="container"><hr></div>
 
 
-    {{-- documents section --}}
+    
 
     <section class="documents-sec">
         <div class="container">
@@ -116,7 +115,7 @@
                                     Document2.pdf
                                 </div>
                                 <div class="col-6">
-                                    <a href="#"><img src="{{asset('asset/images/student-lesson-page/lessson-download-pic.jpg')}}"></a>
+                                    <a href="#"><img src="<?php echo e(asset('asset/images/student-lesson-page/lessson-download-pic.jpg')); ?>"></a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +126,7 @@
                                     Document2.pdf
                                 </div>
                                 <div class="col-6">
-                                    <a href="#"><img src="{{asset('asset/images/student-lesson-page/lessson-download-pic.jpg')}}"></a>
+                                    <a href="#"><img src="<?php echo e(asset('asset/images/student-lesson-page/lessson-download-pic.jpg')); ?>"></a>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +140,7 @@
                                     Document2.pdf
                                 </div>
                                 <div class="col-6">
-                                    <a href="#"><img src="{{asset('asset/images/student-lesson-page/lessson-download-pic.jpg')}}"></a>
+                                    <a href="#"><img src="<?php echo e(asset('asset/images/student-lesson-page/lessson-download-pic.jpg')); ?>"></a>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +151,7 @@
                                     Document2.pdf
                                 </div>
                                 <div class="col-6">
-                                    <a href="#"><img src="{{asset('asset/images/student-lesson-page/lessson-download-pic.jpg')}}"></a>
+                                    <a href="#"><img src="<?php echo e(asset('asset/images/student-lesson-page/lessson-download-pic.jpg')); ?>"></a>
                                 </div>
                             </div>
                         </div>
@@ -246,20 +245,20 @@
                     </div>
                 </div> <!-- row -->
                 <div class="row">
-                    @foreach($similarLessons as $data)
-                        {{-- {{dd($data)}} --}}
+                    <?php $__currentLoopData = $similarLessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        
                         <div class="col-lg-4">
                             <div class="single-course-2 mt-30">
                                 <div class="thum">
                                     <div class="image">
-                                        <img src="{{url('/storage/images/'.$data->thumbnail)}}" onerror="this.src='/asset/images/course/cu-1.jpg'" alt="Course">
+                                        <img src="<?php echo e(url('/storage/images/'.$data->thumbnail)); ?>" onerror="this.src='/asset/images/course/cu-1.jpg'" alt="Course">
                                     </div>
                                     <div class="price">
                                         <span>Free</span>
                                     </div>
                                     <div class="course-teacher d-flex align-items-center">
                                         <div class="thum">
-                                            <a href="courses-single.html"><img src="{{asset('asset/images/course/teacher/t-1.jpg')}}" alt="teacher"></a>
+                                            <a href="courses-single.html"><img src="<?php echo e(asset('asset/images/course/teacher/t-1.jpg')); ?>" alt="teacher"></a>
                                         </div>
                                         <div class="teacher ml-10">
                                             <div class="name">
@@ -283,11 +282,13 @@
                                 </div>
                             </div> <!-- single course -->
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
                         <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">VIEW MORE</a>
                     </div>
                 </div> <!-- course slide -->
             </div> <!-- container -->
         </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/lesson-detail.blade.php ENDPATH**/ ?>

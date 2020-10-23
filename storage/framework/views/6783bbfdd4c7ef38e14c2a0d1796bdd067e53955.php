@@ -158,7 +158,7 @@
         }
         .customClassBox{
             text-align: left;
-            padding: 0px !important; 
+            padding: 0px !important;
             margin-bottom: 0px;
         }
         .customBorder{
@@ -171,7 +171,7 @@
             margin-bottom: 2px;
             border-radius: 5px;
         }
-        
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
     <style>
@@ -293,89 +293,54 @@
                                 switch ($user->type) {
                                 case 'teacher':?>
 
-                                    <div class="dropdown">
-                                        <button data-toggle="dropdown" class="customClass">
-                                            <i class="fa fa-cog" aria-hidden="true"></i></button>
-                                        <ul class="dropdown-menu showablemenu">
-                                            <p class="customClassBox"><a style="color: black"
-                                                href="<?php echo e(route('teacher_edit_profile')); ?>"><i class="fas fa-edit customFaClas"></i><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
-                                          </p>
-                                          <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
-                                              <?php echo csrf_field(); ?>
-                                              <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
-                                          </form>
-                                        </ul>
-                                    </div>
-
-                                
+                                <div class="dropdown">
+                                    <button data-toggle="dropdown" class="customClass">
+                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu showablemenu">
+                                        <p class="customClassBox"><a style="color: black"
+                                                                     href="<?php echo e(route('teacher_edit_profile')); ?>"><i class="fas fa-edit customFaClas"></i><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
+                                        </p>
+                                        <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
+                                            <?php echo csrf_field(); ?>
+                                            <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
+                                        </form>
+                                    </ul>
+                                </div>
                                 <?php   break;
 
                                 case 'student':?>
-
-                                <ul>
-                                    <li>
-                                        <a style="background: none !important;color:black;">
-                                            <span><a class="no-styleing" href="<?php echo e(route('studentHome')); ?>">
-                                                    <?php echo e($user->fname); ?></span></a></li>
-                                    <div class="dropdown">
-                                        <button class="fa fa-cog" aria-hidden="true" data-toggle="dropdown"></button>
-                                        <div class="dropdown">
-                                            <a class="dropdown" style="color: black"
-                                               href="<?php echo e(route('student_edit_profile')); ?>"><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
-                                            <a class="dropdown" href="<?php echo e(route('logout')); ?>"
-                                               onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();">
-                                                <?php echo e(__('Logout')); ?>
-
-                                            </a>
-
-                                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
-                                                  style="display: none;">
-                                                <?php echo csrf_field(); ?>
-                                            </form>
-
-                                        </div>
-                                    </div>
-
-                                </ul>
+                                <div class="dropdown">
+                                    <button data-toggle="dropdown" class="customClass">
+                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu showablemenu">
+                                        <p class="customClassBox"><a style="color: black"
+                                                                     href="<?php echo e(route('student_edit_profile')); ?>"><i class="fas fa-edit customFaClas"></i><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
+                                        </p>
+                                        <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
+                                            <?php echo csrf_field(); ?>
+                                            <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
+                                        </form>
+                                    </ul>
+                                </div>
                             <?php
                                        break;
                                        case 'admin':
                                    ?>
-                                <ul>
-                                    <li>
-                                        <a style="background: none !important;color:black;">
-                                            <span><a class="no-styleing" href="<?php echo e(route('home')); ?>">
-                                                    <?php echo e($user->fname); ?></span></a></li>
-                                    <div class="dropdown ml-auto">
-                                        <i class="fa fa-cog" aria-hidden="true"></i>
-                                        <div class="dropdown-content">
-                                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
-                                               onclick="event.preventDefault();
-                                                                                                            document.getElementById('logout-form').submit();">
-                                                <?php echo e(__('Logout')); ?>
-
-                                            </a>
-
-                                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
-                                                  style="display: none;">
-                                                <?php echo csrf_field(); ?>
-                                            </form>
-
-                                        </div>
-                                    </div>
-
-                                </ul>
+                                <div class="dropdown">
+                                    <button data-toggle="dropdown" class="customClass">
+                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu showablemenu">
+                                        <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
+                                            <?php echo csrf_field(); ?>
+                                            <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
+                                        </form>
+                                    </ul>
+                                </div>
 
                                 <?php
                                     break;
                                     }
                                 ?>
-
-
-
-
-
                             </div>
                         <?php endif; ?>
                     </div> <!-- header right -->
@@ -439,22 +404,22 @@
                                     <a href="<?php echo e(route('teacher_edit_profile')); ?>"
                                        class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
                                        style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
-                                       Edit Profile
+                                        Edit Profile
                                     </a>
                                 </li>
 
                                 <li id="resp1" style="display: none;">
                                     <a class="dropdown" href="<?php echo e(route('logout')); ?>"
-                                               onclick="event.preventDefault();
+                                       onclick="event.preventDefault();
                                                                         document.getElementById('logout-form').submit();">
-                                                <?php echo e(__('Logout')); ?>
+                                        <?php echo e(__('Logout')); ?>
 
-                                            </a>
+                                    </a>
 
-                                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
-                                                  style="display: none;">
-                                                <?php echo csrf_field(); ?>
-                                            </form>
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                          style="display: none;">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
                                 </li>
                             </ul>
                         </div>

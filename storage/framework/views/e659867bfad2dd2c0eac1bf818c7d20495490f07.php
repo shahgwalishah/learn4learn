@@ -165,7 +165,7 @@
                 </button>
             </div>
             <?php endif; ?>
-            <form id="search_form" class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="post">
+            <form id="search_form" class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="get">
                 <?php echo csrf_field(); ?>
                 <input type="hidden" name="see_all" id="see_all" value="" />
                 <div class="row">
@@ -424,8 +424,7 @@
                             </div>
                         </div>
                         <div class="thum">
-
-                            <div class="card">
+                            <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/<?php echo e($leson->lessonsId); ?>/<?php echo e($leson->teacher_id); ?>'">
 
                                 <img src="<?php echo e(url('/storage/images/'.$leson->thumbnail)); ?>" class="leasson-thumnail">
                                 <div class="card-img-overlay text-white d-flex flex-column justify-content-center">

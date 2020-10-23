@@ -80,6 +80,7 @@ class PageController extends Controller
 
     public function forTeachers()
     {
+        // dd(123);
         $data=ForTeacher::all();
 
         return view('frontend.pages.teachers', compact('data'));

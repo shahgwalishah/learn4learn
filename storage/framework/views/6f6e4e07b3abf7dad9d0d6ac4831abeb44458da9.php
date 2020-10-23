@@ -1,6 +1,5 @@
-@extends('layouts.master')
-@section('title','SignIn')
-@section('content')
+<?php $__env->startSection('title','SignIn'); ?>
+<?php $__env->startSection('content'); ?>
 <style>
     .gray_font {
         color: #737171 !important;
@@ -59,8 +58,8 @@
         }
 </style>
 <!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="{{asset('asset/css/login2.css')}}">
-<link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/login2.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
 
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150">
@@ -85,21 +84,22 @@
                 <div class="col-lg-6 d-flex pt-4 justify-content-center" style="display: flex; align-items: center;">
                     <div class="form-parts">
                         <div style="display:flex;width:100%;">
-                            <form class="form customForm" method="post" action="{{ route('login') }}">
-                                @csrf
+                            <form class="form customForm" method="post" action="<?php echo e(route('login')); ?>">
+                                <?php echo csrf_field(); ?>
                                 <div style="width:100%;">
                                     <h3 class="level-heading">Login</h3>
                                 </div>
 
-                                @if(session()->has('message.level'))
+                                <?php if(session()->has('message.level')): ?>
 
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    {!! session('message.content') !!}
+                                    <?php echo session('message.content'); ?>
+
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                @endif
+                                <?php endif; ?>
 
                                 <div style="width:100%;">
                                     <input type="email" class="_inputwidth" name="email" placeholder="Email Address"
@@ -117,7 +117,7 @@
                                     <label class="form-check-label" for="invalidCheck">
                                         Remember me
                                     </label>
-                                    <a href="{{route('password.request')}}" class="form-check-label ml-5">Forgot
+                                    <a href="<?php echo e(route('password.request')); ?>" class="form-check-label ml-5">Forgot
                                         Password?</a>
                                 </div>
 
@@ -131,7 +131,7 @@
                 <div class="col-lg-6 p-0">
                     <div class="d-flex" id="submit-btn">
                         <img class="img-responsive"
-                            src="{{asset('asset/images/students/registration-banner_50.png')}}" style="width: 100%;height: 100%;object-fit: cover;">
+                            src="<?php echo e(asset('asset/images/students/registration-banner_50.png')); ?>" style="width: 100%;height: 100%;object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -139,11 +139,11 @@
     </div>
 </section>
 
-@endsection
-@section('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
 <!--====== Validator js ======-->
-<script src="{{asset('asset/js/jquery.validate.min.js')}}"></script>
-<script src="{{asset('asset/js/custom.js')}}"></script>
+<script src="<?php echo e(asset('asset/js/jquery.validate.min.js')); ?>"></script>
+<script src="<?php echo e(asset('asset/js/custom.js')); ?>"></script>
     <script>
         function hideShow(val) {
             var x = document.getElementById("myType");
@@ -163,5 +163,7 @@
             }
         }
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/auth/login.blade.php ENDPATH**/ ?>

@@ -21,9 +21,9 @@ class StudentLesson extends Model
     }
     public static function getSubject()
     {
-        $auth   =Auth::user()->id;
+        $user_id   = Auth::user()->id;
         return \DB::table('student_lessons')
-                    ->where('student_lessons.user_id', $auth)
+                    ->where('student_lessons.user_id', $user_id)
                     ->join('users', 'users.id', 'student_lessons.techer_id')
                     ->join('subjects', 'subjects.id', 'student_lessons.subjects_id')
                     ->select('users.*', 'subjects.id as sub_id', 'subjects.name as sub_name', 'users.id as U_id')
@@ -32,9 +32,9 @@ class StudentLesson extends Model
 
     public static function getLesson()
     {
-        $auth   =Auth::user()->id;
+        $user_id  = Auth::user()->id;
         return \DB::table('student_lessons')
-                    ->where('student_lessons.user_id', $auth)
+                    ->where('student_lessons.user_id', $user_id)
                     ->join('users', 'users.id', 'student_lessons.techer_id')
                     ->join('subjects', 'subjects.id', 'student_lessons.subjects_id')
                     ->select('subjects.name as sub_name', 'subjects.id as sub_id')
@@ -43,9 +43,9 @@ class StudentLesson extends Model
 
     public static function getTeacher()
     {
-        $auth   =Auth::user()->id;
+        $user_id  = Auth::user()->id;
         return \DB::table('student_lessons')
-                    ->where('student_lessons.user_id', $auth)
+                    ->where('student_lessons.user_id', $user_id)
                     ->join('users', 'users.id', 'student_lessons.techer_id')
                     ->join('subjects', 'subjects.id', 'student_lessons.subjects_id')
                     ->select('users.id as U_id', 'users.fname')
@@ -54,7 +54,7 @@ class StudentLesson extends Model
 
     public static function getStudent()
     {
-        $auth   =Auth::user()->id;
+        $user_id  = Auth::user()->id;
         return \DB::table('student_lessons')->where('student_lessons.techer_id', $request->teacher_id)->where('student_lessons.user_id', $auth)
                     ->join('users', 'users.id', 'student_lessons.techer_id')
                     ->join('subjects', 'student_lessons.subjects_id', 'subjects.id')

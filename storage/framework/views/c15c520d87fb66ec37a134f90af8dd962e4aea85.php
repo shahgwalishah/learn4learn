@@ -1,10 +1,9 @@
-@extends('layouts.masterStudent')
-@section('title','Edit Student Profile')
-@section('content')
+<?php $__env->startSection('title','Edit Student Profile'); ?>
+<?php $__env->startSection('content'); ?>
 
 <!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="{{asset('asset/css/register2.css')}}">
-<link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/register2.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
 <style>
     .customContainer{
         width:85%;
@@ -75,52 +74,52 @@
 
                         <div style="display:flex;width:100%;">
 
-                            <form method="post" action="{{route ('editstudenterprofile')}}" id="form">
-                                @csrf
+                            <form method="post" action="<?php echo e(route ('editstudenterprofile')); ?>" id="form">
+                                <?php echo csrf_field(); ?>
                                 <div style="width:100%;">
                                     <h3 class="level-heading">Edit Profile</h3>
                                 </div>
 
 
-                                @if(count($errors))
+                                <?php if(count($errors)): ?>
                                 <div class="form-group">
                                     <div class="alert alert-danger">
                                         <ul>
-                                            @foreach($errors->all() as $error)
-                                            <li>{{$error}}</li>
-                                            @endforeach
+                                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <li><?php echo e($error); ?></li>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </ul>
                                     </div>
                                 </div>
-                                @endif
+                                <?php endif; ?>
                                 <div style="width:100%;">
                                     <input name="fname" autofocus placeholder="First Name"
-                                        value="{{$getrecord->fname}}" required="true">
+                                        value="<?php echo e($getrecord->fname); ?>" required="true">
                                 </div>
                                 <div style="width:100%;">
                                     <input name="lname" autofocus placeholder="Last Name"
-                                        value="{{$getrecord->lname}}" required="true">
+                                        value="<?php echo e($getrecord->lname); ?>" required="true">
                                 </div>
                                 <div style="width:100%;">
                                     <input type="email" name="email" placeholder="Email Address"
-                                        value="{{$getrecord->email}}" required="true">
+                                        value="<?php echo e($getrecord->email); ?>" required="true">
 
                                 </div>
-{{--                                <div style="width:100%;">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"--}}
-{{--                                        required="true">--}}
-{{--                                    <label class="form-check-label" for="invalidCheck2">--}}
-{{--                                        By signing up, you agree to our <a href="#" id="alreasy-account">Terms and--}}
-{{--                                            Conditions</a> and <a href="#" id="alreasy-account">Privacy Policy</a>--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-{{--                                <div style="width:100%;">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck"--}}
-{{--                                        required="true">--}}
-{{--                                    <label class="form-check-label" for="invalidCheck">--}}
-{{--                                        Can we contact you about Learn 4 Learning?--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <button type="submit" id="submit" name="submit"
                                     class="btn btn-primary active">Update</button>
                             </form>
@@ -130,15 +129,15 @@
                 </div>
                 <div class="col-md-6 customPE">
                     <div class="d-flex align-items-center justify-content-center" id="submit-btn">
-                        <img class="editSP" src="{{asset('asset/images/students/registration-banner.png')}}">
+                        <img class="editSP" src="<?php echo e(asset('asset/images/students/registration-banner.png')); ?>">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-@endsection
-@section('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
@@ -153,4 +152,6 @@
         });
         });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/editstudetnsProfile.blade.php ENDPATH**/ ?>

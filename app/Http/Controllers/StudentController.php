@@ -248,7 +248,6 @@ class StudentController extends Controller
 
     public function My_subjects()
     {
-        // dd(123);
         $subject=StudentLesson::getSubject();
         $Mysub=StudentLesson::getLesson();
         $Teacher=StudentLesson::getTeacher();

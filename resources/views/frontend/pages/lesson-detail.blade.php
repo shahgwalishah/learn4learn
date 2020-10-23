@@ -246,24 +246,26 @@
                     </div>
                 </div> <!-- row -->
                 <div class="row">
-                    @foreach($similarLessons as $data)
-                        {{-- {{dd($data)}} --}}
+                    @foreach($similarLessons as $k => $data)
+                        @if($k < 6)
                         <div class="col-lg-4">
                             <div class="single-course-2 mt-30">
                                 <div class="thum">
                                     <div class="image">
-                                        <img src="{{url('/storage/images/'.$data->thumbnail)}}" onerror="this.src='/asset/images/course/cu-1.jpg'" alt="Course">
+                                        <img style="height:350px;object-fit: cover;" src="{{url('/storage/images/'.$data->thumbnail)}}" onerror="this.src='/asset/images/course/cu-1.jpg'" alt="Course">
                                     </div>
                                     <div class="price">
                                         <span>Free</span>
                                     </div>
                                     <div class="course-teacher d-flex align-items-center">
                                         <div class="thum">
-                                            <a href="courses-single.html"><img src="{{asset('asset/images/course/teacher/t-1.jpg')}}" alt="teacher"></a>
+                                            <a href="courses-single.html">
+                                                <img style="border-radius: 100px;width: 50px;height:50px;object-fit: cover;" alt="teacher" onerror="this.src='/asset/images/logo1.png'" src="{{url('/storage/images/'.$lesssonDetail->thumbnail)}}">
+                                            </a>
                                         </div>
                                         <div class="teacher ml-10">
                                             <div class="name">
-                                                <a href="#"><h6>Mark anthem</h6></a>
+                                                <a href="#"><h6>{{$data->teacher->fname}}-{{$data->teacher->lname}}</h6></a>
                                             </div>
                                             <div class="review">
                                                 <ul>
@@ -283,6 +285,7 @@
                                 </div>
                             </div> <!-- single course -->
                         </div>
+                        @endif
                     @endforeach
                     <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
                         <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">VIEW MORE</a>

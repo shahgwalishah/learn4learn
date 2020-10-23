@@ -1,4 +1,43 @@
 <?php $__env->startSection('title','level'); ?>
+<?php $__env->startPush('css'); ?>
+<style>
+    .customSetStyle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #donate-register-btn-div{
+        margin-bottom: 12px;
+    }
+    @media (max-width:575px) {
+        .col-md-9.col-sm-12.col-xs-12 .row .col-md-5 {
+            margin-top: auto;
+            margin-bottom: auto;
+            padding: 0px;
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            color: #505050;
+            margin: 0px;
+            text-align: center;
+        }
+        h4 {
+            font-size: 22px;
+            text-align: center;
+        }
+        .customSetResSt{
+            display: flex;
+            flex-direction: column;
+        }
+        .imageCustomStyle{
+            text-align: center;
+        }
+    }
+</style>
+<?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
 
     <!--====== Bootstrap css ======-->
@@ -14,7 +53,7 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-12 media">
-                            <iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo e($lesssonDetail->lessons[0]['link']); ?>" allowfullscreen>
+                            <iframe width="100%" height="345" src="https://www.youtube.com/embed/<?php echo e($lesssonDetail->lessons[0]['link']); ?>" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
@@ -27,11 +66,11 @@
                             <p>Live Date:<?php echo e($lesssonDetail->lessons[0]['date']); ?><br>
                                 Time:<?php echo e($lesssonDetail->lessons[0]['time']); ?></p>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <img style="border-radius: 100px;" src="<?php echo e(url('/storage/images/'.$lesssonDetail->thumbnail)); ?>">
+                                <div class="col-md-2 customSetStyle">
+                                    <img style="border-radius: 100px;" onerror="this.src='/asset/images/logo1.png'" src="<?php echo e(url('/storage/images/'.$lesssonDetail->thumbnail)); ?>">
                                 </div>
                                 <div class="col-md-5">
-                                    <p style="margin: 8px;"><?php echo e($lesssonDetail->fname); ?>-<?php echo e($lesssonDetail->lname); ?></p>
+                                    <p style="margin: 8px;word-wrap: break-word;"><?php echo e($lesssonDetail->fname); ?>-<?php echo e($lesssonDetail->lname); ?></p>
                                 </div>
                                 <div class="col-md-5">
                                     <a href="<?php echo e(route('teacherProfile',$lesssonDetail->id)); ?>" class="profile-btn" style="">VIEW PROFILE</a>
@@ -40,13 +79,13 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 imageCustomStyle">
                             <img src="<?php echo e(asset('asset/images/student-lesson-page/geography.jpg')); ?>">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
-                            <p data-animation="fadeInUp" data-delay="1.5s"><?php echo e($lesssonDetail->lessons[0]['description']); ?></p>
+                        <div class="col-12 customSetResSt">
+                            <p data-animation="fadeInUp" style="word-wrap: break-word;" data-delay="1.5s"><?php echo e($lesssonDetail->lessons[0]['description']); ?></p>
                             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" id="addtocalen-btn">ADD TO CALENDAR</a>
                         </div>
                     </div>
@@ -206,216 +245,47 @@
                     </div>
                 </div> <!-- row -->
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="single-course-2 mt-30">
-                            <div class="thum">
-                                <div class="image">
-                                    <img src="<?php echo e(asset('asset/images/course/cu-1.jpg')); ?>" alt="Course">
-                                </div>
-                                <div class="price">
-                                    <span>Free</span>
-                                </div>
-                                <div class="course-teacher d-flex align-items-center">
-                                    <div class="thum">
-                                        <a href="courses-single.html"><img src="<?php echo e(asset('asset/images/course/teacher/t-1.jpg')); ?>" alt="teacher"></a>
+                    <?php $__currentLoopData = $similarLessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($k < 6): ?>
+                        <div class="col-lg-4">
+                            <div class="single-course-2 mt-30">
+                                <div class="thum">
+                                    <div class="image">
+                                        <img style="height:350px;object-fit: cover;" src="<?php echo e(url('/storage/images/'.$data->thumbnail)); ?>" onerror="this.src='/asset/images/course/cu-1.jpg'" alt="Course">
                                     </div>
-                                    <div class="teacher ml-10">
-                                        <div class="name">
-                                            <a href="#"><h6>Mark anthem</h6></a>
-                                        </div>
-                                        <div class="review">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
+                                    <div class="price">
+                                        <span>Free</span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                        </div> <!-- single course -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-course-2 mt-30">
-                            <div class="thum">
-                                <div class="image">
-                                    <img src="<?php echo e(asset('asset/images/course/cu-2.jpg')); ?>" alt="Course">
-                                </div>
-                                <div class="price">
-                                    <span>Free</span>
-                                </div>
-                                <div class="course-teacher d-flex align-items-center">
-                                    <div class="thum">
-                                        <a href="courses-single.html"><img src="<?php echo e(asset('asset/images/course/teacher/t-2.jpg')); ?>" alt="teacher"></a>
-                                    </div>
-                                    <div class="teacher ml-10">
-                                        <div class="name">
-                                            <a href="#"><h6>Mark anthem</h6></a>
+                                    <div class="course-teacher d-flex align-items-center">
+                                        <div class="thum">
+                                            <a href="courses-single.html">
+                                                <img style="border-radius: 100px;width: 50px;height:50px;object-fit: cover;" alt="teacher" onerror="this.src='/asset/images/logo1.png'" src="<?php echo e(url('/storage/images/'.$lesssonDetail->thumbnail)); ?>">
+                                            </a>
                                         </div>
-                                        <div class="review">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
+                                        <div class="teacher ml-10">
+                                            <div class="name">
+                                                <a href="#"><h6><?php echo e($data->teacher->fname); ?>-<?php echo e($data->teacher->lname); ?></h6></a>
+                                            </div>
+                                            <div class="review">
+                                                <ul>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cont">
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                        </div> <!-- single course -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-course-2 mt-30">
-                            <div class="thum">
-                                <div class="image">
-                                    <img src="<?php echo e(asset('asset/images/course/cu-3.jpg')); ?>" alt="Course">
+                                <div class="cont">
+                                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
-                                <div class="price">
-                                    <span>Free</span>
-                                </div>
-                                <div class="course-teacher d-flex align-items-center">
-                                    <div class="thum">
-                                        <a href="courses-single.html"><img src="<?php echo e(asset('asset/images/course/teacher/t-3.jpg')); ?>" alt="teacher"></a>
-                                    </div>
-                                    <div class="teacher ml-10">
-                                        <div class="name">
-                                            <a href="#"><h6>Mark anthem</h6></a>
-                                        </div>
-                                        <div class="review">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                        </div> <!-- single course -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-course-2 mt-30">
-                            <div class="thum">
-                                <div class="image">
-                                    <img src="<?php echo e(asset('asset/images/course/cu-4.jpg')); ?>" alt="Course">
-                                </div>
-                                <div class="price">
-                                    <span>Free</span>
-                                </div>
-                                <div class="course-teacher d-flex align-items-center">
-                                    <div class="thum">
-                                        <a href="courses-single.html"><img src="<?php echo e(asset('asset/images/course/teacher/t-4.jpg')); ?>" alt="teacher"></a>
-                                    </div>
-                                    <div class="teacher ml-10">
-                                        <div class="name">
-                                            <a href="#"><h6>Mark anthem</h6></a>
-                                        </div>
-                                        <div class="review">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                        </div> <!-- single course -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-course-2 mt-30">
-                            <div class="thum">
-                                <div class="image">
-                                    <img src="<?php echo e(asset('asset/images/course/cu-5.jpg')); ?>" alt="Course">
-                                </div>
-                                <div class="price">
-                                    <span>Free</span>
-                                </div>
-                                <div class="course-teacher d-flex align-items-center">
-                                    <div class="thum">
-                                        <a href="courses-single.html"><img src="<?php echo e(asset('asset/images/course/teacher/t-5.jpg')); ?>" alt="teacher"></a>
-                                    </div>
-                                    <div class="teacher ml-10">
-                                        <div class="name">
-                                            <a href="#"><h6>Mark anthem</h6></a>
-                                        </div>
-                                        <div class="review">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                        </div> <!-- single course -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-course-2 mt-30">
-                            <div class="thum">
-                                <div class="image">
-                                    <img src="<?php echo e(asset('asset/images/course/cu-2.jpg')); ?>" alt="Course">
-                                </div>
-                                <div class="price">
-                                    <span>Free</span>
-                                </div>
-                                <div class="course-teacher d-flex align-items-center">
-                                    <div class="thum">
-                                        <a href="courses-single.html"><img src="<?php echo e(asset('asset/images/course/teacher/t-2.jpg')); ?>" alt="teacher"></a>
-                                    </div>
-                                    <div class="teacher ml-10">
-                                        <div class="name">
-                                            <a href="#"><h6>Mark anthem</h6></a>
-                                        </div>
-                                        <div class="review">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                        </div> <!-- single course -->
-                    </div>
+                            </div> <!-- single course -->
+                        </div>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
                         <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">VIEW MORE</a>
                     </div>

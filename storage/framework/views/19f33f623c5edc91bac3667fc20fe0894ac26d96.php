@@ -1,9 +1,8 @@
-@extends('layouts.master')
 <!--====== HEADER PART ENDS ======-->
 
 <!--====== SEARCH BOX PART START ======-->
-@section('content')
-<link rel="stylesheet" href="{{asset('asset/css/responsive/home-responsive.css')}}">
+<?php $__env->startSection('content'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/responsive/home-responsive.css')); ?>">
 <style>
     .card-img-overlay {
         background-color: rgba(#000, 0.4);
@@ -59,20 +58,20 @@
 
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150"
-        style="background-repeat: no-repeat; background:linear-gradient(rgb(0 0 0 / 23%) 100%, rgba(0, 0, 0, 0.5) 100%), url({{asset('asset/images/slider/banner.jpg')}}">
+        style="background-repeat: no-repeat; background:linear-gradient(rgb(0 0 0 / 23%) 100%, rgba(0, 0, 0, 0.5) 100%), url(<?php echo e(asset('asset/images/slider/banner.jpg')); ?>">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont slider-cont-4 text-center">
-                        <h1 data-animation="fadeInUp" data-delay="1s">@lang('welcome.BE_INSPITREDLEARN')</h1>
-                        <p data-animation="fadeInUp" data-delay="1.5s">@lang('welcome.BE_INSPITREDLEARN_conternt')</p>
-                        @if(!Auth::check())
+                        <h1 data-animation="fadeInUp" data-delay="1s"><?php echo app('translator')->get('welcome.BE_INSPITREDLEARN'); ?></h1>
+                        <p data-animation="fadeInUp" data-delay="1.5s"><?php echo app('translator')->get('welcome.BE_INSPITREDLEARN_conternt'); ?></p>
+                        <?php if(!Auth::check()): ?>
                         <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn"
-                            href="{{ route('login') }}">@lang('welcome.I_A_STUDENT')</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            href="<?php echo e(route('login')); ?>"><?php echo app('translator')->get('welcome.I_A_STUDENT'); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2"
-                            href="{{ route('login') }}" style="background-color: #036893;">
-                            @lang('welcome.I_TEACHER')</a>
-                        @endif
+                            href="<?php echo e(route('login')); ?>" style="background-color: #036893;">
+                            <?php echo app('translator')->get('welcome.I_TEACHER'); ?></a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div> <!-- row -->
@@ -92,14 +91,14 @@
         <div class="col-lg-4 col-md-6 col-sm-6" style="padding: 0px !important;">
             <!-- Card -->
             <div class="card card-image prim-second"
-                style="background-image: url({{asset('asset/images/educations/primary.png')}}">
+                style="background-image: url(<?php echo e(asset('asset/images/educations/primary.png')); ?>">
 
                 <!-- Content -->
                 <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
 
 
                     <h3 class="card-title pt-2"><strong
-                            style="color: white;line-height: 100px;font-size: 52px;font-weight: 500;">@lang('welcome.PRIMARY')</strong>
+                            style="color: white;line-height: 100px;font-size: 52px;font-weight: 500;"><?php echo app('translator')->get('welcome.PRIMARY'); ?></strong>
                     </h3>
 
 
@@ -111,14 +110,14 @@
         <div class="col-lg-4 col-md-6" style="padding: 0px !important;">
             <!-- Card -->
             <div class="card card-image prim-second"
-                style="background-image: url({{asset('asset/images/educations/secondary.png')}}">
+                style="background-image: url(<?php echo e(asset('asset/images/educations/secondary.png')); ?>">
 
                 <!-- Content -->
                 <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
 
 
                     <h3 class="card-title pt-2"><strong
-                            style="color: white;line-height: 100px;font-size: 52px;font-weight: 500;">@lang('welcome.SECONDARY')</strong>
+                            style="color: white;line-height: 100px;font-size: 52px;font-weight: 500;"><?php echo app('translator')->get('welcome.SECONDARY'); ?></strong>
                     </h3>
                 </div>
 
@@ -128,12 +127,12 @@
         <div class="col-lg-4 col-md-12" style="padding: 0px !important;">
             <!-- Card -->
             <div class="card card-image prim-second"
-                style="background-image: url({{asset('asset/images/educations/furthereducation.png')}}">
+                style="background-image: url(<?php echo e(asset('asset/images/educations/furthereducation.png')); ?>">
 
                 <!-- Content -->
                 <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                     <h3 class="card-title pt-2"><strong
-                            style="color: white;line-height: 50px;font-size: 52px;font-weight: 500;">@lang('welcome.FURTHER_EDUCATION')</strong>
+                            style="color: white;line-height: 50px;font-size: 52px;font-weight: 500;"><?php echo app('translator')->get('welcome.FURTHER_EDUCATION'); ?></strong>
                     </h3>
                 </div>
             </div>
@@ -144,7 +143,7 @@
 <section id="about-part" class="about-tow pt-65">
     <div class="about-shape">
     </div>
-    <h5 style="text-align: center;color: #006796;font-size: 28px;letter-spacing: 5px;">@lang('welcome.Find_A_Course')
+    <h5 style="text-align: center;color: #006796;font-size: 28px;letter-spacing: 5px;"><?php echo app('translator')->get('welcome.Find_A_Course'); ?>
     </h5>
     <!-- container -->
 </section>
@@ -156,17 +155,18 @@
 <section class="admission-row pb-120">
     <div class="container">
         <div class="row justify-content-center">
-            @if(session()->has('message.level'))
+            <?php if(session()->has('message.level')): ?>
 
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {!! session('message.content') !!}
+                <?php echo session('message.content'); ?>
+
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            @endif
-            <form id="search_form" class="search_form" action="{{ route('searchSubForSubjectHome') }}" method="get">
-                @csrf
+            <?php endif; ?>
+            <form id="search_form" class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="get">
+                <?php echo csrf_field(); ?>
                 <input type="hidden" name="see_all" id="see_all" value="" />
                 <div class="row">
                     <div class="col-md-3" style="padding: 18px;">
@@ -195,10 +195,10 @@
                                                         ?>
 
 
-                                <option value="">@lang('welcome.Find_A_Course')</option>
-                                @foreach($aray1 as $level)
-                                <option value="{{$level->id}}">{{$level->name}}</option>
-                                @endforeach
+                                <option value=""><?php echo app('translator')->get('welcome.Find_A_Course'); ?></option>
+                                <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $level): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($level->id); ?>"><?php echo e($level->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 <?php      }       ?>
                             </optgroup>
@@ -233,9 +233,9 @@
 
                                 <option value="">Find Subjects</option>
 
-                                @foreach($aray1 as $subjects)
-                                <option value="{{$subjects->id}}">{{$subjects->name}}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subjects): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($subjects->id); ?>"><?php echo e($subjects->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <?php      }       ?>
 
                             </optgroup>
@@ -268,10 +268,10 @@
 
                                                         }
                                                         ?>
-                                @foreach($aray1 as $Date)
+                                <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                <option value="{{$Date->id}}">{{$Date->date}}</option>
-                                @endforeach
+                                <option value="<?php echo e($Date->id); ?>"><?php echo e($Date->date); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 <?php      }       ?>
 
@@ -291,11 +291,11 @@
     </div> <!-- container -->
 </section>
 
-{{-- broese by subject --}}
+
 <section
-    style="background:linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url({{asset('asset/images/browsebysubject/browsebysubject.png')}}">
+    style="background:linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url(<?php echo e(asset('asset/images/browsebysubject/browsebysubject.png')); ?>">
     <h5 style="text-align: center;color: #ffffff;font-size: 28px;letter-spacing: 5px;padding: 60px 0px 30px 0px;">
-        @lang('welcome.browseBySubject')</h5>
+        <?php echo app('translator')->get('welcome.browseBySubject'); ?></h5>
     <div class="row justify-content-center" id="boxes-5">
 
         <div class="row icon_center" style="display: contents;">
@@ -303,10 +303,10 @@
                 <a href="#">
                     <span class="single-category text-center color-1">
                         <span class="icon">
-                            <img src="{{asset('asset/images/browsebysubject/math.png')}}" alt="Icon">
+                            <img src="<?php echo e(asset('asset/images/browsebysubject/math.png')); ?>" alt="Icon">
                         </span>
                         <span class="cont">
-                            <span>@lang('welcome.MATHS')</span>
+                            <span><?php echo app('translator')->get('welcome.MATHS'); ?></span>
                         </span>
                     </span> <!-- single category -->
                 </a>
@@ -315,10 +315,10 @@
                 <a href="#">
                     <span class="single-category text-center color-1">
                         <span class="icon">
-                            <img src="{{asset('asset/images/browsebysubject/geography.png')}}" alt="Icon">
+                            <img src="<?php echo e(asset('asset/images/browsebysubject/geography.png')); ?>" alt="Icon">
                         </span>
                         <span class="cont">
-                            <span>@lang('welcome.GEOGRAPHY')</span>
+                            <span><?php echo app('translator')->get('welcome.GEOGRAPHY'); ?></span>
                         </span>
                     </span> <!-- single category -->
                 </a>
@@ -327,10 +327,10 @@
                 <a href="#">
                     <span class="single-category text-center color-1">
                         <span class="icon">
-                            <img src="{{asset('asset/images/browsebysubject/english.png')}}" alt="Icon">
+                            <img src="<?php echo e(asset('asset/images/browsebysubject/english.png')); ?>" alt="Icon">
                         </span>
                         <span class="cont">
-                            <span>@lang('welcome.BIOLOGY')</span>
+                            <span><?php echo app('translator')->get('welcome.BIOLOGY'); ?></span>
                         </span>
                     </span> <!-- single category -->
                 </a>
@@ -339,10 +339,10 @@
                 <a href="#">
                     <span class="single-category text-center color-1">
                         <span class="icon">
-                            <img src="{{asset('asset/images/browsebysubject/biology.png')}}" alt="Icon">
+                            <img src="<?php echo e(asset('asset/images/browsebysubject/biology.png')); ?>" alt="Icon">
                         </span>
                         <span class="cont">
-                            <span>@lang('welcome.Browsecaall')</span>
+                            <span><?php echo app('translator')->get('welcome.Browsecaall'); ?></span>
                         </span>
                     </span> <!-- single category -->
                 </a>
@@ -351,7 +351,7 @@
                 <a href="#">
                     <span class="single-category text-center color-1">
                         <span class="icon">
-                            <img src="{{asset('asset/images/browsebysubject/art.png')}}" alt="Icon">
+                            <img src="<?php echo e(asset('asset/images/browsebysubject/art.png')); ?>" alt="Icon">
                         </span>
                         <span class="cont">
                             <span>ART</span>
@@ -369,7 +369,7 @@
     </div>
 </section>
 
-{{-- broese by subject --}}
+
 
 
 
@@ -391,18 +391,19 @@
         </div> <!-- row -->
 
 
-        @if (session('status'))
+        <?php if(session('status')): ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            {{ session('status') }}
+            <?php echo e(session('status')); ?>
+
 
         </div>
 
-        @endif
+        <?php endif; ?>
         <div class="row">
-            @if(count($getuserimg) == 0)
+            <?php if(count($getuserimg) == 0): ?>
             <div class="alert alert-danger customDanger">
                                 <div class="container customDangerContainer">
                                     <div class="alert-icon">
@@ -410,34 +411,35 @@
                                     </div>&nbsp;&nbsp;&nbsp;No Data Found
                                 </div>
                             </div>
-            @else
-            @foreach($getuserimg as $k => $leson)
-                @if($k < 3)
+            <?php else: ?>
+            <?php $__currentLoopData = $getuserimg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $leson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($k < 3): ?>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 home-lessons-bot">
                     <div class="single-course-2 mt-30">
                         <div class="row d-flex justify-content-center">
                             <div class="column d-flex justify-content-center">
                                 <div class="price">
-                                    <img src="{{url('/storage/images/'.$leson->userthamnail)}}" class="course-profile-pic" onerror="this.src='/images/default.png'">
+                                    <img src="<?php echo e(url('/storage/images/'.$leson->userthamnail)); ?>" class="course-profile-pic" onerror="this.src='/images/default.png'">
                                 </div>
                             </div>
                         </div>
                         <div class="thum">
-                            <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/{{$leson->lessonsId}}/{{$leson->teacher_id}}'">
+                            <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/<?php echo e($leson->lessonsId); ?>/<?php echo e($leson->teacher_id); ?>'">
 
-                                <img src="{{url('/storage/images/'.$leson->thumbnail)}}" class="leasson-thumnail">
+                                <img src="<?php echo e(url('/storage/images/'.$leson->thumbnail)); ?>" class="leasson-thumnail">
                                 <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
 
-                                    <h4 class="card-title subject-name">{{$leson->subjectname}}
+                                    <h4 class="card-title subject-name"><?php echo e($leson->subjectname); ?>
+
 
                                     </h4>
-                                    <h6 class="card-subtitle mb-2 subject-title">{{$leson->title}}</h6>
+                                    <h6 class="card-subtitle mb-2 subject-title"><?php echo e($leson->title); ?></h6>
                                     <div class="link d-flex">
                                     </div>
                                     <div class="row" id="rating-date-lesson">
                                         <div class="col-6">
-                                            <h4 class="card-title lessone-date">{{$leson->date}}<br>
-                                                {{$leson->time}}</h4>
+                                            <h4 class="card-title lessone-date"><?php echo e($leson->date); ?><br>
+                                                <?php echo e($leson->time); ?></h4>
                                         </div>
                                         <div class="col-6">
                                             <div class="review">
@@ -456,17 +458,17 @@
                         </div>
                         <div class="cont">
 
-                            @if(!Auth::check())
+                            <?php if(!Auth::check()): ?>
 
-                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="{{ route('login') }}"
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="<?php echo e(route('login')); ?>"
                                 style="background: #818181;color: white;font-weight: 500;display: block;">I AM A
                                 STUDENT/PARENT</a>
 
-                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="{{route('login')}}"
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="<?php echo e(route('login')); ?>"
                                 style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
                                 CALENDAR</a>
-                            @endif
-                            @if(Auth::check())
+                            <?php endif; ?>
+                            <?php if(Auth::check()): ?>
 
 
                             <?php
@@ -482,7 +484,7 @@
 
 
                             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn"
-                                href="{{ route('addToCalender', [$leson->lessonsId, $leson->teacher_id, $leson->subjects_id])}}"
+                                href="<?php echo e(route('addToCalender', [$leson->lessonsId, $leson->teacher_id, $leson->subjects_id])); ?>"
                                 style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
                                 CALENDAR</a>
 
@@ -498,13 +500,13 @@
 
 
                             <?php  }  ?>
-                            @endif
+                            <?php endif; ?>
                         </div>
                     </div> <!-- single course -->
                 </div> <!-- single course -->
-                @endif
-            @endforeach
-            @endif
+                <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div>
 
 
@@ -542,4 +544,6 @@
     }
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/welcome.blade.php ENDPATH**/ ?>

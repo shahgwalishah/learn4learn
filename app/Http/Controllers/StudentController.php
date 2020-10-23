@@ -127,7 +127,9 @@ class StudentController extends Controller
 
     public function studentLessson()
     {
-        return view('frontend.pages.students.student-lesson-page');
+        $student_id = Auth::user()->id;
+        dd($student_id);
+        return view('frontend.pages.lesson-detail');
     }
 
     public function student_edit_profile()

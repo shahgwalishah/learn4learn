@@ -37,7 +37,7 @@ Route::group(['Public'], function () {
     Route::post('/checkout/stripepayment', 'PageController@stripePayment')->name('stripepayment');
     Route::get('/checkout/Paypal', 'PageController@paypalpaymentgatwway')->name('paypalpaymentgatwway');
 
-    Route::post('/search/Subjects', 'UserController@SearchPage')->name('searchSubForSubjectHome');
+    Route::get('/search/Subjects', 'UserController@SearchPage')->name('searchSubForSubjectHome');
 
     /**
      * register pages for students
@@ -151,6 +151,7 @@ Route::group(['private'], function () {
         Route::get('/admin/pages/show/{page}', "Admin\PagesController@show")->name('pages.show');
     });
 
+    Route::get('/lesson-details/{lesson_id}/{teacher_id}', 'LessonController@lessonDetails')->name('lessonDetails');
 
     //student routes
     Route::get('student-select-subjects','UserController@verifiedSuccess')->name('verifiedStudentSuccess');

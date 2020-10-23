@@ -1,0 +1,157 @@
+<?php $__env->startSection('title','Edit Student Profile'); ?>
+<?php $__env->startSection('content'); ?>
+
+<!--====== Bootstrap css ======-->
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/register2.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+<style>
+    .customContainer{
+        width:85%;
+    }
+    .customPE{
+        padding: 0px !important;
+    }
+    #submit-btn{
+        justify-content: flex-end;
+    }
+    .editSP{
+        height: 100%;
+        object-fit: cover;
+    }
+    @media (max-width: 991px) {
+        #submit-btn {
+            justify-content: flex-end;
+            display: none !important;
+        }
+    }
+    @media (max-width: 575px) {
+        .main-cont .row {
+            margin-right: 0px !important;
+            box-shadow: 0px 0px 0px -3px black !important;
+            background: white;
+            margin-top: 0px !important;
+            position: relative;
+            margin-left: auto;
+        }
+        .customContainer{
+            width:100%;
+            padding-left: 0px !important;
+            padding-right: 0px !important
+        }
+        .customForm{
+            width: 100%;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+</style>
+<section id="slider-part" class="slider-active">
+    <div class="single-slider slider-4 bg_cover pt-150">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-9">
+                    <div class="slider-cont slider-cont-4 text-center">
+                        <h1 data-animation="fadeInUp" data-delay="1s">REGISTER</h1>
+                        <p data-animation="fadeInUp" data-delay="1.5s">Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.</p>
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- single slider -->
+</section>
+
+
+<section class="main-section">
+    <div class="container customContainer">
+        <div class="main-cont">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="form-parts">
+
+
+                        <div style="display:flex;width:100%;">
+
+                            <form method="post" action="<?php echo e(route ('editstudenterprofile')); ?>" id="form">
+                                <?php echo csrf_field(); ?>
+                                <div style="width:100%;">
+                                    <h3 class="level-heading">Edit Profile</h3>
+                                </div>
+
+
+                                <?php if(count($errors)): ?>
+                                <div class="form-group">
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <li><?php echo e($error); ?></li>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <?php endif; ?>
+                                <div style="width:100%;">
+                                    <input name="fname" autofocus placeholder="First Name"
+                                        value="<?php echo e($getrecord->fname); ?>" required="true">
+                                </div>
+                                <div style="width:100%;">
+                                    <input name="lname" autofocus placeholder="Last Name"
+                                        value="<?php echo e($getrecord->lname); ?>" required="true">
+                                </div>
+                                <div style="width:100%;">
+                                    <input type="email" name="email" placeholder="Email Address"
+                                        value="<?php echo e($getrecord->email); ?>" required="true">
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <button type="submit" id="submit" name="submit"
+                                    class="btn btn-primary active">Update</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 customPE">
+                    <div class="d-flex align-items-center justify-content-center" id="submit-btn">
+                        <img class="editSP" src="<?php echo e(asset('asset/images/students/registration-banner.png')); ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#submit").on("click", function(){
+            var radioSelected = $("input[name=op1]").val();
+            if(radioSelected == "1"){
+               alert('op1')
+            }else if(radioSelected == "2"){
+                alert('op2')
+            }
+        });
+        });
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/editstudetnsProfile.blade.php ENDPATH**/ ?>

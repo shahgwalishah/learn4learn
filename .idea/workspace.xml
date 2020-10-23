@@ -20,25 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/pages/lesson-detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/account.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/grades.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/grades.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/myMessages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/myMessages.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-homework.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-homework.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule-search-results.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule-search-results.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-schedule.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/6zU4DJKojLtXOTIEYYSy39XtpS5nCnq3zG46yE5f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/2247e6ea11065e5734ba4d802a6929a5aad58758.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2247e6ea11065e5734ba4d802a6929a5aad58758.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/281604c5142f67e3323b3639cdca34bf0cec10d8.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/281604c5142f67e3323b3639cdca34bf0cec10d8.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/2f09b89e15db7ee9a9447317991f7e5280031527.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2f09b89e15db7ee9a9447317991f7e5280031527.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/34a7af2b1593adab1be528a18d04825ae57f33d6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/34a7af2b1593adab1be528a18d04825ae57f33d6.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/88eb0a5f512e73dd1af5b1a3725b11ff2bf67905.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/88eb0a5f512e73dd1af5b1a3725b11ff2bf67905.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/afac5fe4a7b5ddd7aa5142bc435383799e480a9e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/afac5fe4a7b5ddd7aa5142bc435383799e480a9e.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/b34c13cb2688c2f109637f1dd8faed8b226530bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/b34c13cb2688c2f109637f1dd8faed8b226530bc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/eff422dc388950064874aa1a625119e86de502c1.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/eff422dc388950064874aa1a625119e86de502c1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/fb12c838590626f5ef9dac672df621bbabd6f468.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/fb12c838590626f5ef9dac672df621bbabd6f468.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/masterStudent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/masterStudent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,6 +295,9 @@
       <workItem from="1603280975918" duration="1783000" />
       <workItem from="1603282808712" duration="1785000" />
       <workItem from="1603284620640" duration="1420000" />
+      <workItem from="1603432172808" duration="1787000" />
+      <workItem from="1603433992606" duration="1812000" />
+      <workItem from="1603435834581" duration="1922000" />
     </task>
     <servers />
   </component>
@@ -332,9 +327,10 @@
     </state>
     <state x="403" y="110" width="832" height="704" key="#SSH_Configurations/55.27.1545.873@55.27.1545.873" timestamp="1603200717793" />
     <state x="412" y="110" width="832" height="704" key="#SSH_Configurations/67.27.1533.873@67.27.1533.873" timestamp="1603105627012" />
-    <state x="566" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602963310116">
-      <screen x="67" y="27" width="1533" height="873" />
+    <state x="558" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603434222269">
+      <screen x="55" y="27" width="1545" height="873" />
     </state>
+    <state x="558" y="220" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/55.27.1545.873@55.27.1545.873" timestamp="1603434222269" />
     <state x="566" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1533.873@67.27.1533.873" timestamp="1602963310116" />
     <state x="567" y="146" width="523" height="633" key="RollbackChangesDialog" timestamp="1602218922916">
       <screen x="67" y="27" width="1533" height="873" />
@@ -344,9 +340,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="322" y="97" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1603105003351" />
-    <state x="524" y="201" width="650" height="548" key="find.popup" timestamp="1602742271890">
-      <screen x="67" y="27" width="1533" height="873" />
+    <state x="516" y="201" width="656" height="548" key="find.popup" timestamp="1603431565860">
+      <screen x="55" y="27" width="1545" height="873" />
     </state>
+    <state x="516" y="201" width="656" height="548" key="find.popup/55.27.1545.873@55.27.1545.873" timestamp="1603431565860" />
     <state x="524" y="201" width="650" height="548" key="find.popup/67.27.1533.873@67.27.1533.873" timestamp="1602742271890" />
     <state x="729" y="176" key="ftp.server.browser" timestamp="1603105651253">
       <screen x="67" y="27" width="1533" height="873" />
@@ -356,10 +353,21 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603285945549">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1603436979538">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603285945549" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1603436979538" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php</url>
+          <line>285</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

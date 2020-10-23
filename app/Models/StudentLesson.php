@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class StudentLesson extends Model
 {
@@ -43,18 +44,18 @@ class StudentLesson extends Model
 
     public static function getTeacher()
     {
-        $user_id  = Auth::user()->id;
+        $auth   =Auth::user()->id;
         return \DB::table('student_lessons')
-                    ->where('student_lessons.user_id', $user_id)
+                    ->where('student_lessons.user_id', $auth)
                     ->join('users', 'users.id', 'student_lessons.techer_id')
                     ->join('subjects', 'subjects.id', 'student_lessons.subjects_id')
                     ->select('users.id as U_id', 'users.fname')
                     ->get();
     }
 
-    public static function getStudent()
+    public static function getStudent($request)
     {
-        $user_id  = Auth::user()->id;
+        $auth   =Auth::user()->id;
         return \DB::table('student_lessons')->where('student_lessons.techer_id', $request->teacher_id)->where('student_lessons.user_id', $auth)
                     ->join('users', 'users.id', 'student_lessons.techer_id')
                     ->join('subjects', 'student_lessons.subjects_id', 'subjects.id')

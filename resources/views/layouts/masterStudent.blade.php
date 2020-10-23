@@ -287,6 +287,27 @@
                                        href="{{route('donate')}}"
                                        style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="{{Request::routeIs('donate') ? 'active' : ''}} customClass"
+                                       href="{{route('donate')}}"
+                                       style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">Edit-Profile</a>
+                                </li>
+                                <li>
+                                    {{-- <form method="post" action="{{route('logout')}}">
+                                    @csrf
+                                    <button class="btn-sm btn-outline-primary">logout</button>
+                                    </form> --}}
+                                    <a class="btn btn-primary" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                                                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        >
+                                        @csrf
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </nav> <!-- nav -->

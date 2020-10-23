@@ -1,9 +1,39 @@
 <?php $__env->startSection('title','Student Homepage'); ?>
-<?php $__env->startSection('content'); ?>
-    <?php
-        $user = Auth::user();
-    ?>
+<?php $__env->startPush('css'); ?>
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homepage.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/teacher-homepage.css')); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style type="text/css">
+        .schedules .card {
+            height: auto;
+        }
+
+        .spacing-top {
+            margin-top: 20px;
+        }
+
+        .card-img-top {
+            height: 111px;
+            width: 144px;
+        }
+
+        #donate-register-btn-div {
+            display: block !important;
+        }
+
+        .image-card {
+            max-width: 400px;
+        }
+    </style>
     <style>
+        .customClassMySch{
+            margin-bottom: 10px;
+        }
         .customFaCheck{
             font-size: 173px;
             color: #fff;
@@ -114,6 +144,11 @@
             margin-left: 0px;
         }
     </style>
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
+    <?php
+        $user = Auth::user();
+    ?>
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
              style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
@@ -338,8 +373,7 @@
                     <hr>
                 </div>
                 <div class="row text-center">
-                    <div class="MultiCarousel" style="display: flex;
-justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
                         <div class="MultiCarousel-inner">
                             <?php $__currentLoopData = $studentHomeworks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $homework): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php
@@ -360,7 +394,7 @@ justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
                                         $styles = "background-color: green;
                                         padding: 20px 27px;
                                         border-radius: 33px;";
-                                        $status = 'fa-check';
+                                        $type = 'fa-check';
                                         }
                                 ?>
                                 <div class="item">
@@ -370,8 +404,9 @@ justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
                                                  alt="Bologna">
                                             <div
                                                 class="card-img-overlay text-white d-flex flex-column justify-content-center">
-                                                <div class="topright"><span class="exclamation-para"><?php echo e($status); ?></span><i
-                                                        class="fa <?php echo e($type); ?>" aria-hidden="true" style="<?php echo e($styles); ?>"></i>
+                                                <div class="topright">
+                                                    <i class="fa <?php echo e($status); ?>" aria-hidden="true"></i>
+                                                    <i class="fa <?php echo e($type); ?>" aria-hidden="true" style="<?php echo e($styles); ?>"></i>
                                                 </div>
                                                 <div style="margin-bottom: 217px;">
                                                     <h6 class="card-subtitle mb-2"><?php echo e($homework->subject->name); ?></h6>
@@ -396,38 +431,115 @@ justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
     </section>
 
 <?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('css'); ?>
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homepage.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('asset/css/teacher-homepage.css')); ?>">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+<?php $__env->startSection('js'); ?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <style type="text/css">
-        .schedules .card {
-            height: auto;
-        }
+    <script>
+        $(document).ready(function () {
+            var itemsMainDiv = ('.MultiCarousel');
+            var itemsDiv = ('.MultiCarousel-inner');
+            var itemWidth = "";
 
-        .spacing-top {
-            margin-top: 20px;
-        }
+            $('.leftLst, .rightLst').click(function () {
+                var condition = $(this).hasClass("leftLst");
+                if (condition)
+                    click(0, this);
+                else
+                    click(1, this)
+            });
 
-        .card-img-top {
-            height: 111px;
-            width: 144px;
-        }
+            ResCarouselSize();
 
-        #donate-register-btn-div {
-            display: block !important;
-        }
 
-        .image-card {
-            max-width: 400px;
-        }
-    </style>
+
+
+            $(window).resize(function () {
+                ResCarouselSize();
+            });
+
+            //this function define the size of the items
+            function ResCarouselSize() {
+                var incno = 0;
+                var dataItems = ("data-items");
+                var itemClass = ('.item');
+                var id = 0;
+                var btnParentSb = '';
+                var itemsSplit = '';
+                var sampwidth = $(itemsMainDiv).width();
+                var bodyWidth = $('body').width();
+                $(itemsDiv).each(function () {
+                    id = id + 1;
+                    var itemNumbers = $(this).find(itemClass).length;
+                    btnParentSb = $(this).parent().attr(dataItems);
+                    itemsSplit = btnParentSb.split(',');
+                    $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+                    if (bodyWidth >= 1200) {
+                        incno = itemsSplit[1];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else if (bodyWidth >= 992) {
+                        incno = itemsSplit[2];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else if (bodyWidth >= 768) {
+                        incno = itemsSplit[1];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else {
+                        incno = itemsSplit[0];
+                        itemWidth = sampwidth / incno;
+                    }
+                    $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+                    $(this).find(itemClass).each(function () {
+                        $(this).outerWidth(itemWidth);
+                    });
+
+                    $(".leftLst").addClass("over");
+                    $(".rightLst").removeClass("over");
+
+                });
+            }
+
+
+            //this function used to move the items
+            function ResCarousel(e, el, s) {
+                var leftBtn = ('.leftLst');
+                var rightBtn = ('.rightLst');
+                var translateXval = '';
+                var divStyle = $(el + ' ' + itemsDiv).css('transform');
+                var values = divStyle.match(/-?[\d\.]+/g);
+                var xds = Math.abs(values[4]);
+                if (e == 0) {
+                    translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                    $(el + ' ' + rightBtn).removeClass("over");
+
+                    if (translateXval <= itemWidth / 2) {
+                        translateXval = 0;
+                        $(el + ' ' + leftBtn).addClass("over");
+                    }
+                }
+                else if (e == 1) {
+                    var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                    translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                    $(el + ' ' + leftBtn).removeClass("over");
+
+                    if (translateXval >= itemsCondition - itemWidth / 2) {
+                        translateXval = itemsCondition;
+                        $(el + ' ' + rightBtn).addClass("over");
+                    }
+                }
+                $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+            }
+
+            //It is used to get some elements from btn
+            function click(ell, ee) {
+                var Parent = "#" + $(ee).parent().attr("id");
+                var slide = $(Parent).attr("data-slide");
+                ResCarousel(ell, Parent, slide);
+            }
+        });
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/students/student-home.blade.php ENDPATH**/ ?>

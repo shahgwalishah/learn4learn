@@ -134,6 +134,7 @@ class StudentController extends Controller
 
     public function student_edit_profile()
     {
+        // dd(123);
         $user   = Auth::user();
         return view('frontend.pages.editstudetnsProfile')->with('getrecord', $user);
     }
@@ -260,7 +261,8 @@ class StudentController extends Controller
 
     public function viewteacherdashboard(Request $request)
     {
-        $studetns=StudentLesson::getStudent();
+        // dd(123);
+        $studetns=StudentLesson::getStudent($request);
         return view('frontend.pages.students.viewTeacherProfile')->with('db', $studetns);
     }
 
@@ -352,10 +354,11 @@ class StudentController extends Controller
 
     public function viewMessages($id)
     {
+        // dd(123);
         $student_id= Auth::user()->id;
-        $role      = Messages::getMessages();
-        $DBB       = Messages::getMessagesData();
-        $teacher  = Messages::getMessagesTeacher();
+        $role      = Messages::getMessages($student_id);
+        $DBB       = Messages::getMessagesData($student_id);
+        $teacher  = Messages::getMessagesTeacher($id);
         return view('frontend.pages.students.Messages')
             ->with(['teacher_id'=> $id,
                 'student_id'    => $student_id,

@@ -656,6 +656,7 @@ class TeacherController extends Controller
 
     public function View_student_profile($id)
     {
+        // dd(123);
         $getrecordindividulStuRecord=DB::table('users')
             ->join('student_lessons', 'student_lessons.user_id', '=', 'users.id')
             ->join('lessons', function ($join) {

@@ -165,6 +165,7 @@
             border: aliceblue;
             background: none;
             padding: 0px;
+            cursor: pointer;
         }
         #resp1{
             background-color: rgb(0, 145, 255);

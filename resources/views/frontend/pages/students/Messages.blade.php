@@ -776,8 +776,8 @@
         }
 
         .padding {
-            padding-left: 66px;
-            padding-right: 13px;
+            padding-left: 60px;
+            padding-right: 0px;
         }
 
         body {

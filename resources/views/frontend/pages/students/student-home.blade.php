@@ -429,7 +429,6 @@
             </div>
         </section>
     </section>
-
 @endsection
 @section('js')
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

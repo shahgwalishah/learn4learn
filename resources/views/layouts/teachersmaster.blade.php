@@ -94,7 +94,7 @@
             }
             .footer-link ul li {
                 line-height: 35px;
-                text-align: center;
+                text-align: center !important;
             }
         }
         #resp1{

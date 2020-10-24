@@ -1,7 +1,10 @@
 <?php $__env->startSection('title','Teacher Homepage'); ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startPush('css'); ?>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 <style>
-    .customStyle{
+    @media(max-width:575px)
+    {
+        .customStyle{
         min-height: 140px;
         min-width: 140px;
     }
@@ -29,7 +32,21 @@
         display: flex;
         justify-content: center;
     }
-</style>
+    #grade-register-div{
+        display: flex;
+        align-items: baseline;
+        min-height: 86px;
+        max-height: 100px;
+    }
+    #repl1{
+        color: red;
+        border: 1px solid red;
+    }
+    }
+    
+</style>    
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
              style="padding-top: 238px;padding-bottom: 238px;background-repeat: no-repeat; background:linear-gradient(rgb(0 0 0 / 17%) 100%, rgb(0 0 0 / 16%) 100%), url(<?php echo e(asset('asset/images/teacher-homepage/teaching_banner.jpg')); ?>">
@@ -215,8 +232,9 @@
 
 
 
+ 
 
-        <section id="course-part" class="pt-115 pb-115 bg_cover gray-bg" style="background-image: url(images/c)"> <section id="course-part" class="pt-115 pb-115 bg_cover gray-bg" style="background-image: url(<?php echo e(asset('asset/images/teacher-homepage/grades-carousel-bgimg.png')); ?>">
+        <section id="course-part" class="pt-115 pb-115 bg_cover gray-bg" style="position: relative;  background:url(/asset/images/teacher-homepage/bgimage.png) no-repeat ; background-size:cover; background-color: #fff;">
             <div class="container">
             <div class="teacher-grade-dash-head-div">
             <p class="teacher-grade-dash-head">MY GRADES</p>
@@ -228,11 +246,12 @@
             <div class="col-lg-6 col-md-6 col-sm-6 item">
             <div class="pad15">
             <div class="card box-shadow">
-            <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
+            <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
             </div> </div>
             </div>
@@ -241,10 +260,11 @@
             <div class="pad15">
             <div class="card box-shadow">
             <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
             </div>
@@ -254,10 +274,11 @@
             <div class="pad15">
             <div class="card box-shadow">
             <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
             </div>
@@ -267,10 +288,11 @@
             <div class="pad15">
             <div class="card box-shadow">
             <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
             </div>
@@ -280,10 +302,11 @@
             <div class="pad15">
             <div class="card box-shadow">
             <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
             </div>
@@ -293,10 +316,25 @@
             <div class="pad15">
             <div class="card box-shadow">
             <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 item">
+            <div class="pad15">
+            <div class="card box-shadow">
+            <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
             </div>
@@ -306,23 +344,11 @@
             <div class="pad15">
             <div class="card box-shadow">
             <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 item">
-            <div class="pad15">
-            <div class="card box-shadow">
-            <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <p class="grades-details">Geography <span>A'</span></p>
-            <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
+            <p class="grades-details">Geography <span id="repl1">A+</span></p>
+            <p class="grades-details">Maths     <span id="repl1">B</span></p>
+            <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+            <p class="grades-details">English   <span id="repl1">A+</span></p>
+            <div class="col-12 col-12 justify-content-center" id="grade-register-div">
             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
             </div>
@@ -336,6 +362,7 @@
             </div>
             </div>
             </section>
+
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('css'); ?>

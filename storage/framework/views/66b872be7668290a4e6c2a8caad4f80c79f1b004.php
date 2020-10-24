@@ -2,9 +2,7 @@
 <?php $__env->startPush('css'); ?>
 <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 <style>
-    @media(max-width:575px)
-    {
-        .customStyle{
+    .customStyle{
         min-height: 140px;
         min-width: 140px;
     }
@@ -42,8 +40,14 @@
         color: red;
         border: 1px solid red;
     }
+
+    @media (max-width:575px) {
+        .customStyle{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 15px;
+        }
     }
-    
 </style>    
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -223,13 +227,13 @@
                 </div>
                 <?php if($teacherhomeworkdetail): ?>
                 <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#"
+                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="javascript:;" onclick="window.location.reload()"
                        id="donate-register-btn">SEE ALL</a>
                 </div>
                 <?php endif; ?>
             </div>
         </section>
-
+        <br>
 
 
  

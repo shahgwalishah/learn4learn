@@ -97,6 +97,18 @@
                 text-align: center;
             }
         }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            border-radius: 5px;
+            color:#fff !important;
+        }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
+            }
+        }
     </style>
     @yield('css')
     @stack('css')
@@ -223,6 +235,26 @@
                                         <a class="{{Request::routeIs('donate') ? 'active' : ''}} customClass"
                                             href="{{route('donate')}}"
                                             style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
+                                    </li>
+                                    <li id="resp1" style="display: none;">
+                                        <a href="{{route('teacher_edit_profile')}}"
+                                           class="{{Request::routeIs('donate') ? 'active' : ''}} customClass"
+                                           style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                            Edit Profile
+                                        </a>
+                                    </li>
+    
+                                    <li id="resp1" style="display: none;">
+                                        <a class="dropdown" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+    
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
                                     </li>
                                 </ul>
                             </div>

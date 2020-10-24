@@ -61,17 +61,17 @@ class StudentController extends Controller
             if ($subject == '00_other_id') {
                 foreach ($request->field as $s) {
                     if ($s != '' || $s != null) {
-                        $newSubject     = Subject::create(['name' => $s]);
-                        $this->createStudentSubject($user_id, $subject['id']);
+                        if(isset($subject['id'])) {
+                            $newSubject     = Subject::create(['name' => $s]);
+                            $this->createStudentSubject($user_id, $subject['id']);
+                        }
                     }
                 }
                 continue;
             }
             $this->createStudentSubject($user_id, $subject);
         }
-        $allSubjects = Subject::all();
-
-        return view('auth.students.student-profile', compact('user_id', 'allSubjects'));
+        return redirect()->route('student-userProfile');
     }
 
     public function updateProfile(Request $request)

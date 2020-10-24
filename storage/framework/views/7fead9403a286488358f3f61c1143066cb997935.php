@@ -135,8 +135,20 @@
                 text-align: center;
             }
         }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            color:#fff !important;
+            border-radius: 5px;
+        }
         .customHeaderSettings{
             width: 99%;
+        }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
+            }
         }
     </style>
 </head>
@@ -285,22 +297,24 @@
                                        href="<?php echo e(route('donate')); ?>"
                                        style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
-                                       href="<?php echo e(route('donate')); ?>"
-                                       style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">Edit-Profile</a>
+                                <li id="resp1" style="display: none;">
+                                    <a href="<?php echo e(route('teacher_edit_profile')); ?>"
+                                       class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
+                                       style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                        Edit Profile
+                                    </a>
                                 </li>
-                                <li>
-                                    
-                                    <a class="btn btn-primary" href="<?php echo e(route('logout')); ?>"
+
+                                <li id="resp1" style="display: none;">
+                                    <a class="dropdown" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
-                                                                                                        document.getElementById('logout-form').submit();">
+                                                                        document.getElementById('logout-form').submit();">
                                         <?php echo e(__('Logout')); ?>
 
                                     </a>
 
                                     <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
-                                        >
+                                          style="display: none;">
                                         <?php echo csrf_field(); ?>
                                     </form>
                                 </li>

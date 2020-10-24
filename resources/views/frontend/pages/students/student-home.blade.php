@@ -209,8 +209,9 @@
                 <div class="col-6" id="std-dashboard-right">
                     <div class="row">
                         <div class="col-6 p-3" id="achieve-div">
-                            <i class="far fa-check-circle customFaCheck"></i>
-                            <p>MY<br>ACHIEVEMENTS</p>
+                            <img style="width:155px;" src="{{asset('asset/images/student-homepage/achievement.png')}}" alt="">
+                            <p style="font-weight: 600;
+                            color: #909090;">MY<br>ACHIEVEMENTS</p>
                         </div>
                         <div class="col-6 p-3" id="schedule-div">
                             <a href="{{ route('student_schedule') }}">

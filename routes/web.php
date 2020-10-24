@@ -154,8 +154,10 @@ Route::group(['private'], function () {
     Route::get('/lesson-details/{lesson_id}/{teacher_id}', 'LessonController@lessonDetails')->name('lessonDetails');
 
     //student routes
-    Route::get('student-select-subjects','UserController@verifiedSuccess')->name('verifiedStudentSuccess');
-    Route::get('/student-verify-email','HomeController@verifyEmailAddress')->name('student-verify-email');
+    Route::get('student-select-levels','UserController@verifiedSuccess')->name('verifiedStudentSuccess');
+    Route::get('/student-verify-email','HomeController@verifyEmailAddress')->name('student-verify-email');  
+    Route::get('/student-profile','HomeController@redirectUserProfile')->name('student-userProfile');
+
     Route::group(['Admin', 'middleware' => ['CheckUserType:' . 'student', 'verified']], function () {
         Route::get('/students/lesssn', 'StudentController@studentLessson')->name('studentLessson');
         Route::get('/students/Home', 'StudentController@studentHome')->name('studentHome');

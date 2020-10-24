@@ -108,7 +108,7 @@
                 <div class="modal-body">
                     <p>Please First Verify Email Address.We Send You An Verification Email.Or You Can Change Your Email Address</p>
                     <div class="row">
-                        <input type="email" class="form-control" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
+                        <input type="email" class="form-control" value="<?php echo e(\Auth::user()->email); ?>" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -125,7 +125,7 @@
 <script>
     function resendEmail(){
         let email = $('#emailAddress').val();
-        email = email ? email : 'null';
+        console.log(email);
         $('#fa-faSpin').show();
         let url = '/resend-email/'+email;
         $.ajax({

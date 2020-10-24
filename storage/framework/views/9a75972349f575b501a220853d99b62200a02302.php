@@ -97,6 +97,18 @@
                 text-align: center;
             }
         }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            border-radius: 5px;
+            color:#fff !important;
+        }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
+            }
+        }
     </style>
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
@@ -224,6 +236,27 @@
                                         <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
                                             href="<?php echo e(route('donate')); ?>"
                                             style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
+                                    </li>
+                                    <li id="resp1" style="display: none;">
+                                        <a href="<?php echo e(route('teacher_edit_profile')); ?>"
+                                           class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
+                                           style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                            Edit Profile
+                                        </a>
+                                    </li>
+    
+                                    <li id="resp1" style="display: none;">
+                                        <a class="dropdown" href="<?php echo e(route('logout')); ?>"
+                                           onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                            <?php echo e(__('Logout')); ?>
+
+                                        </a>
+    
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                              style="display: none;">
+                                            <?php echo csrf_field(); ?>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>

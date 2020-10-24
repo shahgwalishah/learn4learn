@@ -44,6 +44,12 @@ class HomeController extends Controller
         }
     }
 
+    public function redirectUserProfile(){
+        $user_id     =  \Auth::user()->id;
+        $allSubjects = Subject::all();
+        return view('auth.students.student-profile', compact('user_id', 'allSubjects'));
+    }
+
     public function index()
     {
         // dd(123);

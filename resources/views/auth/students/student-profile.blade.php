@@ -34,6 +34,50 @@
         box-shadow: unset;
         text-decoration: underline;
     }
+    .main-cont .row {
+        margin-right: 0px !important;
+        box-shadow: 0px 0px 10px -3px black;
+        background: white;
+        margin-top: -80px !important;
+        position: relative;
+        margin-left: auto;
+    }
+    .customContaine{
+        width:80%;
+    }
+    ._inputwidth {
+        width: 100% !important;
+    }
+
+    @media (max-width:991px) {
+        #submit-btn{
+            display: none !important;
+        }
+        ._inputwidth {
+            width: 100% !important;
+        }
+    }
+
+    @media (max-width:575px) {
+        .main-cont .row {
+            margin-right: 0px !important;
+            box-shadow: 0px 0px 0px -3px black !important;
+            background: white;
+            margin-top: -80px !important;
+            position: relative;
+            margin-left: auto;
+        }
+        .customContaine{
+            width:100%;
+            padding:0px;
+        }
+        #submit-btn{
+            display: none !important;
+        }
+        ._inputwidth {
+            width: 100% !important;
+        }
+    }
 </style>
 
 <!--====== Bootstrap css ======-->
@@ -58,7 +102,7 @@
 {{----}}
 
 <section class="main-section">
-    <div class="container">
+    <div class="container customContaine">
         <div class="main-cont">
             <div class="row">
                 <div class="col-lg-6 d-flex align-items-center justify-content-center p-5">
@@ -167,7 +211,7 @@
                 </div>
                 <div class="col-lg-6 p-0">
                     <div class="d-flex align-items-center justify-content-center" id="submit-btn">
-                        <img src="{{asset('asset/images/students/registration-banner.png')}}">
+                        <img style="height: 100%;object-fit:cover;" src="{{asset('asset/images/students/registration-banner.png')}}">
                     </div>
                 </div>
             </div>

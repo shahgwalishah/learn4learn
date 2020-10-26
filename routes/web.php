@@ -69,7 +69,7 @@ Route::group(['Public'], function () {
         Route::get('/show-form', 'UserController@showForm');
         Route::get('/select-Subjects', 'StudentController@selectSubjects')->name('selectSubjects');
         Route::get('/save-new-subject', 'StudentController@saveNewSubject')->name('save-new-subject');
-        Route::post('/get-subjects', 'StudentController@getSubjects')->name('getSubjects');
+        Route::post('/student-select-subjects', 'StudentController@postAddSubjects')->name('postAddSubjects');
         Route::post('/get-profile', 'StudentController@getProfile')->name('getProfile');
         Route::post('/teacher-subjects', 'TeacherController@teacherSubjects')->name('teacherSubjects');
 

@@ -33,7 +33,7 @@
     </div> <!-- single slider -->
 </section>
 <section class="main-section">
-    <form action="<?php echo e(route('getSubjects')); ?>" method="post">
+    <form action="<?php echo e(route('postAddSubjects')); ?>" method="post">
         <?php echo csrf_field(); ?>
         <div class="container" style="width:80%">
 
@@ -52,7 +52,7 @@
 
                     <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div
-                        class="col-md-6 d-flex align-items-center justify-content-center <?php echo e($key%2==0 ? '_regSubLP': '_regSubRP'); ?>">
+                        class="col-md-6 d-flex align-items-center justify-content-center">
                         <div class="form-parts">
                             <div class="step">
                                 <div class="form-group">
@@ -68,7 +68,7 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                     <div
-                        class="col-lg-6 <?php echo e(count($subjects)%2 == 0 ? '_regSubLP': '_regSubRP'); ?> col-md-6 d-flex align-items-center justify-content-center">
+                        class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
                         <div class="col-md-12 d-flex align-items-center ">
                             <div class="form-parts">
                                 <div class="step">

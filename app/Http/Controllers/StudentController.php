@@ -19,10 +19,10 @@ class StudentController extends Controller
 {
     public function selectSubjects(Request $request)
     {
-        $user    =Auth::user()->update(['educational_level' => $request->level]);
+        $user    = Auth::user()->update(['educational_level' => $request->level]);
         $user_id = $request->user_id;
         $subjects=Subject::all();
-
+        $subjects = collect($subjects)->unique('name');
         return view('auth.students.student-subject', compact('subjects', 'user_id'));
     }
 
@@ -45,13 +45,13 @@ class StudentController extends Controller
     {
         SubjectLevelDetail::create([
             'user_id'    => $student,
-            'subject_id' => 0,
+            'subject_id' => $subject,
             'field'      => $subject,
             'level_id'   => 0,
         ]);
     }
 
-    public function getSubjects(Request $request)
+    public function postAddSubjects(Request $request)
     {
         $user_id     = $request->user_id;
         if(is_null($request->subjects)) {
@@ -63,7 +63,12 @@ class StudentController extends Controller
                     if ($s != '' || $s != null) {
                         if(isset($subject['id'])) {
                             $newSubject     = Subject::create(['name' => $s]);
-                            $this->createStudentSubject($user_id, $subject['id']);
+        $check = SubjectLevelDetail::where('subject_id','=',$subject)->first();
+        if(is_null($check)) {
+            $this->createStudentSubject($user_id, $subject['id']);
+        } else {
+            return back()->with('error_message_sec','subject already exists');
+        }
                         }
                     }
                 }

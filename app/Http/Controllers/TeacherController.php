@@ -36,12 +36,17 @@ class TeacherController extends Controller
                     $s = Subject::create([
                         'name' => $subject,
                     ]);
-                    SubjectLevelDetail::create([
-                        'user_id'    => $user_id,
-                        'subject_id' => $s->id,
-                        'field'      => 0,
-                        'level_id'   => $request->subject_level_other_ . $key,
-                    ]);
+                    $subjectCheck = SubjectLevelDetail::where('subject_id','=', $s->id)->first();
+                    if(is_null($subjectCheck)) {
+                        SubjectLevelDetail::create([
+                            'user_id'    => $user_id,
+                            'subject_id' => $s->id,
+                            'field'      => 0,
+                            'level_id'   => $request->subject_level_other_ . $key,
+                        ]);
+                    } else {
+                        return back()->with('error_message','subject already exists');
+                    }
                 }
             }
         }
@@ -54,12 +59,17 @@ class TeacherController extends Controller
             }
             $subLevelArr='subject_' . $subject . '_level';
             foreach ($request->$subLevelArr as $SL) {
-                $createSubjects = SubjectLevelDetail::create([
-                    'user_id'    => $user_id,
-                    'subject_id' => $subject,
-                    'field'      => 0,
-                    'level_id'   => $SL,
-                ]);
+                $subject = SubjectLevelDetail::where('subject_id','=',$SL)->first();
+                if(is_null($subject)) {
+                    $createSubjects = SubjectLevelDetail::create([
+                        'user_id'    => $user_id,
+                        'subject_id' => $subject,
+                        'field'      => 0,
+                        'level_id'   => $SL,
+                    ]);
+                } else {
+                    return back()->with('error_message','subject already exists');
+                }
             }
         }
         return view('auth.teachers.teacher-profile', compact('user_id', 'allSubjects'));

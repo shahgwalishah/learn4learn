@@ -151,10 +151,14 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="{{asset('css/loader.css')}}">
 </head>
 
 <body>
 <!--====== PRELOADER PART START ======-->
+<div class="centerLoader">
+    <div class="loader"></div>
+</div>
 <!--====== PRELOADER PART START ======-->
 <!--====== HEADER PART START ======-->
 
@@ -479,6 +483,9 @@
 <script>
     // Material Select Initialization
     $(document).ready(function() {
+        $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(5000);
+            })
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
             $("#success-alert").slideUp(500);
             $('.mdb-select').materialSelect();

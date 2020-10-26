@@ -249,21 +249,26 @@ class UserController extends Controller
 
     public function verifiedSuccess(){
         // dd(123);
-        $user = Auth::user();
-        User::where('id','=',$user->id)->update([
-           'email_verified_at' => Carbon::now()
-        ]);
-        $subjects    = Subject::all();
-        $no_of_chunk = $subjects->count() / 2;
-        $subjects    = $subjects->chunk($no_of_chunk);
-        $user_id = \Auth::user()->id;
-        $level      = levels::all();
-        $verified = 'true';
-        session()->flash('success-alert-message-teac', "Email Verified Successfully.");
-        if($user->type == 'teacher') {
-            return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id','verified'));
+        if(Auth::user()) {
+            $user = Auth::user();
+            User::where('id','=',$user->id)->update([
+            'email_verified_at' => Carbon::now()
+            ]);
+            $subjects    = Subject::all();
+            $subjects = collect($subjects)->unique('name');
+            $no_of_chunk = $subjects->count() / 2;
+            $subjects    = $subjects->chunk($no_of_chunk);
+            $user_id = \Auth::user()->id;
+            $level      = levels::all();
+            $verified = 'true';
+            session()->flash('success-alert-message-teac', "Email Verified Successfully.");
+            if($user->type == 'teacher') {
+                return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id','verified'));
+            } else {
+                return view('auth.students.student-level', compact('level', 'user_id','verified'));
+            }
         } else {
-            return view('auth.students.student-level', compact('level', 'user_id','verified'));
+            return redirect('/home');
         }
     }
 }

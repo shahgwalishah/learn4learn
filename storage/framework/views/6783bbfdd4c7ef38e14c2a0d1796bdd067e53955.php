@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+    
 <head>
 
     <!--====== Required meta tags ======-->
@@ -45,6 +45,8 @@
 
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="<?php echo e(asset('asset/css/responsive.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
     <style>
@@ -91,7 +93,7 @@
             border: 1px solid #ffc10e;
             background-color: white;
             min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(5, 5, 5, 0.2);
             z-index: 1;
         }
 
@@ -230,7 +232,9 @@
 </head>
 
 <body>
-
+    <div class="centerLoader">
+         <div class="loader"></div>
+    </div>
 <header id="header-part" class="header-two">
     
 
@@ -630,6 +634,9 @@
     <script>
         // Material Select Initialization
         $(document).ready(function() {
+            $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(5000);
+            })
             $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
                 $("#success-alert").slideUp(500);
             });

@@ -110,11 +110,15 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
 </head>
 
 <body>
+    <div class="centerLoader">
+        <div class="loader"></div>
+    </div>
     <header id="header-part" class="header-two">
         <div class="header-top d-none d-lg-block">
             <div class="container">
@@ -380,6 +384,9 @@
     <script>
         // Material Select Initialization
     $(document).ready(function() {
+        $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(5000);
+            })
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
         $("#success-alert").slideUp(500);
         $('.mdb-select').materialSelect();

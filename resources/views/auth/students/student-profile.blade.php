@@ -42,6 +42,9 @@
         position: relative;
         margin-left: auto;
     }
+    .selection{
+        width:100%;
+    }
     .customContaine{
         width:80%;
     }

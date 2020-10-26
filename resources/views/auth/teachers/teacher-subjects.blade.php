@@ -83,7 +83,7 @@
 
                 <div class="row">
                      @if(session()->has('error_message'))
-                        <div class="alert alert-danger" style="text-align:center;width:100%;border:0px !important; text-transform: capitalize;">
+                        <div class="alert alert-danger" style="font-weight:bold;text-align:center;width:100%;border:0px !important; text-transform: capitalize;">
                             {{session()->get('error_message')}}
                         </div>
                     @endif

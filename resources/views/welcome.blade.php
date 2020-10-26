@@ -299,8 +299,8 @@
     <div class="row justify-content-center" id="boxes-5">
 
         <div class="row icon_center" style="display: contents;">
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+                <a href="{{ url('/search/Subjects?see_all=&subject_id=2&level_id=&date_id=') }}" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="{{asset('asset/images/browsebysubject/math.png')}}" alt="Icon">
@@ -311,8 +311,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+                <a href="{{ url('/search/Subjects?see_all=&subject_id=13&level_id=&date_id=') }}" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="{{asset('asset/images/browsebysubject/geography.png')}}" alt="Icon">
@@ -323,8 +323,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+                <a href="{{ url('/search/Subjects?see_all=&subject_id=3&level_id=&date_id=') }}" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="{{asset('asset/images/browsebysubject/english.png')}}" alt="Icon">
@@ -335,8 +335,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px ;cursor: pointer;">
+                <a href="{{ url('/search/Subjects?see_all=see_all&subject_id=&level_id=&date_id=') }}" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="{{asset('asset/images/browsebysubject/biology.png')}}" alt="Icon">
@@ -347,8 +347,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+            <a href="{{ url('/search/Subjects?see_all=see_all&subject_id=&level_id=&date_id=') }}" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="{{asset('asset/images/browsebysubject/art.png')}}" alt="Icon">

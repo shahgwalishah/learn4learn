@@ -292,7 +292,7 @@
                                     </div>
                                 </div>
                                 <div class="thum">
-                                <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/<?php echo e($leson->lessonsId); ?>/<?php echo e($leson->teacher_id); ?>'">
+                                <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/<?php echo e($leson->id); ?>/<?php echo e($leson->teacher->id); ?>'">
 
                                         <img src="<?php echo e(url('/storage/images/'.$leson->thumbnail)); ?>" class="leasson-thumnail">
                                         <div class="card-img-overlay text-white d-flex flex-column justify-content-center">

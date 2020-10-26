@@ -291,7 +291,7 @@
                                     </div>
                                 </div>
                                 <div class="thum">
-                                <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/{{$leson->lessonsId}}/{{$leson->teacher_id}}'">
+                                <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/{{$leson->id}}/{{$leson->teacher->id}}'">
 
                                         <img src="{{url('/storage/images/'.$leson->thumbnail)}}" class="leasson-thumnail">
                                         <div class="card-img-overlay text-white d-flex flex-column justify-content-center">

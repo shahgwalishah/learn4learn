@@ -182,51 +182,68 @@ class UserController extends Controller
     public function SearchPage(Request $request)
     {
         if(isset($request->see_all)) {
-            $getuserimg = DB::table('users')
-                ->join('lessons', 'users.id', 'lessons.user_id')
-                ->join('subjects', function ($join) {
-                    $join->on('lessons.subject_id', 'subjects.id');
-                })
-                ->select(
-                    'users.thumbnail as userthamnail',
-                    'lessons.title',
-                    'lessons.description',
-                    'lessons.date',
-                    'lessons.thumbnail',
-                    'subjects.name as subjectname',
-                    'subjects.id as subjects_id',
-                    'lessons.time',
-                    'lessons.id as lessonsId',
-                    'lessons.user_id as teacher_id'
-                )->get();
+            $getuserimg = Lesson::with('subject','teacher')->get();
+            // $getuserimg = DB::table('users')
+            //     ->join('lessons', 'users.id', 'lessons.user_id')
+            //     ->join('subjects', function ($join) {
+            //         $join->on('lessons.subject_id', 'subjects.id');
+            //     })
+            //     ->select(
+            //         'users.thumbnail as userthamnail',
+            //         'lessons.title',
+            //         'lessons.description',
+            //         'lessons.date',
+            //         'lessons.thumbnail',
+            //         'subjects.name as subjectname',
+            //         'subjects.id as subjects_id',
+            //         'lessons.time',
+            //         'lessons.id as lessonsId',
+            //         'lessons.user_id as teacher_id'
+            //     )->get();
         } else {
-            $getuserimg = DB::table('users')
-                ->join('lessons', 'users.id', 'lessons.user_id')
-                ->join('subjects', function ($join) {
-                    $join->on('lessons.subject_id', 'subjects.id');
-                })
-                ->where('subjects.id', $request->subject_id)
-                ->where('lessons.id', $request->date_id)
+            if($request->level_id) {
+                $getuserimg = Lesson::where('level_id','=',$request->level_id)->with('subject','teacher')->get();
+            } else if($request->subject_id) {
+                $getuserimg = Lesson::where('subject_id','=',$request->subject_id)->with('subject','teacher')->get();
+            } else if($request->date_id) {
+                $getuserimg = Lesson::where('id','=',$request->date_id)->with('subject','teacher')->get();
+            } else if($request->date_id !='' && $request->subject_id != '' && $request->level_id != '') {
+                $dId = $request->date_id;
+                $getuserimg = Lesson::where('level_id','=',$request->level_id)
+                ->orwhere('id','=',$request->date_id)
+                ->with(['subject' => function($q) use ($sId, $dId) {
+                    $q->where('id','=',$sId);
+                },'teacher'])->get();
+            } else {
+                $getuserimg = Lesson::with('subject','teacher')->get();
+            }
+            // $getuserimg = DB::table('users')
+            //     ->join('lessons', 'users.id', 'lessons.user_id')
+            //     ->join('subjects', function ($join) {
+            //         $join->on('lessons.subject_id', 'subjects.id');
+            //     })
+            //     ->where('subjects.id', $request->subject_id)
+            //     ->where('lessons.id', $request->date_id)
 
-                ->select(
-                    'users.thumbnail as userthamnail',
-                    'lessons.title',
-                    'lessons.description',
-                    'lessons.date',
-                    'lessons.thumbnail',
-                    'subjects.name as subjectname',
-                    'subjects.id as subjects_id',
-                    'lessons.time',
-                    'lessons.id as lessonsId',
-                    'lessons.user_id as teacher_id'
-                )->get();
+            //     ->select(
+            //         'users.thumbnail as userthamnail',
+            //         'lessons.title',
+            //         'lessons.description',
+            //         'lessons.date',
+            //         'lessons.thumbnail',
+            //         'subjects.name as subjectname',
+            //         'subjects.id as subjects_id',
+            //         'lessons.time',
+            //         'lessons.id as lessonsId',
+            //         'lessons.user_id as teacher_id'
+            //     )->get();
         }
-        $level    = DB::table('levels')->get();
+        $level    = levels::all();
         $subjects = DB::table('subjects')
             ->join('lessons', 'lessons.subject_id', 'subjects.id')
             ->select('subjects.*')
             ->get();
-        $Date = DB::table('lessons')->get();
+        $Date = Lesson::get();
         return view('frontend.pages.homepagesearch')->with(['getuserimg' => $getuserimg, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
     }
 

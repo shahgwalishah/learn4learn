@@ -197,6 +197,33 @@
                 display: block !important;
             }
         }
+        @media (max-width:991px) {
+            #responsiveView{
+                display: flex !important;
+                justify-content: space-between !important;
+                margin-top: 15px;
+                border-bottom: 1px solid #efefef;
+            }
+            .login-register ul {
+                text-align: center;
+            }
+            #customSetPBox{
+                position: absolute;
+                transform: translate3d(270px, 40px, 0px);
+                top: 0px;
+                left: -130px !important;
+                will-change: transform;
+            }
+        }
+        @media (max-width:575px) {
+            #customSetPBox{
+                position: absolute;
+                transform: translate3d(270px, 40px, 0px);
+                top: 0px;
+                left: 0px !important;
+                will-change: transform;
+            }
+        }
     </style>
     @yield('css')
     @stack('css')
@@ -206,7 +233,47 @@
 
 <header id="header-part" class="header-two">
     {{-- top-bar-desktop --}}
-    <div class="header-top d-none d-lg-block" style="padding-bottom: 22px">
+
+    @if(!\Auth::user())
+    {{-- responsive view --}}
+    <div class="col-md-12" id="responsiveView" style="display: none;">
+        <div class="col-md-6 text-center">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" style="color: black" class="nav-link dropdown-toggle"
+                    href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" v-pre>
+                        @lang('home.Language') <span class="caret"></span>
+                    </a>
+                    <div id="customSetPBox" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('/locale/en') }}"><img
+                                src="{{asset('asset/images/flag/us.png')}}" width="30px"
+                                height="20x"> English</a>
+                        <a class="dropdown-item" href="{{ url('/locale/fr') }}"><img
+                                src="{{asset('asset/images/flag/fr.png')}}" width="30px"
+                                height="20x"> French</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="login-register">
+                <ul>
+                    <li><a href="{{ route('login') }}"
+                           class="{{Request::routeIs('login') ? 'active' : ''}}"
+                           style="background: none !important;color:black;">@lang('home.SIGN_IN')</a>
+                    </li>
+                    <li><a href="{{ route('register') }}"
+                           class="{{Request::routeIs('register') ? 'active' : ''}}">@lang('home.SIGN_UP')</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @endif
+
+
+    <div class="header-top d-none d-lg-block customHeader" style="padding-bottom: 22px">
         <div class="container" style="margin-top: 14px">
             <div class="row">
                 <div class="col-md-6">
@@ -217,7 +284,6 @@
                     <div class="header-right d-flex justify-content-end">
 
                         @if(!Auth::check())
-
                             <nav class="navbar navbar-expand-md navbar-light navbar-laravel "
                                  style="    margin-top: -14px;">
 

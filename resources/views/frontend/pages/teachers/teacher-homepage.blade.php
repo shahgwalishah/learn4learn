@@ -38,7 +38,7 @@
         max-height: 100px;
     }
     #repl1{
-        color: red;
+        color: rgb(214, 27, 27);
         border: 1px solid red;
     }
 

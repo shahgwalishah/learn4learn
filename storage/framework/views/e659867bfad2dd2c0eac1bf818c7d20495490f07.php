@@ -492,7 +492,7 @@
                             <?php } else{ ?>
 
 
-                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#"
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="javascript:;"
                                 style="background: #818181;color: white;font-weight: 500;display: block;"  onclick="window.location.href='/lesson-details/<?php echo e($leson->lessonsId); ?>/<?php echo e($leson->teacher_id); ?>'">LEARN MORE</a>
                             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" onclick="Buttoncl();"
                                 style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO

@@ -1,5 +1,6 @@
 <?php $__env->startSection('title','Teacher Homepage'); ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startPush('css'); ?>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 <style>
     .customStyle{
         min-height: 140px;
@@ -29,7 +30,27 @@
         display: flex;
         justify-content: center;
     }
-</style>
+    #grade-register-div{
+        display: flex;
+        align-items: baseline;
+        min-height: 86px;
+        max-height: 100px;
+    }
+    #repl1{
+        color: rgb(214, 27, 27);
+        border: 1px solid red;
+    }
+
+    @media (max-width:575px) {
+        .customStyle{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 15px;
+        }
+    }
+</style>    
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
              style="padding-top: 238px;padding-bottom: 238px;background-repeat: no-repeat; background:linear-gradient(rgb(0 0 0 / 17%) 100%, rgb(0 0 0 / 16%) 100%), url(<?php echo e(asset('asset/images/teacher-homepage/teaching_banner.jpg')); ?>">
@@ -206,12 +227,13 @@
                 </div>
                 <?php if($teacherhomeworkdetail): ?>
                 <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#"
+                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="javascript:;" onclick="window.location.reload()"
                        id="donate-register-btn">SEE ALL</a>
                 </div>
                 <?php endif; ?>
             </div>
         </section>
+        <br>
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('css'); ?>
         <!--====== Bootstrap css ======-->

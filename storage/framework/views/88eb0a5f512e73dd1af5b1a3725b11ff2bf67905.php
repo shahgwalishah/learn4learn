@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="customHeaders">
 
 <head>
 
@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
           integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
           crossorigin="anonymous" />
+    <link rel="stylesheet" href="<?php echo e(asset('asset/autocomplete.css')); ?>">
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
     <style>
@@ -135,14 +136,34 @@
                 text-align: center;
             }
         }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            color:#fff !important;
+            border-radius: 5px;
+        }
         .customHeaderSettings{
             width: 99%;
         }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
+            }
+        }
+        .customHeaders{
+            max-width: 100%;
+            margin: -2px;
+        }
     </style>
+    <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
 </head>
 
 <body>
 <!--====== PRELOADER PART START ======-->
+<div class="centerLoader">
+    <div class="loader"></div>
+</div>
 <!--====== PRELOADER PART START ======-->
 <!--====== HEADER PART START ======-->
 
@@ -284,6 +305,27 @@
                                     <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
                                        href="<?php echo e(route('donate')); ?>"
                                        style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
+                                </li>
+                                <li id="resp1" style="display: none;">
+                                    <a href="<?php echo e(route('teacher_edit_profile')); ?>"
+                                       class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
+                                       style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                        Edit Profile
+                                    </a>
+                                </li>
+
+                                <li id="resp1" style="display: none;">
+                                    <a class="dropdown" href="<?php echo e(route('logout')); ?>"
+                                       onclick="event.preventDefault();
+                                                                        document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                                    </a>
+
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                          style="display: none;">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
@@ -441,19 +483,22 @@
 <script src="<?php echo e(asset('asset/js/map-script.js')); ?>"></script>
 
 <script src="https://kit.fontawesome.com/0141eabd3d.js" crossorigin="anonymous"></script>
+
 <?php echo $__env->yieldContent('js'); ?>
 <script>
     // Material Select Initialization
     $(document).ready(function() {
+        $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(3000);
+            });
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
             $("#success-alert").slideUp(500);
             $('.mdb-select').materialSelect();
         });
     });
 </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="<?php echo e(asset('asset/autocomplete.js')); ?>"></script>
 </body>
-
-
-
 </html>
 <?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/layouts/masterStudent.blade.php ENDPATH**/ ?>

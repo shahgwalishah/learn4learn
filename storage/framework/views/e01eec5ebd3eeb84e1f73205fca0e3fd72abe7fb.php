@@ -94,15 +94,31 @@
             }
             .footer-link ul li {
                 line-height: 35px;
-                text-align: center;
+                text-align: center !important;
+            }
+        }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            border-radius: 5px;
+            color:#fff !important;
+        }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
             }
         }
     </style>
+    <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
 </head>
 
 <body>
+    <div class="centerLoader">
+        <div class="loader"></div>
+    </div>
     <header id="header-part" class="header-two">
         <div class="header-top d-none d-lg-block">
             <div class="container">
@@ -224,6 +240,27 @@
                                         <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
                                             href="<?php echo e(route('donate')); ?>"
                                             style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
+                                    </li>
+                                    <li id="resp1" style="display: none;">
+                                        <a href="<?php echo e(route('teacher_edit_profile')); ?>"
+                                           class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
+                                           style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                            Edit Profile
+                                        </a>
+                                    </li>
+    
+                                    <li id="resp1" style="display: none;">
+                                        <a class="dropdown" href="<?php echo e(route('logout')); ?>"
+                                           onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                            <?php echo e(__('Logout')); ?>
+
+                                        </a>
+    
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                              style="display: none;">
+                                            <?php echo csrf_field(); ?>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>
@@ -347,6 +384,9 @@
     <script>
         // Material Select Initialization
     $(document).ready(function() {
+        $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(3000);
+            })
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
         $("#success-alert").slideUp(500);
         $('.mdb-select').materialSelect();

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+    
 <head>
 
     <!--====== Required meta tags ======-->
@@ -45,6 +45,8 @@
 
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="<?php echo e(asset('asset/css/responsive.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
     <style>
@@ -91,7 +93,7 @@
             border: 1px solid #ffc10e;
             background-color: white;
             min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(5, 5, 5, 0.2);
             z-index: 1;
         }
 
@@ -165,6 +167,7 @@
             border: aliceblue;
             background: none;
             padding: 0px;
+            cursor: pointer;
         }
         #resp1{
             background-color: rgb(0, 145, 255);
@@ -196,16 +199,85 @@
                 display: block !important;
             }
         }
+        @media (max-width:991px) {
+            #responsiveView{
+                display: flex !important;
+                justify-content: space-between !important;
+                margin-top: 15px;
+                border-bottom: 1px solid #efefef;
+            }
+            .login-register ul {
+                text-align: center;
+            }
+            #customSetPBox{
+                position: absolute;
+                transform: translate3d(270px, 40px, 0px);
+                top: 0px;
+                left: -130px !important;
+                will-change: transform;
+            }
+        }
+        @media (max-width:575px) {
+            #customSetPBox{
+                position: absolute;
+                transform: translate3d(270px, 40px, 0px);
+                top: 0px;
+                left: 0px !important;
+                will-change: transform;
+            }
+        }
     </style>
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
 </head>
 
 <body>
-
+    <div class="centerLoader">
+         <div class="loader"></div>
+    </div>
 <header id="header-part" class="header-two">
     
-    <div class="header-top d-none d-lg-block" style="padding-bottom: 22px">
+
+    <?php if(!\Auth::user()): ?>
+    
+    <div class="col-md-12" id="responsiveView" style="display: none;">
+        <div class="col-md-6 text-center">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" style="color: black" class="nav-link dropdown-toggle"
+                    href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" v-pre>
+                        <?php echo app('translator')->get('home.Language'); ?> <span class="caret"></span>
+                    </a>
+                    <div id="customSetPBox" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="<?php echo e(url('/locale/en')); ?>"><img
+                                src="<?php echo e(asset('asset/images/flag/us.png')); ?>" width="30px"
+                                height="20x"> English</a>
+                        <a class="dropdown-item" href="<?php echo e(url('/locale/fr')); ?>"><img
+                                src="<?php echo e(asset('asset/images/flag/fr.png')); ?>" width="30px"
+                                height="20x"> French</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="login-register">
+                <ul>
+                    <li><a href="<?php echo e(route('login')); ?>"
+                           class="<?php echo e(Request::routeIs('login') ? 'active' : ''); ?>"
+                           style="background: none !important;color:black;"><?php echo app('translator')->get('home.SIGN_IN'); ?></a>
+                    </li>
+                    <li><a href="<?php echo e(route('register')); ?>"
+                           class="<?php echo e(Request::routeIs('register') ? 'active' : ''); ?>"><?php echo app('translator')->get('home.SIGN_UP'); ?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
+
+    <div class="header-top d-none d-lg-block customHeader" style="padding-bottom: 22px">
         <div class="container" style="margin-top: 14px">
             <div class="row">
                 <div class="col-md-6">
@@ -216,7 +288,6 @@
                     <div class="header-right d-flex justify-content-end">
 
                         <?php if(!Auth::check()): ?>
-
                             <nav class="navbar navbar-expand-md navbar-light navbar-laravel "
                                  style="    margin-top: -14px;">
 
@@ -563,6 +634,9 @@
     <script>
         // Material Select Initialization
         $(document).ready(function() {
+            $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(3000);
+            })
             $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
                 $("#success-alert").slideUp(500);
             });

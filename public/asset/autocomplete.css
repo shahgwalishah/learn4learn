@@ -30,3 +30,6 @@
     text-underline: none !important;
     margin-bottom: 6px !important;
 }
+.ui-helper-hidden-accessible{
+    display: none;
+}

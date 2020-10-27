@@ -490,14 +490,14 @@
     $(document).ready(function() {
         $(window).on('load', function(){
                 $('.centerLoader' ).fadeOut(3000);
-            })
+            });
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
             $("#success-alert").slideUp(500);
             $('.mdb-select').materialSelect();
         });
     });
 </script>
-    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="<?php echo e(asset('asset/autocomplete.js')); ?>"></script>
 </body>
 </html>

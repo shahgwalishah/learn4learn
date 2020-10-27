@@ -350,7 +350,7 @@
 
 
                                         <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn"
-                                           href="{{ route('addToCalender', [$leson->lessonsId, $leson->teacher_id, $leson->subjects_id])}}"
+                                           href="{{ route('addToCalender', [$leson->id, $leson->teacher_id, $leson->subjects_id])}}"
                                            style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
                                             CALENDAR</a>
 

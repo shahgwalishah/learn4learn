@@ -50,6 +50,14 @@ class HomeController extends Controller
         return view('auth.students.student-profile', compact('user_id', 'allSubjects'));
     }
 
+    public function getLessons(){
+        $subjects = Subject::all();
+        return collect([
+            'status' => true,
+            'data' => $subjects
+        ]);
+    }
+
     public function index()
     {
         // dd(123);

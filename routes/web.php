@@ -239,6 +239,7 @@ Route::group(['private'], function () {
     });
 });
 
+Route::get('/get/all/lessons','HomeController@getLessons');
 /**
  * shehrayar routes
  */

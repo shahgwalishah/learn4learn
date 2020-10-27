@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="customHeaders">
 
 <head>
 
@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
           integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
           crossorigin="anonymous" />
+    <link rel="stylesheet" href="<?php echo e(asset('asset/autocomplete.css')); ?>">
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
     <style>
@@ -149,6 +150,10 @@
             #resp1{
                 display: block !important;
             }
+        }
+        .customHeaders{
+            max-width: 100%;
+            margin: -2px;
         }
     </style>
     <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
@@ -478,12 +483,13 @@
 <script src="<?php echo e(asset('asset/js/map-script.js')); ?>"></script>
 
 <script src="https://kit.fontawesome.com/0141eabd3d.js" crossorigin="anonymous"></script>
+
 <?php echo $__env->yieldContent('js'); ?>
 <script>
     // Material Select Initialization
     $(document).ready(function() {
         $(window).on('load', function(){
-                $('.centerLoader' ).fadeOut(5000);
+                $('.centerLoader' ).fadeOut(3000);
             })
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
             $("#success-alert").slideUp(500);
@@ -491,9 +497,8 @@
         });
     });
 </script>
+    
+    <script src="<?php echo e(asset('asset/autocomplete.js')); ?>"></script>
 </body>
-
-
-
 </html>
 <?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/layouts/masterStudent.blade.php ENDPATH**/ ?>

@@ -385,7 +385,7 @@
         // Material Select Initialization
     $(document).ready(function() {
         $(window).on('load', function(){
-                $('.centerLoader' ).fadeOut(5000);
+                $('.centerLoader' ).fadeOut(3000);
             })
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
         $("#success-alert").slideUp(500);

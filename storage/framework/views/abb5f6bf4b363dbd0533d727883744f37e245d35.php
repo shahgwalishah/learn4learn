@@ -2,27 +2,7 @@
 <?php $__env->startSection('content'); ?>
 
 
-<section id="slider-part" class="slider-active">
-    <div class="single-slider slider-4 bg_cover pt-150"
-        style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
-        <div class="container">
-            <div class="row" style="justify-content: center;">
-                <div class="col-xl-7 col-lg-9">
-                    <div class="slider-cont slider-cont-4 text-center">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="What are you looking for?">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- single slider -->
-</section>
+<?php echo $__env->make('frontend.search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- Card -->
 <section id="course-part" class=" bg_cover gray-bg">
     <section id="course-part" class=" bg_cover gray-bg"
@@ -55,7 +35,7 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('css'); ?>
+<?php $__env->startPush('css'); ?>
 <!--====== Bootstrap css ======-->
 <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homepage.css')); ?>">
 <link rel="stylesheet" href="<?php echo e(asset('asset/css/teacher-homepage.css')); ?>">
@@ -86,6 +66,6 @@
         max-width: 400px;
     }
 </style>
-<?php $__env->stopSection(); ?>
+<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/students/grades.blade.php ENDPATH**/ ?>

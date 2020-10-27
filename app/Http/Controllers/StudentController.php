@@ -157,7 +157,6 @@ class StudentController extends Controller
 
     public function studentHome()
     {
-        // dd(123);
 
         // $Book=      DB::table('lessons')
         //                 ->join('subjects', 'subjects.id', 'lessons.subject_id')
@@ -266,14 +265,12 @@ class StudentController extends Controller
 
     public function viewteacherdashboard(Request $request)
     {
-        // dd(123);
         $studetns=StudentLesson::getStudent($request);
         return view('frontend.pages.students.viewTeacherProfile')->with('db', $studetns);
     }
 
     public function studetnsHomeWorks()
     {
-        // dd(123);
         $student_iid=Auth::user()->id;
         $teacherhomeworkdetail=Subject::getSubject($student_iid);
         $Title=StudentLesson::getTitle($student_iid);

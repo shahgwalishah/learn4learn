@@ -25,8 +25,9 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont slider-cont-4 text-center">
-                            <h3 class="std-welcome-msg">{{$user[0]['fname']}},<br>
-                                Welcome back!</h3>
+                            <h3 class="std-welcome-msg">{{$user[0]['fname']}}
+                                {{-- ,<br>
+                                Welcome back!</h3> --}}
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="What are you looking for?">
                                 <div class="input-group-append">
@@ -62,9 +63,9 @@
                         <p class="stud-date"><b>Country</b>{{$user[0]['country']}}</p><br>
                         <p class="stud-date"><b>Education:</b> Master Degree</p><br>
                         <p class="stud-date"><b>Experience</b></p>
-                        <p class="stud-date">Year</p>
-                        <p class="stud-date">Location</p>
-                        <p class="stud-date">Title</p>    <br>
+                        <p class="stud-date"><b>Year</b></p>
+                        <p class="stud-date"><b>Location</b></p>
+                        <p class="stud-date"><b>Title</b></p>    <br>
                         <p class="stud-date"><b>Subjects:</b> Maths, Chemistry, Biology</p>    <br>
                         <p class="stud-date"><b>Levels Taught: </b> Primary School, Secondary School</p>    <br>
                         <p class="stud-date"><b>Description: </b>{{$user[0]['description']}}</p><br>
@@ -72,7 +73,9 @@
 
                         <p class="stud-date"><b>Available for 1:1: </b> Yes</p>    <br>
                         <div class="col-12 col-12" id="donate-register-btn-div">
-                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">CONTACT</a>
+                            @if(!\Auth::user())
+                                <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="/login" id="donate-register-btn">CONTACT</a>
+                            @endif
                         </div>
                     </div>
                 </div>

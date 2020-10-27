@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="customHeaders">
 
 <head>
 
@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
           integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
           crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{asset('asset/autocomplete.css')}}">
     @yield('css')
     @stack('css')
     <style>
@@ -149,6 +150,10 @@
             #resp1{
                 display: block !important;
             }
+        }
+        .customHeaders{
+            max-width: 100%;
+            margin: -2px;
         }
     </style>
     <link rel="stylesheet" href="{{asset('css/loader.css')}}">
@@ -479,21 +484,21 @@
 <script src="{{asset('asset/js/map-script.js')}}"></script>
 
 <script src="https://kit.fontawesome.com/0141eabd3d.js" crossorigin="anonymous"></script>
+
 @yield('js')
 <script>
     // Material Select Initialization
     $(document).ready(function() {
         $(window).on('load', function(){
-                $('.centerLoader' ).fadeOut(5000);
-            })
+                $('.centerLoader' ).fadeOut(3000);
+            });
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
             $("#success-alert").slideUp(500);
             $('.mdb-select').materialSelect();
         });
     });
 </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{asset('asset/autocomplete.js')}}"></script>
 </body>
-
-
-
 </html>

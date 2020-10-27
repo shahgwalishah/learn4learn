@@ -11,6 +11,7 @@ class PagesController extends Controller
 {
     public function index()
     {
+        // dd(123);
         $pages = Pages::all();
         return view('Admin.Pages.pages')->with('pages', $pages);
     }

@@ -149,6 +149,14 @@ Route::group(['private'], function () {
         Route::post('/admin/pages/update/{page}', "Admin\PagesController@update")->name('pages.update');
         Route::get('/admin/pages/delete/{page}', "Admin\PagesController@destroy")->name('pages.destroy');
         Route::get('/admin/pages/show/{page}', "Admin\PagesController@show")->name('pages.show');
+
+        /** Subjects */
+        Route::get('/admin/subjects',"Admin\SubjectController@index")->name('subjects.index');
+        Route::get('/admin/subjects/create', "Admin\SubjectController@create")->name('subjects.create');
+        Route::post('/admin/subjects/store', "Admin\SubjectController@store")->name('subjects.store');
+        Route::get('/admin/subjects/edit/{id}', "Admin\SubjectController@edit")->name('subjects.edit');
+        Route::post('/admin/subjects/update/{id}', "Admin\SubjectController@update")->name('subjects.update');
+        Route::get('/admin/subjects/delete/{id}', "Admin\SubjectController@delete")->name('subjects.delete');
     });
 
     Route::get('/lesson-details/{lesson_id}/{teacher_id}', 'LessonController@lessonDetails')->name('lessonDetails');

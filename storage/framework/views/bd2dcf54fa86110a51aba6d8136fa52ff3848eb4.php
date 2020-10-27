@@ -1,6 +1,6 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 
 
@@ -32,13 +32,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($userData as $data)
+                                <?php $__currentLoopData = $userData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{$data->fname}}</td>
+                                    <td><?php echo e($data->fname); ?></td>
                                     <td>
-                                        {{$data->email}}
+                                        <?php echo e($data->email); ?>
+
                                     </td>
-                                    <td>{{$data->country}}</td>
+                                    <td><?php echo e($data->country); ?></td>
                                     <td>
                                         <?php 
                                         // dd($data);
@@ -63,13 +64,13 @@
                                     </td>
                                     <td>
                                         <a
-href="#"
+href="##"
 class="btn btn-danger"> Delete</a>
                                     </td>
                                     
 
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -103,13 +104,14 @@ class="btn btn-danger"> Delete</a>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($studentData as $data)
+                                <?php $__currentLoopData = $studentData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{$data->fname}}</td>
+                                    <td><?php echo e($data->fname); ?></td>
                                     <td>
-                                        {{$data->email}}
+                                        <?php echo e($data->email); ?>
+
                                     </td>
-                                    <td>{{$data->country}}</td>
+                                    <td><?php echo e($data->country); ?></td>
                                     <td>
                                         <?php 
                   
@@ -135,7 +137,7 @@ class="btn btn-danger"> Delete</a>
 
 
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -149,16 +151,16 @@ class="btn btn-danger"> Delete</a>
 
         </div>
     </div>
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @push('js')
-    <script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script>
+    <?php $__env->startPush('js'); ?>
+    <script src="<?php echo e(asset('black')); ?>/js/plugins/chartjs.min.js"></script>
     <script>
         $(document).ready(function() {
           demo.initDashboardPageCharts();
         });
     </script>
-    @endpush
+    <?php $__env->stopPush(); ?>
 
 
 
@@ -176,3 +178,4 @@ class="btn btn-danger"> Delete</a>
   document.getElementById("demo").innerHTML = txt;
 }
     </script>
+<?php echo $__env->make('layouts.app', ['pageSlug' => 'dashboard'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/Admin/user/userManagement.blade.php ENDPATH**/ ?>

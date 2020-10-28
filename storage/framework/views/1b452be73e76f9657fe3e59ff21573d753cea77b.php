@@ -93,6 +93,12 @@
                     <p><?php echo e(__('Pages')); ?></p>
                 </a>
             </li>
+            <li>
+            <a href="<?php echo e(route('subjects.index')); ?>">
+                    <i class="tim-icons icon-settings"></i>
+                    <p><?php echo e(__('Subjects')); ?></p>
+                </a>
+            </li>
 
 
 

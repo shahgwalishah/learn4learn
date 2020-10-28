@@ -299,8 +299,8 @@
     <div class="row justify-content-center" id="boxes-5">
 
         <div class="row icon_center" style="display: contents;">
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+                <a href="<?php echo e(url('/search/Subjects?see_all=&subject_id=2&level_id=&date_id=')); ?>" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="<?php echo e(asset('asset/images/browsebysubject/math.png')); ?>" alt="Icon">
@@ -311,8 +311,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+                <a href="<?php echo e(url('/search/Subjects?see_all=&subject_id=13&level_id=&date_id=')); ?>" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="<?php echo e(asset('asset/images/browsebysubject/geography.png')); ?>" alt="Icon">
@@ -323,8 +323,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+                <a href="<?php echo e(url('/search/Subjects?see_all=&subject_id=3&level_id=&date_id=')); ?>" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="<?php echo e(asset('asset/images/browsebysubject/english.png')); ?>" alt="Icon">
@@ -335,8 +335,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px ;cursor: pointer;">
+                <a href="<?php echo e(url('/search/Subjects?see_all=see_all&subject_id=&level_id=&date_id=')); ?>" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="<?php echo e(asset('asset/images/browsebysubject/biology.png')); ?>" alt="Icon">
@@ -347,8 +347,8 @@
                     </span> <!-- single category -->
                 </a>
             </div>
-            <div class="col-md-2.4" style="padding: 10px">
-                <a href="#">
+            <div class="col-md-2.4" style="padding: 10px;cursor: pointer;">
+            <a href="<?php echo e(url('/search/Subjects?see_all=see_all&subject_id=&level_id=&date_id=')); ?>" target="__blank">
                     <span class="single-category text-center color-1">
                         <span class="icon">
                             <img src="<?php echo e(asset('asset/images/browsebysubject/art.png')); ?>" alt="Icon">
@@ -492,8 +492,8 @@
                             <?php } else{ ?>
 
 
-                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#"
-                                style="background: #818181;color: white;font-weight: 500;display: block;">LEARN MORE</a>
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="javascript:;"
+                                style="background: #818181;color: white;font-weight: 500;display: block;"  onclick="window.location.href='/lesson-details/<?php echo e($leson->lessonsId); ?>/<?php echo e($leson->teacher_id); ?>'">LEARN MORE</a>
                             <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" onclick="Buttoncl();"
                                 style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
                                 CALENDAR</a>

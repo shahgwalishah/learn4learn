@@ -183,7 +183,7 @@ class UserController extends Controller
     public function SearchPage(Request $request)
     {
         if(isset($request->see_all)) {
-            $getuserimg = Lesson::with('subject','teacher')->get();
+            $getuserimg = Lesson::with('subject','teacher')->Has('subject','teacher')->get();
             // $getuserimg = DB::table('users')
             //     ->join('lessons', 'users.id', 'lessons.user_id')
             //     ->join('subjects', function ($join) {

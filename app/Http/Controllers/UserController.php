@@ -40,6 +40,7 @@ class UserController extends Controller
 
     public function registerview()
     {
+        dd(123);
         return view('auth.register');
     }
 

@@ -2,8 +2,13 @@
 
 @section('content')
 
-
-
+@if(session()->has('err_message'))
+<div class="row">
+    <div class="alert alert-danger" style="width: 100%;">
+        {{session()->get('err_message')}}
+    </div>
+</div>
+@endif
 <div class="content">
     <div class="row">
         <div class="col-md-12">
@@ -63,7 +68,7 @@
                                     </td>
                                     <td>
                                         <a
-href="#"
+                                    href="{{route('delete.profile',[$data->id])}}"
 class="btn btn-danger"> Delete</a>
                                     </td>
                                     

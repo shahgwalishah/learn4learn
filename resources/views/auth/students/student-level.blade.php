@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title','level')
 @section('content')
+
 <!--====== Bootstrap css ======-->
 <link rel="stylesheet" href="{{asset('asset/css/students-level.css')}}">
 <style>
@@ -34,6 +35,10 @@
         left: 9px;
         color: #999;
     }
+    .customMargin{
+        width: 100%;
+        margin: 0px;
+    }
 </style>
 @php
     $emailVerified = \Auth::user()->email_verified_at;
@@ -43,6 +48,14 @@
         $emailVerified = $emailVerified;
     }
 @endphp
+
+@if(session()->has('success-alert-message-teac'))
+<div class="row">
+    <div class="alert alert-success customMargin" style="width: 100%;">
+        {{session()->get('success-alert-message-teac')}}
+    </div>
+</div>
+@endif
 
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150">
@@ -65,6 +78,7 @@
 <section class="main-section">
     <div class="container customContaine">
         <div class="main-cont">
+            
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="form-parts">

@@ -2,8 +2,14 @@
 
 <?php $__env->startSection('content'); ?>
 
+<?php if(session()->has('err_message')): ?>
+<div class="row">
+    <div class="alert alert-danger" style="width: 100%;">
+        <?php echo e(session()->get('err_message')); ?>
 
-
+    </div>
+</div>
+<?php endif; ?>
 <div class="content">
     <div class="row">
         <div class="col-md-12">
@@ -64,7 +70,7 @@
                                     </td>
                                     <td>
                                         <a
-href="##"
+                                    href="<?php echo e(route('delete.profile',[$data->id])); ?>"
 class="btn btn-danger"> Delete</a>
                                     </td>
                                     

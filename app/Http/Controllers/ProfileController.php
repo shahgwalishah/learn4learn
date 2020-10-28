@@ -60,7 +60,10 @@ class ProfileController extends Controller
         $userData     = User::where('users.type', 'teacher')->get();
         $studentData  = User::where('users.type', 'student')->get();
 
-        return view('Admin.user.userManagement', compact('userData', 'studentData'));
+        return view('Admin.user.userManagement',[
+            'userData' => $userData,
+            'studentData' => $studentData
+        ]);
     }
 
     public function admin_Block($id)
@@ -84,5 +87,11 @@ class ProfileController extends Controller
             $student_data=DB::table('users')->select('users.*')->where('users.type', 'student')->get();
             return view('Admin.user.userManagement')->with(['user_data'=>$user_data, 'student_data'=>$student_data]);
         }
+    }
+
+    public function delete($id)
+    {
+         User::where('id','=',$id)->delete($id);
+        return back()->with('err_message','user deleted successfully');
     }
 }

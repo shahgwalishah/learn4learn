@@ -133,6 +133,7 @@ Route::group(['private'], function () {
 
         Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
         Route::post('profile/password', 'ProfileController@password')->name('profile.passwordss');
+        Route::get('/delete/profile/{id}','ProfileController@delete')->name('delete.profile');
 //            });
 
         //shahzad

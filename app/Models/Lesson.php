@@ -93,9 +93,10 @@ class Lesson extends Model
             $documentPath = public_path() . '/storage/documents';
             $document->move($documentPath, $documentName);
             $documentDbPath = $documentName;
+        } else {
+            $documentDbPath = '';
         }
         $subject  = explode(' ', $request->subject);
-
         $addlesson = Lesson::create([
             'subject_id'  => $subject[0],
             'user_id'     => Auth::id(),

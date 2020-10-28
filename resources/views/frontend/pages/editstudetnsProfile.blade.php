@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.masterStudent')
 @section('title','Edit Student Profile')
 @section('content')
 

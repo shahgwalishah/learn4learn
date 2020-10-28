@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="customHeaders">
 
 <head>
 
@@ -46,12 +46,13 @@
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="<?php echo e(asset('asset/css/responsive.css')); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-        crossorigin="anonymous" />
+          integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="<?php echo e(asset('asset/autocomplete.css')); ?>">
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
     <style>
-         @media (max-width: 575px) {
+        @media (max-width: 575px) {
             .footer-link ul li {
                 line-height: 35px;
                 text-align: left;
@@ -96,65 +97,88 @@
                 padding-top: 39px;
             }
         }
-         .customClass{
-             margin: 2px 2px 2px 2px;
-         }
-         .navigation .navbar .navbar-nav li {
-             position: relative;
-             display: flex;
-             align-items: center;
-         }
-         @media (max-width: 991px) {
-             .navigation .navbar .navbar-nav li {
-                 position: relative;
-                 display: flex;
-                 align-items: center;
-                 width: 100%;
-                 justify-content: center;
-             }
-             .customClass{
-                 margin: 2px 2px 2px 2px;
-                 width: 100%;
-             }
-         }
-          @media(max-width: 575px) {
-        .logo {
-            text-align: center;
-            float: unset !important;
-            margin-bottom: 8px;
+        .customClass{
+            margin: 2px 2px 2px 2px;
         }
-        .footer-link ul {
-            width: 100%;
-            float: unset !important;
-            overflow: hidden;
-            margin-left: 0px !important;
-            text-align: center !important;
+        .navigation .navbar .navbar-nav li {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
-        .footer-link ul li {
-            line-height: 35px;
-            text-align: center;
+        @media (max-width: 991px) {
+            .navigation .navbar .navbar-nav li {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: center;
+            }
+            .customClass{
+                margin: 2px 2px 2px 2px;
+                width: 100%;
+            }
         }
-      }
+        @media(max-width: 575px) {
+            .logo {
+                text-align: center;
+                float: unset !important;
+                margin-bottom: 8px;
+            }
+            .footer-link ul {
+                width: 100%;
+                float: unset !important;
+                overflow: hidden;
+                margin-left: 0px !important;
+                text-align: center !important;
+            }
+            .footer-link ul li {
+                line-height: 35px;
+                text-align: center;
+            }
+        }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            color:#fff !important;
+            border-radius: 5px;
+        }
+        .customHeaderSettings{
+            width: 99%;
+        }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
+            }
+        }
+        .customHeaders{
+            max-width: 100%;
+            margin: -2px;
+        }
     </style>
+    <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
 </head>
 
 <body>
-    <!--====== PRELOADER PART START ======-->
-    <!--====== PRELOADER PART START ======-->
-    <!--====== HEADER PART START ======-->
+<!--====== PRELOADER PART START ======-->
+<div class="centerLoader">
+    <div class="loader"></div>
+</div>
+<!--====== PRELOADER PART START ======-->
+<!--====== HEADER PART START ======-->
 
-    <header id="header-part" class="header-two">
-        <div class="header-top d-none d-lg-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="header-contact">
-                            
-                        </div> <!-- header contact -->
-                    </div>
-                    <div class="col-md-6">
-                        <div class="header-right d-flex justify-content-end">
-                            <?php if(!Auth::check()): ?>
+<header id="header-part" class="header-two">
+    <div class="header-top d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="header-contact">
+                        
+                    </div> <!-- header contact -->
+                </div>
+                <div class="col-md-6">
+                    <div class="header-right d-flex justify-content-end">
+                        <?php if(!Auth::check()): ?>
 
 
                             <div class="social d-flex">
@@ -173,14 +197,14 @@
                             <div class="login-register">
                                 <ul>
                                     <li><a href="<?php echo e(route('login')); ?>"
-                                            class="<?php echo e(Request::routeIs('login') ? 'active' : ''); ?>"
-                                            style="background: none !important;color:black;">SIGN IN</a></li>
+                                           class="<?php echo e(Request::routeIs('login') ? 'active' : ''); ?>"
+                                           style="background: none !important;color:black;">SIGN IN</a></li>
                                     <li><a href="<?php echo e(route('register')); ?>"
-                                            class="<?php echo e(Request::routeIs('register') ? 'active' : ''); ?>">SIGN UP</a></li>
+                                           class="<?php echo e(Request::routeIs('register') ? 'active' : ''); ?>">SIGN UP</a></li>
                                 </ul>
                             </div>
-                            <?php endif; ?>
-                            <?php if(Auth::check()): ?>
+                        <?php endif; ?>
+                        <?php if(Auth::check()): ?>
                             <nav class="navbar navbar-expand-md navbar-light navbar-laravel " style="    margin-top:px;
 ">
 
@@ -188,8 +212,8 @@
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" style="color: black" class="nav-link dropdown-toggle"
-                                            href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false" v-pre>
+                                           href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                           aria-expanded="false" v-pre>
                                             <?php echo app('translator')->get('home.Language'); ?> <span class="caret"></span>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -212,245 +236,269 @@
                                     <li>
                                         
                                         <a class="btn btn-primary" href="<?php echo e(route('logout')); ?>"
-                                            onclick="event.preventDefault();
+                                           onclick="event.preventDefault();
                                                                                                             document.getElementById('logout-form').submit();">
                                             <?php echo e(__('Logout')); ?>
 
                                         </a>
 
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
-                                            style="display: none;">
+                                              style="display: none;">
                                             <?php echo csrf_field(); ?>
                                         </form>
                                     </li>
                                 </ul>
                             </div>
-                            <?php endif; ?>
-                        </div> <!-- header right -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- header top -->
-        
-        <div class="navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="<?php echo e(route('homee')); ?>">
-                                <img src="<?php echo e(asset('asset/images/logo1.png')); ?>" alt="Logo">
-                            </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        <?php endif; ?>
+                    </div> <!-- header right -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- header top -->
+    
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="<?php echo e(route('homee')); ?>">
+                            <img src="<?php echo e(asset('asset/images/logo1.png')); ?>" alt="Logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('studentHome') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('studentHome')); ?>">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('student_schedule') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('student_schedule')); ?>">MY SCHEDULE</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('My_subjects') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('My_subjects')); ?>">MY SUBJECTS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('studetnsHomeWork') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('studetnsHomeWork')); ?>">MY HOMEWORK</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="" href="# ">MY ACHIEVEMENT</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('viewOurMessages') ? 'active' : ''); ?>" href="<?php echo e(route('viewOurMessages')); ?>">MY MESSAGES</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('tudent.account') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('student.account')); ?>">MY ACCOUNT</a>
-                                    </li>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="<?php echo e(Request::routeIs('studentHome') ? 'active' : ''); ?>"
+                                       href="<?php echo e(route('studentHome')); ?>">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="<?php echo e(Request::routeIs('student_schedule') ? 'active' : ''); ?>"
+                                       href="<?php echo e(route('student_schedule')); ?>">MY SCHEDULE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="<?php echo e(Request::routeIs('My_subjects') ? 'active' : ''); ?>"
+                                       href="<?php echo e(route('My_subjects')); ?>">MY SUBJECTS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="<?php echo e(Request::routeIs('studetnsHomeWork') ? 'active' : ''); ?>"
+                                       href="<?php echo e(route('studetnsHomeWork')); ?>">MY HOMEWORK</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="" href="# ">MY ACHIEVEMENT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="<?php echo e(Request::routeIs('viewOurMessages') ? 'active' : ''); ?>" href="<?php echo e(route('viewOurMessages')); ?>">MY MESSAGES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="<?php echo e(Request::routeIs('tudent.account') ? 'active' : ''); ?>"
+                                       href="<?php echo e(route('student.account')); ?>">MY ACCOUNT</a>
+                                </li>
 
-                                    <li class="nav-item">
-                                        <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
-                                            href="<?php echo e(route('donate')); ?>"
-                                            style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav> <!-- nav -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div>
-    </header>
-    
-    <div class="row p-0 m-0">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <?php if(Session::has('success-alert-message')): ?>
+                                <li class="nav-item">
+                                    <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
+                                       href="<?php echo e(route('donate')); ?>"
+                                       style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
+                                </li>
+                                <li id="resp1" style="display: none;">
+                                    <a href="<?php echo e(route('teacher_edit_profile')); ?>"
+                                       class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
+                                       style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                        Edit Profile
+                                    </a>
+                                </li>
+
+                                <li id="resp1" style="display: none;">
+                                    <a class="dropdown" href="<?php echo e(route('logout')); ?>"
+                                       onclick="event.preventDefault();
+                                                                        document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                                    </a>
+
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                          style="display: none;">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav> <!-- nav -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div>
+</header>
+
+<div class="row p-0 m-0">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <?php if(Session::has('success-alert-message')): ?>
             <div class="flash-message mt-5" id='success-alert'>
 
                 <p class="alert alert-success"><?php echo e(Session::get('success-alert-message')); ?> <a href="#" class="close"
-                        data-dismiss="alert" aria-label="close">&times;</a></p>
+                                                                                              data-dismiss="alert" aria-label="close">&times;</a></p>
             </div>
-            <?php endif; ?>
-        </div>
-        <div class="col-2"></div>
+        <?php endif; ?>
     </div>
+    <div class="col-2"></div>
+</div>
 
-    <?php echo $__env->yieldContent('content'); ?>
-    
+<?php echo $__env->yieldContent('content'); ?>
 
-    <!--====== COURSE PART ENDS ======-->
 
-    <!--====== FOOTER PART START ======-->
+<!--====== COURSE PART ENDS ======-->
 
-    <footer id="footer-part">
-        <div class="footer-top pt-40 pb-70">
-            <div class="container cContainerFS">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="footer-section-wrap footer-link mt-40">
-                            <div class="logo" style="float: left;">
+<!--====== FOOTER PART START ======-->
 
-                                <a href="<?php echo e(route('homee')); ?>"><img src="<?php echo e(asset('asset/images/footerlogo.png')); ?>"
-                                        alt="Logo"></a>
-                            </div>
+<footer id="footer-part">
+    <div class="footer-top pt-40 pb-70">
+        <div class="container cContainerFS">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="footer-section-wrap footer-link mt-40">
+                        <div class="logo" style="float: left;">
 
-                            <div class="right-inner-div ml-3">
+                            <a href="<?php echo e(route('homee')); ?>"><img src="<?php echo e(asset('asset/images/footerlogo.png')); ?>"
+                                                              alt="Logo"></a>
+                        </div>
 
-                                <ul style="margin-left: 23px" class="text-center">
-                                    <li><a href="#">Powered by Hot Dog Solutions</a></li>
-                                    <li><a href="#">Contact US</a></li>
-                                    <li><a href="#">Visit our Website</a></li>
+                        <div class="right-inner-div ml-3">
 
-                                </ul>
+                            <ul style="margin-left: 23px" class="text-center">
+                                <li><a href="#">Powered by Hot Dog Solutions</a></li>
+                                <li><a href="#">Contact US</a></li>
+                                <li><a href="#">Visit our Website</a></li>
 
-                            </div>
+                            </ul>
 
                         </div>
+
                     </div>
+                </div>
 
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="footer-link mt-40">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="footer-link mt-40">
 
-                            <ul class="text-center">
-                                <li><a href="<?php echo e(route('page.show', 'terms-and-conditions')); ?>">Terms and Conditions </a>
-                                </li>
-                                <li><a href="<?php echo e(route('page.show','privacy-policy')); ?>">Privacy Policy</a></li>
-                                <li><a href="#">Cookies Policy</a></li>
+                        <ul class="text-center">
+                            <li><a href="<?php echo e(route('page.show', 'terms-and-conditions')); ?>">Terms and Conditions </a>
+                            </li>
+                            <li><a href="<?php echo e(route('page.show','privacy-policy')); ?>">Privacy Policy</a></li>
+                            <li><a href="#">Cookies Policy</a></li>
 
-                            </ul>
+                        </ul>
 
-                        </div> <!-- footer link -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="footer-link support mt-40">
+                    </div> <!-- footer link -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="footer-link support mt-40">
 
-                            <ul class="text-center">
-                                <li><a href="<?php echo e(route('howitworks')); ?>">How it Works</a></li>
-                                <li><a href="<?php echo e(route('teachers')); ?>">For Teachers</a></li>
-                                <li><a href="<?php echo e(route('students')); ?>">For Students</a></li>
+                        <ul class="text-center">
+                            <li><a href="<?php echo e(route('howitworks')); ?>">How it Works</a></li>
+                            <li><a href="<?php echo e(route('teachers')); ?>">For Teachers</a></li>
+                            <li><a href="<?php echo e(route('students')); ?>">For Students</a></li>
 
-                            </ul>
-                        </div> <!-- support -->
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12">
-                        <div class="footer-link support mt-40">
+                        </ul>
+                    </div> <!-- support -->
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-12">
+                    <div class="footer-link support mt-40">
 
-                            <ul class="text-center">
-                                <li><a href="<?php echo e(route('parents')); ?>">For Parents </a></li>
-                                <li><a href="<?php echo e(route('donate')); ?>">Donate</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                        <ul class="text-center">
+                            <li><a href="<?php echo e(route('parents')); ?>">For Parents </a></li>
+                            <li><a href="<?php echo e(route('donate')); ?>">Donate</a></li>
+                            <li><a href="#">Contact Us</a></li>
 
-                            </ul>
-                        </div> <!-- support -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- footer top -->
-        
-        <div class="footer-copyright pt-10 pb-25">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright  text-center pt-15">
-                            <p>&copy;<?php echo app('translator')->get('footer.footer_info'); ?>
-                                &nbsp; - &nbsp; <?php echo app('translator')->get('footer.Designed_by'); ?> <span>Rkixtech</span>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- footer copyright -->
-    </footer>
-
-    <!--====== FOOTER PART ENDS ======-->
-
-    <!--====== BACK TO TP PART START ======-->
-
-    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-    <!--====== jquery js ======-->
-    <script src="<?php echo e(asset('asset/js/vendor/modernizr-3.6.0.min.js')); ?>"></script>
+                        </ul>
+                    </div> <!-- support -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- footer top -->
     
-    <script src="<?php echo e(asset('asset/js/jquery.min.js')); ?>"></script>
+    <div class="footer-copyright pt-10 pb-25">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright  text-center pt-15">
+                        <p>&copy;<?php echo app('translator')->get('footer.footer_info'); ?>
+                            &nbsp; - &nbsp; <?php echo app('translator')->get('footer.Designed_by'); ?> <span>Rkixtech</span>
+                        </p>
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- footer copyright -->
+</footer>
 
-    <!--====== Bootstrap js ======-->
-    <script src="<?php echo e(asset('asset/js/bootstrap.min.js')); ?>"></script>
+<!--====== FOOTER PART ENDS ======-->
 
-    <!--====== Slick js ======-->
-    <script src="<?php echo e(asset('asset/js/slick.min.js')); ?>"></script>
+<!--====== BACK TO TP PART START ======-->
 
-    <!--====== Magnific Popup js ======-->
-    <script src="<?php echo e(asset('asset/js/jquery.magnific-popup.min.js')); ?>"></script>
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+<!--====== jquery js ======-->
+<script src="<?php echo e(asset('asset/js/vendor/modernizr-3.6.0.min.js')); ?>"></script>
 
-    <!--====== Counter Up js ======-->
-    <script src="<?php echo e(asset('asset/js/waypoints.min.js')); ?>"></script>
-    <script src="<?php echo e(asset('asset/js/jquery.counterup.min.js')); ?>"></script>
+<script src="<?php echo e(asset('asset/js/jquery.min.js')); ?>"></script>
 
-    <!--====== Nice Select js ======-->
-    <script src="<?php echo e(asset('asset/js/jquery.nice-select.min.js')); ?>"></script>
+<!--====== Bootstrap js ======-->
+<script src="<?php echo e(asset('asset/js/bootstrap.min.js')); ?>"></script>
 
-    <!--====== Nice Number js ======-->
-    <script src="<?php echo e(asset('asset/js/jquery.nice-number.min.js')); ?>"></script>
+<!--====== Slick js ======-->
+<script src="<?php echo e(asset('asset/js/slick.min.js')); ?>"></script>
 
-    <!--====== Count Down js ======-->
-    <script src="<?php echo e(asset('asset/js/jquery.countdown.min.js')); ?>"></script>
+<!--====== Magnific Popup js ======-->
+<script src="<?php echo e(asset('asset/js/jquery.magnific-popup.min.js')); ?>"></script>
 
-    <!--====== Validator js ======-->
-    <script src="<?php echo e(asset('asset/js/validator.min.js')); ?>"></script>
+<!--====== Counter Up js ======-->
+<script src="<?php echo e(asset('asset/js/waypoints.min.js')); ?>"></script>
+<script src="<?php echo e(asset('asset/js/jquery.counterup.min.js')); ?>"></script>
 
-    <!--====== Ajax Contact js ======-->
-    <script src="<?php echo e(asset('asset/js/ajax-contact.js')); ?>"></script>
+<!--====== Nice Select js ======-->
+<script src="<?php echo e(asset('asset/js/jquery.nice-select.min.js')); ?>"></script>
 
-    <!--====== Main js ======-->
-    <script src="<?php echo e(asset('asset/js/main.js')); ?>"></script>
+<!--====== Nice Number js ======-->
+<script src="<?php echo e(asset('asset/js/jquery.nice-number.min.js')); ?>"></script>
 
-    <!--====== Map js ======-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
-    <script src="<?php echo e(asset('asset/js/map-script.js')); ?>"></script>
+<!--====== Count Down js ======-->
+<script src="<?php echo e(asset('asset/js/jquery.countdown.min.js')); ?>"></script>
 
-    <script src="https://kit.fontawesome.com/0141eabd3d.js" crossorigin="anonymous"></script>
-    <?php echo $__env->yieldContent('js'); ?>
-    <script>
-        // Material Select Initialization
+<!--====== Validator js ======-->
+<script src="<?php echo e(asset('asset/js/validator.min.js')); ?>"></script>
+
+<!--====== Ajax Contact js ======-->
+<script src="<?php echo e(asset('asset/js/ajax-contact.js')); ?>"></script>
+
+<!--====== Main js ======-->
+<script src="<?php echo e(asset('asset/js/main.js')); ?>"></script>
+
+<!--====== Map js ======-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
+<script src="<?php echo e(asset('asset/js/map-script.js')); ?>"></script>
+
+<script src="https://kit.fontawesome.com/0141eabd3d.js" crossorigin="anonymous"></script>
+
+<?php echo $__env->yieldContent('js'); ?>
+<script>
+    // Material Select Initialization
     $(document).ready(function() {
+        $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(3000);
+            });
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
             $("#success-alert").slideUp(500);
             $('.mdb-select').materialSelect();
         });
     });
-    </script>
+</script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="<?php echo e(asset('asset/autocomplete.js')); ?>"></script>
 </body>
-
-
-
 </html>
 <?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/layouts/masterStudent.blade.php ENDPATH**/ ?>

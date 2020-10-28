@@ -7,8 +7,11 @@
         <div class="container">
         </div>
         <div class="container Ccontainer">
-            <?php if(session('message')): ?>
-            <p class="alert alert-success text-dark"><?php echo e(session('message')); ?></p>
+            <?php if(session()->has('message')): ?>
+            <p class="alert alert-success text-dark"><?php echo e(session()->get('message')); ?></p>
+            <?php endif; ?>
+            <?php if(session()->has('alert-danger')): ?>
+            <p class="alert alert-danger text-dark"><?php echo e(session()->get('alert-danger')); ?></p>
             <?php endif; ?>
             <div class="row">
                 <div class="col-md-6 col-xs-12" id="add-lesson-left">
@@ -17,7 +20,7 @@
                         <select class="selectpicker" name="subject" required="true">
                             <option value="">Select any Subject </option>
                             <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if(!is_null($subject->subject)): ?>
+                                <?php if(!is_null($subject->subject) && !is_null($subject->level) ): ?>
                                     <option value="<?php echo e($subject->subject->id .' '. $subject->level->id); ?>">
                                         <?php echo e($subject->subject->name .' ('. $subject->level->name.')'); ?>
 
@@ -359,7 +362,7 @@ function readURL(input) {
 </script>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('css'); ?>
+<?php $__env->startPush('css'); ?>
 <!--====== Bootstrap css ======-->
 <link rel="stylesheet" href="<?php echo e(asset('asset/css/add-lesson.css')); ?>">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -466,6 +469,6 @@ function readURL(input) {
         box-shadow: unset;
     }
 </style>
-<?php $__env->stopSection(); ?>
+<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/teachers/add-lesson.blade.php ENDPATH**/ ?>

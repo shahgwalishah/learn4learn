@@ -36,12 +36,17 @@ class TeacherController extends Controller
                     $s = Subject::create([
                         'name' => $subject,
                     ]);
-                    $createSubjects = SubjectLevelDetail::create([
-                        'user_id'    => $user_id,
-                        'subject_id' => $s->id,
-                        'field'      => 0,
-                        'level_id'   => $request->subject_level_other_ . $key,
-                    ]);
+                    $subjectCheck = SubjectLevelDetail::where('subject_id','=', $s->id)->first();
+                    if(is_null($subjectCheck)) {
+                        SubjectLevelDetail::create([
+                            'user_id'    => $user_id,
+                            'subject_id' => $s->id,
+                            'field'      => 0,
+                            'level_id'   => $request->subject_level_other_ . $key,
+                        ]);
+                    } else {
+                        return back()->with('error_message','subject already exists');
+                    }
                 }
             }
         }
@@ -54,12 +59,17 @@ class TeacherController extends Controller
             }
             $subLevelArr='subject_' . $subject . '_level';
             foreach ($request->$subLevelArr as $SL) {
-                $createSubjects = SubjectLevelDetail::create([
-                    'user_id'    => $user_id,
-                    'subject_id' => $subject,
-                    'field'      => 0,
-                    'level_id'   => $SL,
-                ]);
+                $subject = SubjectLevelDetail::where('subject_id','=',$SL)->first();
+                if(is_null($subject)) {
+                    $createSubjects = SubjectLevelDetail::create([
+                        'user_id'    => $user_id,
+                        'subject_id' => $subject,
+                        'field'      => 0,
+                        'level_id'   => $SL,
+                    ]);
+                } else {
+                    return back()->with('error_message','subject already exists');
+                }
             }
         }
         return view('auth.teachers.teacher-profile', compact('user_id', 'allSubjects'));
@@ -87,8 +97,7 @@ class TeacherController extends Controller
     {
         $user = Auth::user();
         if (count($user->subject_level_details) <= 0) {
-            session()->flash('alert-danger', 'Please complete your profile first!');
-            return redirect()->back();
+            return back()->with('alert-danger','Please complete your profile first!');
         }
         $subjects = $user->getSubjects;
         return view('frontend.pages.teachers.add-lesson')->with('subjects', $subjects);
@@ -96,6 +105,7 @@ class TeacherController extends Controller
 
     public function teacherHome()
     {
+        // dd(123);
         $auth                 =Auth::user()->id;
         $teacherhomeworkdetail=DB::table('homework')
             ->join('subjects', 'subjects.id', '=', 'homework.Sub_id')
@@ -252,6 +262,7 @@ class TeacherController extends Controller
 
     public function teacheraddHomework(Request $request)
     {
+        // dd(123);
         $auth        =Auth::user()->id;
         $imageDbPath = '';
         if ($request->hasFile('img')) {
@@ -414,7 +425,7 @@ class TeacherController extends Controller
         }
         $results = $results->get();
         $levels  = levels::all();
-        return view('frontend.pages.teachers.teacher-schedule', compact('levels', 'results'));
+        return view('frontend.pages.teachers.teacher-schedule', compact('levels', 'results','teacher'));
     }
 
     public function checkTeacherHasSchedule($teacher)
@@ -490,7 +501,7 @@ class TeacherController extends Controller
 
     public function MySubStudents()
     {
-        // dd('teacher');
+        // dd(123);
         $teacher_id        =Auth::user()->id;
         $getmystydentrecord=DB::table('student_lessons')
             ->join('users', 'student_lessons.user_id', '=', 'users.id')
@@ -655,6 +666,7 @@ class TeacherController extends Controller
 
     public function View_student_profile($id)
     {
+        // dd(123);
         $getrecordindividulStuRecord=DB::table('users')
             ->join('student_lessons', 'student_lessons.user_id', '=', 'users.id')
             ->join('lessons', function ($join) {
@@ -907,6 +919,7 @@ class TeacherController extends Controller
 
     public function _EditTeacherProfile()
     {
+        // dd(123);
         $teacherdata=User::where('id', auth::user()->id)->first();
         return view('frontend.pages.teachers.edit-teacher-profile', compact('teacherdata'));
     }

@@ -49,7 +49,14 @@
                 padding-left: 5px;
                  padding-right: 5px;
         }
+        
     }
+    .customSFaE {
+            position: absolute;
+            right: 51px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
 </style>
 <!--====== Bootstrap css ======-->
 <link rel="stylesheet" href="{{asset('asset/css/login2.css')}}">
@@ -99,8 +106,10 @@
                                         required="true">
                                 </div>
                                 <div style="width:100%;">
-                                    <input type="password" class="_inputwidth" name="password"
+                                    <input type="password" id="myType" class="_inputwidth" name="password"
                                         placeholder="Write your Password" required="true">
+                                        <i class="fa fa-eye customSFaE" id="show" onclick="hideShow('a')" aria-hidden="true"></i>
+                                    <i class="fa fa-eye-slash customSFaE" id="hide" style="display: none;" onclick="hideShow('b')" aria-hidden="true"></i>
                                 </div>
                                 <div style="width:100%;">
                                     <input class="form-check-input" type="checkbox" name="remember_me" value=""
@@ -131,3 +140,28 @@
 </section>
 
 @endsection
+@section('js')
+<!--====== Validator js ======-->
+<script src="{{asset('asset/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('asset/js/custom.js')}}"></script>
+    <script>
+        function hideShow(val) {
+            var x = document.getElementById("myType");
+            if(val == 'a') {
+                $('#hide').show();
+                $('#show').hide();
+                if (x.type === "password") {
+                    x.type = "text";
+                }
+            }
+            if(val == 'b') {
+                $('#hide').hide();
+                $('#show').show();
+                if(x.type != "password"){
+                        x.type = "password";
+                }
+            }
+        }
+    </script>
+@endsection
+

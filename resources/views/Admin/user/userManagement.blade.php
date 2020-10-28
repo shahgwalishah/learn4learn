@@ -2,8 +2,25 @@
 
 @section('content')
 
+<style>
+    .customSetting
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .customMargin
+    {
+        margin: 0px;
+    }
+</style>
 
-
+@if(session()->has('err_message'))
+<div class="row customSetting">
+    <div class="alert alert-danger customMargin" style="width: 100%;">
+        {{session()->get('err_message')}}
+    </div>
+</div>
+@endif
 <div class="content">
     <div class="row">
         <div class="col-md-12">
@@ -28,7 +45,7 @@
                                     <th>Email</th>
                                     <th>Country</th>
                                     <th>Status</th>
-
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,29 +57,23 @@
                                     </td>
                                     <td>{{$data->country}}</td>
                                     <td>
-                                        <?php 
-                                        // dd($data);
-                  switch ($data->role) {
-                    case '0':?>
-                                        <a onclick="myFunction()"
+                                        @if($data->role == null || $data->role == 0)
+                                            <a onclick="myFunction()"
                                             href="<?php echo route('admin.Block',['id'=>$data->id])?>"
                                             class="btn btn-primary "> Active</a>
-                                        <?php 
-            break;
-                case '1': 
-                ?>
-                                        <a onclick="myFunction()"
+                                        @endif
+                                        @if($data->role == 1)
+                                            <a onclick="myFunction()"
                                             href="<?php echo route('admin.Active',['id'=>$data->id])?>"
                                             class="btn btn-danger"> Block</a>
-                                        <?php 
-                      break;?>
-
-
-                                        <?php      }
-                ?>
+                                        @endif
                                     </td>
-
-
+                                    <td>
+                                        <a
+                                    href="{{route('delete.profile',[$data->id])}}"
+class="btn btn-danger"> Delete</a>
+                                    </td>
+                                    
 
                                 </tr>
                                 @endforeach
@@ -95,7 +106,7 @@
                                     <th>Email</th>
                                     <th>Country</th>
                                     <th>Status</th>
-
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,28 +118,22 @@
                                     </td>
                                     <td>{{$data->country}}</td>
                                     <td>
-                                        <?php 
-                  
-                  switch ($data->role) {
-                    case '0':?>
-                                        <a onclick="myFunction()"
+                                        @if($data->role == null || $data->role == 0)
+                                            <a onclick="myFunction()"
                                             href="<?php echo route('admin.Block',['id'=>$data->id])?>"
                                             class="btn btn-primary "> Active</a>
-                                        <?php 
-            break;
-                case '1': 
-                ?>
-                                        <a onclick="myFunction()"
+                                        @endif
+                                        @if($data->role == 1)
+                                            <a onclick="myFunction()"
                                             href="<?php echo route('admin.Active',['id'=>$data->id])?>"
                                             class="btn btn-danger"> Block</a>
-                                        <?php 
-                      break;?>
-
-
-                                        <?php      }
-                ?>
+                                        @endif
                                     </td>
-
+                                    <td>
+                                        <a
+                                    href="{{route('delete.profile',[$data->id])}}"
+class="btn btn-danger"> Delete</a>
+                                    </td>
 
                                 </tr>
                                 @endforeach

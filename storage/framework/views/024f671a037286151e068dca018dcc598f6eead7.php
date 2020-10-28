@@ -105,21 +105,21 @@
                                         value="<?php echo e($getrecord->email); ?>" required="true">
 
                                 </div>
-                                <div style="width:100%;">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                        required="true">
-                                    <label class="form-check-label" for="invalidCheck2">
-                                        By signing up, you agree to our <a href="#" id="alreasy-account">Terms and
-                                            Conditions</a> and <a href="#" id="alreasy-account">Privacy Policy</a>
-                                    </label>
-                                </div>
-                                <div style="width:100%;">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
-                                        required="true">
-                                    <label class="form-check-label" for="invalidCheck">
-                                        Can we contact you about Learn 4 Learning?
-                                    </label>
-                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <button type="submit" id="submit" name="submit"
                                     class="btn btn-primary active">Update</button>
                             </form>
@@ -154,4 +154,4 @@
 </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/editstudetnsProfile.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/editstudetnsProfile.blade.php ENDPATH**/ ?>

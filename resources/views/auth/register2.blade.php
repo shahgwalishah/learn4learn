@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title','level')
 @section('content')
+dd{{123}}
 
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="{{asset('asset/css/register2.css')}}">

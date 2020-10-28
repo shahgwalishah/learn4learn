@@ -60,29 +60,37 @@ class ProfileController extends Controller
         $userData     = User::where('users.type', 'teacher')->get();
         $studentData  = User::where('users.type', 'student')->get();
 
-        return view('Admin.user.userManagement', compact('userData', 'studentData'));
+        return view('Admin.user.userManagement',[
+            'userData' => $userData,
+            'studentData' => $studentData
+        ]);
     }
 
     public function admin_Block($id)
     {
-        $user_data=DB::table('users')->select('users.*')->where('users.id', $id)->update(['users.role'=>1]);
+        $user_data = User::where('id', $id)->update(['users.role'=>1]);
         
-
         if ($user_data) {
-            $user_data   =DB::table('users')->select('users.*')->where('users.type', 'teacher')->get();
-            $student_data=DB::table('users')->select('users.*')->where('users.type', 'student')->get();
-            return view('Admin.user.userManagement')->with(['user_data'=>$user_data, 'student_data'=>$student_data]);
+            $user_data   =User::where('type', 'teacher')->get();
+            $student_data=User::where('type', 'student')->get();
+            return view('Admin.user.userManagement')->with(['userData'=>$user_data, 'studentData'=>$student_data]);
         }
     }
 
     public function admin_Active($id)
     {
-        $user_data=DB::table('users')->select('users.*')->where('users.id', $id)->update(['users.role'=>0]);
+        $user_data=User::where('id', $id)->update(['users.role'=>0]);
 
         if ($user_data) {
-            $user_data   =DB::table('users')->select('users.*')->where('users.type', 'teacher')->get();
-            $student_data=DB::table('users')->select('users.*')->where('users.type', 'student')->get();
-            return view('Admin.user.userManagement')->with(['user_data'=>$user_data, 'student_data'=>$student_data]);
+            $user_data   =User::where('type', 'teacher')->get();
+            $student_data=User::where('users.type', 'student')->get();
+            return view('Admin.user.userManagement')->with(['userData'=>$user_data, 'studentData'=>$student_data]);
         }
+    }
+
+    public function delete($id)
+    {
+         User::where('id','=',$id)->delete($id);
+        return back()->with('err_message','user deleted successfully');
     }
 }

@@ -1,10 +1,11 @@
 @extends('layouts.teachersmaster')
 @section('title','Teacher Homepage')
-@section('content')
+@push('css')
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 <style>
     .customStyle{
-        width: 140px;
-        height: 140px;
+        min-height: 140px;
+        min-width: 140px;
     }
     .customAlertDAngerContainer{
         display: flex;
@@ -30,7 +31,27 @@
         display: flex;
         justify-content: center;
     }
-</style>
+    #grade-register-div{
+        display: flex;
+        align-items: baseline;
+        min-height: 86px;
+        max-height: 100px;
+    }
+    #repl1{
+        color: rgb(214, 27, 27);
+        border: 1px solid red;
+    }
+
+    @media (max-width:575px) {
+        .customStyle{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 15px;
+        }
+    }
+</style>    
+@endpush
+@section('content')
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150"
              style="padding-top: 238px;padding-bottom: 238px;background-repeat: no-repeat; background:linear-gradient(rgb(0 0 0 / 17%) 100%, rgb(0 0 0 / 16%) 100%), url({{asset('asset/images/teacher-homepage/teaching_banner.jpg')}}">
@@ -59,7 +80,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-sm-12 col-xs-12">
                             <img src="{{url('/storage/images/'. (!empty($usersimgg[0]->thumbnail) ? $usersimgg[0]->thumbnail : 'default.png') )}}"
-                                 alt="stud-profile-pic" class="customStyle">
+                                 alt="stud-profile-pic" class="customStyle" onerror="this.src='/images/default.png'">
                         </div>
                         <div class="col-lg-8 col-sm-12 col-xs-12">
                             <p class="stud-name pb-3">{{Auth::user()->fname}}-{{Auth::user()->lname}}</p>
@@ -164,7 +185,7 @@
                     <hr>
                 </div>
                 <div class="row">
-                    @if(count($teacherhomeworkdetail) == 0)
+                    @if($teacherhomeworkdetail && count($teacherhomeworkdetail) == 0)
                         <div class="alert alert-danger customAlertDAnger">
                             <div class="container customAlertDAngerContainer">
                                 <div class="alert-icon">
@@ -204,14 +225,15 @@
                     </div>
                     @endif
                 </div>
-                @if(count($teacherhomeworkdetail) != 0)
+                @if($teacherhomeworkdetail)
                 <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#"
+                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="javascript:;" onclick="window.location.reload()"
                        id="donate-register-btn">SEE ALL</a>
                 </div>
                 @endif
             </div>
         </section>
+        <br>
 @endsection
 @push('css')
         <!--====== Bootstrap css ======-->

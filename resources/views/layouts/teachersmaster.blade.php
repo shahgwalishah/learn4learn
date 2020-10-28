@@ -36,6 +36,7 @@
         integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{asset('asset/autocomplete.css')}}">
     <style>
         #toast-container > .toast-success {
             background-color:#ffc10e !important;
@@ -94,15 +95,31 @@
             }
             .footer-link ul li {
                 line-height: 35px;
-                text-align: center;
+                text-align: center !important;
+            }
+        }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            border-radius: 5px;
+            color:#fff !important;
+        }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
             }
         }
     </style>
+    <link rel="stylesheet" href="{{asset('css/loader.css')}}">
     @yield('css')
     @stack('css')
 </head>
 
 <body>
+    <div class="centerLoader">
+        <div class="loader"></div>
+    </div>
     <header id="header-part" class="header-two">
         <div class="header-top d-none d-lg-block">
             <div class="container">
@@ -224,6 +241,26 @@
                                             href="{{route('donate')}}"
                                             style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;">DONATE</a>
                                     </li>
+                                    <li id="resp1" style="display: none;">
+                                        <a href="{{route('teacher_edit_profile')}}"
+                                           class="{{Request::routeIs('donate') ? 'active' : ''}} customClass"
+                                           style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                            Edit Profile
+                                        </a>
+                                    </li>
+    
+                                    <li id="resp1" style="display: none;">
+                                        <a class="dropdown" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+    
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
                                 </ul>
                             </div>
                         </nav> <!-- nav -->
@@ -342,10 +379,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
     <script src="{{asset('asset/js/map-script.js')}}"></script>
     <script src="https://kit.fontawesome.com/0141eabd3d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{asset('asset/autocomplete.js')}}"></script>
     @yield('js')
     <script>
         // Material Select Initialization
     $(document).ready(function() {
+        $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(1000);
+            })
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
         $("#success-alert").slideUp(500);
         $('.mdb-select').materialSelect();

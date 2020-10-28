@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -39,6 +40,7 @@ class UserController extends Controller
 
     public function registerview()
     {
+        dd(123);
         return view('auth.register');
     }
 
@@ -178,65 +180,96 @@ class UserController extends Controller
         return view('welcome')->with(['getuserimg' => $getuserimg, 'lesson' => $lesson, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
     }
 
-    public function searchSubForSubjectHome(Request $request)
+    public function SearchPage(Request $request)
     {
-        $getuserimg = DB::table('users')
-            ->join('lessons', 'users.id', 'lessons.user_id')
-            ->join('subjects', function ($join) {
-                $join->on('lessons.subject_id', 'subjects.id');
-            })
-            ->where('subjects.id', $request->subject_id)
-            ->where('lessons.id', $request->date_id)
+        if(isset($request->see_all)) {
+            $getuserimg = Lesson::with('subject','teacher')->get();
+            // $getuserimg = DB::table('users')
+            //     ->join('lessons', 'users.id', 'lessons.user_id')
+            //     ->join('subjects', function ($join) {
+            //         $join->on('lessons.subject_id', 'subjects.id');
+            //     })
+            //     ->select(
+            //         'users.thumbnail as userthamnail',
+            //         'lessons.title',
+            //         'lessons.description',
+            //         'lessons.date',
+            //         'lessons.thumbnail',
+            //         'subjects.name as subjectname',
+            //         'subjects.id as subjects_id',
+            //         'lessons.time',
+            //         'lessons.id as lessonsId',
+            //         'lessons.user_id as teacher_id'
+            //     )->get();
+        } else {
+            if($request->level_id) {
+                $getuserimg = Lesson::where('level_id','=',$request->level_id)->with('subject','teacher')->get();
+            } else if($request->subject_id) {
+                $getuserimg = Lesson::where('subject_id','=',$request->subject_id)->with('subject','teacher')->get();
+            } else if($request->date_id) {
+                $getuserimg = Lesson::where('id','=',$request->date_id)->with('subject','teacher')->get();
+            } else if($request->date_id !='' && $request->subject_id != '' && $request->level_id != '') {
+                $dId = $request->date_id;
+                $getuserimg = Lesson::where('level_id','=',$request->level_id)
+                ->orwhere('id','=',$request->date_id)
+                ->with(['subject' => function($q) use ($sId, $dId) {
+                    $q->where('id','=',$sId);
+                },'teacher'])->get();
+            } else {
+                $getuserimg = Lesson::with('subject','teacher')->get();
+            }
+            // $getuserimg = DB::table('users')
+            //     ->join('lessons', 'users.id', 'lessons.user_id')
+            //     ->join('subjects', function ($join) {
+            //         $join->on('lessons.subject_id', 'subjects.id');
+            //     })
+            //     ->where('subjects.id', $request->subject_id)
+            //     ->where('lessons.id', $request->date_id)
 
-            ->select(
-                'users.thumbnail as userthamnail',
-                'lessons.title',
-                'lessons.description',
-                'lessons.date',
-                'lessons.thumbnail',
-                'subjects.name as subjectname',
-                'subjects.id as subjects_id',
-                'lessons.time',
-                'lessons.id as lessonsId',
-                'lessons.user_id as teacher_id'
-            )->get();
-
-        $level    = DB::table('levels')->get();
+            //     ->select(
+            //         'users.thumbnail as userthamnail',
+            //         'lessons.title',
+            //         'lessons.description',
+            //         'lessons.date',
+            //         'lessons.thumbnail',
+            //         'subjects.name as subjectname',
+            //         'subjects.id as subjects_id',
+            //         'lessons.time',
+            //         'lessons.id as lessonsId',
+            //         'lessons.user_id as teacher_id'
+            //     )->get();
+        }
+        $level    = levels::all();
         $subjects = DB::table('subjects')
             ->join('lessons', 'lessons.subject_id', 'subjects.id')
             ->select('subjects.*')
             ->get();
-        $Date = DB::table('lessons')->get();
-
-        return view('welcome')->with(['getuserimg' => $getuserimg, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
-        $countserchresut = count($getuserimg);
-
-        if ($countserchresut >= 1) {
-            return view('welcome')->with(['getuserimg' => $getuserimg, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
-        } else {
-            $request->session()->flash('message.level', 'success');
-            $request->session()->flash('message.content', 'You have Upated password Successfully');
-
-            return back();
-        }
+        $Date = Lesson::get();
+        return view('frontend.pages.homepagesearch')->with(['getuserimg' => $getuserimg, 'level' => $level, 'subjects' => $subjects, 'Date' => $Date]);
     }
 
     public function verifiedSuccess(){
         // dd(123);
-        $user = Auth::user();
-        User::where('id','=',$user->id)->update([
-           'email_verified_at' => Carbon::now()
-        ]);
-        $subjects    = Subject::all();
-        $no_of_chunk = $subjects->count() / 2;
-        $subjects    = $subjects->chunk($no_of_chunk);
-        $user_id = \Auth::user()->id;
-        $level      = levels::all();
-        $verified = 'true';
-        if($user->type == 'teacher') {
-            return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id','verified'));
+        if(Auth::user()) {
+            $user = Auth::user();
+            User::where('id','=',$user->id)->update([
+            'email_verified_at' => Carbon::now()
+            ]);
+            $subjects    = Subject::all();
+            $subjects = collect($subjects)->unique('name');
+            $no_of_chunk = $subjects->count() / 2;
+            $subjects    = $subjects->chunk($no_of_chunk);
+            $user_id = \Auth::user()->id;
+            $level      = levels::all();
+            $verified = 'true';
+            session()->flash('success-alert-message-teac', "Email Verified Successfully.");
+            if($user->type == 'teacher') {
+                return view('auth.teachers.teacher-subjects', compact('subjects', 'user_id','verified'));
+            } else {
+                return view('auth.students.student-level', compact('level', 'user_id','verified'));
+            }
         } else {
-            return view('auth.students.student-level', compact('level', 'user_id','verified'));
+            return redirect('/home');
         }
     }
 }

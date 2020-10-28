@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title','level')
 @section('content')
+
 <!--====== Bootstrap css ======-->
 <link rel="stylesheet" href="{{asset('asset/css/students-level.css')}}">
 <style>
@@ -34,6 +35,10 @@
         left: 9px;
         color: #999;
     }
+    .customMargin{
+        width: 100%;
+        margin: 0px;
+    }
 </style>
 @php
     $emailVerified = \Auth::user()->email_verified_at;
@@ -44,13 +49,21 @@
     }
 @endphp
 
+@if(session()->has('success-alert-message-teac'))
+<div class="row">
+    <div class="alert alert-success customMargin" style="width: 100%;">
+        {{session()->get('success-alert-message-teac')}}
+    </div>
+</div>
+@endif
+
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont slider-cont-4 text-center">
-                        <h1 data-animation="fadeInUp" data-delay="1s">REGISTER</h1>
+                        <h1 data-animation="fadeInUp" data-delay="1s">Student Level's</h1>
                         <p data-animation="fadeInUp" data-delay="1.5s">Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -65,6 +78,7 @@
 <section class="main-section">
     <div class="container customContaine">
         <div class="main-cont">
+            
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="form-parts">
@@ -109,7 +123,7 @@
                 <div class="modal-body">
                     <p>Please First Verify Email Address.We Send You An Verification Email.Or You Can Change Your Email Address</p>
                     <div class="row">
-                        <input type="email" class="form-control" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
+                        <input type="email" class="form-control" value="{{\Auth::user()->email}}" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -126,7 +140,7 @@
 <script>
     function resendEmail(){
         let email = $('#emailAddress').val();
-        email = email ? email : 'null';
+        console.log(email);
         $('#fa-faSpin').show();
         let url = '/resend-email/'+email;
         $.ajax({

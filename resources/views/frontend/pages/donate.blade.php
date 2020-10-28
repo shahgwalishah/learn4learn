@@ -16,6 +16,10 @@
             flex: 100%;
         }
     }
+    #slider-part{
+        
+           height: 400px;
+    }
 
 </style>    
 {{-- {{dd('ere')}} --}}
@@ -37,7 +41,7 @@
 <!--====== SLIDER PART START ======-->
 
 <section id="slider-part" class="slider-active">
-    <div class="single-slider slider-4 bg_cover pt-150"
+    <div class="single-slider slider-4 bg_cover pt-150 customHeight"
         style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/donate/banner.jpg')}}">
         <div class="container">
             <div class="row justify-content-center">

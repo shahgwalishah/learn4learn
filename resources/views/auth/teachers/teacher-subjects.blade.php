@@ -83,7 +83,7 @@
 
                 <div class="row">
                      @if(session()->has('error_message'))
-                        <div class="alert alert-danger" style="text-align:center;width:100%;border:0px !important; text-transform: capitalize;">
+                        <div class="alert alert-danger" style="font-weight:bold;text-align:center;width:100%;border:0px !important; text-transform: capitalize;">
                             {{session()->get('error_message')}}
                         </div>
                     @endif
@@ -193,7 +193,7 @@
           <div class="modal-body">
             <p>Please First Verify Email Address.We Send You An Verification Email.Or You Can Change Your Email Address</p>
               <div class="row">
-                   <input type="email" class="form-control" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
+                   <input type="email" class="form-control" value="{{\Auth::user()->email}}" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
               </div>
           </div>
           <div class="modal-footer">

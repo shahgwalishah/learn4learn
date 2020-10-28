@@ -1,10 +1,40 @@
 @extends('layouts.masterStudent')
 @section('title','Student Homepage')
-@section('content')
-    @php
-        $user = Auth::user();
-    @endphp
+@push('css')
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{{asset('asset/css/student-homepage.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/teacher-homepage.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .schedules .card {
+            height: auto;
+        }
+
+        .spacing-top {
+            margin-top: 20px;
+        }
+
+        .card-img-top {
+            height: 111px;
+            width: 144px;
+        }
+
+        #donate-register-btn-div {
+            display: block !important;
+        }
+
+        .image-card {
+            max-width: 400px;
+        }
+    </style>
     <style>
+        .customClassMySch{
+            margin-bottom: 10px;
+        }
         .customFaCheck{
             font-size: 173px;
             color: #fff;
@@ -103,36 +133,54 @@
             display: flex;
             justify-content: center;
         }
+        .customSearching{
+            justify-content: center;
+        }
+        .std-welcome-msg {
+            color: #020101;
+            line-height: 40px;
+            text-align: center;
+            padding-bottom: 23px;
+            letter-spacing: 2px;
+            margin-left: 0px;
+        }
+
+        #grade-register-div{
+            display: flex;
+            align-items: baseline;
+            min-height: 86px;
+            max-height: 100px;
+        }
+        #repl1{
+            color: rgb(214, 27, 27);
+            border: 1px solid red;
+        }
+
+        .MultiCarousel .leftLst, .MultiCarousel .rightLst {
+            position: absolute;
+            border-radius: 50%;
+            top: calc(50% - 20px);
+            /* width: 34px; */
+            /* min-width: 10px; */
+            /* max-width: 14px; */
+            /* height: 68px; */
+            padding: 9px 15px;
+        }
+
+        @media (max-width:575px) {
+            .customStyle{
+                width: 200px;
+                height: 200px;
+                margin-bottom: 15px;
+            }
+        }
     </style>
-    <section id="slider-part" class="slider-active">
-        <div class="single-slider slider-4 bg_cover pt-150"
-             style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-12 col-lg-12">
-                        <div class="slider-cont slider-cont-4 text-center">
-                            <h3 class="std-welcome-msg text-white">{{$user->fname}}<br>
-                                Welcome back!</h3>
-                            <div class="row">
-                                {{-- <div class="c"></div> --}}
-                                <div class="col-7 ml-5 pl-5 customFieldSearch">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="What are you looking for?">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-secondary" type="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
-    </section>
+@endpush
+@section('content')
+    @php
+        $user = Auth::user();
+    @endphp
+   @include('frontend.search')
     <!-- Card -->
     {{-- dashboard section --}}
     <section class="dashboard-section" style="margin-top: -10%;">
@@ -164,8 +212,9 @@
                 <div class="col-6" id="std-dashboard-right">
                     <div class="row">
                         <div class="col-6 p-3" id="achieve-div">
-                            <i class="far fa-check-circle customFaCheck"></i>
-                            <p>MY<br>ACHIEVEMENTS</p>
+                            <img style="width:155px;" src="{{asset('asset/images/student-homepage/achievement.png')}}" alt="">
+                            <p style="font-weight: 600;
+                            color: #909090;">MY<br>ACHIEVEMENTS</p>
                         </div>
                         <div class="col-6 p-3" id="schedule-div">
                             <a href="{{ route('student_schedule') }}">
@@ -327,8 +376,7 @@
                     <hr>
                 </div>
                 <div class="row text-center">
-                    <div class="MultiCarousel" style="display: flex;
-justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
                         <div class="MultiCarousel-inner">
                             @foreach($studentHomeworks as $homework)
                                 @php
@@ -349,7 +397,7 @@ justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
                                         $styles = "background-color: green;
                                         padding: 20px 27px;
                                         border-radius: 33px;";
-                                        $status = 'fa-check';
+                                        $type = 'fa-check';
                                         }
                                 @endphp
                                 <div class="item">
@@ -359,8 +407,9 @@ justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
                                                  alt="Bologna">
                                             <div
                                                 class="card-img-overlay text-white d-flex flex-column justify-content-center">
-                                                <div class="topright"><span class="exclamation-para">{{$status}}</span><i
-                                                        class="fa {{$type}}" aria-hidden="true" style="{{$styles}}"></i>
+                                                <div class="topright">
+                                                    <i class="fa {{$status}}" aria-hidden="true"></i>
+                                                    <i class="fa {{$type}}" aria-hidden="true" style="{{$styles}}"></i>
                                                 </div>
                                                 <div style="margin-bottom: 217px;">
                                                     <h6 class="card-subtitle mb-2">{{$homework->subject->name}}</h6>
@@ -383,38 +432,245 @@ justify-content: center;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
             </div>
         </section>
     </section>
+    <br>
 
+    <section id="course-part" class="pt-115 pb-115 bg_cover gray-bg" style="position: relative;  background:url(/asset/images/teacher-homepage/bgimage.png) no-repeat ; background-size:cover; background-color: #fff;">
+        <div class="container">
+        <div class="teacher-grade-dash-head-div">
+        <p class="teacher-grade-dash-head">MY GRADES</p>
+        <hr>
+        </div>
+        <div class="row">
+        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+        <div class="MultiCarousel-inner">
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div> </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 item">
+        <div class="pad15">
+        <div class="card box-shadow">
+        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+        <p class="grades-details">Geography <span id="repl1">A+</span></p>
+        <p class="grades-details">Maths     <span id="repl1">B</span></p>
+        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+        <p class="grades-details">English   <span id="repl1">A+</span></p>
+        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+        <button class="btn btn-primary leftLst"><</button>
+        <button class="btn btn-primary rightLst">></button>
+        </div>
+        </div>
+        </div>
+        </section>
+
+    <br>
 @endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            var itemsMainDiv = ('.MultiCarousel');
+            var itemsDiv = ('.MultiCarousel-inner');
+            var itemWidth = "";
 
-@section('css')
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/student-homepage.css')}}">
-    <link rel="stylesheet" href="{{asset('asset/css/teacher-homepage.css')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <style type="text/css">
-        .schedules .card {
-            height: auto;
-        }
+            $('.leftLst, .rightLst').click(function () {
+                var condition = $(this).hasClass("leftLst");
+                if (condition)
+                    click(0, this);
+                else
+                    click(1, this)
+            });
 
-        .spacing-top {
-            margin-top: 20px;
-        }
+            ResCarouselSize();
 
-        .card-img-top {
-            height: 111px;
-            width: 144px;
-        }
 
-        #donate-register-btn-div {
-            display: block !important;
-        }
 
-        .image-card {
-            max-width: 400px;
-        }
-    </style>
+
+            $(window).resize(function () {
+                ResCarouselSize();
+            });
+
+            //this function define the size of the items
+            function ResCarouselSize() {
+                var incno = 0;
+                var dataItems = ("data-items");
+                var itemClass = ('.item');
+                var id = 0;
+                var btnParentSb = '';
+                var itemsSplit = '';
+                var sampwidth = $(itemsMainDiv).width();
+                var bodyWidth = $('body').width();
+                $(itemsDiv).each(function () {
+                    id = id + 1;
+                    var itemNumbers = $(this).find(itemClass).length;
+                    btnParentSb = $(this).parent().attr(dataItems);
+                    itemsSplit = btnParentSb.split(',');
+                    $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+                    if (bodyWidth >= 1200) {
+                        incno = itemsSplit[1];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else if (bodyWidth >= 992) {
+                        incno = itemsSplit[2];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else if (bodyWidth >= 768) {
+                        incno = itemsSplit[1];
+                        itemWidth = sampwidth / incno;
+                    }
+                    else {
+                        incno = itemsSplit[0];
+                        itemWidth = sampwidth / incno;
+                    }
+                    $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+                    $(this).find(itemClass).each(function () {
+                        $(this).outerWidth(itemWidth);
+                    });
+
+                    $(".leftLst").addClass("over");
+                    $(".rightLst").removeClass("over");
+
+                });
+            }
+
+
+            //this function used to move the items
+            function ResCarousel(e, el, s) {
+                var leftBtn = ('.leftLst');
+                var rightBtn = ('.rightLst');
+                var translateXval = '';
+                var divStyle = $(el + ' ' + itemsDiv).css('transform');
+                var values = divStyle.match(/-?[\d\.]+/g);
+                var xds = Math.abs(values[4]);
+                if (e == 0) {
+                    translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                    $(el + ' ' + rightBtn).removeClass("over");
+
+                    if (translateXval <= itemWidth / 2) {
+                        translateXval = 0;
+                        $(el + ' ' + leftBtn).addClass("over");
+                    }
+                }
+                else if (e == 1) {
+                    var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                    translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                    $(el + ' ' + leftBtn).removeClass("over");
+
+                    if (translateXval >= itemsCondition - itemWidth / 2) {
+                        translateXval = itemsCondition;
+                        $(el + ' ' + rightBtn).addClass("over");
+                    }
+                }
+                $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+            }
+
+            //It is used to get some elements from btn
+            function click(ell, ee) {
+                var Parent = "#" + $(ee).parent().attr("id");
+                var slide = $(Parent).attr("data-slide");
+                ResCarousel(ell, Parent, slide);
+            }
+        });
+    </script>
 @endsection

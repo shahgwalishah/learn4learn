@@ -10,6 +10,42 @@
             width: 100%;
         }
     }
+    #std-homework-find-lesson-sec{
+        text-align: center;
+        width: 100%;
+    }
+    .customTableSetting{
+        text-align: center;
+        width: 100%;
+    }
+    .customClasSearch{
+        display: inline-block;
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* border: 1px solid #ffc600; */
+        padding: 0 59px;
+        font-size: 11px !important;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        line-height: 20px;
+        border-radius: 0px;
+        color: #ffffff;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 5;
+    }
+    .customClass{
+        text-align: -webkit-center;
+        width: 100%;
+    }
 </style>
 
     <!--====== Bootstrap css ======-->
@@ -18,28 +54,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
 
-
-    <section id="slider-part" class="slider-active">
-        <div class="single-slider slider-4 bg_cover pt-150" style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
-            <div class="container" >
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont slider-cont-4 text-center">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="What are you looking for?">
-                                <div class="input-group-append">
-                                  <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-search"></i>
-                                  </button>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
-    </section>
-<!-- Card -->
+    <?php echo $__env->make('frontend.search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section id="about-part" class="about-tow pt-65">
     <div class="about-shape">
@@ -165,7 +180,7 @@
                   </div>
 
                   <div class="col-md-3"  style="padding: 18px;">
-                  <button type="submit"  class="main-slider-btn2 btn btn-warning" value="" style="background-color: #FDBF11;color:white">SEARCH</button>
+                  <button type="submit"  class="customClasSearch  main-slider-btn2 btn btn-warning" value="" style="background-color: #FDBF11;color:white">SEARCH</button>
                   </div>
                 </div>
 
@@ -179,7 +194,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table customTableSetting">
                       <thead>
                         <tr>
                           <th scope="col" class="table-heading">SUBJECT</th>

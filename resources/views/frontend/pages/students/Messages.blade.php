@@ -654,6 +654,35 @@
         #frame .content .message-input .wrap button:focus {
             outline: none;
         }
+        @media(max-width: 575px){
+            .customPadding{
+            margin-left: -60px;
+        }
+        #std-dashboard-left{
+            background-color: #036893;
+            padding-bottom: 31px;
+            padding-top: 20px;
+            padding: 0px;
+        }
+        .customContainer{
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        .customPaddingLeft{
+            padding: 0px;
+        }
+        .customStdMessge{
+            width: 100%;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        }
+       
     </style>
 @endpush
 @section('content')
@@ -681,7 +710,7 @@
     {{-- dashboard section --}}
 
     <section class="dashboard-section" id="studentMEssages">
-        <div class="container">
+        <div class="container customStdMessge">
             <div class="row d-flex justify-content-center text-center h-100">
                 <div class="col-12" id="std-dashboard-left">
                     <div class="stu-home-dash-head-div">
@@ -689,9 +718,9 @@
                         
                     </div>
                     <div class="page-content page-container" id="page-content">
-                        <div class="padding">
-                            <div class="row container d-flex justify-content-center">
-                                <div class="col-md-12">
+                        <div class="padding customPadding">
+                            <div class="row container d-flex justify-content-center customPaddingLeft">
+                                <div class="col-md-12 customContainer">
                                     <div id="frame">
                                         <div class="content">
                                             <div class="contact-profile">
@@ -747,7 +776,8 @@
         }
 
         .padding {
-            padding: 3rem !important
+            padding-left: 60px;
+            padding-right: 0px;
         }
 
         body {

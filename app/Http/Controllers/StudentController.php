@@ -19,10 +19,10 @@ class StudentController extends Controller
 {
     public function selectSubjects(Request $request)
     {
-        $user    =Auth::user()->update(['educational_level' => $request->level]);
+        $user    = Auth::user()->update(['educational_level' => $request->level]);
         $user_id = $request->user_id;
         $subjects=Subject::all();
-
+        $subjects = collect($subjects)->unique('name');
         return view('auth.students.student-subject', compact('subjects', 'user_id'));
     }
 
@@ -45,13 +45,13 @@ class StudentController extends Controller
     {
         SubjectLevelDetail::create([
             'user_id'    => $student,
-            'subject_id' => 0,
+            'subject_id' => $subject,
             'field'      => $subject,
             'level_id'   => 0,
         ]);
     }
 
-    public function getSubjects(Request $request)
+    public function postAddSubjects(Request $request)
     {
         $user_id     = $request->user_id;
         if(is_null($request->subjects)) {
@@ -61,17 +61,22 @@ class StudentController extends Controller
             if ($subject == '00_other_id') {
                 foreach ($request->field as $s) {
                     if ($s != '' || $s != null) {
-                        $newSubject     = Subject::create(['name' => $s]);
-                        $this->createStudentSubject($user_id, $subject['id']);
+                        if(isset($subject['id'])) {
+                            $newSubject     = Subject::create(['name' => $s]);
+        $check = SubjectLevelDetail::where('subject_id','=',$subject)->first();
+        if(is_null($check)) {
+            $this->createStudentSubject($user_id, $subject['id']);
+        } else {
+            return back()->with('error_message_sec','subject already exists');
+        }
+                        }
                     }
                 }
                 continue;
             }
             $this->createStudentSubject($user_id, $subject);
         }
-        $allSubjects = Subject::all();
-
-        return view('auth.students.student-profile', compact('user_id', 'allSubjects'));
+        return redirect()->route('student-userProfile');
     }
 
     public function updateProfile(Request $request)
@@ -127,11 +132,14 @@ class StudentController extends Controller
 
     public function studentLessson()
     {
-        return view('frontend.pages.students.student-lesson-page');
+        $student_id = Auth::user()->id;
+        dd($student_id);
+        return view('frontend.pages.lesson-detail');
     }
 
     public function student_edit_profile()
     {
+        // dd(123);
         $user   = Auth::user();
         return view('frontend.pages.editstudetnsProfile')->with('getrecord', $user);
     }
@@ -149,7 +157,6 @@ class StudentController extends Controller
 
     public function studentHome()
     {
-        // dd(123);
 
         // $Book=      DB::table('lessons')
         //                 ->join('subjects', 'subjects.id', 'lessons.subject_id')
@@ -230,6 +237,7 @@ class StudentController extends Controller
 
     public function student_schedule()
     {
+        // dd(123);
         $student     = Auth::user();
         $subjects    = $student->helpSubjects;
         $subjects    = explode(',', $subjects);
@@ -257,7 +265,7 @@ class StudentController extends Controller
 
     public function viewteacherdashboard(Request $request)
     {
-        $studetns=StudentLesson::getStudent();
+        $studetns=StudentLesson::getStudent($request);
         return view('frontend.pages.students.viewTeacherProfile')->with('db', $studetns);
     }
 
@@ -334,6 +342,7 @@ class StudentController extends Controller
 
     public function viewOurMessages()
     {
+        // dd(123);
         $student_id        =Auth::user()->id;
         $Students          =StudentLesson::getStudentLesson($student_id);
         $Subjects=StudentLesson::getLessonData($student_id);
@@ -347,10 +356,11 @@ class StudentController extends Controller
 
     public function viewMessages($id)
     {
+        // dd(123);
         $student_id= Auth::user()->id;
-        $role      = Messages::getMessages();
-        $DBB       = Messages::getMessagesData();
-        $teacher  = Messages::getMessagesTeacher();
+        $role      = Messages::getMessages($student_id);
+        $DBB       = Messages::getMessagesData($student_id);
+        $teacher  = Messages::getMessagesTeacher($id);
         return view('frontend.pages.students.Messages')
             ->with(['teacher_id'=> $id,
                 'student_id'    => $student_id,

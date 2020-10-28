@@ -23,9 +23,18 @@
 <!-- Card -->
 
 {{-- dashboard section --}}
+<style>
+    @media(max-width: 575px)
+    {
+        .customStyling{
+        padding-left: 0px
+    }
+    }
+    
+</style>
 
 <section class="dashboard-section">
-    <div class="container">
+    <div class="container customStyling">
         <div class="row d-flex justify-content-center text-center h-100">
             <div class="col-12" id="std-dashboard-left">
                 <div class="stu-home-dash-head-div">

@@ -93,6 +93,12 @@
                     <p>{{ __('Pages') }}</p>
                 </a>
             </li>
+            <li>
+            <a href="{{route('subjects.index')}}">
+                    <i class="tim-icons icon-settings"></i>
+                    <p>{{ __('Subjects') }}</p>
+                </a>
+            </li>
 
 
 

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+    
 <head>
 
     <!--====== Required meta tags ======-->
@@ -45,6 +45,10 @@
 
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="<?php echo e(asset('asset/css/responsive.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/loader.css')); ?>">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
     <style>
         a.no-styleing {
             background: none;
@@ -89,7 +93,7 @@
             border: 1px solid #ffc10e;
             background-color: white;
             min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(5, 5, 5, 0.2);
             z-index: 1;
         }
 
@@ -148,6 +152,29 @@
                 text-align: center;
             }
         }
+        .customClass{
+            border: aliceblue;
+            width: 100%;
+            cursor: pointer;
+            background: none;
+        }
+        .customClassBox{
+            text-align: left;
+            padding: 0px !important;
+            margin-bottom: 0px;
+        }
+        .customBorder{
+            border: aliceblue;
+            background: none;
+            padding: 0px;
+            cursor: pointer;
+        }
+        #resp1{
+            background-color: rgb(0, 145, 255);
+            margin-bottom: 2px;
+            border-radius: 5px;
+        }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
     <style>
@@ -158,16 +185,99 @@
         #course-part {
             padding-bottom: 0px !important;
         }
+        .showablemenu{
+            padding: 10px;
+            left: -67px !important;
+        }
+        .customFaClas{
+            margin-right: 10px;
+            color: blue;
+        }
+
+        @media (max-width:991px) {
+            #resp1{
+                display: block !important;
+            }
+        }
+        @media (max-width:991px) {
+            #responsiveView{
+                display: flex !important;
+                justify-content: space-between !important;
+                margin-top: 15px;
+                border-bottom: 1px solid #efefef;
+            }
+            .login-register ul {
+                text-align: center;
+            }
+            #customSetPBox{
+                position: absolute;
+                transform: translate3d(270px, 40px, 0px);
+                top: 0px;
+                left: -130px !important;
+                will-change: transform;
+            }
+        }
+        @media (max-width:575px) {
+            #customSetPBox{
+                position: absolute;
+                transform: translate3d(270px, 40px, 0px);
+                top: 0px;
+                left: 0px !important;
+                will-change: transform;
+            }
+        }
     </style>
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
 </head>
 
 <body>
-
+    <div class="centerLoader">
+         <div class="loader"></div>
+    </div>
 <header id="header-part" class="header-two">
     
-    <div class="header-top d-none d-lg-block" style="padding-bottom: 22px">
+
+    <?php if(!\Auth::user()): ?>
+    
+    <div class="col-md-12" id="responsiveView" style="display: none;">
+        <div class="col-md-6 text-center">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" style="color: black" class="nav-link dropdown-toggle"
+                    href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" v-pre>
+                        <?php echo app('translator')->get('home.Language'); ?> <span class="caret"></span>
+                    </a>
+                    <div id="customSetPBox" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="<?php echo e(url('/locale/en')); ?>"><img
+                                src="<?php echo e(asset('asset/images/flag/us.png')); ?>" width="30px"
+                                height="20x"> English</a>
+                        <a class="dropdown-item" href="<?php echo e(url('/locale/fr')); ?>"><img
+                                src="<?php echo e(asset('asset/images/flag/fr.png')); ?>" width="30px"
+                                height="20x"> French</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="login-register">
+                <ul>
+                    <li><a href="<?php echo e(route('login')); ?>"
+                           class="<?php echo e(Request::routeIs('login') ? 'active' : ''); ?>"
+                           style="background: none !important;color:black;"><?php echo app('translator')->get('home.SIGN_IN'); ?></a>
+                    </li>
+                    <li><a href="<?php echo e(route('register')); ?>"
+                           class="<?php echo e(Request::routeIs('register') ? 'active' : ''); ?>"><?php echo app('translator')->get('home.SIGN_UP'); ?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
+
+    <div class="header-top d-none d-lg-block customHeader" style="padding-bottom: 22px">
         <div class="container" style="margin-top: 14px">
             <div class="row">
                 <div class="col-md-6">
@@ -178,7 +288,6 @@
                     <div class="header-right d-flex justify-content-end">
 
                         <?php if(!Auth::check()): ?>
-
                             <nav class="navbar navbar-expand-md navbar-light navbar-laravel "
                                  style="    margin-top: -14px;">
 
@@ -254,92 +363,55 @@
                                 <?php $user= Auth::user();
                                 switch ($user->type) {
                                 case 'teacher':?>
-                                <ul>
-                                    <li><a style="background: none !important;color:black;">
-                                            <span><a class="no-styleing" href="<?php echo e(route('teacherHome')); ?>">
-                                                    <?php echo e($user->fname); ?></span></a></li>
-                                    <div class="dropdown">
-                                        <i class="fa fa-cog" aria-hidden="true"></i>
-                                        <div class="dropdown-content">
-                                            <p><a style="color: black"
-                                                  href="<?php echo e(route('teacher_edit_profile')); ?>"><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
-                                            </p>
-                                            <form method="post" action="<?php echo e(route('logout')); ?>">
-                                                <?php echo csrf_field(); ?>
-                                                <button class="btn-sm btn-outline-primary">logout</button>
-                                            </form>
 
-                                        </div>
-                                    </div>
-
-                                </ul>
+                                <div class="dropdown">
+                                    <button data-toggle="dropdown" class="customClass">
+                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu showablemenu">
+                                        <p class="customClassBox"><a style="color: black"
+                                                                     href="<?php echo e(route('teacher_edit_profile')); ?>"><i class="fas fa-edit customFaClas"></i><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
+                                        </p>
+                                        <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
+                                            <?php echo csrf_field(); ?>
+                                            <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
+                                        </form>
+                                    </ul>
+                                </div>
                                 <?php   break;
 
                                 case 'student':?>
-                                <ul>
-                                    <li>
-                                        <a style="background: none !important;color:black;">
-                                            <span><a class="no-styleing" href="<?php echo e(route('studentHome')); ?>">
-                                                    <?php echo e($user->fname); ?></span></a></li>
-                                    <div class="dropdown ml-auto">
-                                        <i class="fa fa-cog" aria-hidden="true"></i>
-                                        <div class="dropdown-content">
-                                            <a class="dropdown-item" style="color: black"
-                                               href="<?php echo e(route('student_edit_profile')); ?>"><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
-                                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
-                                               onclick="event.preventDefault();
-                                                                                                            document.getElementById('logout-form').submit();">
-                                                <?php echo e(__('Logout')); ?>
-
-                                            </a>
-
-                                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
-                                                  style="display: none;">
-                                                <?php echo csrf_field(); ?>
-                                            </form>
-
-                                        </div>
-                                    </div>
-
-                                </ul>
+                                <div class="dropdown">
+                                    <button data-toggle="dropdown" class="customClass">
+                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu showablemenu">
+                                        <p class="customClassBox"><a style="color: black"
+                                                                     href="<?php echo e(route('student_edit_profile')); ?>"><i class="fas fa-edit customFaClas"></i><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
+                                        </p>
+                                        <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
+                                            <?php echo csrf_field(); ?>
+                                            <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
+                                        </form>
+                                    </ul>
+                                </div>
                             <?php
                                        break;
                                        case 'admin':
                                    ?>
-                                <ul>
-                                    <li>
-                                        <a style="background: none !important;color:black;">
-                                            <span><a class="no-styleing" href="<?php echo e(route('home')); ?>">
-                                                    <?php echo e($user->fname); ?></span></a></li>
-                                    <div class="dropdown ml-auto">
-                                        <i class="fa fa-cog" aria-hidden="true"></i>
-                                        <div class="dropdown-content">
-                                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
-                                               onclick="event.preventDefault();
-                                                                                                            document.getElementById('logout-form').submit();">
-                                                <?php echo e(__('Logout')); ?>
-
-                                            </a>
-
-                                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
-                                                  style="display: none;">
-                                                <?php echo csrf_field(); ?>
-                                            </form>
-
-                                        </div>
-                                    </div>
-
-                                </ul>
+                                <div class="dropdown">
+                                    <button data-toggle="dropdown" class="customClass">
+                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu showablemenu">
+                                        <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
+                                            <?php echo csrf_field(); ?>
+                                            <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
+                                        </form>
+                                    </ul>
+                                </div>
 
                                 <?php
                                     break;
                                     }
                                 ?>
-
-
-
-
-
                             </div>
                         <?php endif; ?>
                     </div> <!-- header right -->
@@ -397,6 +469,28 @@
                                     <a href="<?php echo e(route('donate')); ?>"
                                        class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
                                        style="background-color: #ffc10e;padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">Donate</a>
+                                </li>
+
+                                <li id="resp1" style="display: none;">
+                                    <a href="<?php echo e(route('teacher_edit_profile')); ?>"
+                                       class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"
+                                       style="padding: 12px 40px 12px 40px;color: white;border-radius: 6px;color:#000000;">
+                                        Edit Profile
+                                    </a>
+                                </li>
+
+                                <li id="resp1" style="display: none;">
+                                    <a class="dropdown" href="<?php echo e(route('logout')); ?>"
+                                       onclick="event.preventDefault();
+                                                                        document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                                    </a>
+
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                          style="display: none;">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
@@ -540,6 +634,9 @@
     <script>
         // Material Select Initialization
         $(document).ready(function() {
+            $(window).on('load', function(){
+                $('.centerLoader' ).fadeOut(3000);
+            })
             $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
                 $("#success-alert").slideUp(500);
             });

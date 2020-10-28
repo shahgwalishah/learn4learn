@@ -26,9 +26,23 @@
     <!-- Card -->
 
     {{-- dashboard section --}}
+    <style>
+        @media(max-width:991px)
+        {
+        .customSetting{
+           padding: 0px;
+        }
+        .customStyling{
+            padding: 0px;
+        }
+        #std-dashboard-left{
+            padding: 0px;
+        }
+        }
+    </style>
 
      <section class="dashboard-section" id="messages">
-        <div class="container">
+        <div class="container customSetting">
             <div class="row d-flex justify-content-center text-center h-100">
                 <div class="col-12" id="std-dashboard-left" style="background-color: #03937f05;">
                     <div class="stu-home-dash-head-div">
@@ -37,7 +51,7 @@
                     </div>
                     <div class="page-content page-container" id="page-content">
                         <div class="padding">
-                            <div class="row container d-flex justify-content-center">
+                            <div class="row container d-flex justify-content-center customStyling">
                                 <div class="col-md-12">
                                     <div id="frame">
                                         <div class="content">

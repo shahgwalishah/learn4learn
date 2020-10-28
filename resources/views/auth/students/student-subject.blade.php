@@ -22,7 +22,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont slider-cont-4 text-center">
-                        <h1 data-animation="fadeInUp" data-delay="1s">REGISTER</h1>
+                        <h1 data-animation="fadeInUp" data-delay="1s">Student Subject's</h1>
                         <p data-animation="fadeInUp" data-delay="1.5s">Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -34,7 +34,7 @@
     </div> <!-- single slider -->
 </section>
 <section class="main-section">
-    <form action="{{route('getSubjects')}}" method="post">
+    <form action="{{route('postAddSubjects')}}" method="post">
         @csrf
         <div class="container" style="width:80%">
 
@@ -52,7 +52,7 @@
 
                     @foreach($subjects as $key => $sub)
                     <div
-                        class="col-md-6 d-flex align-items-center justify-content-center {{ $key%2==0 ? '_regSubLP': '_regSubRP' }}">
+                        class="col-md-6 d-flex align-items-center justify-content-center">
                         <div class="form-parts">
                             <div class="step">
                                 <div class="form-group">
@@ -67,7 +67,7 @@
                     @endforeach
 
                     <div
-                        class="col-lg-6 {{ count($subjects)%2 == 0 ? '_regSubLP': '_regSubRP' }} col-md-6 d-flex align-items-center justify-content-center">
+                        class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
                         <div class="col-md-12 d-flex align-items-center ">
                             <div class="form-parts">
                                 <div class="step">

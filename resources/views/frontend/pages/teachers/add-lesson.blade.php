@@ -8,8 +8,11 @@
         <div class="container">
         </div>
         <div class="container Ccontainer">
-            @if(session('message'))
-            <p class="alert alert-success text-dark">{{session('message')}}</p>
+            @if(session()->has('message'))
+            <p class="alert alert-success text-dark">{{session()->get('message')}}</p>
+            @endif
+            @if(session()->has('alert-danger'))
+            <p class="alert alert-danger text-dark">{{session()->get('alert-danger')}}</p>
             @endif
             <div class="row">
                 <div class="col-md-6 col-xs-12" id="add-lesson-left">
@@ -18,7 +21,7 @@
                         <select class="selectpicker" name="subject" required="true">
                             <option value="">Select any Subject </option>
                             @foreach ($subjects as $subject)
-                                @if(!is_null($subject->subject))
+                                @if(!is_null($subject->subject) && !is_null($subject->level) )
                                     <option value="{{$subject->subject->id .' '. $subject->level->id}}">
                                         {{$subject->subject->name .' ('. $subject->level->name.')'}}
                                     </option>
@@ -311,7 +314,7 @@ function readURL(input) {
 </script>
 @endsection
 
-@section('css')
+@push('css')
 <!--====== Bootstrap css ======-->
 <link rel="stylesheet" href="{{asset('asset/css/add-lesson.css')}}">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -418,4 +421,4 @@ function readURL(input) {
         box-shadow: unset;
     }
 </style>
-@endsection
+@endpush

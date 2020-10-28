@@ -37,7 +37,7 @@ Route::group(['Public'], function () {
     Route::post('/checkout/stripepayment', 'PageController@stripePayment')->name('stripepayment');
     Route::get('/checkout/Paypal', 'PageController@paypalpaymentgatwway')->name('paypalpaymentgatwway');
 
-    Route::post('/search/Subjects', 'UserController@searchSubForSubjectHome')->name('searchSubForSubjectHome');
+    Route::get('/search/Subjects', 'UserController@SearchPage')->name('searchSubForSubjectHome');
 
     /**
      * register pages for students
@@ -69,7 +69,7 @@ Route::group(['Public'], function () {
         Route::get('/show-form', 'UserController@showForm');
         Route::get('/select-Subjects', 'StudentController@selectSubjects')->name('selectSubjects');
         Route::get('/save-new-subject', 'StudentController@saveNewSubject')->name('save-new-subject');
-        Route::post('/get-subjects', 'StudentController@getSubjects')->name('getSubjects');
+        Route::post('/student-select-subjects', 'StudentController@postAddSubjects')->name('postAddSubjects');
         Route::post('/get-profile', 'StudentController@getProfile')->name('getProfile');
         Route::post('/teacher-subjects', 'TeacherController@teacherSubjects')->name('teacherSubjects');
 
@@ -133,6 +133,7 @@ Route::group(['private'], function () {
 
         Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
         Route::post('profile/password', 'ProfileController@password')->name('profile.passwordss');
+        Route::get('/delete/profile/{id}','ProfileController@delete')->name('delete.profile');
 //            });
 
         //shahzad
@@ -149,12 +150,23 @@ Route::group(['private'], function () {
         Route::post('/admin/pages/update/{page}', "Admin\PagesController@update")->name('pages.update');
         Route::get('/admin/pages/delete/{page}', "Admin\PagesController@destroy")->name('pages.destroy');
         Route::get('/admin/pages/show/{page}', "Admin\PagesController@show")->name('pages.show');
+
+        /** Subjects */
+        Route::get('/admin/subjects',"Admin\SubjectController@index")->name('subjects.index');
+        Route::get('/admin/subjects/create', "Admin\SubjectController@create")->name('subjects.create');
+        Route::post('/admin/subjects/store', "Admin\SubjectController@store")->name('subjects.store');
+        Route::get('/admin/subjects/edit/{id}', "Admin\SubjectController@edit")->name('subjects.edit');
+        Route::post('/admin/subjects/update/{id}', "Admin\SubjectController@update")->name('subjects.update');
+        Route::get('/admin/subjects/delete/{id}', "Admin\SubjectController@delete")->name('subjects.delete');
     });
 
+    Route::get('/lesson-details/{lesson_id}/{teacher_id}', 'LessonController@lessonDetails')->name('lessonDetails');
 
     //student routes
-    Route::get('student-select-subjects','UserController@verifiedSuccess')->name('verifiedStudentSuccess');
-    Route::get('/student-verify-email','HomeController@verifyEmailAddress')->name('student-verify-email');
+    Route::get('student-select-levels','UserController@verifiedSuccess')->name('verifiedStudentSuccess');
+    Route::get('/student-verify-email','HomeController@verifyEmailAddress')->name('student-verify-email');  
+    Route::get('/student-profile','HomeController@redirectUserProfile')->name('student-userProfile');
+
     Route::group(['Admin', 'middleware' => ['CheckUserType:' . 'student', 'verified']], function () {
         Route::get('/students/lesssn', 'StudentController@studentLessson')->name('studentLessson');
         Route::get('/students/Home', 'StudentController@studentHome')->name('studentHome');
@@ -236,6 +248,7 @@ Route::group(['private'], function () {
     });
 });
 
+Route::get('/get/all/lessons','HomeController@getLessons');
 /**
  * shehrayar routes
  */

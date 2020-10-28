@@ -23,9 +23,26 @@
 <!-- Card -->
 
 {{-- dashboard section --}}
+<style>
+    #stud-profile-pic{
+        border-radius: 110px;
+        max-height: 200px;
+        min-width: 200px;
+    }
+    @media(max-width:575px)
+    {
+        .customPadding{
+            width: 100%;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+</style>
 
 <section class="dashboard-section">
-    <div class="container">
+    <div class="container customPadding">
         <div class="row d-flex justify-content-center text-center h-100">
             <div class="col-12" id="std-dashboard-left">
                 <div class="stu-home-dash-head-div">

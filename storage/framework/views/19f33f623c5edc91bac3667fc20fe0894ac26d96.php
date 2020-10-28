@@ -1,4 +1,3 @@
-
 <!--====== HEADER PART ENDS ======-->
 
 <!--====== SEARCH BOX PART START ======-->
@@ -17,6 +16,26 @@
         display: flex;
         padding-bottom: 3%;
         /* padding-top: 20px; */
+    }
+    .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
     }
 </style>
 
@@ -100,8 +119,6 @@
                     <h3 class="card-title pt-2"><strong
                             style="color: white;line-height: 100px;font-size: 52px;font-weight: 500;"><?php echo app('translator')->get('welcome.SECONDARY'); ?></strong>
                     </h3>
-
-
                 </div>
 
             </div>
@@ -148,13 +165,14 @@
                 </button>
             </div>
             <?php endif; ?>
-            <form class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="post">
+            <form id="search_form" class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="get">
                 <?php echo csrf_field(); ?>
+                <input type="hidden" name="see_all" id="see_all" value="" />
                 <div class="row">
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="level_id" required="true">
                             <optgroup label="Picnic">
-                                <?php 
+                                <?php
                                                                                         if(@$level){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -172,7 +190,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -191,7 +209,7 @@
                     <div class="col-md-3" style="padding: 18px;">
                         <select class="selectpicker" name="subject_id" required="true">
                             <optgroup label="Picnic">
-                                <?php 
+                                <?php
                                                          if(@$subjects){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -209,7 +227,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -229,7 +247,7 @@
                         <select class="selectpicker" name="date_id" required="true">
                             <optgroup label="Picnic">
                                 <option value="">Find Date</option>
-                                <?php 
+                                <?php
                                                          if(@$Date){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -247,7 +265,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
                                 <?php $__currentLoopData = $aray1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -346,7 +364,7 @@
     </div>
 
     <div style="text-align: center;padding: 60px 0px 60px 0px;">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#"
+        <a data-animation="fadeInUp" data-delay="2s" onclick="browseAll()" class="main-slider-btn2" href="javascript:;"
             style="background-color: #FDBF11;text-align: center;">BROWSE ALL</a>
     </div>
 </section>
@@ -385,107 +403,117 @@
 
         <?php endif; ?>
         <div class="row">
-            <?php $__currentLoopData = $getuserimg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 home-lessons-bot">
-                <div class="single-course-2 mt-30">
-                    <div class="row d-flex justify-content-center">
-                        <div class="column d-flex justify-content-center">
-                            <div class="price">
-                                <img src="<?php echo e(url('/storage/images/'.$leson->userthamnail)); ?>" class="course-profile-pic">
+            <?php if(count($getuserimg) == 0): ?>
+            <div class="alert alert-danger customDanger">
+                                <div class="container customDangerContainer">
+                                    <div class="alert-icon">
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                    </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                </div>
+                            </div>
+            <?php else: ?>
+            <?php $__currentLoopData = $getuserimg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $leson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($k < 3): ?>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 home-lessons-bot">
+                    <div class="single-course-2 mt-30">
+                        <div class="row d-flex justify-content-center">
+                            <div class="column d-flex justify-content-center">
+                                <div class="price">
+                                    <img src="<?php echo e(url('/storage/images/'.$leson->userthamnail)); ?>" class="course-profile-pic" onerror="this.src='/images/default.png'">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="thum">
+                        <div class="thum">
+                            <div class="card" style="cursor: pointer;" onclick="window.location.href='/lesson-details/<?php echo e($leson->lessonsId); ?>/<?php echo e($leson->teacher_id); ?>'">
 
-                        <div class="card">
+                                <img src="<?php echo e(url('/storage/images/'.$leson->thumbnail)); ?>" class="leasson-thumnail">
+                                <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
 
-                            <img src="<?php echo e(url('/storage/images/'.$leson->thumbnail)); ?>" class="leasson-thumnail">
-                            <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-
-                                <h4 class="card-title subject-name"><?php echo e($leson->subjectname); ?>
+                                    <h4 class="card-title subject-name"><?php echo e($leson->subjectname); ?>
 
 
-                                </h4>
-                                <h6 class="card-subtitle mb-2 subject-title"><?php echo e($leson->title); ?></h6>
-                                <div class="link d-flex">
-                                </div>
-                                <div class="row" id="rating-date-lesson">
-                                    <div class="col-6">
-                                        <h4 class="card-title lessone-date"><?php echo e($leson->date); ?><br>
-                                            <?php echo e($leson->time); ?></h4>
+                                    </h4>
+                                    <h6 class="card-subtitle mb-2 subject-title"><?php echo e($leson->title); ?></h6>
+                                    <div class="link d-flex">
                                     </div>
-                                    <div class="col-6">
-                                        <div class="review">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
+                                    <div class="row" id="rating-date-lesson">
+                                        <div class="col-6">
+                                            <h4 class="card-title lessone-date"><?php echo e($leson->date); ?><br>
+                                                <?php echo e($leson->time); ?></h4>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="review">
+                                                <ul>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="cont">
+                        <div class="cont">
 
-                        <?php if(!Auth::check()): ?>
+                            <?php if(!Auth::check()): ?>
 
-                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="<?php echo e(route('login')); ?>"
-                            style="background: #818181;color: white;font-weight: 500;display: block;">I AM A
-                            STUDENT/PARENT</a>
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="<?php echo e(route('login')); ?>"
+                                style="background: #818181;color: white;font-weight: 500;display: block;">I AM A
+                                STUDENT/PARENT</a>
 
-                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="<?php echo e(route('login')); ?>"
-                            style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
-                            CALENDAR</a>
-                        <?php endif; ?>
-                        <?php if(Auth::check()): ?>
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="<?php echo e(route('login')); ?>"
+                                style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
+                                CALENDAR</a>
+                            <?php endif; ?>
+                            <?php if(Auth::check()): ?>
 
 
-                        <?php 
-$authId=Auth::User()->id;
+                            <?php
+                    $authId=Auth::User()->id;
 
-$getrecords=DB::table('users')->where('users.id', $authId)->where('users.type', 'student', 'users.id')->select('id', 'type')->get();
-$getstu=count($getrecords);
+                    $getrecords=DB::table('users')->where('users.id', $authId)->where('users.type', 'student', 'users.id')->select('id', 'type')->get();
+                    $getstu=count($getrecords);
 
-if($getstu >=1){
- ?>
-
+                    if($getstu >=1){
+                    ?>
 
 
 
-                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn"
-                            href="<?php echo e(route('addToCalender', [$leson->lessonsId, $leson->teacher_id, $leson->subjects_id])); ?>"
-                            style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
-                            CALENDAR</a>
+
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn"
+                                href="<?php echo e(route('addToCalender', [$leson->lessonsId, $leson->teacher_id, $leson->subjects_id])); ?>"
+                                style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
+                                CALENDAR</a>
 
 
-                        <?php } else{ ?>
+                            <?php } else{ ?>
 
 
-                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#"
-                            style="background: #818181;color: white;font-weight: 500;display: block;">LEARN MORE</a>
-                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" onclick="Buttoncl();"
-                            style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
-                            CALENDAR</a>
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#"
+                                style="background: #818181;color: white;font-weight: 500;display: block;">LEARN MORE</a>
+                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" onclick="Buttoncl();"
+                                style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO
+                                CALENDAR</a>
 
 
-                        <?php  }  ?>
-                        <?php endif; ?>
-                    </div>
+                            <?php  }  ?>
+                            <?php endif; ?>
+                        </div>
+                    </div> <!-- single course -->
                 </div> <!-- single course -->
-            </div> <!-- single course -->
+                <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div>
 
 
     </div> <!-- course slide -->
 
     <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">SEE
+        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="javascript:;" onclick="seeAll()" id="donate-register-btn">SEE
             ALL</a>
     </div>
     </div> <!-- container -->
@@ -506,7 +534,16 @@ if($getstu >=1){
     function Buttoncl(){
         alert('You have to register as a Student..');
     }
+    function seeAll(){
+        $('#see_all').val('see_all');
+        $('#search_form').submit();
+    }
+    function browseAll(){
+        $('#see_all').val('see_all');
+        $('#search_form').submit();
+    }
 </script>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/welcome.blade.php ENDPATH**/ ?>

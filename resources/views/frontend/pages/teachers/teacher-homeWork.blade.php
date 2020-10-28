@@ -9,28 +9,44 @@
             width: 100%;
         }
     }
+    #std-homework-find-lesson-sec{
+        text-align: center;
+        width: 100%;
+    }
+    .customFieldStyling{
+        text-align: center;
+        max-width: 100%;
+    }
+    .customHomeSetting{
+        text-align: -webkit-center;
+        width: 100%;
+    }
+    .customSearchField{
+            text-align: -webkit-center;
+            width: 100%;
+        }
+        .customDanger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customAlertDAnger{
+        background-color: #ffc10e;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+        padding: .75rem 1.25rem;
+        border: 1px solid transparent;
+    }
+    .customDangerContainer{
+        display: flex;
+        justify-content: center;
+    }
 </style>
-<section id="slider-part" class="slider-active">
-    <div class="single-slider slider-4 bg_cover pt-150"
-        style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-9">
-                    <div class="slider-cont slider-cont-4 text-center">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="What are you looking for?">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- single slider -->
-</section>
+@include('frontend.search')
 <!-- Card -->
 
 <section id="about-part" class="about-tow pt-65">
@@ -105,7 +121,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="table-responsive table-home-assign">
-                <table class="table-responsive">
+                <table class="table  customFieldStyling">
                     <thead>
                         <tr>
                             <th scope="col" class="table-heading">SUBJECT</th>
@@ -117,7 +133,23 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                    @if(count($Lessonss) == 0)
+                    <tbody>
+                            <tr>
+                                <td></td>
+                                <td width="100%">
+                                <div class="alert alert-danger customDanger">
+                                    <div class="container customDangerContainer">
+                                        <div class="alert-icon">
+                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                        </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                    </div>
+                                </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    @else
                         @foreach($Lessonss as $lesson)
 
                         <tr>
@@ -147,6 +179,7 @@
                         </tr>
 
                         @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer BackColor">
     <div class="container-fluid">
 {{--        <ul class="nav">--}}
 {{--            <li class="nav-item">--}}
@@ -32,6 +32,9 @@
 
 <style>
     #custom{
-        color: #ffc10e !important;
+        color: white !important;
+    }
+    .BackColor{
+        background-color: #ffc10e;
     }
 </style>

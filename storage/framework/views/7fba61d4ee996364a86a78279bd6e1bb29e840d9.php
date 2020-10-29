@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer BackColor">
     <div class="container-fluid">
 
 
@@ -33,7 +33,10 @@
 
 <style>
     #custom{
-        color: #ffc10e !important;
+        color: white !important;
+    }
+    .BackColor{
+        background-color: #ffc10e;
     }
 </style>
 <?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/layouts/footer.blade.php ENDPATH**/ ?>

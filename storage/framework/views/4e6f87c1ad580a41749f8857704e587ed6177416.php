@@ -1,6 +1,6 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <style>
     .customYellow{
@@ -36,21 +36,21 @@
                     </div>
                 </div>
                 <div class="card-body customSetting">
-                    <form method="POST" action="{{route('email-config.update', $email->id)}}" name="addEmailForm">
-                        @csrf
+                    <form method="POST" action="<?php echo e(route('email-config.update', $email->id)); ?>" name="addEmailForm">
+                        <?php echo csrf_field(); ?>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="smtp-host" class="col-form-label" id="customSet">SMTP Host:</label>
                                     <input type="text" required name="smtpHost" class="form-control text-white"
-                                        id="smtp-host" value="{{$email->host}}">
+                                        id="smtp-host" value="<?php echo e($email->host); ?>">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="smtp-username" class="col-form-label" id="customSet">SMTP Username:</label>
                                     <input type="text" required class="form-control text-white" name="smtpUsername"
-                                        value="{{$email->username}}" id="smtp-username">
+                                        value="<?php echo e($email->username); ?>" id="smtp-username">
                                 </div>
                             </div>
                         </div>
@@ -59,14 +59,14 @@
                                 <div class="form-group">
                                     <label for="smtp-password" class="col-form-label" id="customSet">SMTP Password:</label>
                                     <input type="text" required name="smtpPassword" class="form-control text-white"
-                                        id="smtp-password" value="{{$email->password}}">
+                                        id="smtp-password" value="<?php echo e($email->password); ?>">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="smtp-port" class="col-form-label" id="customSet">SMTP Port:</label>
                                     <input type="text" required name="smtpPort" class="form-control text-white"
-                                        id="smtp-port" value="{{$email->port}}">
+                                        id="smtp-port" value="<?php echo e($email->port); ?>">
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <label for="smtp-send-from" class="col-form-label" id="customSet">SMTP Send From Email:</label>
                                     <input type="text" required name="smtpSendFromEmail" class="form-control text-white"
-                                        value="{{$email->emailFrom}}" id="smtp-send-from">
+                                        value="<?php echo e($email->emailFrom); ?>" id="smtp-send-from">
                                 </div>
                             </div>
                             <div class="col-6">
@@ -84,7 +84,7 @@
                                     <label for="smtp-send-from-name" class="col-form-label" id="customSet">SMTP Send From
                                         Name:</label>
                                     <input type="text" required name="smtpSendFromName" class="form-control text-white"
-                                        value="{{$email->emailFromName}}" id="smtp-send-from-name">
+                                        value="<?php echo e($email->emailFromName); ?>" id="smtp-send-from-name">
                                 </div>
                             </div>
                         </div>
@@ -118,13 +118,14 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('js')
-<script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script>
+<?php $__env->startPush('js'); ?>
+<script src="<?php echo e(asset('black')); ?>/js/plugins/chartjs.min.js"></script>
 <script>
     $(document).ready(function() {
           demo.initDashboardPageCharts();
         });
 </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('layouts.app', ['pageSlug' => 'dashboard'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/Admin/MailConfigurationEdit.blade.php ENDPATH**/ ?>

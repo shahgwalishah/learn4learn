@@ -29,6 +29,10 @@ class Homework extends Model
         return $this->hasOne(User::class, 'id', 'teacher_id');
     }
 
+    public function student()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
     public function student_lessons(){
         return $this->hasOne(StudentLesson::class,'subjects_id','Sub_id');
     }

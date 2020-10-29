@@ -713,19 +713,13 @@ class TeacherController extends Controller
 
     public function ViewStudentsHomeWork()
     {
-        $myid    =Auth::user()->id;
-        $homework=DB::table('homework')
-            ->join('subjects', 'subjects.id', 'homeWork.Sub_id')
-            ->where('homework.teacher_id', $myid)
-            ->join('users', 'users.id', 'homework.user_id')
-            ->select('users.fname', 'users.id as User_id', 'homework.*', 'subjects.name as  subjectname', 'subjects.id as sub_id', 'homework.id as homeworkid')
-            ->get();
+        $id = Auth::user()->id;
+        $homework = Homework::where('upload_type','=',Homework::STUDENT_TYPE)->with('student','subject','lesson','student_lessons')->get();
         return view('frontend.pages.teachers.viewHomeworkEachStud')->with('homework', $homework);
     }
 
     public function MyAchevemntss()
     {
-        // dd(123);
         $auth   =Auth::user()->id;
         $Lessens=DB::table('lessons')->where('lessons.user_id', $auth)
             ->join('subjects', 'subjects.id', 'lessons.subject_id')

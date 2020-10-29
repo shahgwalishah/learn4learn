@@ -1,16 +1,15 @@
-@extends('layouts.teachersmaster')
-@section('title','Students Homework')
-@section('content')
+<?php $__env->startSection('title','Students Homework'); ?>
+<?php $__env->startSection('content'); ?>
 
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/student-homework.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homework.css')); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
 
 
     <section id="slider-part" class="slider-active">
-        <div class="single-slider slider-4 bg_cover pt-150" style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
+        <div class="single-slider slider-4 bg_cover pt-150" style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
             <div class="container" >
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-9">
@@ -45,8 +44,8 @@
     <section class="admission-row pb-120" id="std-homework-find-lesson-sec">
         <div class="container">
             <div class="row justify-content-center">
-                <form class="search_form" action="{{route('search_subjects_level')}}" method="post">
-                    @csrf
+                <form class="search_form" action="<?php echo e(route('search_subjects_level')); ?>" method="post">
+                    <?php echo csrf_field(); ?>
                     <div class="row">
                         <div class="col-md-3" style="padding: 18px;">
                             <select class="selectpicker" name="level_id">
@@ -117,13 +116,13 @@
                             <th scope="col"></th>
                         </tr>
                         </thead>
-                        @foreach($homework as $getmystydentrecord)
+                        <?php $__currentLoopData = $homework; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $getmystydentrecord): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tbody>
                             <tr>
-                                <th scope="row">{{$getmystydentrecord->student->fname}}</th>
-                                <td>{{$getmystydentrecord->subject->name}}</td>
-                                <td>{{$getmystydentrecord->lesson->title}}</td>
-                                <td>{{$getmystydentrecord->lesson->date}}</td>
+                                <th scope="row"><?php echo e($getmystydentrecord->student->fname); ?></th>
+                                <td><?php echo e($getmystydentrecord->subject->name); ?></td>
+                                <td><?php echo e($getmystydentrecord->lesson->title); ?></td>
+                                <td><?php echo e($getmystydentrecord->lesson->date); ?></td>
                                 <td>
                                     <a class="btn btn-indigo btn-sm m-0" id="ask-question-btn" href="#">
                                         Assign Grade
@@ -138,7 +137,7 @@
 
 
                             </tbody>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </table>
                 </div>
             </div> <!-- row -->
@@ -148,4 +147,6 @@
         </div> <!-- container -->
     </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/teachers/viewHomeworkEachStud.blade.php ENDPATH**/ ?>

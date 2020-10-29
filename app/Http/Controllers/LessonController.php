@@ -20,4 +20,9 @@ class LessonController extends Controller
             'similarLessons' => $similarLessons
         ]);
     }
+
+    public function viewLesson($id) {
+        $lesson = Lesson::where('id','=',$id)->first();
+        return redirect('/Search/Schedule?level_id='.$lesson->level_id.'&subject_id='.$lesson->subject_id.'&date_id='.$lesson->date);
+    }
 }

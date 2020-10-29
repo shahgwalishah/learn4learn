@@ -149,31 +149,22 @@
                         </tbody>
                     <?php else: ?>
                         <?php $__currentLoopData = $Lessonss; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
                         <tr>
                             <th scope="row"><?php echo e($lesson->sub_name); ?></th>
                             <td><?php echo e($lesson->title); ?></td>
                             <td><?php echo e($lesson->date); ?></td>
 
                             <td colspan="3">
-                                <a
-                                    href="<?php echo e(route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])); ?>"><button
-                                        type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">UPLOAD
+                                <a href="<?php echo e(route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])); ?>"><button
+                                        type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">ASSIGN
                                         HOMEWORK</button></a>
 
-                                <a
-                                    href="<?php echo e(route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])); ?>"><button
+                                <a href="<?php echo e(route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])); ?>"><button
                                         type="button" class="btn btn-indigo ml-2 btn-sm m-0"
                                         style="background-color: #ffc10e !important;" id="upload-work-btn">DOWNLOAD
                                         HOMEWORK</button></a>
-                                <a
-                                    href="<?php echo e(route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])); ?>"><button
-                                        type="button" class="btn btn-indigo  btn-default ml-2 btn-sm m-0"
-                                        id="upload-work-btn">
-                                        Grade</button></a>
+                                <a href="<?php echo e(route('viewLesson',[$lesson->id])); ?>" class="btn  ml-2 btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW LESSON</a>
                             </td>
-                            <!-- <td><button type="button" class="btn btn-indigo btn-sm m-0" id="ask-question-btn">ASK QUESTION</button></td>
-                          <td><button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW LESSON</button></td>                                                   -->
                         </tr>
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

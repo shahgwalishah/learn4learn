@@ -151,31 +151,22 @@
                         </tbody>
                     @else
                         @foreach($Lessonss as $lesson)
-
                         <tr>
                             <th scope="row">{{$lesson->sub_name}}</th>
                             <td>{{$lesson->title}}</td>
                             <td>{{$lesson->date}}</td>
 
                             <td colspan="3">
-                                <a
-                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
-                                        type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">UPLOAD
+                                <a href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
+                                        type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">ASSIGN
                                         HOMEWORK</button></a>
 
-                                <a
-                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
+                                <a href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
                                         type="button" class="btn btn-indigo ml-2 btn-sm m-0"
                                         style="background-color: #ffc10e !important;" id="upload-work-btn">DOWNLOAD
                                         HOMEWORK</button></a>
-                                <a
-                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
-                                        type="button" class="btn btn-indigo  btn-default ml-2 btn-sm m-0"
-                                        id="upload-work-btn">
-                                        Grade</button></a>
+                                <a href="{{route('viewLesson',[$lesson->id])}}" class="btn  ml-2 btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW LESSON</a>
                             </td>
-                            <!-- <td><button type="button" class="btn btn-indigo btn-sm m-0" id="ask-question-btn">ASK QUESTION</button></td>
-                          <td><button type="button" class="btn btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW LESSON</button></td>                                                   -->
                         </tr>
 
                         @endforeach

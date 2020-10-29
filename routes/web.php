@@ -164,7 +164,7 @@ Route::group(['private'], function () {
 
     //student routes
     Route::get('student-select-levels','UserController@verifiedSuccess')->name('verifiedStudentSuccess');
-    Route::get('/student-verify-email','HomeController@verifyEmailAddress')->name('student-verify-email');  
+    Route::get('/student-verify-email','HomeController@verifyEmailAddress')->name('student-verify-email');
     Route::get('/student-profile','HomeController@redirectUserProfile')->name('student-userProfile');
 
     Route::group(['Admin', 'middleware' => ['CheckUserType:' . 'student', 'verified']], function () {
@@ -231,6 +231,7 @@ Route::group(['private'], function () {
             'TeacherController@assingachevment'
         )->name('assingachevment');
 
+        Route::get('view/lesson/{id}', 'LessonController@viewLesson')->name('viewLesson');
         Route::post('Assign/Grade', 'TeacherController@AssignGrade')->name('AssignGrade');
         Route::post('Add/Grade', 'TeacherController@assigngradeforstudent')->name('assigngradeforstudent');
         Route::get('Edit/profile', 'TeacherController@teacher_edit_profile')->name('teacher_edit_profile');

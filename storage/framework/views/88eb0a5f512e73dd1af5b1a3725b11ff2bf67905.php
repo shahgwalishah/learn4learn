@@ -161,9 +161,9 @@
 
 <body>
 <!--====== PRELOADER PART START ======-->
-<div class="centerLoader">
-    <div class="loader"></div>
-</div>
+
+
+
 <!--====== PRELOADER PART START ======-->
 <!--====== HEADER PART START ======-->
 
@@ -489,7 +489,7 @@
     // Material Select Initialization
     $(document).ready(function() {
         $(window).on('load', function(){
-                $('.centerLoader' ).fadeOut(3000);
+                $('.centerLoader' ).fadeOut(1000);
             });
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
             $("#success-alert").slideUp(500);

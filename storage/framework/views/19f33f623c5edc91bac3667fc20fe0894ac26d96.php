@@ -166,7 +166,6 @@
             </div>
             <?php endif; ?>
             <form id="search_form" class="search_form" action="<?php echo e(route('searchSubForSubjectHome')); ?>" method="get">
-                <?php echo csrf_field(); ?>
                 <input type="hidden" name="see_all" id="see_all" value="" />
                 <div class="row">
                     <div class="col-md-3" style="padding: 18px;">

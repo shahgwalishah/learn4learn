@@ -189,7 +189,7 @@
                                     <p class="addfiles-add-lesson">ADD VIDEO (LINK)</p>
                                     <div class=" d-flex justify-content-center">
                                         {{-- <textarea name="video" id="" cols="30" rows="10"></textarea> --}}
-                                        <input type="textarea" name="video" class="form-control"
+                                        <input type="text" value="https://www.youtube.com/watch?v=GIIK1xP7-Zo" name="video" class="form-control"
                                             placeholder="https://www.example.com/">
                                     </div>
                                     </p>

@@ -1,16 +1,15 @@
-@extends('layouts.teachersmaster')
-@section('title','level')
-@section('js')
-    <script src="{{asset('asset/js/custom.js')}}"></script>
-@endsection
-@section('content')
+<?php $__env->startSection('title','level'); ?>
+<?php $__env->startSection('js'); ?>
+    <script src="<?php echo e(asset('asset/js/custom.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/teachers-subjects.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/teachers-subjects.css')); ?>">
     <link href="http://www.ansonika.com/potenza/css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
-    <link rel="stylesheet" href="{{asset('asset/css/subjects-form-boxes.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/subjects-form-boxes.css')); ?>">
     <style>
         .customStyleBtn{
             background-color:#ffc10e !important;
@@ -43,14 +42,14 @@
             color: #999;
         }
     </style>
-    @php
+    <?php
         $emailVerified = \Auth::user()->email_verified_at;
         if(isset($verified)) {
             $emailVerified = isset($emailVerified) ? $emailVerified : $verified;
         } else {
             $emailVerified = $emailVerified;
         }
-    @endphp
+    ?>
     <section id="slider-part" class="slider-active">
         <div class="single-slider slider-4 bg_cover pt-150">
             <div class="container">
@@ -68,42 +67,44 @@
             </div> <!-- container -->
         </div> <!-- single slider -->
     </section>
-    {{--    new form--}}
+    
 
 
 
-    {{--    =====================================================--}}
+    
 
     <section class="main-section">
-        <form action="{{route('teacherSubjects')}}" method="post" enctype="multipart/form-data">
-            @csrf
+        <form action="<?php echo e(route('teacherSubjects')); ?>" method="post" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
             <div class="container customContaine" style="width:80%">
 
                 <div class="main-cont">
 
                     <div class="row">
-                        @if(session()->has('error_message'))
+                        <?php if(session()->has('error_message')): ?>
                             <div class="alert alert-danger" style="font-weight:bold;text-align:center;width:100%;border:0px !important; text-transform: capitalize;">
-                                {{session()->get('error_message')}}
+                                <?php echo e(session()->get('error_message')); ?>
+
                             </div>
-                        @endif
+                        <?php endif; ?>
                         <div class="col-md">
                             <h3 class="level-heading">WHAT SUBJECTS DO YOU WANT TO TEACH?</h3>
                         </div>
 
-                        @foreach($subjects as $key => $sub_chunk)
+                        <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $sub_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-lg-6">
-                                @foreach($sub_chunk as $key=>$sub)
+                                <?php $__currentLoopData = $sub_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-md-12 d-flex align-items-center justify-content-center">
                                         <div class="form-parts">
                                             <div class="step">
                                                 <div class="form-group">
-                                                    <label class="container_check version_2">{{$sub['name']}}
-                                                        <input type="checkbox" name="subject[]" value="{{$sub['id']}}"
-                                                               data-toggle="collapse" data-target="#a{{$sub->id}}">
+                                                    <label class="container_check version_2"><?php echo e($sub['name']); ?>
+
+                                                        <input type="checkbox" name="subject[]" value="<?php echo e($sub['id']); ?>"
+                                                               data-toggle="collapse" data-target="#a<?php echo e($sub->id); ?>">
                                                         <span class="checkmark"></span>
                                                         <div id="lavel_table">
-                                                            <div id="a{{$sub->id}}" class="collapse">
+                                                            <div id="a<?php echo e($sub->id); ?>" class="collapse">
                                                                 <p><b>Select level(s) you want to teach</b></p>
 
                                                                 <table>
@@ -112,7 +113,7 @@
                                                                             <label class="container_check version_2"
                                                                                    style="border:unset!important;">Primary
                                                                                 <input type="checkbox" checked
-                                                                                       name="subject_{{$sub['id']}}_level[]" value="1">
+                                                                                       name="subject_<?php echo e($sub['id']); ?>_level[]" value="1">
                                                                                 <span class="checkmark"></span>
                                                                             </label>
                                                                         </td>
@@ -120,7 +121,7 @@
                                                                             <label class="container_check version_2"
                                                                                    style="border:unset!important;">Secondary
                                                                                 <input type="checkbox"
-                                                                                       name="subject_{{$sub['id']}}_level[]" value="2">
+                                                                                       name="subject_<?php echo e($sub['id']); ?>_level[]" value="2">
                                                                                 <span class="checkmark"></span>
                                                                             </label>
                                                                         </td>
@@ -130,7 +131,7 @@
                                                                             <label class="container_check version_2"
                                                                                    style="border:unset!important;">Further Education
                                                                                 <input type="checkbox"
-                                                                                       name="subject_{{$sub['id']}}_level[]" value="3">
+                                                                                       name="subject_<?php echo e($sub['id']); ?>_level[]" value="3">
                                                                                 <span class="checkmark"></span>
                                                                             </label>
                                                                         </td>
@@ -143,9 +144,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-12">
                             <div class="col-lg-12 _regSubLP" style="padding-left:0px;">
                                 <div class="col-md-12 d-flex align-items-center justify-content-center">
@@ -170,15 +171,15 @@
                                     style="align-content: center;">Register</button>
                         </div>
                     </div>
-                    <input type="hidden" name="user_id" value="{{$user_id}}">
+                    <input type="hidden" name="user_id" value="<?php echo e($user_id); ?>">
                 </div>
             </div>
         </form>
     </section>
 
-    {{--    new form--}}
+    
     <!-- Modal -->
-    @if(!$emailVerified)
+    <?php if(!$emailVerified): ?>
         <div id="myModal" style=" width: 100%;
     background: #5555;   display: flex;
     align-items: center;" class="modal" role="dialog">
@@ -192,7 +193,7 @@
                     <div class="modal-body">
                         <p>Please First Verify Email Address.We Send You An Verification Email.Or You Can Change Your Email Address</p>
                         <div class="row">
-                            <input type="email" class="form-control" value="{{\Auth::user()->email}}" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
+                            <input type="email" class="form-control" value="<?php echo e(\Auth::user()->email); ?>" placeholder="Enter Your Email..." name="email" id="emailAddress" value="" />
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -204,7 +205,7 @@
                 </div>
             </div>
         </div>
-    @endif
+    <?php endif; ?>
     <script>
         function resendEmail(){
             let email = $('#emailAddress').val();
@@ -237,7 +238,7 @@
                 subject.removeAttribute('style');
                 $.ajax({
                     type: 'get',
-                    url  : '{{route("save-new-subject")}}',
+                    url  : '<?php echo e(route("save-new-subject")); ?>',
                     data : {'subject':subject.value,'level_id':lever_id},
                     success: function (response) {
                         console.log(response)
@@ -284,4 +285,6 @@
             });
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/auth/teachers/teacher-subjects.blade.php ENDPATH**/ ?>

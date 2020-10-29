@@ -36,6 +36,7 @@
         integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="<?php echo e(asset('asset/autocomplete.css')); ?>">
     <style>
         #toast-container > .toast-success {
             background-color:#ffc10e !important;
@@ -116,9 +117,9 @@
 </head>
 
 <body>
-    <div class="centerLoader">
-        <div class="loader"></div>
-    </div>
+
+
+
     <header id="header-part" class="header-two">
         <div class="header-top d-none d-lg-block">
             <div class="container">
@@ -248,7 +249,7 @@
                                             Edit Profile
                                         </a>
                                     </li>
-    
+
                                     <li id="resp1" style="display: none;">
                                         <a class="dropdown" href="<?php echo e(route('logout')); ?>"
                                            onclick="event.preventDefault();
@@ -256,7 +257,7 @@
                                             <?php echo e(__('Logout')); ?>
 
                                         </a>
-    
+
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                                               style="display: none;">
                                             <?php echo csrf_field(); ?>
@@ -380,12 +381,14 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
     <script src="<?php echo e(asset('asset/js/map-script.js')); ?>"></script>
     <script src="https://kit.fontawesome.com/0141eabd3d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="<?php echo e(asset('asset/autocomplete.js')); ?>"></script>
     <?php echo $__env->yieldContent('js'); ?>
     <script>
         // Material Select Initialization
     $(document).ready(function() {
         $(window).on('load', function(){
-                $('.centerLoader' ).fadeOut(3000);
+                $('.centerLoader' ).fadeOut(1000);
             })
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
         $("#success-alert").slideUp(500);

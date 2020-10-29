@@ -159,17 +159,17 @@
 
                             <td colspan="3">
                                 <a
-                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->sub_id])}}"><button
+                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
                                         type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">UPLOAD
                                         HOMEWORK</button></a>
 
                                 <a
-                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->sub_id])}}"><button
+                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
                                         type="button" class="btn btn-indigo ml-2 btn-sm m-0"
                                         style="background-color: #ffc10e !important;" id="upload-work-btn">DOWNLOAD
                                         HOMEWORK</button></a>
                                 <a
-                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->sub_id])}}"><button
+                                    href="{{route('addsubjecthomework', ['lesson' => $lesson->id,'subject' => $lesson->id])}}"><button
                                         type="button" class="btn btn-indigo  btn-default ml-2 btn-sm m-0"
                                         id="upload-work-btn">
                                         Grade</button></a>

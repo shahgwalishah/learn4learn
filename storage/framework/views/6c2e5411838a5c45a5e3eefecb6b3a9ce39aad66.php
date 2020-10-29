@@ -249,7 +249,7 @@
                         <?php if($k < 6): ?>
                         <div class="col-lg-4">
                             <div class="single-course-2 mt-30">
-                                <div class="thum">
+                                <div class="thum" onclick="window.location.href='/lesson-details/<?php echo e($data->id); ?>/<?php echo e($data->teacher->id); ?>'">
                                     <div class="image">
                                         <img style="height:350px;object-fit: cover;" src="<?php echo e(url('/storage/images/'.$data->thumbnail)); ?>" onerror="this.src='/asset/images/course/cu-1.jpg'" alt="Course">
                                     </div>
@@ -279,19 +279,28 @@
                                     </div>
                                 </div>
                                 <div class="cont">
-                                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #818181;color: white;font-weight: 500;display: block;">I AM A STUDENT/PARENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" onclick="window.location.href='/lesson-details/<?php echo e($data->id); ?>/<?php echo e($data->teacher->id); ?>'" style="background: #818181;color: white;font-weight: 500;display: block;">Learn</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn" href="#" style="background: #7acdf0;color: white;font-weight: 500;display: block;margin-top:-15px;">ADD TO CALENDAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                             </div> <!-- single course -->
                         </div>
                         <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">VIEW MORE</a>
+                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" id="donate-register-btn" onclick="seeAllBtn()">VIEW MORE</a>
                     </div>
                 </div> <!-- course slide -->
             </div> <!-- container -->
         </section>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+    <script>
+        function seeAllBtn(){
+            $('#see_all').val('see_all');
+            window.location.href='/search/Subjects?&see_all=see_all&level_id=&subject_id=&date_id='
+        }
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/lesson-detail.blade.php ENDPATH**/ ?>

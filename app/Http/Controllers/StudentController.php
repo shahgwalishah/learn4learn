@@ -23,6 +23,8 @@ class StudentController extends Controller
         $user_id = $request->user_id;
         $subjects=Subject::all();
         $subjects = collect($subjects)->unique('name');
+        $no_of_chunk = $subjects->count() / 2;
+        $subjects    = $subjects->chunk($no_of_chunk);
         return view('auth.students.student-subject', compact('subjects', 'user_id'));
     }
 
@@ -63,12 +65,12 @@ class StudentController extends Controller
                     if ($s != '' || $s != null) {
                         if(isset($subject['id'])) {
                             $newSubject     = Subject::create(['name' => $s]);
-        $check = SubjectLevelDetail::where('subject_id','=',$subject)->first();
-        if(is_null($check)) {
-            $this->createStudentSubject($user_id, $subject['id']);
-        } else {
-            return back()->with('error_message_sec','subject already exists');
-        }
+                            $check = SubjectLevelDetail::where('subject_id','=',$subject)->first();
+                            if(is_null($check)) {
+                                $this->createStudentSubject($user_id, $subject['id']);
+                            } else {
+                                return back()->with('error_message_sec','subject already exists');
+                            }
                         }
                     }
                 }
@@ -271,14 +273,17 @@ class StudentController extends Controller
 
     public function studetnsHomeWorks()
     {
-        $student_iid=Auth::user()->id;
-        $teacherhomeworkdetail=Subject::getSubject($student_iid);
-        $Title=StudentLesson::getTitle($student_iid);
-        $Date=StudentLesson::getData($student_iid);
-        $subjects=Subject::getSubjectData($student_iid);
-        return view('frontend.pages.students.student-homework')
-            ->with(['teacherhomeworkdetail'=> $teacherhomeworkdetail,
-                'Title'                    => $Title, 'Date'=>$Date,  'subjects'=>$subjects, ]);
+        $student_id = Auth::user()->id;
+        $teacherhomeworkdetail = Homework::getHomeWork($student_id);
+        $Title = StudentLesson::getTitle($student_id);
+        $Date = StudentLesson::getData($student_id);
+        $subjects = Subject::getSubjectData();
+        return view('frontend.pages.students.student-homework' ,[
+                'teacherhomeworkdetail'=> $teacherhomeworkdetail,
+                'Title' => $Title,
+                'Date'=>$Date,
+                'subjects'=>$subjects,
+        ]);
     }
 
     public function SearchStudentHomeworks(Request $request)
@@ -304,9 +309,7 @@ class StudentController extends Controller
     public function viewHomework($id)
     {
         $student_iid=Auth::user()->id;
-
-        $teacherhomeworkdetaild=Subject::getHomeWork();
-        dd($teacherhomeworkdetaild);
+        $teacherhomeworkdetaild=Homework::getHomeWorkDetail($id);
         return view('frontend.pages.students.studentSubjectWiseDocs')->with(['teacherhomeworkdetaild'=>$teacherhomeworkdetaild, 'student_iid'=>$student_iid]);
     }
 
@@ -328,10 +331,9 @@ class StudentController extends Controller
         $homeWork->user_id      = $student_id;
         $homeWork->lesson_id    = $request->lesson_id;
         $homeWork->document     = $imageDbPath;
+        $homeWork->upload_type = Homework::STUDENT_TYPE;
         $homeWork->save();
-        $request->session()->flash('message.level', 'Success');
-        $request->session()->flash('message.content', 'One record Add Successfully..');
-        return back();
+        return back()->with('success_upload','hom work upload successfully..');
     }
 
     public function viewSeperatetea($id)

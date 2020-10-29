@@ -223,7 +223,7 @@ unset($__errorArgs, $__bag); ?>
                                     <p class="addfiles-add-lesson">ADD VIDEO (LINK)</p>
                                     <div class=" d-flex justify-content-center">
                                         
-                                        <input type="textarea" name="video" class="form-control"
+                                        <input type="text" value="https://www.youtube.com/watch?v=GIIK1xP7-Zo" name="video" class="form-control"
                                             placeholder="https://www.example.com/">
                                     </div>
                                     </p>

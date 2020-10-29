@@ -44,8 +44,6 @@ class TeacherController extends Controller
                             'field'      => 0,
                             'level_id'   => $request->subject_level_other_ . $key,
                         ]);
-                    } else {
-                        return back()->with('error_message','subject already exists');
                     }
                 }
             }
@@ -59,17 +57,12 @@ class TeacherController extends Controller
             }
             $subLevelArr='subject_' . $subject . '_level';
             foreach ($request->$subLevelArr as $SL) {
-                $subject = SubjectLevelDetail::where('subject_id','=',$SL)->first();
-                if(is_null($subject)) {
-                    $createSubjects = SubjectLevelDetail::create([
-                        'user_id'    => $user_id,
-                        'subject_id' => $subject,
-                        'field'      => 0,
-                        'level_id'   => $SL,
-                    ]);
-                } else {
-                    return back()->with('error_message','subject already exists');
-                }
+               SubjectLevelDetail::create([
+                    'user_id'    => $user_id,
+                    'subject_id' => $subject,
+                    'field'      => 0,
+                    'level_id'   => $SL,
+                ]);
             }
         }
         return view('auth.teachers.teacher-profile', compact('user_id', 'allSubjects'));
@@ -105,7 +98,6 @@ class TeacherController extends Controller
 
     public function teacherHome()
     {
-        // dd(123);
         $auth                 =Auth::user()->id;
         $teacherhomeworkdetail=DB::table('homework')
             ->join('subjects', 'subjects.id', '=', 'homework.Sub_id')
@@ -203,7 +195,6 @@ class TeacherController extends Controller
 
     public function teacherHomeWork()
     {
-        // dd(123);
         $auth    =Auth::user()->id;
         $Lessonss=DB::table('lessons')->where('lessons.user_id', $auth)
             ->join('subjects', 'subjects.id', 'lessons.subject_id')
@@ -251,66 +242,27 @@ class TeacherController extends Controller
 
     public function addsubjecthomework($lesson, $subject)
     {
-        $sub_id                    =$subject;
-        $getfurthwerdetailsdteacher=DB::table('lessons')
-                                        ->join('subjects', 'subjects.id', 'lessons.subject_id')
-                                        ->select('lessons.*', 'subjects.name as sub_name', 'subjects.id as subjectid')
-                                        ->where('subjects.id', $sub_id)
-                                        ->get();
-        return view('frontend.pages.teachers.AddHomeWorks')->with(['getfurthwerdetailsdteacher' => $getfurthwerdetailsdteacher, 'lesson' => $lesson]);
+        $id = $subject;
+        $getLesson = Lesson::where('id','=',$id)->with('subject')->first();
+        return view('frontend.pages.teachers.AddHomeWorks')->with(['getfurthwerdetailsdteacher' => $getLesson]);
     }
 
     public function teacheraddHomework(Request $request)
     {
-        // dd(123);
-        $auth        =Auth::user()->id;
+        $auth = Auth::user()->id;
         $imageDbPath = '';
         if ($request->hasFile('img')) {
             $imageDbPath = $this->saveDocs($request->file('img'), 1);
         }
-        Homework::create(
-            [
-                'discription'=> $request->descriptions,
-                'Sub_id'     => $request->Sub_id,
-                'date'       => $request->date,
-                'teacher_id' => $auth,
-                'document'   => $imageDbPath,
-                'lesson_id'  => $request->lesson,
-            ]
-        );
-        $request->session()->flash('message.level', 'Success');
-        $request->session()->flash('message.content', 'One record Add Successfully..');
-        $Lessens=DB::table('lessons')->where('lessons.user_id', $auth)
-            ->join('subjects', 'subjects.id', 'lessons.subject_id')
-            ->join('levels', 'levels.id', 'lessons.level_id')
-            ->select('lessons.*', 'subjects.id as sub_id', 'subjects.name as sub_name', 'subjects.id as idd', 'levels.name as levelname', 'levels.id as Level_id')
-            ->OrderBy('lessons.id', 'DESC')
-            ->get();
-        $level=DB::table('lessons')->where('lessons.user_id', $auth)
-            ->join('subjects', 'subjects.id', 'lessons.subject_id')
-            ->join('levels', 'levels.id', 'lessons.level_id')
-            ->select('lessons.*', 'subjects.id as sub_id', 'subjects.name as sub_name', 'subjects.id as idd', 'levels.name as levelname', 'levels.id as Level_id')
-            ->OrderBy('lessons.id', 'DESC')
-            ->get();
-        $date=DB::table('lessons')->where('lessons.user_id', $auth)
-            ->join('subjects', 'subjects.id', 'lessons.subject_id')
-            ->join('levels', 'levels.id', 'lessons.level_id')
-            ->select('lessons.*', 'subjects.id as sub_id', 'subjects.name as sub_name', 'subjects.id as idd', 'levels.name as levelname', 'levels.id as Level_id')
-            ->OrderBy('lessons.id', 'DESC')
-            ->get();
-        $Lessonss=DB::table('lessons')->where('lessons.user_id', $auth)
-            ->join('subjects', 'subjects.id', 'lessons.subject_id')
-            ->join('levels', 'levels.id', 'lessons.level_id')
-            ->select('lessons.*', 'subjects.id as sub_id', 'lessons.id as lesson_id', 'subjects.name as sub_name', 'subjects.id as idd', 'levels.name as levelname', 'levels.id as Level_id')
-            ->OrderBy('lessons.id', 'DESC')
-            ->get();
-        $subjects=DB::table('subjects')
-            ->join('lessons', 'lessons.subject_id', 'subjects.id')
-            ->select('subjects.*')
-            ->where('lessons.user_id', $auth)
-            ->get();
-        $Title=DB::table('lessons')->where('lessons.user_id', $auth)->select('lessons.title', 'lessons.id')->get();
-        return view('frontend.pages.teachers.teacher-homeWork')->with(['Lessens'=>$Lessens, 'Title' => $Title, 'subjects' => $subjects, 'level'=>$level, 'Date'=>$date, 'Lessonss'=>$Lessonss]);
+        Homework::create([
+            'discription'=> $request->descriptions,
+            'Sub_id'     => $request->Sub_id,
+            'date'       => $request->date,
+            'teacher_id' => $auth,
+            'document'   => $imageDbPath,
+            'lesson_id'  => $request->lesson,
+        ]);
+        return back()->with('message_home_work','home work created successfully');
     }
 
     public function search_subjects_level(Request $request)

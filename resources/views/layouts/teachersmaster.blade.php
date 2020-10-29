@@ -117,9 +117,9 @@
 </head>
 
 <body>
-    <div class="centerLoader">
-        <div class="loader"></div>
-    </div>
+{{--    <div class="centerLoader">--}}
+{{--        <div class="loader"></div>--}}
+{{--    </div>--}}
     <header id="header-part" class="header-two">
         <div class="header-top d-none d-lg-block">
             <div class="container">
@@ -248,14 +248,14 @@
                                             Edit Profile
                                         </a>
                                     </li>
-    
+
                                     <li id="resp1" style="display: none;">
                                         <a class="dropdown" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
-    
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">
                                             @csrf

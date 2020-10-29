@@ -1,9 +1,8 @@
-@extends('layouts.masterStudent')
-@section('title','Student Homework')
-@section('content')
+<?php $__env->startSection('title','Student Homework'); ?>
+<?php $__env->startSection('content'); ?>
 <section id="slider-part" class="slider-active">
   <div class="single-slider slider-4 bg_cover pt-150"
-    style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url({{asset('asset/images/student-lesson-search/banner.jpg')}}">
+    style="background-repeat: no-repeat; background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(<?php echo e(asset('asset/images/student-lesson-search/banner.jpg')); ?>">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9">
@@ -39,36 +38,37 @@
           <p class="stu-home-dash-head-head">Upload HOMEWORK</p>
           <hr>
         </div>
-        @if(session()->has('success_upload'))
+        <?php if(session()->has('success_upload')): ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <strong>Alert:</strong> {!! session('success_upload') !!}
+          <strong>Alert:</strong> <?php echo session('success_upload'); ?>
+
         </div>
-        @endif
+        <?php endif; ?>
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-12 justify-content-center text-center">
-            <img src="{{url('/storage/images/'.$teacherhomeworkdetaild->lesson->thumbnail)}}" alt="" id="stud-profile-pic">
+            <img src="<?php echo e(url('/storage/images/'.$teacherhomeworkdetaild->lesson->thumbnail)); ?>" alt="" id="stud-profile-pic">
           </div>
           <div class="col-md-8 col-sm-8 col-xs-12 justify-content-center text-center">
-            <p class="stud-date"><b>Subject</b> {{$teacherhomeworkdetaild->subject->name}}</p><br>
-            <p class="stud-date"><b>Title:</b> {{$teacherhomeworkdetaild->lesson->title}}</p><br>
-            <p class="stud-date"><b>Due Date</b>{{$teacherhomeworkdetaild->lesson->date}}</p>
+            <p class="stud-date"><b>Subject</b> <?php echo e($teacherhomeworkdetaild->subject->name); ?></p><br>
+            <p class="stud-date"><b>Title:</b> <?php echo e($teacherhomeworkdetaild->lesson->title); ?></p><br>
+            <p class="stud-date"><b>Due Date</b><?php echo e($teacherhomeworkdetaild->lesson->date); ?></p>
             <h3 style="color:white">Detail</h3>
-            <p id="exampleFormControlTextarea5" rows="6"> {{$teacherhomeworkdetaild->discription}}</p>
+            <p id="exampleFormControlTextarea5" rows="6"> <?php echo e($teacherhomeworkdetaild->discription); ?></p>
             <br><br>
-            <form method="post" action="{{route('student.uploadDocs')}}" enctype="multipart/form-data">
-              @csrf
+            <form method="post" action="<?php echo e(route('student.uploadDocs')); ?>" enctype="multipart/form-data">
+              <?php echo csrf_field(); ?>
               <div class="form-group green-border-focus">
                 <textarea class="form-control" name="descriptions" id="exampleFormControlTextarea5" required="true"
                   rows="6"></textarea>
               </div>
               <div class="row">
-                <input type="hidden" name="Sub_id" value="{{$teacherhomeworkdetaild->lesson->subject_id}}">
-                <input type="hidden" name="lesson_id" value="{{$teacherhomeworkdetaild->lesson_id}}">
-                <input type="hidden" name="date" value="{{$teacherhomeworkdetaild->lesson->date}}">
-                <input type="hidden" name="tea_id" value="{{$teacherhomeworkdetaild->student_lessons->techer_id}}">
+                <input type="hidden" name="Sub_id" value="<?php echo e($teacherhomeworkdetaild->lesson->subject_id); ?>">
+                <input type="hidden" name="lesson_id" value="<?php echo e($teacherhomeworkdetaild->lesson_id); ?>">
+                <input type="hidden" name="date" value="<?php echo e($teacherhomeworkdetaild->lesson->date); ?>">
+                <input type="hidden" name="tea_id" value="<?php echo e($teacherhomeworkdetaild->student_lessons->techer_id); ?>">
                 <div class="col-5">
                   <div class="form-group">
                     <input type="file" class="filestyle" required="true" name="img" data-icon="false"
@@ -88,14 +88,14 @@
     </div>
   </div>
 </section>
-@endsection
-@push('css')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('css'); ?>
 <!--====== Bootstrap css ======-->
-<link rel="stylesheet" href="{{asset('asset/css/teacher-homework-assign.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/teacher-homework-assign.css')); ?>">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
 <style>
   p#exampleFormControlTextarea5 {
     border: 1px solid white;
@@ -103,4 +103,6 @@
     color: white;
   }
 </style>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/frontend/pages/students/studentSubjectWiseDocs.blade.php ENDPATH**/ ?>

@@ -161,9 +161,9 @@
 
 <body>
 <!--====== PRELOADER PART START ======-->
-<div class="centerLoader">
-    <div class="loader"></div>
-</div>
+{{--<div class="centerLoader">--}}
+{{--    <div class="loader"></div>--}}
+{{--</div>--}}
 <!--====== PRELOADER PART START ======-->
 <!--====== HEADER PART START ======-->
 

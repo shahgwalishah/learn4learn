@@ -226,43 +226,36 @@
                         </thead>
                         <tbody>
                         @if(count($teacherhomeworkdetail) == 0)
-                        <tbody>
-                        <tr>
-                            <td></td>
-                            <td width="80%">
-                                <div class="alert alert-danger customDanger">
-                                    <div class="container customDangerContainer">
-                                        <div class="alert-icon">
-                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                        </div>&nbsp;&nbsp;&nbsp;No Data Found
-                                    </div>
-                                </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                        @else
-                        @foreach($teacherhomeworkdetail as $teacherhomeworkdetail)
+                            <tbody>
                             <tr>
-                                <th scope="row">{{$teacherhomeworkdetail->name}}</th>
-                                <td>{{$teacherhomeworkdetail->getTitle($teacherhomeworkdetail->id)}}</td>
-                                <td>{{$teacherhomeworkdetail->getDate($teacherhomeworkdetail->id)}}</td>
-
-
-
-                                <td>
-                                    <a href="{{ url('/view/{id}', [$teacherhomeworkdetail->subject_iid])}}">
-                                        <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View HOMEWORK</button>     </a></td>
+                                <td></td>
+                                <td width="80%">
+                                    <div class="alert alert-danger customDanger">
+                                        <div class="container customDangerContainer">
+                                            <div class="alert-icon">
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
                             </tr>
-                        @endforeach
-                        @endif
-
-
-
-
-
-
-                        </tbody>
+                            </tbody>
+                        @else
+                            @foreach($teacherhomeworkdetail as $homework)
+                                <tr>
+                                    <th scope="row">{{$homework->subject->name}}</th>
+                                    <td>{{$homework->lesson->title}}</td>
+                                    <td>{{$homework->lesson->date}}</td>
+                                    <td>
+                                        <a href="{{ url('/view/'.$homework->id)}}">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View HOMEWORK</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
+                                </tbody>
                     </table>
                 </div>
             </div> <!-- row -->

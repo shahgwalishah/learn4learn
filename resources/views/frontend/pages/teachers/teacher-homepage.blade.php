@@ -6,6 +6,8 @@
     .customStyle{
         min-height: 140px;
         min-width: 140px;
+        height:180px;
+        width:180px;
     }
     .customAlertDAngerContainer{
         display: flex;
@@ -49,7 +51,7 @@
             margin-bottom: 15px;
         }
     }
-</style>    
+</style>
 @endpush
 @section('content')
     <section id="slider-part" class="slider-active">

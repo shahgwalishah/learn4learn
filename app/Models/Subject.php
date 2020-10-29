@@ -22,51 +22,9 @@ class Subject extends Model
         return isset($lesson) ? $lesson->date : '';
     }
 
-
-    public static function getSubject($id)
-    {
-        return self::with(['homework' =>  function($q) use ($id) {
-            $q->where('teacher_id','=',$id);
-        },'lessons','student_lessons.lesson'])
-            ->whereHas('homework', function ($q) use ($id) {
-                $q->where('teacher_id','=',$id);
-            })
-            ->get();
-//    	return \DB::table('subjects')
-//                               ->join('homework', 'subjects.id', '=', 'homework.Sub_id')
-//
-//                               ->join('lessons', 'subjects.id', '=', 'lessons.subject_id')
-//
-//                                ->join('student_lessons', function ($join) {
-//                                    $join->on('lessons.id', '=', 'student_lessons.lesson_id');
-//                                })
-//
-//                                ->where('student_lessons.user_id', $id)
-//
-//                               ->join('users', 'users.id', '=', 'homework.teacher_id')
-//
-//                                ->orderBy('homework.id', 'DESC')
-//                                ->select(
-//                                    'subjects.name as subname',
-//                                    'subjects.id as subject_iid',
-//                                    'homework.id as homeWorkId',
-//                                    'homework.title as homeworkTitle',
-//                                    'homework.discription as homeworkdes',
-//                                    'homework.date as homeDate',
-//                                    'homework.document as homeworkDocument',
-//                                    'lessons.id as lesson_id',
-//                                    'lessons.title as Tilte_Lessons',
-//                                    'lessons.Description as Lesson_des',
-//                                    'lessons.date as LesonDate',
-//                                    'users.fname'
-//                                )
-//                                ->limit(10)
-//                                ->get();
-    }
-
     public static function getSubjectData()
     {
-    	return self::get();
+    	return self::all();
     }
 
     public function homework(){
@@ -127,41 +85,5 @@ class Subject extends Model
     public static function getDataSearchStudent()
     {
     	return \DB::table('subjects')->get();
-    }
-
-    public static function getHomeWork()
-    {
-        // return Subject::with('homework','lessons'.'student_lessons')
-    	return \DB::table('subjects')
-                               ->join('homework', 'subjects.id', '=', 'homework.Sub_id')
-                                ->join('lessons', 'subjects.id', '=', 'lessons.subject_id')
-                                ->join('student_lessons', function ($join) {
-                                    $join->on('lessons.id', '=', 'student_lessons.lesson_id');
-                                })
-                               ->join('users', 'users.id', '=', 'homework.teacher_id')
-                                ->orderBy('homework.id', 'DESC')
-                                ->where('subjects.id', $id)
-                                ->select(
-                                    'subjects.name as subname',
-                                    'subjects.id as subject_iid',
-                                    'student_lessons.techer_id as student_lessonsTeacherId',
-                                    'homework.id as homeWorkId',
-                                    'homework.title as homeworkTitle',
-                                    'homework.document as h_docuent',
-                                    'homework.discription as homeworkdes',
-                                    'homework.date as homeDate',
-                                    'homework.document as homeworkDocument',
-                                    'lessons.id as lesson_id',
-                                    'lessons.title as Tilte_Lessons',
-                                    'lessons.Description as Lesson_des',
-                                    'lessons.*',
-                                    'lessons.thumbnail',
-                                    'lessons.date as LesonDate',
-                                    'users.fname',
-                                    'users.id as UserId',
-                                    'homework.teacher_id as teacher_ids'
-                                )
-                                ->limit(10)
-                                ->first();
     }
 }

@@ -1,14 +1,13 @@
-@extends('layouts.teachersmaster')
-@section('title','level')
-@section('content')
+<?php $__env->startSection('title','level'); ?>
+<?php $__env->startSection('content'); ?>
 
 
     <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('asset/css/teachers-subjects.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/teachers-subjects.css')); ?>">
     <link href="http://www.ansonika.com/potenza/css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
-    <link rel="stylesheet" href="{{asset('asset/css/subjects-form-boxes.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/subjects-form-boxes.css')); ?>">
     <style>
         footer {
             border-top: 1px solid #ededed;
@@ -48,40 +47,42 @@
         </div> <!-- single slider -->
     </section>
     <section class="main-section">
-        <form action="{{route('postAddSubjects')}}" method="post">
-            @csrf
+        <form action="<?php echo e(route('postAddSubjects')); ?>" method="post">
+            <?php echo csrf_field(); ?>
             <div class="container" style="width:80%">
 
                 <div class="main-cont">
 
                     <div class="row">
-                        @if(session()->has('error_message_sec'))
+                        <?php if(session()->has('error_message_sec')): ?>
                             <div class="alert alert-danger" style="color: #fff !important; text-transform:capitalize; background-color: #ffc10e !important; text-align: center;width:100%;">
-                                {{session()->get('error_message_sec')}}
+                                <?php echo e(session()->get('error_message_sec')); ?>
+
                             </div>
-                        @endif
+                        <?php endif; ?>
                         <div class="col-md">
                             <h3 class="level-heading">WHAT SUBJECTS DO YOU WANT TO STUDY?</h3>
                         </div>
 
-                        @foreach($subjects as $key => $sub_chunk)
+                        <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $sub_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-lg-6">
-                                @foreach($sub_chunk as $key=>$sub)
+                                <?php $__currentLoopData = $sub_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-md-12 d-flex align-items-center justify-content-center">
                                         <div class="form-parts">
                                             <div class="step">
                                                 <div class="form-group">
-                                                    <label class="container_check version_2">{{$sub['name']}}
-                                                        <input type="checkbox" name="subjects[]" value="{{$sub['id']}}">
+                                                    <label class="container_check version_2"><?php echo e($sub['name']); ?>
+
+                                                        <input type="checkbox" name="subjects[]" value="<?php echo e($sub['id']); ?>">
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-12 d-flex align-items-center justify-content-center">
                             <div class="col-lg-6">
                                 <div class="col-md-12 d-flex align-items-center ">
@@ -103,8 +104,7 @@
                                                                        class="add_button mt-3 mb-2 d-flex justify-content-end"
                                                                        title="Add field"
                                                                        style="color:black;text-decoration: underline;font-size: 15px">
-                                                                        {{-- <img style="height: 40px" src="{{asset('asset/images/flag/plus.png')}}"/>
-                                                                        --}}
+                                                                        
                                                                         ADD MORE
                                                                     </a>
                                                                 </div>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
 
-                    <input type="hidden" name="user_id" value="{{$user_id}}">
+                    <input type="hidden" name="user_id" value="<?php echo e($user_id); ?>">
 
                 </div>
             </div>
@@ -138,7 +138,7 @@
     </section>
     <br>
     <br>
-    {{--    new form--}}
+    
 
     <script>
         function saveSubject(lever_id) {
@@ -149,7 +149,7 @@
                 subject.removeAttribute('style');
                 $.ajax({
                     type: 'get',
-                    url  : '{{route("save-new-subject")}}',
+                    url  : '<?php echo e(route("save-new-subject")); ?>',
                     data : {'subject':subject.value,'level_id':lever_id},
                     success: function (response) {
                         console.log(response)
@@ -168,7 +168,7 @@
     </script>
 
     <script type="text/javascript">
-        // <img style="height: 40px"src="{{asset("asset/images/flag/minus.png")}}"/></a>
+        // <img style="height: 40px"src="<?php echo e(asset("asset/images/flag/minus.png")); ?>"/></a>
         $(document).ready(function(){
             var maxField = 10; //Input fields increment limitation
             var addButton = $('.add_button'); //Add button selector
@@ -195,4 +195,6 @@
             });
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.teachersmaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mustafa/Desktop/rikxtech/learnforlearning/resources/views/auth/students/student-subject.blade.php ENDPATH**/ ?>

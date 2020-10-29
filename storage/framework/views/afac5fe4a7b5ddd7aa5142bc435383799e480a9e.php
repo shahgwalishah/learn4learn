@@ -225,43 +225,36 @@
                         </thead>
                         <tbody>
                         <?php if(count($teacherhomeworkdetail) == 0): ?>
-                        <tbody>
-                        <tr>
-                            <td></td>
-                            <td width="80%">
-                                <div class="alert alert-danger customDanger">
-                                    <div class="container customDangerContainer">
-                                        <div class="alert-icon">
-                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                        </div>&nbsp;&nbsp;&nbsp;No Data Found
-                                    </div>
-                                </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                        <?php else: ?>
-                        <?php $__currentLoopData = $teacherhomeworkdetail; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacherhomeworkdetail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tbody>
                             <tr>
-                                <th scope="row"><?php echo e($teacherhomeworkdetail->name); ?></th>
-                                <td><?php echo e($teacherhomeworkdetail->getTitle($teacherhomeworkdetail->id)); ?></td>
-                                <td><?php echo e($teacherhomeworkdetail->getDate($teacherhomeworkdetail->id)); ?></td>
-
-
-
-                                <td>
-                                    <a href="<?php echo e(url('/view/{id}', [$teacherhomeworkdetail->subject_iid])); ?>">
-                                        <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View HOMEWORK</button>     </a></td>
+                                <td></td>
+                                <td width="80%">
+                                    <div class="alert alert-danger customDanger">
+                                        <div class="container customDangerContainer">
+                                            <div class="alert-icon">
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
                             </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <?php endif; ?>
-
-
-
-
-
-
-                        </tbody>
+                            </tbody>
+                        <?php else: ?>
+                            <?php $__currentLoopData = $teacherhomeworkdetail; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $homework): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr>
+                                    <th scope="row"><?php echo e($homework->subject->name); ?></th>
+                                    <td><?php echo e($homework->lesson->title); ?></td>
+                                    <td><?php echo e($homework->lesson->date); ?></td>
+                                    <td>
+                                        <a href="<?php echo e(url('/view/'.$homework->id)); ?>">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View HOMEWORK</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                                </tbody>
                     </table>
                 </div>
             </div> <!-- row -->

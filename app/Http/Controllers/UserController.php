@@ -183,24 +183,7 @@ class UserController extends Controller
     public function SearchPage(Request $request)
     {
         if(isset($request->see_all)) {
-            $getuserimg = Lesson::with('subject','teacher')->Has('subject','teacher')->get();
-            // $getuserimg = DB::table('users')
-            //     ->join('lessons', 'users.id', 'lessons.user_id')
-            //     ->join('subjects', function ($join) {
-            //         $join->on('lessons.subject_id', 'subjects.id');
-            //     })
-            //     ->select(
-            //         'users.thumbnail as userthamnail',
-            //         'lessons.title',
-            //         'lessons.description',
-            //         'lessons.date',
-            //         'lessons.thumbnail',
-            //         'subjects.name as subjectname',
-            //         'subjects.id as subjects_id',
-            //         'lessons.time',
-            //         'lessons.id as lessonsId',
-            //         'lessons.user_id as teacher_id'
-            //     )->get();
+            $getuserimg = Lesson::with('subject','teacher')->get();
         } else {
             if($request->level_id) {
                 $getuserimg = Lesson::where('level_id','=',$request->level_id)->with('subject','teacher')->get();
@@ -218,26 +201,6 @@ class UserController extends Controller
             } else {
                 $getuserimg = Lesson::with('subject','teacher')->get();
             }
-            // $getuserimg = DB::table('users')
-            //     ->join('lessons', 'users.id', 'lessons.user_id')
-            //     ->join('subjects', function ($join) {
-            //         $join->on('lessons.subject_id', 'subjects.id');
-            //     })
-            //     ->where('subjects.id', $request->subject_id)
-            //     ->where('lessons.id', $request->date_id)
-
-            //     ->select(
-            //         'users.thumbnail as userthamnail',
-            //         'lessons.title',
-            //         'lessons.description',
-            //         'lessons.date',
-            //         'lessons.thumbnail',
-            //         'subjects.name as subjectname',
-            //         'subjects.id as subjects_id',
-            //         'lessons.time',
-            //         'lessons.id as lessonsId',
-            //         'lessons.user_id as teacher_id'
-            //     )->get();
         }
         $level    = levels::all();
         $subjects = DB::table('subjects')
@@ -249,7 +212,6 @@ class UserController extends Controller
     }
 
     public function verifiedSuccess(){
-        // dd(123);
         if(Auth::user()) {
             $user = Auth::user();
             User::where('id','=',$user->id)->update([

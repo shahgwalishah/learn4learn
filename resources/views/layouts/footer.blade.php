@@ -24,8 +24,14 @@
 {{--        </ul>--}}
         <div class="copyright">
             &copy; {{ now()->year }} {{ __('made with') }} <i class="tim-icons icon-heart-2"></i> {{ __('by') }}
-            <a href="https://creative-tim.com" target="_blank">{{ __('RKiX TECH') }}</a> &amp;
+            <a href="https://creative-tim.com" target="_blank" id="custom">{{ __('RKiX TECH') }}</a> &amp;
 {{--            <a href="https://updivision.com" target="_blank">{{ __('Updivision') }}</a> {{ __('for a better web') }}.--}}
         </div>
     </div>
 </footer>
+
+<style>
+    #custom{
+        color: #ffc10e !important;
+    }
+</style>

@@ -90,8 +90,7 @@
     <section class="admission-row pb-120" id="std-homework-find-lesson-sec">
         <div class="container customClass">
             <div class="row justify-content-center">
-                <form class="search_form" action="{{route('SearchStudentHomeworks')}}" method="post">
-                    @csrf
+                <form class="search_form" action="{{route('SearchStudentHomeworks')}}" method="get">
                     <div class="row">
                         <div class="col-md-3" style="padding: 18px;">
                             <select class="selectpicker" name="date_id">
@@ -259,9 +258,11 @@
                     </table>
                 </div>
             </div> <!-- row -->
+            @if(count($teacherhomeworkdetail) > 5)
             <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
                 <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
+            @endif
         </div> <!-- container -->
     </section>
 

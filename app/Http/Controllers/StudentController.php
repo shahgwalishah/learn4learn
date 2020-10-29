@@ -288,12 +288,12 @@ class StudentController extends Controller
 
     public function SearchStudentHomeworks(Request $request)
     {
-        $id          =Auth::user()->id;
-        $teacherhomeworkdetail=Subject::getSearchStudent($id,$request);
-        $Title=StudentLesson::getTitleStudent($id);
-        $Date=StudentLesson::getDataSearch($id);
-        $subjects    =Subject::getDataSearchStudent($id);
-        $countschedle=count($teacherhomeworkdetail);
+        $id = Auth::user()->id;
+        $teacherhomeworkdetail = Homework::getSearchHomeWork($id,$request);
+        $Title = StudentLesson::getTitleStudent($id);
+        $Date = StudentLesson::getDataSearch($id);
+        $subjects = Subject::getDataSearchStudent($id);
+        $countschedle = count($teacherhomeworkdetail);
         if ($countschedle < 1) {
             return redirect()->back();
         }

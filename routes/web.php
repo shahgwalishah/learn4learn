@@ -182,7 +182,7 @@ Route::group(['private'], function () {
         Route::post('/upload/documnet', 'StudentController@uploadDocs')->name('student.uploadDocs');
         Route::get('/edit/studentd', 'StudentController@student_edit_profile')->name('student_edit_profile');
         Route::post('/update/studentd', 'StudentController@editstudenterprofile')->name('editstudenterprofile');
-        Route::post('/Search/homework', 'StudentController@SearchStudentHomeworks')->name('SearchStudentHomeworks');
+        Route::get('/Search/homework', 'StudentController@SearchStudentHomeworks')->name('SearchStudentHomeworks');
         Route::get('/Subjects', 'StudentController@My_subjects')->name('My_subjects');
 
         Route::post('/view/teacher-dashboard', 'StudentController@viewteacherdashboard')->name('viewteacherdashboard');

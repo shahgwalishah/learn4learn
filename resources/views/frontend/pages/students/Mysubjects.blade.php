@@ -76,7 +76,7 @@
                   <div class="col-md-3" style="padding: 18px;">
                   <select class="selectpicker" name="level_id">
                         <optgroup label="Picnic">
-                        <?php 
+                        <?php
                                                          if(@$level){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -94,7 +94,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -112,7 +112,7 @@
                   <div class="col-md-3"  style="padding: 18px;">
                   <select class="selectpicker" name="subject_id">
                         <optgroup label="Picnic">
-                        <?php 
+                        <?php
                                                          if(@$subjects){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -130,7 +130,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -148,7 +148,7 @@
                   <div class="col-md-3"  style="padding: 18px;">
                   <select class="selectpicker" name="teacher_id">
                         <optgroup label="Picnic">
-                        <?php 
+                        <?php
                                                          if(@$Teacher){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -166,7 +166,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -215,13 +215,13 @@
 
                           <form action="{{route('viewteacherdashboard')}}" method="post">
                          @csrf
-                        
-                          <td>    
+
+                          <td>
                            <input type="hidden" name="teacher_id" value="{{$teacherhomeworkdetail->U_id}}">
                            <button type="submit" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View  TEACHER</button>     </a></td>
                            </form>
 
-                  
+
                         </tr>
                         @endforeach
 
@@ -234,9 +234,11 @@
                     </table>
                   </div>
             </div> <!-- row -->
+            @if(count($subjects1) > 5)
             <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
                 <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
+            @endif
         </div> <!-- container -->
     </section>
 

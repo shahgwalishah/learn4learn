@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title','Student Homework'); ?>
 <?php $__env->startSection('content'); ?>
 
@@ -76,7 +75,7 @@
                   <div class="col-md-3" style="padding: 18px;">
                   <select class="selectpicker" name="level_id">
                         <optgroup label="Picnic">
-                        <?php 
+                        <?php
                                                          if(@$level){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -94,7 +93,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -112,7 +111,7 @@
                   <div class="col-md-3"  style="padding: 18px;">
                   <select class="selectpicker" name="subject_id">
                         <optgroup label="Picnic">
-                        <?php 
+                        <?php
                                                          if(@$subjects){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -130,7 +129,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -148,7 +147,7 @@
                   <div class="col-md-3"  style="padding: 18px;">
                   <select class="selectpicker" name="teacher_id">
                         <optgroup label="Picnic">
-                        <?php 
+                        <?php
                                                          if(@$Teacher){
                                                         $aray1=[];
                                                         $arraytypes=[];  ?>
@@ -166,7 +165,7 @@
                                                         }
                                                         }
 
-                                                        
+
                                                         }
                                                         ?>
 
@@ -215,13 +214,13 @@
 
                           <form action="<?php echo e(route('viewteacherdashboard')); ?>" method="post">
                          <?php echo csrf_field(); ?>
-                        
-                          <td>    
+
+                          <td>
                            <input type="hidden" name="teacher_id" value="<?php echo e($teacherhomeworkdetail->U_id); ?>">
                            <button type="submit" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View  TEACHER</button>     </a></td>
                            </form>
 
-                  
+
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -234,9 +233,11 @@
                     </table>
                   </div>
             </div> <!-- row -->
+            <?php if(count($subjects1) > 5): ?>
             <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
                 <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2" href="#" id="donate-register-btn">SEE ALL</a>
             </div>
+            <?php endif; ?>
         </div> <!-- container -->
     </section>
 

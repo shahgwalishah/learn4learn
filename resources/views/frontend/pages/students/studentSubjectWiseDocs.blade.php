@@ -102,5 +102,8 @@
     height: 200px;
     color: white;
   }
+  .row.justify-content-center {
+      display: flex;
+  }
 </style>
 @endpush

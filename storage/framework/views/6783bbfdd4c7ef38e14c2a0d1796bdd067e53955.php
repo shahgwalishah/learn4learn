@@ -233,9 +233,7 @@
 </head>
 
 <body>
-    <div class="centerLoader">
-         <div class="loader"></div>
-    </div>
+    
 <header id="header-part" class="header-two">
     
 
@@ -365,10 +363,15 @@
                                 switch ($user->type) {
                                 case 'teacher':?>
 
+                                <a href='/teacher-home' style='color:#000;'><?php echo e(\Auth::user()->fname); ?> <?php echo e(\Auth::user()->lname); ?></a>
                                 <div class="dropdown">
                                     <button data-toggle="dropdown" class="customClass">
                                         <i class="fa fa-cog" aria-hidden="true"></i></button>
                                     <ul class="dropdown-menu showablemenu">
+                                        <a href='/teacher-home' style='color:#000;'>
+                                            <i class="fas fa-home customFaClas"></i>
+                                            Dashboard
+                                        </a>
                                         <p class="customClassBox"><a style="color: black"
                                                                      href="<?php echo e(route('teacher_edit_profile')); ?>"><i class="fas fa-edit customFaClas"></i><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
                                         </p>
@@ -381,12 +384,21 @@
                                 <?php   break;
 
                                 case 'student':?>
+
+                                <a href='/students/Home' style='color:#000;'><?php echo e(\Auth::user()->fname); ?> <?php echo e(\Auth::user()->lname); ?></a>
                                 <div class="dropdown">
                                     <button data-toggle="dropdown" class="customClass">
                                         <i class="fa fa-cog" aria-hidden="true"></i></button>
                                     <ul class="dropdown-menu showablemenu">
+                                        <a href='/students/Home' style='color:#000;'>
+                                            <i class="fas fa-home customFaClas"></i>
+                                            Dashboard
+                                        </a>
                                         <p class="customClassBox"><a style="color: black"
-                                                                     href="<?php echo e(route('student_edit_profile')); ?>"><i class="fas fa-edit customFaClas"></i><?php echo app('translator')->get('home.Edit_Profile'); ?></a>
+                                                                     href="<?php echo e(route('student_edit_profile')); ?>">
+                                                                     <i class="fas fa-edit customFaClas"></i>
+                                                                     <?php echo app('translator')->get('home.Edit_Profile'); ?>
+                                                                    </a>
                                         </p>
                                         <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
                                             <?php echo csrf_field(); ?>
@@ -398,10 +410,15 @@
                                        break;
                                        case 'admin':
                                    ?>
+
+                                <a href='/home' style='color:#000;'>Super Admin</a>
                                 <div class="dropdown">
                                     <button data-toggle="dropdown" class="customClass">
                                         <i class="fa fa-cog" aria-hidden="true"></i></button>
                                     <ul class="dropdown-menu showablemenu">
+                                        <p class="customClassBox"><a style="color: black"
+                                            href="/home"><i class="fas fa-edit customFaClas"></i>Dashboard</a>
+                                        </p>
                                         <form method="post" action="<?php echo e(route('logout')); ?>" class="customClassBox">
                                             <?php echo csrf_field(); ?>
                                             <button class="customBorder"><i class="fa fa-sign-out customFaClas"></i>logout</button>
@@ -638,7 +655,7 @@
         // Material Select Initialization
         $(document).ready(function() {
             $(window).on('load', function(){
-                $('.centerLoader' ).fadeOut(1000);
+                $('.centerLoader' ).fadeOut(500);
             })
             $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
                 $("#success-alert").slideUp(500);

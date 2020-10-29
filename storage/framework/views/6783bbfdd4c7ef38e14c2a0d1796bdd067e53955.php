@@ -243,7 +243,7 @@
         <div class="col-md-6 text-center">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" style="color: black" class="nav-link dropdown-toggle"
+                    <a id="navbarDropdown" style="color: rgb(0, 0, 0)" class="nav-link dropdown-toggle"
                     href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" v-pre>
                         <?php echo app('translator')->get('home.Language'); ?> <span class="caret"></span>

@@ -1,20 +1,42 @@
 @extends('layouts.app', ['page' => __('Schedule'), 'pageSlug' => 'Schedule'])
 
 @section('content')
+
+<style>
+    .customYellow{
+            background-image: linear-gradient(to bottom left, #ffc10e, #ffc10e, #ffc10e) !important;
+    } 
+    .customSet{
+        background-color: white;
+    }
+    #name{
+        color: black;
+    }
+    .customHeight{
+        background-color: white;
+    }
+    .card .card-header:not([data-background-color]) {
+    background-color: #ffbc00;
+}
+.card .card-header .card-title {
+    color: black;
+    font-weight: 100;
+}
+</style>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
 
-            <div class="col-md-12">
+            <div class="col-md-12 customHeight">
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <div class="row">
                             <div class="col-6">
-                                <h4 class="card-title ">Subjects</h4>
+                                <h4 class="card-title "><b>Subjects</b></h4>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body customSet">
                     <form action="{{route('subjects.store')}}" method="POST">
                             @csrf
                             <div class="form-row">
@@ -24,7 +46,7 @@
                                         placeholder="Page Title" required="subject_name">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Create Subject</button>
+                            <button type="submit" class="btn btn-primary customYellow">Create Subject</button>
                         </form>
                     </div>
                 </div>

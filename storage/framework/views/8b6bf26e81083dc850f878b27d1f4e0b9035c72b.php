@@ -2,36 +2,59 @@
 
 <?php $__env->startSection('content'); ?>
 
-
+<style>
+    #customChange{
+        color: black;
+    }
+    .customYellow{
+        background-image: linear-gradient(to bottom left, #ffc10e, #ffc10e, #ffc10e) !important;
+    }
+    .customSetting{
+        background-color: white;
+    }
+    .table>tbody>tr>td {
+    color: rgb(12 12 12 / 70%) !important;
+    }
+    .customSet{
+        background-color: #ffc10e;
+    }
+    .card .card-header:not([data-background-color]) {
+    background-color: white;
+    }
+    .card .card-header .card-title {
+    color: black;
+    font-weight: 100;
+    }
+</style>
 
 <div class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
-                <div class="card-header">
+                <div class="card-header customSet">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">Email Configuration</h4>
+                            <h4 class="card-title"><b>Email Configuration</b></h4>
                         </div>
                         <div class="col-4 text-right">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#addEmail">Add</button>
+                            <button class="btn btn-primary customYellow" data-toggle="modal" data-target="#addEmail">Add</button>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body customSetting">
 
                     <div class="">
                         <table class="table tablesorter ">
                             <thead class=" text-primary">
                                 <tr>
-                                    <th scope="col">id</th>
-                                    <th>Email Host</th>
-                                    <th>Email Username</th>
-                                    <th>Email Port</th>
-                                    <th>Email Send From</th>
-                                    <th>Email Name</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
+                                    <th id="customChange" scope="col">id</th>
+                                    <th id="customChange">Email Host</th>
+                                    <th id="customChange">Email Username</th>
+                                    <th id="customChange">Email Port</th>
+                                    <th id="customChange">Email Send From</th>
+                                    <th id="customChange">Email Name</th>
+                                    <th id="customChange">Status</th>
+                                    <th id="customChange">Actions</th>
 
                                 </tr>
                             </thead>
@@ -45,7 +68,7 @@
                                     <td><?php echo e($email->emailFrom); ?></td>
                                     <td><?php echo e($email->emailFromName); ?></td>
                                     <td><?php echo e($email->status ? "Active" : "Not Active"); ?></td>
-                                    <td><a href="<?php echo e(route('email-config.edit', $email->id)); ?>" class="btn btn-sm">Edit</a>
+                                    <td><a href="<?php echo e(route('email-config.edit', $email->id)); ?>" class="btn btn-sm customYellow">Edit</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -110,8 +133,8 @@
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Send message</button>
+                            <button type="button" class="btn btn-secondary customYellow" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary customYellow">Send message</button>
                         </div>
                     </form>
                 </div>

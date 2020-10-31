@@ -22,6 +22,24 @@
     <link href="<?php echo e(asset('black/css/theme.css')); ?>" rel="stylesheet" />
     <?php echo $__env->yieldContent('css'); ?>
 </head>
+<style>
+    .customBackWhite{
+        background-color: white !important;
+    }
+.main-panel {
+    position: relative;
+    float: right;
+    width: 100%;
+    min-height: 100vh;
+    border-top: 2px solid #ffc10e !important;
+    background: linear-gradient(#1e1e2f, #1e1e24);
+    -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+</style>
 
 <body class="<?php echo e($class ?? ''); ?>">
     <?php if(auth()->guard()->check()): ?>
@@ -30,7 +48,7 @@
         <div class="main-panel">
             <?php echo $__env->make('layouts.navbars.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-            <div class="content">
+            <div class="content customBackWhite">
                 <?php echo $__env->yieldContent('content'); ?>
             </div>
 

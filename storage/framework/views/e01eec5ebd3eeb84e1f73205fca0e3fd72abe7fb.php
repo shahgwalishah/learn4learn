@@ -219,23 +219,23 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('teacherSchedule') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('teacherSchedule')); ?>">SCHEDULE</a>
+                                            href="<?php echo e(route('teacherSchedule')); ?>">MY SCHEDULE</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('Students') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('Students')); ?>">STUDENT</a>
+                                            href="<?php echo e(route('Students')); ?>">MY STUDENT</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('teacherHomeWork') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('teacherHomeWork')); ?>">HOMEWORK</a>
+                                            href="<?php echo e(route('teacherHomeWork')); ?>">MY HOMEWORK</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('MYaccount') ? 'active' : ''); ?>"
-                                            href="<?php echo e(route('MYaccount')); ?>">Account</a>
+                                            href="<?php echo e(route('MYaccount')); ?>">MY Account</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class=""
-                                            href="#">MESSAGES</a>
+                                        <a class="<?php echo e(Request::routeIs('viewOurStudentMessages') ? 'active' : ''); ?>"
+                                            href="<?php echo e(route('viewOurStudentMessages')); ?>">MY MESSAGES</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="<?php echo e(Request::routeIs('donate') ? 'active' : ''); ?> customClass"

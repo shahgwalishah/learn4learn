@@ -344,7 +344,6 @@ class StudentController extends Controller
 
     public function viewOurMessages()
     {
-        // dd(123);
         $student_id        =Auth::user()->id;
         $Students          =StudentLesson::getStudentLesson($student_id);
         $Subjects=StudentLesson::getLessonData($student_id);

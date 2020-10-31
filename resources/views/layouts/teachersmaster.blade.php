@@ -218,23 +218,23 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="{{Request::routeIs('teacherSchedule') ? 'active' : ''}}"
-                                            href="{{route('teacherSchedule')}}">SCHEDULE</a>
+                                            href="{{route('teacherSchedule')}}">MY SCHEDULE</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="{{Request::routeIs('Students') ? 'active' : ''}}"
-                                            href="{{route('Students')}}">STUDENT</a>
+                                            href="{{route('Students')}}">MY STUDENT</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="{{Request::routeIs('teacherHomeWork') ? 'active' : ''}}"
-                                            href="{{route('teacherHomeWork')}}">HOMEWORK</a>
+                                            href="{{route('teacherHomeWork')}}">MY HOMEWORK</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="{{Request::routeIs('MYaccount') ? 'active' : ''}}"
-                                            href="{{route('MYaccount')}}">Account</a>
+                                            href="{{route('MYaccount')}}">MY Account</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class=""
-                                            href="#">MESSAGES</a>
+                                        <a class="{{Request::routeIs('viewOurStudentMessages') ? 'active' : ''}}"
+                                            href="{{route('viewOurStudentMessages')}}">MY MESSAGES</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="{{Request::routeIs('donate') ? 'active' : ''}} customClass"

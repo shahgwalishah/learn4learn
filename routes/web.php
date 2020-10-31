@@ -230,7 +230,8 @@ Route::group(['private'], function () {
             'View/assingachevment/{sub_id}/{User_id}/{homeworkid}',
             'TeacherController@assingachevment'
         )->name('assingachevment');
-
+        Route::get('/view/our/student/messages', 'TeacherController@viewOurStudentMessages')->name('viewOurStudentMessages');
+        Route::post('/OurStudentMessages/', 'TeacherController@OurStudentMessages')->name('OurStudentMessages');
         Route::get('view/lesson/{id}', 'LessonController@viewLesson')->name('viewLesson');
         Route::post('Assign/Grade', 'TeacherController@AssignGrade')->name('AssignGrade');
         Route::post('Add/Grade', 'TeacherController@assigngradeforstudent')->name('assigngradeforstudent');

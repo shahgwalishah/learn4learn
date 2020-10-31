@@ -1,3 +1,9 @@
+<style>
+    .navbar.navbar-transparent {
+    background: rgb(255 193 8 / 98%) !important;
+}
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
     <div class="container-fluid">
         <div class="navbar-wrapper">

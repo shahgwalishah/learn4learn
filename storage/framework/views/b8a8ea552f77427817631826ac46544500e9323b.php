@@ -5,7 +5,7 @@
     .customStyle{
         min-height: 140px;
         min-width: 140px;
-        height:180px;
+        height:140px;
         width:180px;
     }
     .customAlertDAngerContainer{

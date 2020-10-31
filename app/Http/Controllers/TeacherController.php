@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StudentLesson;
 use App\User;
 use App\Models\Lesson;
 use App\Models\levels;
@@ -716,6 +717,35 @@ class TeacherController extends Controller
         $id = Auth::user()->id;
         $homework = Homework::where('upload_type','=',Homework::STUDENT_TYPE)->with('student','subject','lesson','student_lessons')->get();
         return view('frontend.pages.teachers.viewHomeworkEachStud')->with('homework', $homework);
+    }
+
+    public function OurStudentMessages(Request $request)
+    {
+        $saves                =new Messages();
+        $role                 =1;
+        $saves->teacherId     =$request->to_user_id;
+        $saves->student_id    =$request->from_user_id;
+        $saves->messages      =$request->message;
+        $saves->to_user_id    =$request->to_user_id;
+        $saves->from_user_id  =$request->from_user_id;
+        $saves->role          =$role;
+        $saves->save();
+        $data = Messages::where('from_user_id', '=', \Auth::user()->id)->orwhere('to_user_id', '=', \Auth::user()->id)->get();
+        return collect([
+            'status' => true,
+            'data'   => $data,
+        ]);
+    }
+    public function viewOurStudentMessages(){
+        $teacher_id = Auth::user()->id;
+        $Teacher = StudentLesson::getStudentLesson($teacher_id);
+        $Subjects = StudentLesson::getLessonData($teacher_id);
+        $Level= levels::all();
+        $data = Messages::where('to_user_id', '=', $teacher_id)->with('from_user')
+            ->orderBy('id', 'DESC')->limit(5)->get();
+        return view('frontend.pages.teachers.myMessages')->with(
+            ['Level' => $Level, 'Teacher' => $Teacher, 'Subjects' => $Subjects, 'data' => $data]
+        );
     }
 
     public function MyAchevemntss()

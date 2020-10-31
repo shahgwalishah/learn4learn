@@ -174,6 +174,9 @@
                 margin-bottom: 15px;
             }
         }
+        #course-part12{
+            background: white !important;
+        }
     </style>
 @endpush
 @section('content')
@@ -266,6 +269,42 @@
                 </div>
                 <!--/.Slides-->
             </div>
+            <section id="course-part12" class="pt-115 pb-115 bg_cover gray-bg12">
+                <div class="container">
+                <div class="teacher-grade-dash-head-div">
+                <p class="teacher-grade-dash-head">MY ACHIEVEMENTS</p>
+                <hr>
+                </div>
+                <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                <div class="MultiCarousel-inner">
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                   <img src="{{url('NewImages/Layer 8.png')}}">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                    <img src="{{url('NewImages/Layer 10.png')}}">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                    <img src="{{url('NewImages/Layer 11.png')}}">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                    <img src="{{url('NewImages/Layer 12.png')}}">
+                </div>
+                </div>
+                </div>
+                <button class="btn btn-primary leftLst"><</button>
+                <button class="btn btn-primary rightLst">></button>
+                </div>
+                </div>
+                </div>
+                </section>
             <!--/.Carousel Wrapper-->
         </div>
     </section>
@@ -334,7 +373,7 @@
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-lg-6 col-md-6 col-sm-6 item">
-                        <div class="pad15">
+                        {{-- <div class="pad15">
                             <div class="card box-shadow">
                                 <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details"
                                    id="grade-btn-teach">REPORT CARD MARCH</p>
@@ -360,7 +399,7 @@
                                     </div>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -581,9 +620,6 @@
             });
 
             ResCarouselSize();
-
-
-
 
             $(window).resize(function () {
                 ResCarouselSize();

@@ -173,6 +173,9 @@
                 margin-bottom: 15px;
             }
         }
+        #course-part12{
+            background: white !important;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -265,6 +268,42 @@
                 </div>
                 <!--/.Slides-->
             </div>
+            <section id="course-part12" class="pt-115 pb-115 bg_cover gray-bg12">
+                <div class="container">
+                <div class="teacher-grade-dash-head-div">
+                <p class="teacher-grade-dash-head">MY ACHIEVEMENTS</p>
+                <hr>
+                </div>
+                <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                <div class="MultiCarousel-inner">
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                   <img src="<?php echo e(url('NewImages/Layer 8.png')); ?>">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                    <img src="<?php echo e(url('NewImages/Layer 10.png')); ?>">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                    <img src="<?php echo e(url('NewImages/Layer 11.png')); ?>">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                    <img src="<?php echo e(url('NewImages/Layer 12.png')); ?>">
+                </div>
+                </div>
+                </div>
+                <button class="btn btn-primary leftLst"><</button>
+                <button class="btn btn-primary rightLst">></button>
+                </div>
+                </div>
+                </div>
+                </section>
             <!--/.Carousel Wrapper-->
         </div>
     </section>
@@ -334,34 +373,7 @@
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-lg-6 col-md-6 col-sm-6 item">
-                        <div class="pad15">
-                            <div class="card box-shadow">
-                                <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details"
-                                   id="grade-btn-teach">REPORT CARD MARCH</p>
-                                <?php if(count($MyAchivment) == 0): ?>
-                                    <div class="alert alert-danger customAlertDAnger">
-                                        <div class="container customAlertDAngerContainer">
-                                            <div class="alert-icon">
-                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                            </div>
-                                            &nbsp;&nbsp;&nbsp;No Schedule Found
-                                        </div>
-                                    </div>
-                                <?php else: ?>
-                                    <?php $__currentLoopData = $MyAchivment; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <p class="grades-details"><?php echo e($item->Subject_name); ?>
-
-                                            <span><?php echo e($item->grade == '' ? 'Not Graded Yet' : $item->grade); ?></span></p>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                                <?php if(count($MyAchivment) != 0): ?>
-                                    <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details"
-                                           href="<?php echo e(route('grade.index')); ?>" id="donate-register-btn">SEE ALL</a>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -582,9 +594,6 @@
             });
 
             ResCarouselSize();
-
-
-
 
             $(window).resize(function () {
                 ResCarouselSize();

@@ -5,6 +5,8 @@
     .customStyle{
         min-height: 140px;
         min-width: 140px;
+        height:140px;
+        width:180px;
     }
     .customAlertDAngerContainer{
         display: flex;
@@ -48,7 +50,7 @@
             margin-bottom: 15px;
         }
     }
-</style>    
+</style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
     <section id="slider-part" class="slider-active">

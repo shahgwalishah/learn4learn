@@ -11,6 +11,10 @@ class Achivnments extends Model
 {
       protected $table = 'achivnments';
 
+      protected $fillable = [
+          'sub_id','teacher_id','Student_id','homework_id','grade','submitted_date'
+      ];
+
       public $timestamps=false;
 
      public function subject()

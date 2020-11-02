@@ -23,13 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/assignGradeToHomeWork.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Achivnments.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Achivnments.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/hU5lgqiQpwe04uWYxthJUard7fSKNAH9qZGfrwo3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/t1ym1hO1KYHsBqAXal9vSpZ4NqbfmpD7D22l3NIF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-homeWork.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-homeWork.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/2twxQ9Q7r8opXVIEgAYljn6cc6TUJQxzyO7yImUK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/XBSYbgNqFq7BoXqxkRf0eDbmxtIbjvq6XYRfOYd0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/vqXqL0FEJxL0Smy5sUDG2ftAyXhJJl9Tp709IrSo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +323,14 @@
       <workItem from="1604132512960" duration="49000" />
       <workItem from="1604290677794" duration="1755000" />
       <workItem from="1604292463232" duration="1786000" />
-      <workItem from="1604294349755" duration="581000" />
+      <workItem from="1604294349755" duration="1777000" />
+      <workItem from="1604296169252" duration="505000" />
+      <workItem from="1604297988666" duration="94000" />
+      <workItem from="1604302688440" duration="702000" />
+      <workItem from="1604304245919" duration="1785000" />
+      <workItem from="1604306058578" duration="2094000" />
+      <workItem from="1604308208064" duration="1785000" />
+      <workItem from="1604310023962" duration="1341000" />
     </task>
     <servers />
   </component>
@@ -383,10 +394,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604292811440">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604304445905">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604292811440" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604304445905" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
   </component>
   <component name="XDebuggerManager">

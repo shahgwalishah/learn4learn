@@ -893,9 +893,26 @@ class TeacherController extends Controller
         return view('frontend.pages.teachers.account')->with('editprofileid', $editprofileid);
     }
 
+    public function assignGradeToHomeWork($id){
+        $grades = Homework::where('lesson_id','=',$id)->where('upload_type','=',Homework::STUDENT_TYPE)->with('lesson','subject','student_lessons','student')->get();
+        return view('frontend.pages.teachers.assignGradeToHomeWork', compact('grades'));
+    }
+
+    public function assignGradeToHomeWorkPost(Request $request){
+            $homeWork = Homework::where('id','=',$request->id)->with('subject','lesson','teacher','student')->first();
+            Achivnments::create([
+               'sub_id' => $homeWork->subject->id,
+               'teacher_id' => $homeWork->teacher->id,
+               'Student_id' => $homeWork->student->id,
+               'homework_id' => $homeWork->id,
+               'grade' => $request->grade,
+               'submitted_date' => $homeWork->date,
+            ]);
+            return back()->with('message','home against grade added successfully');
+    }
+
     public function _EditTeacherProfile()
     {
-        // dd(123);
         $teacherdata=User::where('id', auth::user()->id)->first();
         return view('frontend.pages.teachers.edit-teacher-profile', compact('teacherdata'));
     }

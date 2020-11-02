@@ -18,6 +18,11 @@ class Lesson extends Model
         return $this->belongsTo(Subject::class, 'subject_id');
     }
 
+    public function student()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function student_lessons()
     {
         return $this->hasOne(StudentLesson::class, 'lesson_id','id');

@@ -205,7 +205,7 @@ Route::group(['private'], function () {
         Route::post('/create-lesson', 'TeacherController@createLesson')->name('createLesson');
         Route::get('/teacher-schedule', 'TeacherController@teacherSchedule')->name('teacherSchedule');
         Route::get('/add/subject', 'TeacherController@teachersubject')->name('teacherssubject');
-        Route::get('/Add/homework', 'TeacherController@teacherHomeWork')->name('teacherHomeWork');
+        Route::get('/homeworks', 'TeacherController@teacherHomeWork')->name('teacherHomeWork');
         Route::get('/view/student', 'TeacherController@mystudents')->name('mystudents');
         Route::get('/view/my-student', 'TeacherController@getdataofstudent')->name('getdataofstudent');
 
@@ -233,6 +233,8 @@ Route::group(['private'], function () {
         Route::get('/view/our/student/messages', 'TeacherController@viewOurStudentMessages')->name('viewOurStudentMessages');
         Route::post('/OurStudentMessages/', 'TeacherController@OurStudentMessages')->name('OurStudentMessages');
         Route::get('view/lesson/{id}', 'LessonController@viewLesson')->name('viewLesson');
+        Route::get('assign-grade/{id}', 'TeacherController@assignGradeToHomeWork')->name('assignGradeToHomeWork');
+        Route::post('assign-grade-home-work', 'TeacherController@assignGradeToHomeWorkPost')->name('AssignGradeToHomeWork');
         Route::post('Assign/Grade', 'TeacherController@AssignGrade')->name('AssignGrade');
         Route::post('Add/Grade', 'TeacherController@assigngradeforstudent')->name('assigngradeforstudent');
         Route::get('Edit/profile', 'TeacherController@teacher_edit_profile')->name('teacher_edit_profile');

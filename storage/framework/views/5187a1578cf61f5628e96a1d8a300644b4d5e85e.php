@@ -163,7 +163,7 @@
                                         type="button" class="btn btn-indigo ml-2 btn-sm m-0"
                                         style="background-color: #ffc10e !important;" id="upload-work-btn">DOWNLOAD
                                         HOMEWORK</button></a>
-                                <a href="<?php echo e(route('viewLesson',[$lesson->id])); ?>" class="btn  ml-2 btn-indigo btn-sm m-0" id="view-lesson-btn">VIEW LESSON</a>
+                                <a href="<?php echo e(route('assignGradeToHomeWork',[$lesson->id])); ?>" class="btn  ml-2 btn-indigo btn-sm m-0" id="view-lesson-btn">Grade</a>
                             </td>
                         </tr>
 

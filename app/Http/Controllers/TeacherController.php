@@ -177,6 +177,7 @@ class TeacherController extends Controller
 
     public function editteacherprofile(Request $request)
     {
+        dd(123);
         $imageDbPath=null;
         if ($request->hasFile('thumbnail')) {
             $imageDbPath = $this->saveDocs($request->file('thumbnail'), 2);

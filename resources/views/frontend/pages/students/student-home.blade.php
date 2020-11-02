@@ -201,6 +201,18 @@
         .pt-115 {
            padding-top: 60px !important;
         }
+        .btn-primary {
+            color: #fff;
+            background-color: #ffbd02 !important;
+            font-size: 15px !important;
+        }
+        .MultiCarousel-inner1
+        {
+            width: 850px !important;
+            max-width: 66.3333% !important;
+            text-align: -webkit-center !important;
+            margin-left: -18% !important;
+        }
     </style>
 @endpush
 @section('content')
@@ -323,6 +335,8 @@
                 </div>
                 </div>
                 </div>
+                <button class="btn btn-primary leftLst"><</button>
+                <button class="btn btn-primary rightLst">></button>
                 </div>
                 </div>
                 </div>
@@ -337,7 +351,7 @@
             <hr class="teacher-home-schedule-hr">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-12 col-md-8 text-center mb-2 mt-2">
+                <div class="col-12 col-md-12 text-center mb-2 mt-2">
                     <div class="row">
                         @if(count($Book) == 0)
                             <div class="alert alert-danger customDanger">
@@ -349,38 +363,49 @@
                             </div>
                                 @else
                                     @foreach ($Book as $book)
-                                        <div class="col-4 customClassMySch">
-                                            <!-- Card -->
-                                            <div class="card">
-                                                <!-- Card image -->
-                                                <a href="#">
-                                                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                        <h4 class="card-title">{{ date('l d/m',strtotime($book->date)) }}
-{{--                                                            {{$book->getSameDate($book)}}--}}
-                                                        </h4>
+
+                                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                                        <div class="MultiCarousel-inner1 ">
+                                            <div class="col-4 customClassMySch">
+                                                <!-- Card -->
+                                                <div class="card">
+                                                    <!-- Card image -->
+                                                    <a href="#">
+                                                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                            <h4 class="card-title">{{ date('l d/m',strtotime($book->date)) }}
+    {{--                                                            {{$book->getSameDate($book)}}--}}
+                                                            </h4>
+                                                        </div>
+                                                    </a>
+                                                    <!-- Card content -->
+                                                    <div class="card-body">
+                                                        <!-- Title -->
+                                                        <p class="teach-shed-card-content">
+                                                            @php
+                                                                $data = $book->getSameTimeSubject($book);
+                                                                $data = json_decode($data);
+                                                            @endphp
+                                                            @foreach($data as $d)
+                                                                {{$d->time}} {{$d->subject_name}}<br>
+                                                            @endforeach
+                                                        </p>
+                                                        <br>
                                                     </div>
-                                                </a>
-                                                <!-- Card content -->
-                                                <div class="card-body">
-                                                    <!-- Title -->
-                                                    <p class="teach-shed-card-content">
-                                                        @php
-                                                            $data = $book->getSameTimeSubject($book);
-                                                            $data = json_decode($data);
-                                                        @endphp
-                                                        @foreach($data as $d)
-                                                            {{$d->time}} {{$d->subject_name}}<br>
-                                                        @endforeach
-                                                    </p>
-                                                    <br>
+                                                    <!-- Card footer -->
                                                 </div>
-                                                <!-- Card footer -->
                                             </div>
+                                       
+                                      
+                                        </div>
+                                        <button class="btn btn-primary leftLst"><</button>
+                                        <button class="btn btn-primary rightLst">></button>
                                         </div>
                                     @endforeach
                                 @endif
                             </div>
                     </div>
+                    {{-- <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button> --}}
                     @if(count($Book) != 0)
                         <div class="col-12 col-12 justify-content-center text-center" id="donate-register-btn-div"
                              style="margin-top: 10px">
@@ -390,7 +415,8 @@
                         </div>
                     @endif
                 </div>
-
+        </div>
+    </div>
             </div>
     </section>
     <section id="course-part" class=" bg_cover gray-bg">

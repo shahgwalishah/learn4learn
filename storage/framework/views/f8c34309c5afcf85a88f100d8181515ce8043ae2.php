@@ -200,6 +200,18 @@
         .pt-115 {
            padding-top: 60px !important;
         }
+        .btn-primary {
+            color: #fff;
+            background-color: #ffbd02 !important;
+            font-size: 15px !important;
+        }
+        .MultiCarousel-inner1
+        {
+            width: 850px !important;
+            max-width: 66.3333% !important;
+            text-align: -webkit-center !important;
+            margin-left: -18% !important;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -318,6 +330,8 @@
                 </div>
                 </div>
                 </div>
+                <button class="btn btn-primary leftLst"><</button>
+                <button class="btn btn-primary rightLst">></button>
                 </div>
                 </div>
                 </div>
@@ -332,7 +346,7 @@
             <hr class="teacher-home-schedule-hr">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-12 col-md-8 text-center mb-2 mt-2">
+                <div class="col-12 col-md-12 text-center mb-2 mt-2">
                     <div class="row">
                         <?php if(count($Book) == 0): ?>
                             <div class="alert alert-danger customDanger">
@@ -344,31 +358,49 @@
                             </div>
                                 <?php else: ?>
                                     <?php $__currentLoopData = $Book; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <div class="col-4 customClassMySch">
-                                            <!-- Card -->
-                                            <div class="card">
-                                                <!-- Card image -->
-                                                <a href="#">
-                                                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                        <h4 class="card-title"><?php echo e(date('l d/m',strtotime($book->date))); ?></h4>
-                                                    </div>
-                                                </a>
-                                                <!-- Card content -->
-                                                <div class="card-body">
-                                                    <!-- Title -->
-                                                    <p class="teach-shed-card-content">
-                                                        <?php echo e(date('h:i ',strtotime($book->time))); ?> <?php echo e($book->subject->name); ?>
 
-                                                    </p>
-                                                    <br>
+                                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                                        <div class="MultiCarousel-inner1 ">
+                                            <div class="col-4 customClassMySch">
+                                                <!-- Card -->
+                                                <div class="card">
+                                                    <!-- Card image -->
+                                                    <a href="#">
+                                                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                            <h4 class="card-title"><?php echo e(date('l d/m',strtotime($book->date))); ?>
+
+    
+                                                            </h4>
+                                                        </div>
+                                                    </a>
+                                                    <!-- Card content -->
+                                                    <div class="card-body">
+                                                        <!-- Title -->
+                                                        <p class="teach-shed-card-content">
+                                                            <?php
+                                                                $data = $book->getSameTimeSubject($book);
+                                                                $data = json_decode($data);
+                                                            ?>
+                                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                <?php echo e($d->time); ?> <?php echo e($d->subject_name); ?><br>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </p>
+                                                        <br>
+                                                    </div>
+                                                    <!-- Card footer -->
                                                 </div>
-                                                <!-- Card footer -->
                                             </div>
+                                       
+                                      
+                                        </div>
+                                        <button class="btn btn-primary leftLst"><</button>
+                                        <button class="btn btn-primary rightLst">></button>
                                         </div>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <?php endif; ?>
                             </div>
                     </div>
+                    
                     <?php if(count($Book) != 0): ?>
                         <div class="col-12 col-12 justify-content-center text-center" id="donate-register-btn-div"
                              style="margin-top: 10px">
@@ -378,7 +410,8 @@
                         </div>
                     <?php endif; ?>
                 </div>
-
+        </div>
+    </div>
             </div>
     </section>
     <section id="course-part" class=" bg_cover gray-bg">
@@ -587,7 +620,7 @@
         </div>
         </div>
         </div>
-        
+
         </div>
         <button class="btn btn-primary leftLst"><</button>
         <button class="btn btn-primary rightLst">></button>

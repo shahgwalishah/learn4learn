@@ -80,7 +80,26 @@ class Lesson extends Model
         $thumbnailImage->save($imagePath . $imageName);
         return $imageName;
     }
-
+    public static function getSameDate($book){
+        $data = self::where('date','=',$book->date)->where('user_id','=',$book->user_id)->whereIn('same_date',[0,1])->get();
+        $arr = [];
+        foreach ($data as $date) {
+            $arr[] = date('l d/m',strtotime($date->date));
+        }
+        return count($arr);
+    }
+    public static function getSameTimeSubject($book){
+        $data = self::where('date','=',$book->date)->where('user_id','=',$book->user_id)->whereIn('same_date',[0,1])->get();
+        $arr = [];
+        foreach ($data as $time) {
+            $arr[] = array(
+                'time' =>  date('h:i',strtotime($time->time)),
+                'subject_name' => $time->subject->name
+            );
+        }
+        $arr = json_encode($arr);
+        return $arr;
+    }
     public function saveLesson($request)
     {
         if ($request->hasFile('photo')) {
@@ -96,6 +115,12 @@ class Lesson extends Model
         } else {
             $documentDbPath = '';
         }
+        $checkSameDateLesson = Lesson::where('user_id','=',Auth::id())->where('date','=',$request['registration_date'])->first();
+        if(!is_null($checkSameDateLesson)) {
+            $same_date = true;
+        } else{
+            $same_date = false;
+        }
         $subject  = explode(' ', $request->subject);
         $addlesson = Lesson::create([
             'subject_id'  => $subject[0],
@@ -110,6 +135,7 @@ class Lesson extends Model
             'level_id'    => $subject[1],
             'document'    => $documentDbPath,
             'thumbnail'   => $imageDbPath,
+            'same_date'   => $same_date
         ]);
         // dd($addlesson);
         if ($addlesson) {

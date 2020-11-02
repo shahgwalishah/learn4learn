@@ -23,22 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/myMessages.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/teachersmaster.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/teachersmaster.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/GcvK6U9ga1289TSlFusQopocOtPS9KoCdkxIuydY" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/ssnJksAo4iuRoMSYfovtrEy81VujU19mrOWxR9AF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/txAYgDS9bjq6sJrMGePtkNKsqFfcnTHtrDXxnpPk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/08c97d6604810d4a6ac7f2670f37c192a78691c4.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/08c97d6604810d4a6ac7f2670f37c192a78691c4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/1b452be73e76f9657fe3e59ff21573d753cea77b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/1b452be73e76f9657fe3e59ff21573d753cea77b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/3e30264b276b654bcd9767a6cefbbaae5825bdbf.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/3e30264b276b654bcd9767a6cefbbaae5825bdbf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/42e5433c44d758616ecc78934ccb1e1ee1251e30.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/42e5433c44d758616ecc78934ccb1e1ee1251e30.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/cb9334cd1e0adcaa2bb9e1383415fbdc07c6e158.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/cb9334cd1e0adcaa2bb9e1383415fbdc07c6e158.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/e01eec5ebd3eeb84e1f73205fca0e3fd72abe7fb.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/e01eec5ebd3eeb84e1f73205fca0e3fd72abe7fb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lesson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/hU5lgqiQpwe04uWYxthJUard7fSKNAH9qZGfrwo3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/t1ym1hO1KYHsBqAXal9vSpZ4NqbfmpD7D22l3NIF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +188,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/frontend/pages/teachers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../selector tool" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -324,7 +315,11 @@
       <workItem from="1603971853709" duration="581000" />
       <workItem from="1604121542784" duration="1348000" />
       <workItem from="1604123683737" duration="1585000" />
-      <workItem from="1604125506912" duration="417000" />
+      <workItem from="1604125506912" duration="1018000" />
+      <workItem from="1604132512960" duration="49000" />
+      <workItem from="1604290677794" duration="1755000" />
+      <workItem from="1604292463232" duration="1786000" />
+      <workItem from="1604294349755" duration="581000" />
     </task>
     <servers />
   </component>
@@ -359,10 +354,10 @@
     </state>
     <state x="558" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/55.27.1545.873@55.27.1545.873" timestamp="1604124944588" />
     <state x="566" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1533.873@67.27.1533.873" timestamp="1602963310116" />
-    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603972433626">
+    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604132559756">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl/55.27.1545.873@55.27.1545.873" timestamp="1603972433626" />
+    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl/55.27.1545.873@55.27.1545.873" timestamp="1604132559756" />
     <state x="567" y="146" width="523" height="633" key="RollbackChangesDialog" timestamp="1602218922916">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -388,10 +383,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604124902746">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604292811440">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604124902746" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604292811440" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
   </component>
   <component name="XDebuggerManager">

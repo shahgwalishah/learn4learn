@@ -173,6 +173,33 @@
                 margin-bottom: 15px;
             }
         }
+        #course-part12{
+               background: #f1f1ee !important;
+        }
+        .pt-115 {
+                padding-top: 100px;
+        }
+        #customSetting{
+            width: 100%;
+            max-width: 100%;
+            padding: 0px;
+            margin-top: -104px !important;
+        }
+        #custom8{
+            width: 412.667px;
+            max-width: 240.667px;
+        }
+        #custom10{
+            width: 412.667px;
+            max-width: 395.667px;
+        }
+        #custom11{
+            width: 412.667px;
+            max-width: 279.667px;
+        }
+        .pt-115 {
+           padding-top: 60px !important;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -241,14 +268,10 @@
         </div>
     </section>
     <section id="carousel-achieve">
-        <div class="container">
+        <div class="container" id="customSetting">
             <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
                 <!--Indicators-->
-                <ol class="carousel-indicators">
-                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                    <li data-target="#multi-item-example" data-slide-to="1"></li>
-                    <li data-target="#multi-item-example" data-slide-to="2"></li>
-                </ol>
+                
                 <!--/.Indicators-->
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox">
@@ -265,6 +288,40 @@
                 </div>
                 <!--/.Slides-->
             </div>
+            <section id="course-part12" class="pt-115 pb-115 bg_cover gray-bg12">
+                <div class="container">
+                <div class="teacher-grade-dash-head-div">
+                <p class="teacher-grade-dash-head">MY ACHIEVEMENTS</p>
+                <hr>
+                </div>
+                <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                <div class="MultiCarousel-inner">
+                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom8">
+                <div class="pad15">
+                   <img src="<?php echo e(url('NewImages/Layer 8.png')); ?>">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom10">
+                <div class="pad15">
+                    <img src="<?php echo e(url('NewImages/Layer 10.png')); ?>">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom11">
+                <div class="pad15">
+                    <img src="<?php echo e(url('NewImages/Layer 11.png')); ?>">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                <div class="pad15">
+                    <img src="<?php echo e(url('NewImages/Layer 12.png')); ?>">
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </section>
             <!--/.Carousel Wrapper-->
         </div>
     </section>
@@ -293,15 +350,23 @@
                                                 <!-- Card image -->
                                                 <a href="#">
                                                     <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                        <h4 class="card-title"><?php echo e(date('l d/m',strtotime($book->date))); ?></h4>
+                                                        <h4 class="card-title"><?php echo e(date('l d/m',strtotime($book->date))); ?>
+
+
+                                                        </h4>
                                                     </div>
                                                 </a>
                                                 <!-- Card content -->
                                                 <div class="card-body">
                                                     <!-- Title -->
                                                     <p class="teach-shed-card-content">
-                                                        <?php echo e(date('h:i ',strtotime($book->time))); ?> <?php echo e($book->subject->name); ?>
-
+                                                        <?php
+                                                            $data = $book->getSameTimeSubject($book);
+                                                            $data = json_decode($data);
+                                                        ?>
+                                                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php echo e($d->time); ?> <?php echo e($d->subject_name); ?><br>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </p>
                                                     <br>
                                                 </div>
@@ -334,34 +399,7 @@
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-lg-6 col-md-6 col-sm-6 item">
-                        <div class="pad15">
-                            <div class="card box-shadow">
-                                <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details"
-                                   id="grade-btn-teach">REPORT CARD MARCH</p>
-                                <?php if(count($MyAchivment) == 0): ?>
-                                    <div class="alert alert-danger customAlertDAnger">
-                                        <div class="container customAlertDAngerContainer">
-                                            <div class="alert-icon">
-                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                            </div>
-                                            &nbsp;&nbsp;&nbsp;No Schedule Found
-                                        </div>
-                                    </div>
-                                <?php else: ?>
-                                    <?php $__currentLoopData = $MyAchivment; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <p class="grades-details"><?php echo e($item->Subject_name); ?>
-
-                                            <span><?php echo e($item->grade == '' ? 'Not Graded Yet' : $item->grade); ?></span></p>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                                <?php if(count($MyAchivment) != 0): ?>
-                                    <div class="col-12 col-12 justify-content-center" id="donate-register-btn-div">
-                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details"
-                                           href="<?php echo e(route('grade.index')); ?>" id="donate-register-btn">SEE ALL</a>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -425,8 +463,10 @@
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
-                        <button class="btn btn-primary leftLst">
-                            <</button> <button class="btn btn-primary rightLst">>
+                        <button class="leftLst" style="background-color:transparent;border:0px;color: #fff;
+                        font-size: 25px;">
+                            <</button> <button style="color: #fff;
+                            font-size: 25px;background-color:transparent;border:0px;" class="rightLst">>
                         </button>
                     </div>
                 </div>
@@ -555,7 +595,7 @@
         </div>
         </div>
         </div>
-        
+
         </div>
         <button class="btn btn-primary leftLst"><</button>
         <button class="btn btn-primary rightLst">></button>
@@ -567,6 +607,7 @@
     <br>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
     <script>
         $(document).ready(function () {
             var itemsMainDiv = ('.MultiCarousel');
@@ -582,9 +623,6 @@
             });
 
             ResCarouselSize();
-
-
-
 
             $(window).resize(function () {
                 ResCarouselSize();

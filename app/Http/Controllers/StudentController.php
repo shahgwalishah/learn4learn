@@ -189,6 +189,7 @@ class StudentController extends Controller
         $user = Auth::user();
         $id = $user->id;
         $Book = Lesson::getBooks($id);
+        $Book = collect($Book)->unique('date');
         $sepbooking = Lesson::getSepBooking($id);
         $getdata = User::getDataUser($id);
         $MyAchivment = Achivnments::getAchivement($id);

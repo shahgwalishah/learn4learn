@@ -355,14 +355,22 @@
                                                 <!-- Card image -->
                                                 <a href="#">
                                                     <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                        <h4 class="card-title">{{date('l d/m',strtotime($book->date))}}</h4>
+                                                        <h4 class="card-title">{{ date('l d/m',strtotime($book->date)) }}
+{{--                                                            {{$book->getSameDate($book)}}--}}
+                                                        </h4>
                                                     </div>
                                                 </a>
                                                 <!-- Card content -->
                                                 <div class="card-body">
                                                     <!-- Title -->
                                                     <p class="teach-shed-card-content">
-                                                        {{date('h:i ',strtotime($book->time))}} {{$book->subject->name}}
+                                                        @php
+                                                            $data = $book->getSameTimeSubject($book);
+                                                            $data = json_decode($data);
+                                                        @endphp
+                                                        @foreach($data as $d)
+                                                            {{$d->time}} {{$d->subject_name}}<br>
+                                                        @endforeach
                                                     </p>
                                                     <br>
                                                 </div>
@@ -617,7 +625,7 @@
         </div>
         </div>
         </div>
-        
+
         </div>
         <button class="btn btn-primary leftLst"><</button>
         <button class="btn btn-primary rightLst">></button>

@@ -276,6 +276,7 @@ class StudentController extends Controller
     {
         $student_id = Auth::user()->id;
         $teacherhomeworkdetail = Homework::getHomeWork($student_id);
+        $teacherhomeworkdetail = collect($teacherhomeworkdetail)->unique('date');
         $Title = StudentLesson::getTitle($student_id);
         $Date = StudentLesson::getData($student_id);
         $subjects = Subject::getSubjectData();

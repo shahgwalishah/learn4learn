@@ -244,10 +244,16 @@
                                 <tr>
                                     <th scope="row"><?php echo e($homework->subject->name); ?></th>
                                     <td><?php echo e($homework->lesson->title); ?></td>
-                                    <td><?php echo e($homework->lesson->date); ?></td>
+                                    <td><?php echo e($homework->date); ?></td>
                                     <td>
                                         <a href="<?php echo e(url('/view/'.$homework->id)); ?>">
-                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View HOMEWORK</button>
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">UPLOAD HOMEWORK</button>
+                                        </a>
+                                        <a href="<?php echo e(url('/Messages/'.$homework->teacher_id)); ?>">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" style="background-color:#ffc44d !important;" id="upload-work-btn">ASK QUESTION</button>
+                                        </a>
+                                        <a href="<?php echo e(route('lessonDetails',[$homework->lesson_id,$homework->teacher_id])); ?>">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: #bfbfbf!important;" id="upload-work-btn">VIEW LESSON</button>
                                         </a>
                                     </td>
                                 </tr>

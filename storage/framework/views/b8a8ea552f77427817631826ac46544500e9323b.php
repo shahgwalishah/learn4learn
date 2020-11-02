@@ -6,7 +6,7 @@
         min-height: 140px;
         min-width: 140px;
         height:140px;
-        width:180px;
+        width:140px;
     }
     .customAlertDAngerContainer{
         display: flex;
@@ -155,8 +155,13 @@
                                     <div class="card-body">
                                         <!-- Title -->
                                         <p class="teach-shed-card-content">
-                                            <?php echo e(date('h:i ',strtotime($schedule->time))); ?> <?php echo e($schedule->sub_name); ?>
-
+                                            <?php
+                                                $data = $schedule->getSameTimeSchedule($schedule);
+                                                $data = json_decode($data);
+                                            ?>
+                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php echo e($d->time); ?> <?php echo e($d->subject_name); ?><br>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </p>
                                         <br>
                                     </div>

@@ -245,10 +245,16 @@
                                 <tr>
                                     <th scope="row">{{$homework->subject->name}}</th>
                                     <td>{{$homework->lesson->title}}</td>
-                                    <td>{{$homework->lesson->date}}</td>
+                                    <td>{{$homework->date}}</td>
                                     <td>
                                         <a href="{{ url('/view/'.$homework->id)}}">
-                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">View HOMEWORK</button>
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" id="upload-work-btn">UPLOAD HOMEWORK</button>
+                                        </a>
+                                        <a href="{{ url('/Messages/'.$homework->teacher_id)}}">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" style="background-color:#ffc44d !important;" id="upload-work-btn">ASK QUESTION</button>
+                                        </a>
+                                        <a href="{{route('lessonDetails',[$homework->lesson_id,$homework->teacher_id])}}">
+                                            <button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: #bfbfbf!important;" id="upload-work-btn">VIEW LESSON</button>
                                         </a>
                                     </td>
                                 </tr>

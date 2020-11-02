@@ -24,7 +24,18 @@
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lesson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-homework.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-homework.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/assignGradeToHomeWork.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/assignGradeToHomeWork.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-homepage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/F4AVgPDoUKNP6Gj0t5aWuOh8J12gKJN9Ukylk7ae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/bZTAtjKt60dpI4FOWLQsmbhUbJ52XoyQ1ltBaOsU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/dzK3mfpbVovqZCewCklelbK0MgCpCTcWMbLKQBdj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/52d9ad927a04742038510d8652ea2d0949dd0ad8.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/52d9ad927a04742038510d8652ea2d0949dd0ad8.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/afac5fe4a7b5ddd7aa5142bc435383799e480a9e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/afac5fe4a7b5ddd7aa5142bc435383799e480a9e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/b8a8ea552f77427817631826ac46544500e9323b.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +194,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../selector tool" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pp/Multan Projects/real_estate" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -322,6 +333,10 @@
       <workItem from="1604306058578" duration="2094000" />
       <workItem from="1604308208064" duration="1785000" />
       <workItem from="1604310023962" duration="1920000" />
+      <workItem from="1604312071401" duration="314000" />
+      <workItem from="1604316679387" duration="1824000" />
+      <workItem from="1604318531416" duration="1786000" />
+      <workItem from="1604320345951" duration="741000" />
     </task>
     <servers />
   </component>
@@ -356,10 +371,10 @@
     </state>
     <state x="558" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/55.27.1545.873@55.27.1545.873" timestamp="1604124944588" />
     <state x="566" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1533.873@67.27.1533.873" timestamp="1602963310116" />
-    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604132559756">
+    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604312383815">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl/55.27.1545.873@55.27.1545.873" timestamp="1604132559756" />
+    <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl/55.27.1545.873@55.27.1545.873" timestamp="1604312383815" />
     <state x="567" y="146" width="523" height="633" key="RollbackChangesDialog" timestamp="1602218922916">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -385,10 +400,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604304445905">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604319929845">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604304445905" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604319929845" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
   </component>
   <component name="XDebuggerManager">

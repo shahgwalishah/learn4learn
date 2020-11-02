@@ -61,6 +61,26 @@
             position: relative;
             bottom: 7px;
         }
+        .customDanger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customAlertDAnger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customDangerContainer{
+            display: flex;
+            justify-content: center;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -99,12 +119,12 @@
                         <p class="stu-home-dash-head-head">GRADE HOMEWORK</p>
                         <hr>
                     </div>
-                    <?php if(session()->has('message_home_work')): ?>
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <?php if(session()->has('message')): ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <strong>Alert:</strong> <?php echo session('message_home_work'); ?>
+                            <strong>Alert:</strong> <?php echo session('message'); ?>
 
                         </div>
                     <?php endif; ?>
@@ -121,12 +141,26 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php if(count($grades) == 0): ?>
+                                <th scope="row"></th>
+                                <td></td>
+                                <td>
+                                    <div class="alert alert-danger customDanger">
+                                        <div class="container customDangerContainer">
+                                            <div class="alert-icon">
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                            <?php else: ?>
                             <?php $__currentLoopData = $grades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $grade): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <th scope="row"><?php echo e($grade->student->fname); ?>-<?php echo e($grade->student->lname); ?></th>
                                 <td><?php echo e($grade->lesson->title); ?></td>
                                 <td><?php echo e($grade->subject->name); ?></td>
-
                                 <td colspan="3">
                                     <a href="<?php echo e(route('addsubjecthomework', ['lesson' => $grade->id,'subject' => $grade->id])); ?>"><button
                                             type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">SEE
@@ -144,6 +178,7 @@
                                 </td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                             </tbody>
                         </table>
                         <form style="display: none;" id="submitGradeForm" action="<?php echo e(route('AssignGradeToHomeWork')); ?>" method="POST">

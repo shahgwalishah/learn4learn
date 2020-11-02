@@ -143,17 +143,16 @@ class TeacherController extends Controller
             ->where('users.id', $auth)
             ->select('users.*', 'lessons.id as lessonsid', 'lessons.*', 'users.thumbnail as USerthumbnail', 'subjects.id as subjects_id', 'subjects.name as sub_name', 'levels.id as levelid', 'levels.name as level_name')
             ->get();
-
-        $sepbooking=DB::table('lessons')
-            ->join('subjects', 'subjects.id', 'lessons.subject_id', 'lessons.id ')
-
-            ->where('lessons.user_id', $auth)
-            ->select('lessons.id as lessonsid', 'lessons.*', 'subjects.id as subjects_id', 'subjects.name as sub_name')
-            ->orderBy('lessons.date')
-            ->orderBy('lessons.time')
-
-            ->get();
-
+//
+//        $schedules=DB::table('lessons')
+//            ->join('subjects', 'subjects.id', 'lessons.subject_id', 'lessons.id ')
+//            ->where('lessons.user_id', $auth)
+//            ->select('lessons.id as lessonsid', 'lessons.*', 'subjects.id as subjects_id', 'subjects.name as sub_name')
+//            ->orderBy('lessons.date')
+//            ->orderBy('lessons.time')
+//            ->get();
+        $schedules = Lesson::where('user_id','=',$auth)->with('subject')->get();
+        $schedules = collect($schedules)->unique('date');
         $experices=DB::table('experiences')
             ->where('experiences.teacher_id', $auth)
             ->select('experiences.*')
@@ -163,7 +162,7 @@ class TeacherController extends Controller
                 'Book'                   => $Book,
                 'teacherhomeworkdetail'  => $teacherhomeworkdetail,
                 'usersimgg'              => $usersimgg,
-                'schedules'              => $sepbooking,
+                'schedules'              => $schedules,
                 'experices'              => $experices,
                 'favsubject'             => $favsubject,
         ]);
@@ -899,16 +898,30 @@ class TeacherController extends Controller
     }
 
     public function assignGradeToHomeWorkPost(Request $request){
-            $homeWork = Homework::where('id','=',$request->id)->with('subject','lesson','teacher','student')->first();
-            Achivnments::create([
-               'sub_id' => $homeWork->subject->id,
-               'teacher_id' => $homeWork->teacher->id,
-               'Student_id' => $homeWork->student->id,
-               'homework_id' => $homeWork->id,
-               'grade' => $request->grade,
-               'submitted_date' => $homeWork->date,
-            ]);
-            return back()->with('message','home against grade added successfully');
+            $check = Achivnments::where('homework_id','=',$request->id)->first();
+            if(is_null($check)) {
+                $homeWork = Homework::where('id','=',$request->id)->with('subject','lesson','teacher','student')->first();
+                Achivnments::create([
+                    'sub_id' => $homeWork->subject->id,
+                    'teacher_id' => $homeWork->teacher->id,
+                    'Student_id' => $homeWork->student->id,
+                    'homework_id' => $homeWork->id,
+                    'grade' => $request->grade,
+                    'submitted_date' => $homeWork->date,
+                ]);
+                return back()->with('message','homework grade added successfully');
+            } else {
+                $homeWork = Homework::where('id','=',$request->id)->with('subject','lesson','teacher','student')->first();
+                Achivnments::where('homework_id','=',$request->id)->update([
+                    'sub_id' => $homeWork->subject->id,
+                    'teacher_id' => $homeWork->teacher->id,
+                    'Student_id' => $homeWork->student->id,
+                    'homework_id' => $homeWork->id,
+                    'grade' => $request->grade,
+                    'submitted_date' => $homeWork->date,
+                ]);
+                return back()->with('message','homework grade added successfully');
+            }
     }
 
     public function _EditTeacherProfile()

@@ -62,6 +62,26 @@
             position: relative;
             bottom: 7px;
         }
+        .customDanger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customAlertDAnger{
+            background-color: #ffc10e;
+            color: #fff;
+            width: 100%;
+            font-size: 1rem;
+            padding: .75rem 1.25rem;
+            border: 1px solid transparent;
+        }
+        .customDangerContainer{
+            display: flex;
+            justify-content: center;
+        }
     </style>
 @endpush
 @section('content')
@@ -100,12 +120,12 @@
                         <p class="stu-home-dash-head-head">GRADE HOMEWORK</p>
                         <hr>
                     </div>
-                    @if(session()->has('message_home_work'))
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    @if(session()->has('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <strong>Alert:</strong> {!! session('message_home_work') !!}
+                            <strong>Alert:</strong> {!! session('message') !!}
                         </div>
                     @endif
                     <div class="table-responsive table-home-assign">
@@ -121,12 +141,26 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @if(count($grades) == 0)
+                                <th scope="row"></th>
+                                <td></td>
+                                <td>
+                                    <div class="alert alert-danger customDanger">
+                                        <div class="container customDangerContainer">
+                                            <div class="alert-icon">
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            </div>&nbsp;&nbsp;&nbsp;No Data Found
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                            @else
                             @foreach($grades as $grade)
                             <tr>
                                 <th scope="row">{{$grade->student->fname}}-{{$grade->student->lname}}</th>
                                 <td>{{$grade->lesson->title}}</td>
                                 <td>{{$grade->subject->name}}</td>
-
                                 <td colspan="3">
                                     <a href="{{route('addsubjecthomework', ['lesson' => $grade->id,'subject' => $grade->id])}}"><button
                                             type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">SEE
@@ -144,6 +178,7 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @endif
                             </tbody>
                         </table>
                         <form style="display: none;" id="submitGradeForm" action="{{route('AssignGradeToHomeWork')}}" method="POST">

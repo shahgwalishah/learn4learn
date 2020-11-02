@@ -105,6 +105,18 @@ class Lesson extends Model
         $arr = json_encode($arr);
         return $arr;
     }
+    public static function getSameTimeSchedule($book){
+        $data = self::where('date','=',$book->date)->where('user_id','=',$book->user_id)->whereIn('same_date',[0,1])->get();
+        $arr = [];
+        foreach ($data as $time) {
+            $arr[] = array(
+                'time' =>  date('h:i',strtotime($time->time)),
+                'subject_name' => $time->subject->name
+            );
+        }
+        $arr = json_encode($arr);
+        return $arr;
+    }
     public function saveLesson($request)
     {
         if ($request->hasFile('photo')) {

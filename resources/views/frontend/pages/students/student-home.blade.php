@@ -175,10 +175,10 @@
             }
         }
         #course-part12{
-               background: #f1f1ee !important;
+            background: #f1f1ee !important;
         }
         .pt-115 {
-                padding-top: 100px;
+            padding-top: 100px;
         }
         #customSetting{
             width: 100%;
@@ -199,7 +199,7 @@
             max-width: 279.667px;
         }
         .pt-115 {
-           padding-top: 60px !important;
+            padding-top: 60px !important;
         }
         .btn-primary {
             color: #fff;
@@ -219,10 +219,10 @@
     @php
         $user = Auth::user();
     @endphp
-   @include('frontend.search')
+    @include('frontend.search')
     <!-- Card -->
     {{-- dashboard section --}}
-    <section class="dashboard-section" style="margin-top: -10%;">
+    <section class="dashboard-section" style="margin-top: -10%;margin-bottom: 12%;">
         <div class="container">
             <div class="row d-flex justify-content-center text-center h-100">
                 <div class="col-6 " id="std-dashboard-left">
@@ -282,65 +282,67 @@
     </section>
     <section id="carousel-achieve">
         <div class="container" id="customSetting">
-            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-                <!--Indicators-->
-                {{-- <ol class="carousel-indicators">
-                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                    <li data-target="#multi-item-example" data-slide-to="1"></li>
-                    <li data-target="#multi-item-example" data-slide-to="2"></li>
-                </ol> --}}
-                <!--/.Indicators-->
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                @foreach($MyAchivment as $Achivment)
-                    <!--First slide-->
-                        <div class="carousel-item active">
-                            <div class="col-md-2">
-                                <img class="card-img-top" src="{{url('/storage/images/'.$Achivment->img)}}"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-                        <!--/.Third slide-->
-                    @endforeach
-                </div>
-                <!--/.Slides-->
-            </div>
             <section id="course-part12" class="pt-115 pb-115 bg_cover gray-bg12">
                 <div class="container">
-                <div class="teacher-grade-dash-head-div">
-                <p class="teacher-grade-dash-head">MY ACHIEVEMENTS</p>
-                <hr>
+                    <div class="teacher-grade-dash-head-div">
+                        <p class="teacher-grade-dash-head">MY ACHIEVEMENTS</p>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                            <div class="MultiCarousel-inner">
+                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom8">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 8.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom10">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 10.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom11">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 11.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 12.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom8">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 8.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 12.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom10">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 10.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom11">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 11.png')}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 item">
+                                    <div class="pad15">
+                                        <img src="{{url('NewImages/Layer 12.png')}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary leftLst"><</button>
+                            <button class="btn btn-primary rightLst">></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                <div class="MultiCarousel-inner">
-                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom8">
-                <div class="pad15">
-                   <img src="{{url('NewImages/Layer 8.png')}}">
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom10">
-                <div class="pad15">
-                    <img src="{{url('NewImages/Layer 10.png')}}">
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom11">
-                <div class="pad15">
-                    <img src="{{url('NewImages/Layer 11.png')}}">
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 item">
-                <div class="pad15">
-                    <img src="{{url('NewImages/Layer 12.png')}}">
-                </div>
-                </div>
-                </div>
-                <button class="btn btn-primary leftLst"><</button>
-                <button class="btn btn-primary rightLst">></button>
-                </div>
-                </div>
-                </div>
-                </section>
+            </section>
             <!--/.Carousel Wrapper-->
         </div>
     </section>
@@ -361,63 +363,63 @@
                                     </div>&nbsp;&nbsp;&nbsp;No Schedule Found
                                 </div>
                             </div>
-                                @else
+                        @else
+                            <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                                <div class="MultiCarousel-inner">
                                     @foreach ($Book as $book)
-
-                                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                                        <div class="MultiCarousel-inner1 ">
-                                            <div class="col-4 customClassMySch">
-                                                <!-- Card -->
-                                                <div class="card">
-                                                    <!-- Card image -->
-                                                    <a href="#">
-                                                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                            <h4 class="card-title">{{ date('l d/m',strtotime($book->date)) }}
-    {{--                                                            {{$book->getSameDate($book)}}--}}
-                                                            </h4>
+                                        <div class="item">
+                                            <div class="pad15">
+                                                <div class="card postion-relative">
+                                                    <!-- Card -->
+                                                    <div class="card">
+                                                        <!-- Card image -->
+                                                        <a href="#">
+                                                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                                <h4 class="card-title">{{ date('l d/m',strtotime($book->date)) }}
+                                                                </h4>
+                                                            </div>
+                                                        </a>
+                                                        <!-- Card content -->
+                                                        <div class="card-body">
+                                                            <!-- Title -->
+                                                            <p class="teach-shed-card-content">
+                                                                @php
+                                                                    $data = $book->getSameTimeSubject($book);
+                                                                    $data = json_decode($data);
+                                                                @endphp
+                                                                @foreach($data as $d)
+                                                                    {{$d->time}} {{$d->subject_name}}<br>
+                                                                @endforeach
+                                                            </p>
+                                                            <br>
                                                         </div>
-                                                    </a>
-                                                    <!-- Card content -->
-                                                    <div class="card-body">
-                                                        <!-- Title -->
-                                                        <p class="teach-shed-card-content">
-                                                            @php
-                                                                $data = $book->getSameTimeSubject($book);
-                                                                $data = json_decode($data);
-                                                            @endphp
-                                                            @foreach($data as $d)
-                                                                {{$d->time}} {{$d->subject_name}}<br>
-                                                            @endforeach
-                                                        </p>
-                                                        <br>
+                                                        <!-- Card footer -->
                                                     </div>
-                                                    <!-- Card footer -->
                                                 </div>
                                             </div>
-                                       
-                                      
-                                        </div>
-                                        <button class="btn btn-primary leftLst"><</button>
-                                        <button class="btn btn-primary rightLst">></button>
                                         </div>
                                     @endforeach
-                                @endif
+                                </div>
+                                <button class="btn btn-primary leftLst"><</button>
+                                <button class="btn btn-primary rightLst">></button>
                             </div>
+                        @endif
                     </div>
-                    {{-- <button class="btn btn-primary leftLst"><</button>
-                    <button class="btn btn-primary rightLst">></button> --}}
-                    @if(count($Book) != 0)
-                        <div class="col-12 col-12 justify-content-center text-center" id="donate-register-btn-div"
-                             style="margin-top: 10px">
-                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2"
-                               href="{{route('student_schedule')}}" id="donate-register-btn">SEE
-                                ALL</a>
-                        </div>
-                    @endif
                 </div>
-        </div>
-    </div>
+                {{-- <button class="btn btn-primary leftLst"><</button>
+                <button class="btn btn-primary rightLst">></button> --}}
+                @if(count($Book) != 0)
+                    <div class="col-12 col-12 justify-content-center text-center" id="donate-register-btn-div"
+                         style="margin-top: 10px">
+                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2"
+                           href="{{route('student_schedule')}}" id="donate-register-btn">SEE
+                            ALL</a>
+                    </div>
+                @endif
             </div>
+        </div>
+        </div>
+        </div>
     </section>
     <section id="course-part" class=" bg_cover gray-bg">
         <section id="course-part" class=" bg_cover gray-bg"
@@ -533,137 +535,136 @@
 
     <section id="course-part" class="pt-115 pb-115 bg_cover gray-bg" style="position: relative;  background:url(/asset/images/teacher-homepage/bgimage.png) no-repeat ; background-size:cover; background-color: #fff;">
         <div class="container">
-        <div class="teacher-grade-dash-head-div">
-        <p class="teacher-grade-dash-head">MY GRADES</p>
-        <hr>
-        </div>
-        <div class="row">
-        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-        <div class="MultiCarousel-inner">
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div> </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
+            <div class="teacher-grade-dash-head-div">
+                <p class="teacher-grade-dash-head">MY GRADES</p>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                    <div class="MultiCarousel-inner">
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div> </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
+                    <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-primary leftLst"><</button>
-        <button class="btn btn-primary rightLst">></button>
-        </div>
-        </div>
-        </div>
-        </section>
+    </section>
 
     <br>
 @endsection
 @section('js')
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
     <script>
         $(document).ready(function () {
             var itemsMainDiv = ('.MultiCarousel');

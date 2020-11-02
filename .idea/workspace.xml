@@ -23,17 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/assignGradeToHomeWork.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Achivnments.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Achivnments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-homeWork.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/teacher-homeWork.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/2twxQ9Q7r8opXVIEgAYljn6cc6TUJQxzyO7yImUK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/XBSYbgNqFq7BoXqxkRf0eDbmxtIbjvq6XYRfOYd0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/vqXqL0FEJxL0Smy5sUDG2ftAyXhJJl9Tp709IrSo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/5187a1578cf61f5628e96a1d8a300644b4d5e85e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/assignGradeToHomeWork.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/assignGradeToHomeWork.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +321,7 @@
       <workItem from="1604304245919" duration="1785000" />
       <workItem from="1604306058578" duration="2094000" />
       <workItem from="1604308208064" duration="1785000" />
-      <workItem from="1604310023962" duration="1341000" />
+      <workItem from="1604310023962" duration="1920000" />
     </task>
     <servers />
   </component>

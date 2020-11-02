@@ -131,7 +131,7 @@
                                     <a href="<?php echo e(route('addsubjecthomework', ['lesson' => $grade->id,'subject' => $grade->id])); ?>"><button
                                             type="button" class="btn btn-indigo ml-2 btn-sm m-0" id="upload-work-btn">SEE
                                             HOMEWORK</button></a>
-                                    <select class="form-control" id="grade" onchange="selectGrade('<?php echo e($grade->id); ?>')" name="subject" required="true">
+                                    <select class="form-control" id="grade-<?php echo e($grade->id); ?>" onchange="selectGrade('<?php echo e($grade->id); ?>')" name="subject" required="true">
                                         <option value="">Select Grade</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
@@ -160,7 +160,7 @@
 <?php $__env->startSection('js'); ?>
     <script>
         function selectGrade(id){
-            let grade = $('#grade').val();
+            let grade = $('#grade-'+id).val();
             $('#grade_value').val(grade);
             $('#homworkId').val(id);
         }

@@ -77,6 +77,26 @@
     .sutomFormP{
         padding-bottom: 0px !important;
     }
+    .customSetting{
+        cursor: pointer;
+        font-weight: 900;
+        font-size: 2rem;
+        border-radius: -6px;
+        margin-left: 173px;
+        background-color: #f1be05;
+        border-color: white;
+        border-style: none;
+        padding-left: 4px;
+        padding-right: 4px;
+        position: relative;
+        top: 34px;
+    }
+    .fa-plus:before {
+        content: "\f067";
+        color: white;
+        font-size: 25px;
+    }
+    
 </style>
 
 <!--====== Bootstrap css ======-->
@@ -173,6 +193,13 @@
                                 <div style="width:100%;">
                                     <input class="_inputwidth" value="<?php echo e($teacherdata->experience); ?>" name="experience"
                                         placeholder="Experience">
+                                </div>
+                                <div style="width:100%;">
+                                    <div>
+                                        <a href="<?php echo e(route('verifiedSuccess')); ?>" type="submit" class="fas fa-plus customSetting"></a>
+                                    </div>
+                                    <input class="_inputwidth" value="<?php echo e($teacherdata->subject); ?>" name="subject"
+                                        placeholder="Subject">
                                 </div>
 
                                 <div class="d-flex" style="width: 100%">

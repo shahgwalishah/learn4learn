@@ -66,6 +66,9 @@ class TeacherController extends Controller
                 ]);
             }
         }
+        if(isset($request->add_more_subjects)) {
+            return redirect()->route('updateTeacherProfile')->with('success_added','subjects added successfully');
+        }
         return view('auth.teachers.teacher-profile', compact('user_id', 'allSubjects'));
     }
 
@@ -923,6 +926,16 @@ class TeacherController extends Controller
                 ]);
                 return back()->with('message','homework grade added successfully');
             }
+    }
+
+    public function teacherAddMoreSubjects(){
+        $subjects    = Subject::all();
+        $subjects = collect($subjects)->unique('name');
+        $no_of_chunk = $subjects->count() / 2;
+        $subjects    = $subjects->chunk($no_of_chunk);
+        $user_id = \Auth::user()->id;
+        $level      = levels::all();
+        return view('frontend.pages.teachers.add-more-subjects', compact('subjects','user_id'));
     }
 
     public function _EditTeacherProfile()

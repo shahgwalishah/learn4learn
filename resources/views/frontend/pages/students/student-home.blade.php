@@ -206,12 +206,43 @@
             background-color: #ffbd02 !important;
             font-size: 15px !important;
         }
-        .MultiCarousel-inner1
-        {
-            width: 850px !important;
-            max-width: 66.3333% !important;
-            text-align: -webkit-center !important;
-            margin-left: -18% !important;
+        .carouselSlick{
+            width:90%;
+            margin:0px auto;
+        }
+        .slick-slide{
+            margin:10px;
+        }
+        .slick-slide img{
+            width:100%;
+            border: 0px solid #fff;
+        }
+        .slick-slide > a{
+            width: 100%;
+        }
+        .slick-slide {
+            width: 200px;
+        }
+        .slick-initialized .slick-slide {
+            display: block;
+        }
+        .carouselSlickAchivement{
+            width: 100%;
+        }
+        .carouselSlick {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+            width: 70%;
         }
     </style>
 @endpush
@@ -289,56 +320,25 @@
                         <hr>
                     </div>
                     <div class="row">
-                        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                            <div class="MultiCarousel-inner">
-                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom8">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 8.png')}}">
-                                    </div>
+                        <div class="carouselSlickAchivement">
+                                <div>
+                                    <img src="{{url('NewImages/Layer 8.png')}}">
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom10">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 10.png')}}">
-                                    </div>
+                                <div>
+                                    <img src="{{url('NewImages/Layer 10.png')}}">
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom11">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 11.png')}}">
-                                    </div>
+                                <div>
+                                    <img src="{{url('NewImages/Layer 11.png')}}">
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 12.png')}}">
-                                    </div>
+                                <div>
+                                    <img src="{{url('NewImages/Layer 12.png')}}">
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom8">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 8.png')}}">
-                                    </div>
+                                 <div>
+                                    <img src="{{url('NewImages/Layer 10.png')}}">
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 12.png')}}">
-                                    </div>
+                                <div>
+                                    <img src="{{url('NewImages/Layer 11.png')}}">
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom10">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 10.png')}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom11">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 11.png')}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 item">
-                                    <div class="pad15">
-                                        <img src="{{url('NewImages/Layer 12.png')}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary leftLst"><</button>
-                            <button class="btn btn-primary rightLst">></button>
                         </div>
                     </div>
                 </div>
@@ -364,44 +364,33 @@
                                 </div>
                             </div>
                         @else
-                            <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                                <div class="MultiCarousel-inner">
-                                    @foreach ($Book as $book)
-                                        <div class="item">
-                                            <div class="pad15">
-                                                <div class="card postion-relative">
-                                                    <!-- Card -->
-                                                    <div class="card">
-                                                        <!-- Card image -->
-                                                        <a href="#">
-                                                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                                <h4 class="card-title">{{ date('l d/m',strtotime($book->date)) }}
-                                                                </h4>
-                                                            </div>
-                                                        </a>
-                                                        <!-- Card content -->
-                                                        <div class="card-body">
-                                                            <!-- Title -->
-                                                            <p class="teach-shed-card-content">
-                                                                @php
-                                                                    $data = $book->getSameTimeSubject($book);
-                                                                    $data = json_decode($data);
-                                                                @endphp
-                                                                @foreach($data as $d)
-                                                                    {{$d->time}} {{$d->subject_name}}<br>
-                                                                @endforeach
-                                                            </p>
-                                                            <br>
-                                                        </div>
-                                                        <!-- Card footer -->
-                                                    </div>
-                                                </div>
+                            <div class="carouselSlick">
+                                @foreach ($Book as $book)
+                                    <div class="card">
+                                        <!-- Card image -->
+                                        <a href="#">
+                                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                <h4 class="card-title">{{ date('l d/m',strtotime($book->date)) }}
+                                                </h4>
                                             </div>
+                                        </a>
+                                        <!-- Card content -->
+                                        <div class="card-body">
+                                            <!-- Title -->
+                                            <p class="teach-shed-card-content">
+                                                @php
+                                                    $data = $book->getSameTimeSubject($book);
+                                                    $data = json_decode($data);
+                                                @endphp
+                                                @foreach($data as $d)
+                                                    {{$d->time}} {{$d->subject_name}}<br>
+                                                @endforeach
+                                            </p>
+                                            <br>
                                         </div>
-                                    @endforeach
-                                </div>
-                                <button class="btn btn-primary leftLst"><</button>
-                                <button class="btn btn-primary rightLst">></button>
+                                        <!-- Card footer -->
+                                    </div>
+                                @endforeach
                             </div>
                         @endif
                     </div>
@@ -665,7 +654,25 @@
     <br>
 @endsection
 @section('js')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
     <script>
+        $(document).ready(function(){
+            $('.carouselSlick').slick({
+                infinite: false,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+            });
+            $('.carouselSlickAchivement').slick({
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                variableWidth: true,
+                dots: false,
+                prevArrow: false,
+                nextArrow: false
+            });
+        });
         $(document).ready(function () {
             var itemsMainDiv = ('.MultiCarousel');
             var itemsDiv = ('.MultiCarousel-inner');

@@ -3,7 +3,7 @@
 @section('content')
 
 <h3 class="add-lesson-heading mt-5 mb-4">ADD A LESSON</h3>
-<form action="{{route('createLesson')}} " method="post" enctype="multipart/form-data">
+<form action="{{route('createLesson')}}" method="post" enctype="multipart/form-data">
     <section id="add-lesson-sec">
         <div class="container">
         </div>
@@ -18,7 +18,7 @@
                 <div class="col-md-6 col-xs-12" id="add-lesson-left">
                     <div class="form-parts">
                         <p class="level-heading gray_font">Choose Lesson Category</p>
-                        <select class="selectpicker" name="subject" required="true">
+                        <select class="selectpicker" name="subject">
                             <option value="">Select any Subject </option>
                             @foreach ($subjects as $subject)
                                 @if(!is_null($subject->subject) && !is_null($subject->level) )
@@ -36,6 +36,9 @@
                             style="color: gray;">here</a>.
                     </p>
                 </div>
+                @error('subject')
+                <div class="text-danger">{{$message}}</div>
+                @enderror
             </div>
 
 
@@ -48,7 +51,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Title</label>
                 <input type="text" class="form-control" value="{{old('title')}}" name="title" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="" required="true">
+                    aria-describedby="emailHelp" placeholder="">
                 @error('title')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
@@ -56,7 +59,7 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
                 <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="8"
-                    required="true">{{old('description')}}</textarea>
+                    >{{old('description')}}</textarea>
                 @error('description')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
@@ -83,7 +86,7 @@
                         <i class="far fa-calendar-alt fa-2x"
                             style="font-size: 37px;padding-right: 20px;color: #045375;"></i>
                         <input type="date" class="form-control" value="{{old('registration_date')}}"
-                            name="registration_date" id="registration-date" required="" style="max-width: 170px">
+                            name="registration_date" id="registration-date" style="max-width: 170px">
                         <div class="input-group-append">
                             <span class="input-group-text" style="background-color: #045375;color: #fff"><i
                                     class="fas fa-chevron-down"></i></span>
@@ -96,16 +99,15 @@
                 <div class="col-sm-8 gray_font">
                     <div class="input-group mb-3">
                         <i class="far fa-clock fa-2x" style="font-size: 37px;padding-right: 20px;color: #045375;"></i>
-                        <input type="time" class="form-control" name="registration_time" id="registration-time"
-                            required="" value="{{old('registration_time')}}" style="max-width: 170px">
+                        <input type="time" class="form-control" name="registration_time" id="registration-time" value="{{old('registration_time')}}" style="max-width: 170px">
                         <div class="input-group-append">
                             <span class="input-group-text" style="background-color: #045375;color: #fff"><i
                                     class="fas fa-chevron-down"></i></span>
                         </div>
-                        @error('registration_time')
-                        <div class="text-danger">{{$message}}</div>
-                        @enderror
                     </div>
+                    @error('registration_time')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -150,7 +152,6 @@
                     <input class="form-control" name="registration_time" id="registration-time" type="time" required="true">
                 </div>
             </div> --}}
-
 
             <div class="add-documents-heading-div">
                 <p class="add-documents-heading-heading">Add Document(s)</p>
@@ -212,7 +213,7 @@
                                             <a><i class="fas fa-plus fa-2x" id="_container_icon"></i></a>
                                         </label>
                                         <input name="photo" id="file-input3" type="file" id="profile-img"
-                                            onchange="readURL(this);" required="true"
+                                            onchange="readURL(this);"
                                             accept="image/x-png,image/gif,image/jpeg" />
                                     </div>
                                 </div>

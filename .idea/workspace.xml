@@ -23,9 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9a6bd8-ddb1-4a41-8681-5c1f5fb30122" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/add-more-subjects.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/add-lesson.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/add-lesson.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/edit-teacher-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/teachers/edit-teacher-profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/7qnJpqCBDOMKwAFmhRJMeEMfpg2tGPJrA1jmOYVP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/H2jvqOBxtun7uIGCJ3ThciomcDffrzqm0eacheJv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/iJB2IRz8SKEmITCb8IggtWQBWSPwszox0TVLQsTU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/1863d46bbed0bd4bc47cf2afbd0b6405165b8b2e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/1863d46bbed0bd4bc47cf2afbd0b6405165b8b2e.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/bf8a205dc304ceb0f3135f8aef66b6b1c2dae6e6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/d84442e457fead6cf435adc3dbd5e48a53b2f069.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/d84442e457fead6cf435adc3dbd5e48a53b2f069.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +337,15 @@
       <workItem from="1604316679387" duration="1824000" />
       <workItem from="1604318531416" duration="1786000" />
       <workItem from="1604320345951" duration="1788000" />
-      <workItem from="1604322203234" duration="542000" />
+      <workItem from="1604322203234" duration="669000" />
+      <workItem from="1604378704401" duration="1077000" />
+      <workItem from="1604379994300" duration="1823000" />
+      <workItem from="1604381845227" duration="1888000" />
+      <workItem from="1604383809997" duration="1783000" />
+      <workItem from="1604385625269" duration="638000" />
+      <workItem from="1604387443145" duration="1768000" />
+      <workItem from="1604390093351" duration="1757000" />
+      <workItem from="1604391918881" duration="1289000" />
     </task>
     <servers />
   </component>
@@ -357,18 +375,19 @@
     </state>
     <state x="403" y="110" width="832" height="704" key="#SSH_Configurations/55.27.1545.873@55.27.1545.873" timestamp="1603200717793" />
     <state x="412" y="110" width="832" height="704" key="#SSH_Configurations/67.27.1533.873@67.27.1533.873" timestamp="1603105627012" />
-    <state x="558" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604124944588">
+    <state x="558" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604382425123">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="558" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/55.27.1545.873@55.27.1545.873" timestamp="1604124944588" />
+    <state x="558" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/55.27.1545.873@55.27.1545.873" timestamp="1604382425123" />
     <state x="566" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1533.873@67.27.1533.873" timestamp="1602963310116" />
     <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604312383815">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
     <state x="610" y="220" width="424" height="484" key="FileChooserDialogImpl/55.27.1545.873@55.27.1545.873" timestamp="1604312383815" />
-    <state x="567" y="146" width="523" height="633" key="RollbackChangesDialog" timestamp="1602218922916">
-      <screen x="67" y="27" width="1533" height="873" />
+    <state x="559" y="146" width="523" height="633" key="RollbackChangesDialog" timestamp="1604389130038">
+      <screen x="55" y="27" width="1545" height="873" />
     </state>
+    <state x="559" y="146" key="RollbackChangesDialog/55.27.1545.873@55.27.1545.873" timestamp="1604389130038" />
     <state x="567" y="146" width="523" height="633" key="RollbackChangesDialog/67.27.1533.873@67.27.1533.873" timestamp="1602218922916" />
     <state x="322" y="97" key="SettingsEditor" timestamp="1603105003351">
       <screen x="67" y="27" width="1533" height="873" />
@@ -391,10 +410,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1602964989806" />
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604319929845">
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup" timestamp="1604383912468">
       <screen x="55" y="27" width="1545" height="873" />
     </state>
-    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604319929845" />
+    <state x="487" y="212" width="678" height="678" key="search.everywhere.popup/55.27.1545.873@55.27.1545.873" timestamp="1604383912468" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1603105899509" />
   </component>
   <component name="XDebuggerManager">
@@ -404,6 +423,11 @@
           <url>file://$PROJECT_DIR$/resources/views/frontend/pages/homepagesearch.blade.php</url>
           <line>263</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/frontend/pages/students/student-home.blade.php</url>
+          <line>363</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

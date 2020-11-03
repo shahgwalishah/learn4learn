@@ -97,13 +97,18 @@
         color: white;
         font-size: 25px;
     }
-    
+
 </style>
 
 <!--====== Bootstrap css ======-->
 <link rel="stylesheet" href="{{asset('asset/css/teachers-profile.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
 
+@if(session()->has('success_added'))
+    <div class="alert alert-success" id="alertFade" style="width: 100%; padding: 0px;">
+        {{session()->get('success_added')}}
+    </div>
+@endif
 <section id="slider-part" class="slider-active">
     <div class="single-slider slider-4 bg_cover pt-150">
         <div class="container">
@@ -194,10 +199,10 @@
                                 </div>
                                 <div style="width:100%;">
                                     <div>
-                                        <a href="{{route('verifiedSuccess')}}" type="submit" class="fas fa-plus customSetting"></a>
+                                        <a style="border-radius:20px;padding:5px;" href="{{route('teacherAddMoreSubjects')}}" type="submit" class="fas fa-plus customSetting"></a>
                                     </div>
-                                    <input class="_inputwidth" value="{{$teacherdata->subject}}" name="subject"
-                                        placeholder="Subject">
+                                    <input class="_inputwidth" readonly value="{{$teacherdata->subject}}" name="subject"
+                                        placeholder="Add More Subject">
                                 </div>
 
                                 <div class="d-flex" style="width: 100%">
@@ -239,6 +244,9 @@
 
 
 <script>
+    setTimeout(() => {
+        $('#alertFade').hide();
+    },1000);
     function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

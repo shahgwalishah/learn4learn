@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
 
 <h3 class="add-lesson-heading mt-5 mb-4">ADD A LESSON</h3>
-<form action="<?php echo e(route('createLesson')); ?> " method="post" enctype="multipart/form-data">
+<form action="<?php echo e(route('createLesson')); ?>" method="post" enctype="multipart/form-data">
     <section id="add-lesson-sec">
         <div class="container">
         </div>
@@ -17,7 +17,7 @@
                 <div class="col-md-6 col-xs-12" id="add-lesson-left">
                     <div class="form-parts">
                         <p class="level-heading gray_font">Choose Lesson Category</p>
-                        <select class="selectpicker" name="subject" required="true">
+                        <select class="selectpicker" name="subject">
                             <option value="">Select any Subject </option>
                             <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if(!is_null($subject->subject) && !is_null($subject->level) ): ?>
@@ -36,6 +36,16 @@
                             style="color: gray;">here</a>.
                     </p>
                 </div>
+                <?php $__errorArgs = ['subject'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <div class="text-danger"><?php echo e($message); ?></div>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
             </div>
 
 
@@ -48,7 +58,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Title</label>
                 <input type="text" class="form-control" value="<?php echo e(old('title')); ?>" name="title" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="" required="true">
+                    aria-describedby="emailHelp" placeholder="">
                 <?php $__errorArgs = ['title'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -63,7 +73,7 @@ unset($__errorArgs, $__bag); ?>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
                 <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="8"
-                    required="true"><?php echo e(old('description')); ?></textarea>
+                    ><?php echo e(old('description')); ?></textarea>
                 <?php $__errorArgs = ['description'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -104,7 +114,7 @@ unset($__errorArgs, $__bag); ?>
                         <i class="far fa-calendar-alt fa-2x"
                             style="font-size: 37px;padding-right: 20px;color: #045375;"></i>
                         <input type="date" class="form-control" value="<?php echo e(old('registration_date')); ?>"
-                            name="registration_date" id="registration-date" required="" style="max-width: 170px">
+                            name="registration_date" id="registration-date" style="max-width: 170px">
                         <div class="input-group-append">
                             <span class="input-group-text" style="background-color: #045375;color: #fff"><i
                                     class="fas fa-chevron-down"></i></span>
@@ -124,23 +134,22 @@ unset($__errorArgs, $__bag); ?>
                 <div class="col-sm-8 gray_font">
                     <div class="input-group mb-3">
                         <i class="far fa-clock fa-2x" style="font-size: 37px;padding-right: 20px;color: #045375;"></i>
-                        <input type="time" class="form-control" name="registration_time" id="registration-time"
-                            required="" value="<?php echo e(old('registration_time')); ?>" style="max-width: 170px">
+                        <input type="time" class="form-control" name="registration_time" id="registration-time" value="<?php echo e(old('registration_time')); ?>" style="max-width: 170px">
                         <div class="input-group-append">
                             <span class="input-group-text" style="background-color: #045375;color: #fff"><i
                                     class="fas fa-chevron-down"></i></span>
                         </div>
-                        <?php $__errorArgs = ['registration_time'];
+                    </div>
+                    <?php $__errorArgs = ['registration_time'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                        <div class="text-danger"><?php echo e($message); ?></div>
-                        <?php unset($message);
+                    <div class="text-danger"><?php echo e($message); ?></div>
+                    <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                    </div>
                 </div>
             </div>
 
@@ -177,7 +186,6 @@ unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
             
-
 
             <div class="add-documents-heading-div">
                 <p class="add-documents-heading-heading">Add Document(s)</p>
@@ -253,7 +261,7 @@ unset($__errorArgs, $__bag); ?>
                                             <a><i class="fas fa-plus fa-2x" id="_container_icon"></i></a>
                                         </label>
                                         <input name="photo" id="file-input3" type="file" id="profile-img"
-                                            onchange="readURL(this);" required="true"
+                                            onchange="readURL(this);"
                                             accept="image/x-png,image/gif,image/jpeg" />
                                     </div>
                                 </div>

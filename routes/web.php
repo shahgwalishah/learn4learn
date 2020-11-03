@@ -199,9 +199,10 @@ Route::group(['private'], function () {
     Route::get('teacher-select-subjects','UserController@verifiedSuccess')->name('verifiedSuccess');
     Route::get('/teacher-verify-email','HomeController@verifyEmailAddress')->name('teacher-verify-email');
     Route::group(['Admin', 'middleware' => ['CheckUserType:' . 'teacher', 'verified']], function () {
+        Route::get('teacher-add-more-subjects','TeacherController@teacherAddMoreSubjects')->name('teacherAddMoreSubjects');
         Route::get('/teacher-add-lesson', 'TeacherController@teacherAddLesson')->name('teacherAddLesson');
         Route::get('/teacher-home', 'TeacherController@teacherHome')->name('teacherHome');
-        Route::get('/update-teachere-profile', 'TeacherController@_EditTeacherProfile');
+        Route::get('/update-teachere-profile', 'TeacherController@_EditTeacherProfile')->name('updateTeacherProfile');
         Route::post('/create-lesson', 'TeacherController@createLesson')->name('createLesson');
         Route::get('/teacher-schedule', 'TeacherController@teacherSchedule')->name('teacherSchedule');
         Route::get('/add/subject', 'TeacherController@teachersubject')->name('teacherssubject');

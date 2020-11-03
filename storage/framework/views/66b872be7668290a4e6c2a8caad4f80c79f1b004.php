@@ -1,12 +1,18 @@
 <?php $__env->startSection('title','Teacher Homepage'); ?>
 <?php $__env->startPush('css'); ?>
-<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/student-homepage.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/teacher-homepage.css')); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo e(asset('asset/css/mdb.min.css')); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 <style>
     .customStyle{
         min-height: 140px;
         min-width: 140px;
         height:140px;
-        width:180px;
+        width:140px;
     }
     .customAlertDAngerContainer{
         display: flex;
@@ -50,6 +56,34 @@
             margin-bottom: 15px;
         }
     }
+    .carouselSlick {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+            width: 70%;
+        }
+        .carouselSlick{
+            width:90%;
+            margin:0px auto;
+        }
+        .col-3 {
+            -ms-flex: 0 0 25%;
+            -webkit-box-flex: 0;
+            flex: 0 0 25%;
+            max-width: 34%;
+}
+.customStyleResponsive:focus{
+    outline: none !important;
+}
 </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -141,6 +175,8 @@
                                 </div>
                             </div>
                         <?php else: ?>
+
+                        <div class="carouselSlick">
                             <?php $__currentLoopData = $schedules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $schedule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-3 customStyleResponsive">
                                 <!-- Card -->
@@ -155,8 +191,13 @@
                                     <div class="card-body">
                                         <!-- Title -->
                                         <p class="teach-shed-card-content">
-                                            <?php echo e(date('h:i ',strtotime($schedule->time))); ?> <?php echo e($schedule->sub_name); ?>
-
+                                            <?php
+                                                $data = $schedule->getSameTimeSchedule($schedule);
+                                                $data = json_decode($data);
+                                            ?>
+                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php echo e($d->time); ?> <?php echo e($d->subject_name); ?><br>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </p>
                                         <br>
                                     </div>
@@ -164,6 +205,7 @@
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -247,6 +289,7 @@
         <style type="text/css">
             .schedules .card {
                 height: auto;
+                margin-bottom: 12px;
             }
             .spacing-top {
                 margin-top: 20px;
@@ -255,7 +298,17 @@
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('js'); ?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
     <script>
+              $(document).ready(function(){
+                    $('.carouselSlick').slick({
+                        infinite: false,
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    });
+              });
                 $(document).ready(function () {
                     var itemsMainDiv = ('.MultiCarousel');
                     var itemsDiv = ('.MultiCarousel-inner');

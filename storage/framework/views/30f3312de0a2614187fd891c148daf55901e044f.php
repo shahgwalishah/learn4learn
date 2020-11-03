@@ -43,7 +43,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12 justify-content-center text-center">
-                        <img src="<?php echo e(asset('asset/images/student-homepage/child.jpg')); ?>" alt="" id="stud-profile-pic">
+                        <img  src="/<?php echo e($getrecordindividulStuRecord[0]->thumbnail); ?>" onerror="this.src='<?php echo e(asset('asset/images/student-homepage/child.jpg')); ?>'" alt="" id="stud-profile-pic">
                     </div>
                     <div class="col-md-8 col-sm-8 col-xs-12 justify-content-center text-center">
                         <p class="stud-name">Name: &nbsp;&nbsp; <?php echo e($getrecordindividulStuRecord[0]->fname); ?></p><br>

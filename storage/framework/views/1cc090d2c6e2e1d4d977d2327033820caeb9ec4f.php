@@ -40,7 +40,6 @@
         }
     }
 </style>
-
 <section class="dashboard-section">
     <div class="container customPadding">
         <div class="row d-flex justify-content-center text-center h-100">
@@ -51,7 +50,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12 justify-content-center text-center">
-                        <img src="<?php echo e(asset('asset/images/teachers/t-1.jpg')); ?>" alt="" id="stud-profile-pic">
+                        <img src="/storage/images/<?php echo e($db[0]->thumbnail); ?>" onerror="this.src='<?php echo e(asset('asset/images/teachers/t-1.jpg')); ?>'" alt="" id="stud-profile-pic">
                     </div>
                     <div class="col-md-8 col-sm-8 col-xs-12 justify-content-center text-center">
                         <p class="stud-name">Name: <?php echo e($db[0]->fname); ?></p><br>
@@ -61,8 +60,7 @@
                         <p class="stud-date">Year</p>                      
                         <p class="stud-date">Location</p>                
                         <p class="stud-date">Title</p>    <br>            
-                        <p class="stud-date"><b>Description: </b> ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p><br>
-                        <p class="stud-date">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p><br>
+                        <p class="stud-date"><b>Description: </b> <?php echo e($db[0]->description); ?> </p><br>
                         <p class="stud-date"><b>Available for 1:1: </b> Yes</p>    <br>
 
                         <div class="col-12 col-12" id="donate-register-btn-div">

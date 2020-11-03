@@ -39,6 +39,16 @@
             padding: 0px;
         }
         }
+        .customWhite{
+            color: white;
+        }
+        #customChat{
+            margin-left: 916px !important;
+            max-height: 60px !important;
+            border-style: none !important;
+            color: white !important;
+            background-color: #ffb203 !important;
+        }
     </style>
 
      <section class="dashboard-section" id="messages">
@@ -56,8 +66,10 @@
                                     <div id="frame">
                                         <div class="content">
                                             <div class="contact-profile">
+                                                <button id="customChat">Refresh Chat</button>
                                                 <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-                                                <p>Harvey Specter</p>
+                                                <p class="customWhite">Harvey Specter</p>
+                                                
                                             </div>
                                             <div class="messages">
                                                 <ul v-for="messages in allMessages">
@@ -595,7 +607,7 @@
             width: 100%;
             height: 60px;
             line-height: 60px;
-            background: #f5f5f5;
+            background: #ffb203;
         }
         #frame .content .contact-profile img {
             width: 40px;
@@ -653,7 +665,7 @@
             margin: 6px 8px 0 0;
         }
         #frame .content .messages ul li.sent p {
-            background: #435f7a;
+            background: #ffb203;
             color: #f5f5f5;
         }
         #frame .content .messages ul li.replies img {
@@ -713,7 +725,7 @@
             z-index: 4;
             margin-top: 10px;
             font-size: 1.1em;
-            color: #435f7a;
+            color: #ffb203;
             opacity: .5;
             cursor: pointer;
         }
@@ -732,7 +744,7 @@
             width: 50px;
             padding: 12px 0;
             cursor: pointer;
-            background: #32465a;
+            background: #ffb203;
             color: #f5f5f5;
         }
         @media screen and (max-width: 735px) {

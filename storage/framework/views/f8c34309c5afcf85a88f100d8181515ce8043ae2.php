@@ -174,10 +174,10 @@
             }
         }
         #course-part12{
-               background: #f1f1ee !important;
+            background: #f1f1ee !important;
         }
         .pt-115 {
-                padding-top: 100px;
+            padding-top: 100px;
         }
         #customSetting{
             width: 100%;
@@ -198,19 +198,50 @@
             max-width: 279.667px;
         }
         .pt-115 {
-           padding-top: 60px !important;
+            padding-top: 60px !important;
         }
         .btn-primary {
             color: #fff;
             background-color: #ffbd02 !important;
             font-size: 15px !important;
         }
-        .MultiCarousel-inner1
-        {
-            width: 850px !important;
-            max-width: 66.3333% !important;
-            text-align: -webkit-center !important;
-            margin-left: -18% !important;
+        .carouselSlick{
+            width:90%;
+            margin:0px auto;
+        }
+        .slick-slide{
+            margin:10px;
+        }
+        .slick-slide img{
+            width:100%;
+            border: 0px solid #fff;
+        }
+        .slick-slide > a{
+            width: 100%;
+        }
+        .slick-slide {
+            width: 200px;
+        }
+        .slick-initialized .slick-slide {
+            display: block;
+        }
+        .carouselSlickAchivement{
+            width: 100%;
+        }
+        .carouselSlick {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+            width: 70%;
         }
     </style>
 <?php $__env->stopPush(); ?>
@@ -218,10 +249,10 @@
     <?php
         $user = Auth::user();
     ?>
-   <?php echo $__env->make('frontend.search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('frontend.search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- Card -->
     
-    <section class="dashboard-section" style="margin-top: -10%;">
+    <section class="dashboard-section" style="margin-top: -10%;margin-bottom: 12%;">
         <div class="container">
             <div class="row d-flex justify-content-center text-center h-100">
                 <div class="col-6 " id="std-dashboard-left">
@@ -281,61 +312,36 @@
     </section>
     <section id="carousel-achieve">
         <div class="container" id="customSetting">
-            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-                <!--Indicators-->
-                
-                <!--/.Indicators-->
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                <?php $__currentLoopData = $MyAchivment; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Achivment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <!--First slide-->
-                        <div class="carousel-item active">
-                            <div class="col-md-2">
-                                <img class="card-img-top" src="<?php echo e(url('/storage/images/'.$Achivment->img)); ?>"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-                        <!--/.Third slide-->
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </div>
-                <!--/.Slides-->
-            </div>
             <section id="course-part12" class="pt-115 pb-115 bg_cover gray-bg12">
                 <div class="container">
-                <div class="teacher-grade-dash-head-div">
-                <p class="teacher-grade-dash-head">MY ACHIEVEMENTS</p>
-                <hr>
+                    <div class="teacher-grade-dash-head-div">
+                        <p class="teacher-grade-dash-head">MY ACHIEVEMENTS</p>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="carouselSlickAchivement">
+                                <div>
+                                    <img src="<?php echo e(url('NewImages/Layer 8.png')); ?>">
+                                </div>
+                                <div>
+                                    <img src="<?php echo e(url('NewImages/Layer 10.png')); ?>">
+                                </div>
+                                <div>
+                                    <img src="<?php echo e(url('NewImages/Layer 11.png')); ?>">
+                                </div>
+                                <div>
+                                    <img src="<?php echo e(url('NewImages/Layer 12.png')); ?>">
+                                </div>
+                                 <div>
+                                    <img src="<?php echo e(url('NewImages/Layer 10.png')); ?>">
+                                </div>
+                                <div>
+                                    <img src="<?php echo e(url('NewImages/Layer 11.png')); ?>">
+                                </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                <div class="MultiCarousel-inner">
-                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom8">
-                <div class="pad15">
-                   <img src="<?php echo e(url('NewImages/Layer 8.png')); ?>">
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom10">
-                <div class="pad15">
-                    <img src="<?php echo e(url('NewImages/Layer 10.png')); ?>">
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 item" id="custom11">
-                <div class="pad15">
-                    <img src="<?php echo e(url('NewImages/Layer 11.png')); ?>">
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 item">
-                <div class="pad15">
-                    <img src="<?php echo e(url('NewImages/Layer 12.png')); ?>">
-                </div>
-                </div>
-                </div>
-                <button class="btn btn-primary leftLst"><</button>
-                <button class="btn btn-primary rightLst">></button>
-                </div>
-                </div>
-                </div>
-                </section>
+            </section>
             <!--/.Carousel Wrapper-->
         </div>
     </section>
@@ -356,63 +362,52 @@
                                     </div>&nbsp;&nbsp;&nbsp;No Schedule Found
                                 </div>
                             </div>
-                                <?php else: ?>
-                                    <?php $__currentLoopData = $Book; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php else: ?>
+                            <div class="carouselSlick">
+                                <?php $__currentLoopData = $Book; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div class="card">
+                                        <!-- Card image -->
+                                        <a href="#">
+                                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                                <h4 class="card-title"><?php echo e(date('l d/m',strtotime($book->date))); ?>
 
-                                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                                        <div class="MultiCarousel-inner1 ">
-                                            <div class="col-4 customClassMySch">
-                                                <!-- Card -->
-                                                <div class="card">
-                                                    <!-- Card image -->
-                                                    <a href="#">
-                                                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                                            <h4 class="card-title"><?php echo e(date('l d/m',strtotime($book->date))); ?>
-
-    
-                                                            </h4>
-                                                        </div>
-                                                    </a>
-                                                    <!-- Card content -->
-                                                    <div class="card-body">
-                                                        <!-- Title -->
-                                                        <p class="teach-shed-card-content">
-                                                            <?php
-                                                                $data = $book->getSameTimeSubject($book);
-                                                                $data = json_decode($data);
-                                                            ?>
-                                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                <?php echo e($d->time); ?> <?php echo e($d->subject_name); ?><br>
-                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                        </p>
-                                                        <br>
-                                                    </div>
-                                                    <!-- Card footer -->
-                                                </div>
+                                                </h4>
                                             </div>
-                                       
-                                      
+                                        </a>
+                                        <!-- Card content -->
+                                        <div class="card-body">
+                                            <!-- Title -->
+                                            <p class="teach-shed-card-content">
+                                                <?php
+                                                    $data = $book->getSameTimeSubject($book);
+                                                    $data = json_decode($data);
+                                                ?>
+                                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php echo e($d->time); ?> <?php echo e($d->subject_name); ?><br>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </p>
+                                            <br>
                                         </div>
-                                        <button class="btn btn-primary leftLst"><</button>
-                                        <button class="btn btn-primary rightLst">></button>
-                                        </div>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
+                                        <!-- Card footer -->
+                                    </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
+                        <?php endif; ?>
                     </div>
-                    
-                    <?php if(count($Book) != 0): ?>
-                        <div class="col-12 col-12 justify-content-center text-center" id="donate-register-btn-div"
-                             style="margin-top: 10px">
-                            <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2"
-                               href="<?php echo e(route('student_schedule')); ?>" id="donate-register-btn">SEE
-                                ALL</a>
-                        </div>
-                    <?php endif; ?>
                 </div>
-        </div>
-    </div>
+                
+                <?php if(count($Book) != 0): ?>
+                    <div class="col-12 col-12 justify-content-center text-center" id="donate-register-btn-div"
+                         style="margin-top: 10px">
+                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2"
+                           href="<?php echo e(route('student_schedule')); ?>" id="donate-register-btn">SEE
+                            ALL</a>
+                    </div>
+                <?php endif; ?>
             </div>
+        </div>
+        </div>
+        </div>
     </section>
     <section id="course-part" class=" bg_cover gray-bg">
         <section id="course-part" class=" bg_cover gray-bg"
@@ -502,138 +497,155 @@
 
     <section id="course-part" class="pt-115 pb-115 bg_cover gray-bg" style="position: relative;  background:url(/asset/images/teacher-homepage/bgimage.png) no-repeat ; background-size:cover; background-color: #fff;">
         <div class="container">
-        <div class="teacher-grade-dash-head-div">
-        <p class="teacher-grade-dash-head">MY GRADES</p>
-        <hr>
-        </div>
-        <div class="row">
-        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-        <div class="MultiCarousel-inner">
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div> </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 item">
-        <div class="pad15">
-        <div class="card box-shadow">
-        <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
-        <p class="grades-details">Geography <span id="repl1">A+</span></p>
-        <p class="grades-details">Maths     <span id="repl1">B</span></p>
-        <p class="grades-details">Physics   <span id="repl1">C+</span></p>
-        <p class="grades-details">English   <span id="repl1">A+</span></p>
-        <div class="col-12 col-12 justify-content-center" id="grade-register-div">
-        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
-        </div>
-        </div>
-        </div>
-        </div>
+            <div class="teacher-grade-dash-head-div">
+                <p class="teacher-grade-dash-head">MY GRADES</p>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                    <div class="MultiCarousel-inner">
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div> </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp"  data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 item">
+                            <div class="pad15">
+                                <div class="card box-shadow">
+                                    <p data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" id="grade-btn-teach">REPORT CARD MARCH</p>
+                                    <p class="grades-details">Geography <span id="repl1">A+</span></p>
+                                    <p class="grades-details">Maths     <span id="repl1">B</span></p>
+                                    <p class="grades-details">Physics   <span id="repl1">C+</span></p>
+                                    <p class="grades-details">English   <span id="repl1">A+</span></p>
+                                    <div class="col-12 col-12 justify-content-center" id="grade-register-div">
+                                        <a data-animation="fadeInUp" data-delay="2s" class="main-slider-btn2 grades-details" href="#" id="donate-register-btn">SEE ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
+                    <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-primary leftLst"><</button>
-        <button class="btn btn-primary rightLst">></button>
-        </div>
-        </div>
-        </div>
-        </section>
+    </section>
 
     <br>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
     <script>
+        $(document).ready(function(){
+            $('.carouselSlick').slick({
+                infinite: false,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+            });
+            $('.carouselSlickAchivement').slick({
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                variableWidth: true,
+                dots: false,
+                prevArrow: false,
+                nextArrow: false
+            });
+        });
         $(document).ready(function () {
             var itemsMainDiv = ('.MultiCarousel');
             var itemsDiv = ('.MultiCarousel-inner');

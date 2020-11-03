@@ -1,6 +1,11 @@
 <?php $__env->startSection('title','Teacher Profile'); ?>
 <?php $__env->startPush('css'); ?>
     <style class="cp-pen-styles">
+
+        .fa-paperclip:before {
+            content: "\f0c6";
+            color: #ffbc00;
+        }
         #frame {
             width: 102%;
             height: 92vh;
@@ -502,7 +507,7 @@
             width: 100%;
             height: 60px;
             line-height: 60px;
-            background: #f5f5f5;
+            background: #ffbc00;
         }
         #frame .content .contact-profile img {
             width: 40px;
@@ -560,7 +565,7 @@
             margin: 6px 8px 0 0;
         }
         #frame .content .messages ul li.sent p {
-            background: #435f7a;
+            background: #ffbc00;
             color: #f5f5f5;
         }
         #frame .content .messages ul li.replies img {
@@ -639,7 +644,7 @@
             width: 50px;
             padding: 12px 0;
             cursor: pointer;
-            background: #32465a;
+            background: #ffbc00;
             color: #f5f5f5;
         }
         @media  screen and (max-width: 735px) {
@@ -659,6 +664,11 @@
         }
         #std-dashboard-left{
             background-color: #036893;
+            padding-bottom: 31px;
+            padding-top: 20px;
+        }
+        #std-dashboard-left22{
+            background-color: white;
             padding-bottom: 31px;
             padding-top: 20px;
             padding: 0px;
@@ -681,7 +691,19 @@
             margin-left: auto;
         }
         }
-       
+        #customChange{
+            color: white;
+        }
+        #customWhite{
+            color:black;
+        }
+        #customId{
+            margin-left: 977px !important;
+            max-height: 60px !important;
+            border-style: none !important;
+            background-color: #ffc10e !important;
+            color: white !important;
+        }
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -711,9 +733,9 @@
     <section class="dashboard-section" id="studentMEssages">
         <div class="container customStdMessge">
             <div class="row d-flex justify-content-center text-center h-100">
-                <div class="col-12" id="std-dashboard-left">
+                <div class="col-12" id="std-dashboard-left22">
                     <div class="stu-home-dash-head-div">
-                        <h2>Student Chat</h2>
+                        <h2 id="customWhite">Student Chat</h2>
                         
                     </div>
                     <div class="page-content page-container" id="page-content">
@@ -723,8 +745,9 @@
                                     <div id="frame">
                                         <div class="content">
                                             <div class="contact-profile">
+                                                <button id="customId">Refresh Chat</button>
                                                 <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-                                                <p>Harvey Specter</p>
+                                                <p id="customChange">Harvey Specter</p>
                                             </div>
                                             <div class="messages">
                                                 <ul v-for="messages in allMessages">

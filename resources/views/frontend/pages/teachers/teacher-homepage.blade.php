@@ -1,7 +1,13 @@
 @extends('layouts.teachersmaster')
 @section('title','Teacher Homepage')
 @push('css')
-<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('asset/css/student-homepage.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/teacher-homepage.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('asset/css/mdb.min.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 <style>
     .customStyle{
         min-height: 140px;
@@ -51,6 +57,34 @@
             margin-bottom: 15px;
         }
     }
+    .carouselSlick {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+            width: 70%;
+        }
+        .carouselSlick{
+            width:90%;
+            margin:0px auto;
+        }
+        .col-3 {
+            -ms-flex: 0 0 25%;
+            -webkit-box-flex: 0;
+            flex: 0 0 25%;
+            max-width: 34%;
+}
+.customStyleResponsive:focus{
+    outline: none !important;
+}
 </style>
 @endpush
 @section('content')
@@ -142,6 +176,8 @@
                                 </div>
                             </div>
                         @else
+
+                        <div class="carouselSlick">
                             @foreach ($schedules as $schedule)
                             <div class="col-3 customStyleResponsive">
                                 <!-- Card -->
@@ -170,6 +206,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        </div>
                         @endif
                     </div>
                 </div>
@@ -253,6 +290,7 @@
         <style type="text/css">
             .schedules .card {
                 height: auto;
+                margin-bottom: 12px;
             }
             .spacing-top {
                 margin-top: 20px;
@@ -261,7 +299,17 @@
 @endpush
 @section('js')
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
     <script>
+              $(document).ready(function(){
+                    $('.carouselSlick').slick({
+                        infinite: false,
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    });
+              });
                 $(document).ready(function () {
                     var itemsMainDiv = ('.MultiCarousel');
                     var itemsDiv = ('.MultiCarousel-inner');

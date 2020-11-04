@@ -110,6 +110,10 @@
                 display: block !important;
             }
         }
+        .customChange{
+            background-color: #ffc10e !important;
+            color: white !important;
+        }
     </style>
     <link rel="stylesheet" href="{{asset('css/loader.css')}}">
     @yield('css')
@@ -274,7 +278,7 @@
         <div class="col-8">
             @if(Session::has('success-alert-message-teac'))
             <div class="flash-message mt-5" id='success-alert'>
-                <p class="alert alert-success">{{ Session::get('success-alert-message-teac') }} <a href="#" class="close"
+                <p class="alert alert-success customChange">{{ Session::get('success-alert-message-teac') }} <a href="#" class="close"
                         data-dismiss="alert" aria-label="close">&times;</a></p>
             </div>
             @endif

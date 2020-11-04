@@ -35,8 +35,48 @@
         color: #999;
     }
     .customMargin{
-        width: 100%;
-        margin: 0px;
+        width: 100% !important;
+        margin: 0px !important;
+        background-color: #ffc10e !important;
+        color: white !important;
+        text-align: center !important;
+    }
+    .fa-check:before {
+        content: "\f00c";
+        border-style: solid !important;
+        border-radius: 10px !important;
+    }
+    #success {
+        -webkit-animation: seconds 1.0s forwards;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-delay: 2s !important;
+        animation: seconds 1.0s forwards;
+        animation-iteration-count: 1;
+        animation-delay: 2s !important;
+        position: relative;
+            
+        }
+        @-webkit-keyframes seconds {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            left: 100px; 
+            position: absolute;   
+        }
+        }
+        @keyframes  seconds {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            left: 100px;
+            position: absolute;     
+        }
+        }
+
     }
 </style>
 <?php
@@ -50,7 +90,7 @@
 
 <?php if(session()->has('success-alert-message-teac')): ?>
 <div class="row">
-    <div class="alert alert-success customMargin" style="width: 100%;">
+        <div class="alert alert-success customMargin" id="success" style="width: 100%;"><i class="fa fa-check" aria-hidden="true"></i>
         <?php echo e(session()->get('success-alert-message-teac')); ?>
 
     </div>

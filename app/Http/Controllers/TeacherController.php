@@ -102,7 +102,7 @@ class TeacherController extends Controller
 
     public function teacherHome()
     {
-        $auth                 =Auth::user()->id;
+        $auth = Auth::user()->id;
         $teacherhomeworkdetail=DB::table('homework')
             ->join('subjects', 'subjects.id', '=', 'homework.Sub_id')
             ->join('lessons', function ($join) {
@@ -146,14 +146,7 @@ class TeacherController extends Controller
             ->where('users.id', $auth)
             ->select('users.*', 'lessons.id as lessonsid', 'lessons.*', 'users.thumbnail as USerthumbnail', 'subjects.id as subjects_id', 'subjects.name as sub_name', 'levels.id as levelid', 'levels.name as level_name')
             ->get();
-//
-//        $schedules=DB::table('lessons')
-//            ->join('subjects', 'subjects.id', 'lessons.subject_id', 'lessons.id ')
-//            ->where('lessons.user_id', $auth)
-//            ->select('lessons.id as lessonsid', 'lessons.*', 'subjects.id as subjects_id', 'subjects.name as sub_name')
-//            ->orderBy('lessons.date')
-//            ->orderBy('lessons.time')
-//            ->get();
+            
         $schedules = Lesson::where('user_id','=',$auth)->with('subject')->get();
         $schedules = collect($schedules)->unique('date');
         $experices=DB::table('experiences')

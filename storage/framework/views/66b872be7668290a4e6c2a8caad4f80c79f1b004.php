@@ -239,6 +239,8 @@
                             </div>
                         </div>
                     <?php else: ?>
+                    <?php echo e(dd($teacherhomeworkdetail)); ?>
+
                     <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
                         <div class="MultiCarousel-inner">
                             <?php $__currentLoopData = $teacherhomeworkdetail; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $teacherhomeworkdetail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

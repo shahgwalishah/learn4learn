@@ -227,6 +227,10 @@
                 will-change: transform;
             }
         }
+        .customChange{
+            background-color: #ffc10e !important;
+            color: white !important;
+        }
     </style>
     <?php echo $__env->yieldContent('css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
@@ -526,7 +530,7 @@
             <?php if(Session::has('alert-' . $msg)): ?>
                 <div class="flash-message mt-5" id='success-alert'>
 
-                    <p class="alert alert-<?php echo e($msg); ?>"><?php echo e(Session::get('alert-' . $msg)); ?> <a href="#" class="close"
+                    <p class="alert alert-success customChange"><?php echo e(Session::get('alert-' . $msg)); ?> <a href="#" class="close"
                                                                                              data-dismiss="alert" aria-label="close">&times;</a></p>
                 </div>
             <?php endif; ?>

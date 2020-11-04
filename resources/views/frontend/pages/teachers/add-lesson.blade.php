@@ -324,6 +324,10 @@ function readURL(input) {
 {{-- date time plugin --}}
 
 <style>
+    .text-dark {
+    color: #fdfdfd !important;
+    background-color: #ffc10e;
+}
     #img_url {
         background: #ddd;
         width: 100px;

@@ -698,12 +698,17 @@
             color:black;
         }
         #customId{
-            margin-left: 977px !important;
+            margin-left: 845px !important;
             max-height: 60px !important;
             border-style: none !important;
             background-color: #ffc10e !important;
             color: white !important;
+            cursor: pointer !important;
         }
+        .fa, .fas {
+            font-weight: 900;
+            margin-right: 6px;
+}
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -745,7 +750,7 @@
                                     <div id="frame">
                                         <div class="content">
                                             <div class="contact-profile">
-                                                <button id="customId">Refresh Chat</button>
+                                                <button id="customId"><i class="fa fa-spinner" aria-hidden="true"></i>Refresh Chat</button>
                                                 <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
                                                 <p id="customChange">Harvey Specter</p>
                                             </div>

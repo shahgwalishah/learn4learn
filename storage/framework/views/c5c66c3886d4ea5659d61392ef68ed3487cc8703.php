@@ -55,6 +55,48 @@
         #footer-part{
             padding-top: 100px;
         }
+        .main-slider-btn2 {
+            display: inline-block;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            /* border: 1px solid #ffc600; */
+            padding: 0 59px;
+            font-size: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 50px;
+            border-radius: 0px;
+            color: #ffffff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
+            -webkit-transition: 0.4s ease-in-out;
+            transition: 0.4s ease-in-out;
+            background-color: #ffc10e;
+            padding-left: 51px;
+            padding-right: 51px;
+        }
+        .customSetting{
+            flex-wrap: inherit !important;
+        }
+        .customTop{
+            position: relative;
+            top: 40px;
+            display: flex;
+            justify-content: center;
+            margin: 0px;
+            padding: 0px;
+            margin-inline-start: -19px;
+        }
+
     </style>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
@@ -72,8 +114,8 @@
 
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-12 col-md-8">
-                    <div class="row p-0">
+                <div class="col-12 col-md-8 customTop">
+                    <div class="row p-0 customSetting">
                         <?php $__currentLoopData = $myLessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-3 border ml-2 p-0">
                                 <div class="row text-center p-0">
@@ -98,7 +140,7 @@
                 </div>
                 <div class="col-md-2"></div>
 
-            </div>
+            </div>   
         </div>
     </section>
 
@@ -288,5 +330,6 @@
         </section>
     </section>
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.masterStudent', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/mahad/Desktop/rixtexh/learn4learn/resources/views/frontend/pages/students/student-schedule.blade.php ENDPATH**/ ?>
